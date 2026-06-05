@@ -1,0 +1,1825 @@
+{
+  "md5": "57ad9692f8c87a11adb8064313333afa",
+  "sha2": "a57728ab2b6eafca676c55afc1753309a6ff0946",
+  "sha256": "224e123418c1dde54008968f96878a3b3ecfd8d3ae9be6a6b55167a41d6156e6",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/stomp/StompSubframeDecoder$HeaderParser.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeDecoder$HeaderParser",
+        "super": "io/netty/handler/codec/stomp/StompSubframeDecoder$Utf8LineParser",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/util/internal/AppendableCharSequence;IZ)V"
+          },
+          {
+            "nme": "parseHeader",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeaders;Lio/netty/buffer/ByteBuf;)Z"
+          },
+          {
+            "nme": "process",
+            "acc": 1,
+            "dsc": "(B)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "reset",
+            "acc": 4,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "validateHeaders",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "valid",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompContentSubframe.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/StompContentSubframe",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/LastStompContentSubframe$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/stomp/LastStompContentSubframe$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/StompSubframeAggregator.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeAggregator",
+        "super": "io/netty/handler/codec/MessageAggregator",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompSubframe;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompSubframe;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompContentSubframe;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompSubframe;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;I)Z"
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "closeAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "ignoreContentAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompFrame;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;I)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBufHolder;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/DefaultStompHeaders.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/DefaultStompHeaders",
+        "super": "io/netty/handler/codec/DefaultHeaders",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "getAsString",
+            "acc": 1,
+            "dsc": "(Ljava/lang/CharSequence;)Ljava/lang/String;"
+          },
+          {
+            "nme": "getAllAsString",
+            "acc": 1,
+            "dsc": "(Ljava/lang/CharSequence;)Ljava/util/List;",
+            "sig": "(Ljava/lang/CharSequence;)Ljava/util/List<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "iteratorAsString",
+            "acc": 1,
+            "dsc": "()Ljava/util/Iterator;",
+            "sig": "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;"
+          },
+          {
+            "nme": "contains",
+            "acc": 1,
+            "dsc": "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z"
+          },
+          {
+            "nme": "contains",
+            "acc": 1,
+            "dsc": "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/DefaultStompHeaders;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/DefaultHeaders;"
+          },
+          {
+            "nme": "contains",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/Object;)Z"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/DefaultLastStompContentSubframe.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/DefaultLastStompContentSubframe",
+        "super": "io/netty/handler/codec/stomp/DefaultStompContentSubframe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/DefaultLastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/StompSubframeDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$stomp$StompSubframeDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompSubframeEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/stomp/StompSubframe;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/stomp/StompSubframe;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "convertFullFrame",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompFrame;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "convertHeadersSubFrame",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "convertContentSubFrame",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompContentSubframe;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "headersSubFrameSize",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;)I"
+          },
+          {
+            "nme": "encodeFullFrame",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompFrame;Lio/netty/channel/ChannelHandlerContext;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeHeaders",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeadersSubframe;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeContent",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompContentSubframe;Lio/netty/channel/ChannelHandlerContext;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/StompCommand.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/stomp/StompCommand",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "STOMP",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTED",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SEND",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNSUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ACK",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "NACK",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BEGIN",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ABORT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "COMMIT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DISCONNECT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MESSAGE",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RECEIPT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERROR",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/stomp/StompCommand;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompSubframeDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SKIP_CONTROL_CHARACTERS",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_HEADERS",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CONTENT",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FINALIZE_FRAME_READ",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BAD_FRAME",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "INVALID_CHUNK",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompConstants.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/stomp/StompConstants",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "CR",
+            "dsc": "B",
+            "val": 13
+          },
+          {
+            "acc": 24,
+            "nme": "LF",
+            "dsc": "B",
+            "val": 10
+          },
+          {
+            "acc": 24,
+            "nme": "NUL",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 24,
+            "nme": "COLON",
+            "dsc": "B",
+            "val": 58
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompSubframeDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(II)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IIZ)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "readCommand",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "nme": "readHeaders",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/stomp/StompHeaders;)Lio/netty/handler/codec/stomp/StompSubframeDecoder$State;"
+          },
+          {
+            "nme": "getContentLength",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompHeaders;)J"
+          },
+          {
+            "nme": "skipNullCharacter",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "skipControlCharacters",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "resetDecoder",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DEFAULT_CHUNK_SIZE",
+            "dsc": "I",
+            "val": 8132
+          },
+          {
+            "acc": 26,
+            "nme": "DEFAULT_MAX_LINE_LENGTH",
+            "dsc": "I",
+            "val": 1024
+          },
+          {
+            "acc": 18,
+            "nme": "commandParser",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$Utf8LineParser;"
+          },
+          {
+            "acc": 18,
+            "nme": "headerParser",
+            "dsc": "Lio/netty/handler/codec/stomp/StompSubframeDecoder$HeaderParser;"
+          },
+          {
+            "acc": 18,
+            "nme": "maxChunkSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "alreadyReadChunkSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "lastContent",
+            "dsc": "Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "acc": 2,
+            "nme": "contentLength",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/DefaultStompFrame.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/DefaultStompFrame",
+        "super": "io/netty/handler/codec/stomp/DefaultStompHeadersSubframe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompCommand;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompCommand;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompCommand;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/stomp/DefaultStompHeaders;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompHeaders.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/StompHeaders",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getAsString",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/CharSequence;)Ljava/lang/String;"
+          },
+          {
+            "nme": "getAllAsString",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/CharSequence;)Ljava/util/List;",
+            "sig": "(Ljava/lang/CharSequence;)Ljava/util/List<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "iteratorAsString",
+            "acc": 1025,
+            "dsc": "()Ljava/util/Iterator;",
+            "sig": "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;"
+          },
+          {
+            "nme": "contains",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "ACCEPT_VERSION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "HOST",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "LOGIN",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "PASSCODE",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "HEART_BEAT",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "VERSION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "SESSION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "SERVER",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "DESTINATION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "ID",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "ACK",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSACTION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "RECEIPT",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE_ID",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "SUBSCRIPTION",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "RECEIPT_ID",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "CONTENT_LENGTH",
+            "dsc": "Lio/netty/util/AsciiString;"
+          },
+          {
+            "acc": 25,
+            "nme": "CONTENT_TYPE",
+            "dsc": "Lio/netty/util/AsciiString;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/DefaultStompHeadersSubframe.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/DefaultStompHeadersSubframe",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompCommand;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/stomp/StompCommand;Lio/netty/handler/codec/stomp/DefaultStompHeaders;)V"
+          },
+          {
+            "nme": "command",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "nme": "headers",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompHeaders;"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 20,
+            "nme": "command",
+            "dsc": "Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "acc": 4,
+            "nme": "decoderResult",
+            "dsc": "Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "acc": 20,
+            "nme": "headers",
+            "dsc": "Lio/netty/handler/codec/stomp/DefaultStompHeaders;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/LastStompContentSubframe.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/LastStompContentSubframe",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EMPTY_LAST_CONTENT",
+            "dsc": "Lio/netty/handler/codec/stomp/LastStompContentSubframe;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompHeadersSubframe.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/StompHeadersSubframe",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "command",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompCommand;"
+          },
+          {
+            "nme": "headers",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompHeaders;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/StompFrame.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/StompFrame",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompFrame;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompFrame;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/stomp/DefaultStompContentSubframe.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/stomp/DefaultStompContentSubframe",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/stomp/StompContentSubframe;"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "decoderResult",
+            "dsc": "Lio/netty/handler/codec/DecoderResult;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompSubframeDecoder$Utf8LineParser.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/codec/stomp/StompSubframeDecoder$Utf8LineParser",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/util/internal/AppendableCharSequence;I)V"
+          },
+          {
+            "nme": "parse",
+            "acc": 0,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/util/internal/AppendableCharSequence;"
+          },
+          {
+            "nme": "charSequence",
+            "acc": 0,
+            "dsc": "()Lio/netty/util/internal/AppendableCharSequence;"
+          },
+          {
+            "nme": "process",
+            "acc": 1,
+            "dsc": "(B)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "reset",
+            "acc": 4,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "charSeq",
+            "dsc": "Lio/netty/util/internal/AppendableCharSequence;"
+          },
+          {
+            "acc": 18,
+            "nme": "maxLineLength",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "lineLength",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "interim",
+            "dsc": "C"
+          },
+          {
+            "acc": 2,
+            "nme": "nextRead",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/stomp/StompSubframe.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/stomp/StompSubframe",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      }
+    }
+  }
+}

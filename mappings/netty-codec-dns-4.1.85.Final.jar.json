@@ -1,0 +1,3922 @@
+{
+  "md5": "35cf3579dc211ee3101a100c009603f3",
+  "sha2": "87b294b6814807fb22f441a872ae268e619d94af",
+  "sha256": "b6c9deb92d544b60e52bd5eb7946d7b105cf2afbdd3f8f8d09a9928db4310bec",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/dns/DatagramDnsResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsResponse",
+        "super": "io/netty/handler/codec/dns/DefaultDnsResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "sender",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "recipient",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "setAuthoritativeAnswer",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setTruncated",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setRecursionAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsResponse;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecursionAvailable",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setTruncated",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setAuthoritativeAnswer",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "recipient",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "sender",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "content",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "sender",
+            "dsc": "Ljava/net/InetSocketAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "recipient",
+            "dsc": "Ljava/net/InetSocketAddress;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsQueryEncoder.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/dns/DnsQueryEncoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeQuestions",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeRecords",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/handler/codec/dns/DnsSection;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "recordEncoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordEncoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsQueryDecoder$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/codec/dns/TcpDnsQueryDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/TcpDnsQueryDecoder;)V"
+          },
+          {
+            "nme": "newQuery",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/dns/TcpDnsQueryDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DefaultDnsResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsResponse",
+        "super": "io/netty/handler/codec/dns/AbstractDnsMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)V"
+          },
+          {
+            "nme": "isAuthoritativeAnswer",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setAuthoritativeAnswer",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "isTruncated",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setTruncated",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "isRecursionAvailable",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRecursionAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "code",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "nme": "setCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "authoritativeAnswer",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "truncated",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "recursionAvailable",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "code",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DatagramDnsQueryEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsQueryEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope<Lio/netty/handler/codec/dns/DnsQuery;Ljava/net/InetSocketAddress;>;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "allocateBuffer",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope;)Lio/netty/buffer/ByteBuf;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope<Lio/netty/handler/codec/dns/DnsQuery;Ljava/net/InetSocketAddress;>;)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "encoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsQueryEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DefaultDnsRecordDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsRecordDecoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decodeQuestion",
+            "acc": 17,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsQuestion;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRecord",
+            "acc": 17,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/buffer/ByteBuf;)TT;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRecord",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;IJLio/netty/buffer/ByteBuf;II)Lio/netty/handler/codec/dns/DnsRecord;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeName0",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Ljava/lang/String;"
+          },
+          {
+            "nme": "decodeName",
+            "acc": 9,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "ROOT",
+            "dsc": "Ljava/lang/String;",
+            "val": "."
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsResponseDecoder.class": {
+        "ver": 50,
+        "acc": 1056,
+        "nme": "io/netty/handler/codec/dns/DnsResponseDecoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 16,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "sig": "(TA;TA;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newResponse",
+            "acc": 1028,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "sig": "(TA;TA;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeQuestions",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/buffer/ByteBuf;I)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRecords",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/handler/codec/dns/DnsSection;Lio/netty/buffer/ByteBuf;I)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "recordDecoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsRawRecord.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsRawRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DefaultDnsOptEcsRecord.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsOptEcsRecord",
+        "super": "io/netty/handler/codec/dns/AbstractDnsOptPseudoRrRecord",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IIII[B)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(II[B)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/channel/socket/InternetProtocolFamily;)V"
+          },
+          {
+            "nme": "verifyAddress",
+            "acc": 10,
+            "dsc": "([B)[B"
+          },
+          {
+            "nme": "sourcePrefixLength",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "scopePrefixLength",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "address",
+            "acc": 1,
+            "dsc": "()[B"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "srcPrefixLength",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "address",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DefaultDnsQuestion.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsQuestion",
+        "super": "io/netty/handler/codec/dns/AbstractDnsRecord",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;I)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DefaultDnsPtrRecord.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsPtrRecord",
+        "super": "io/netty/handler/codec/dns/AbstractDnsRecord",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;IJLjava/lang/String;)V"
+          },
+          {
+            "nme": "hostname",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "hostname",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DatagramDnsResponseEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsResponseEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope<Lio/netty/handler/codec/dns/DnsResponse;Ljava/net/InetSocketAddress;>;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "allocateBuffer",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope;)Lio/netty/buffer/ByteBuf;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/AddressedEnvelope<Lio/netty/handler/codec/dns/DnsResponse;Ljava/net/InetSocketAddress;>;)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "recordEncoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsResponseDecoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/dns/TcpDnsResponseDecoder",
+        "super": "io/netty/handler/codec/LengthFieldBasedFrameDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;I)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "extractFrame",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;II)Lio/netty/buffer/ByteBuf;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "responseDecoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseDecoder;",
+            "sig": "Lio/netty/handler/codec/dns/DnsResponseDecoder<Ljava/net/SocketAddress;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsRecordEncoder.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsRecordEncoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "encodeQuestion",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuestion;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordEncoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsQuery.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsQuery",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "setId",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/AbstractDnsMessage.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/dns/AbstractDnsMessage",
+        "super": "io/netty/util/AbstractReferenceCounted",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)V"
+          },
+          {
+            "nme": "id",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "opCode",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "isRecursionDesired",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "z",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "count",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)I"
+          },
+          {
+            "nme": "count",
+            "acc": 2,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "count",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;)TT;"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 2,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(I)TT;"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;I)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;I)TT;"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 2,
+            "dsc": "(II)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(II)TT;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 2,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsRecord;)V"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)TT;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 2,
+            "dsc": "(IILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(IILio/netty/handler/codec/dns/DnsRecord;)TT;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 2,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsRecord;)V"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 2,
+            "dsc": "(IILio/netty/handler/codec/dns/DnsRecord;)V"
+          },
+          {
+            "nme": "removeRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;I)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;I)TT;"
+          },
+          {
+            "nme": "removeRecord",
+            "acc": 2,
+            "dsc": "(II)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(II)TT;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 2,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "sectionAt",
+            "acc": 2,
+            "dsc": "(I)Ljava/lang/Object;"
+          },
+          {
+            "nme": "setSection",
+            "acc": 2,
+            "dsc": "(ILjava/lang/Object;)V"
+          },
+          {
+            "nme": "sectionOrdinal",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)I"
+          },
+          {
+            "nme": "checkQuestion",
+            "acc": 10,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsRecord;"
+          },
+          {
+            "nme": "castRecord",
+            "acc": 10,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Ljava/lang/Object;)TT;"
+          },
+          {
+            "nme": "newRecordList",
+            "acc": 10,
+            "dsc": "()Ljava/util/ArrayList;",
+            "sig": "()Ljava/util/ArrayList<Lio/netty/handler/codec/dns/DnsRecord;>;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "leakDetector",
+            "dsc": "Lio/netty/util/ResourceLeakDetector;",
+            "sig": "Lio/netty/util/ResourceLeakDetector<Lio/netty/handler/codec/dns/DnsMessage;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "SECTION_QUESTION",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "SECTION_COUNT",
+            "dsc": "I",
+            "val": 4
+          },
+          {
+            "acc": 18,
+            "nme": "leak",
+            "dsc": "Lio/netty/util/ResourceLeakTracker;",
+            "sig": "Lio/netty/util/ResourceLeakTracker<Lio/netty/handler/codec/dns/DnsMessage;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "id",
+            "dsc": "S"
+          },
+          {
+            "acc": 2,
+            "nme": "opCode",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 2,
+            "nme": "recursionDesired",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "z",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "questions",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 2,
+            "nme": "answers",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 2,
+            "nme": "authorities",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 2,
+            "nme": "additionals",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsRecordType.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DnsRecordType",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "intValue",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordType;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "A",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "NS",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "CNAME",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "SOA",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "PTR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "MX",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "TXT",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "RP",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "AFSDB",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "SIG",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "KEY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "AAAA",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "LOC",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "SRV",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "NAPTR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "KX",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "CERT",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DNAME",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "OPT",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "APL",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DS",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "SSHFP",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "IPSECKEY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "RRSIG",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "NSEC",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DNSKEY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DHCID",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "NSEC3",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "NSEC3PARAM",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "TLSA",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "HIP",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "SPF",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "TKEY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "TSIG",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "IXFR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "AXFR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "ANY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "CAA",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "TA",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DLV",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 26,
+            "nme": "BY_NAME",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "BY_TYPE",
+            "dsc": "Lio/netty/util/collection/IntObjectHashMap;",
+            "sig": "Lio/netty/util/collection/IntObjectHashMap<Lio/netty/handler/codec/dns/DnsRecordType;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "EXPECTED",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "intValue",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsPtrRecord.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsPtrRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "hostname",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsOptPseudoRecord.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsOptPseudoRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "extendedRcode",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "version",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "flags",
+            "acc": 1025,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsCodecUtil.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/dns/DnsCodecUtil",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeDomainName",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "decodeDomainName",
+            "acc": 8,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Ljava/lang/String;"
+          },
+          {
+            "nme": "decompressDomainName",
+            "acc": 8,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DefaultDnsRawRecord.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsRawRecord",
+        "super": "io/netty/handler/codec/dns/AbstractDnsRecord",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;JLio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;IJLio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsRawRecord;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsQueryEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/dns/TcpDnsQueryEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "allocateBuffer",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/dns/DnsQuery;Z)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "allocateBuffer",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Z)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "encoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsQueryEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DatagramDnsResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsResponseDecoder$1",
+        "super": "io/netty/handler/codec/dns/DnsResponseDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/DatagramDnsResponseDecoder;Lio/netty/handler/codec/dns/DnsRecordDecoder;)V"
+          },
+          {
+            "nme": "newResponse",
+            "acc": 4,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "newResponse",
+            "acc": 4164,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/dns/DatagramDnsResponseDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsSection.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/dns/DnsSection",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "QUESTION",
+            "dsc": "Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ANSWER",
+            "dsc": "Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTHORITY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ADDITIONAL",
+            "dsc": "Lio/netty/handler/codec/dns/DnsSection;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/dns/DnsSection;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/AbstractDnsOptPseudoRrRecord.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/dns/AbstractDnsOptPseudoRrRecord",
+        "super": "io/netty/handler/codec/dns/AbstractDnsRecord",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(III)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "packIntoLong",
+            "acc": 10,
+            "dsc": "(II)J"
+          },
+          {
+            "nme": "extendedRcode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "version",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "flags",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "toStringBuilder",
+            "acc": 16,
+            "dsc": "()Ljava/lang/StringBuilder;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsRecord.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "name",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "type",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "nme": "dnsClass",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "timeToLive",
+            "acc": 1025,
+            "dsc": "()J"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "CLASS_IN",
+            "dsc": "I",
+            "val": 1
+          },
+          {
+            "acc": 25,
+            "nme": "CLASS_CSNET",
+            "dsc": "I",
+            "val": 2
+          },
+          {
+            "acc": 25,
+            "nme": "CLASS_CHAOS",
+            "dsc": "I",
+            "val": 3
+          },
+          {
+            "acc": 25,
+            "nme": "CLASS_HESIOD",
+            "dsc": "I",
+            "val": 4
+          },
+          {
+            "acc": 25,
+            "nme": "CLASS_NONE",
+            "dsc": "I",
+            "val": 254
+          },
+          {
+            "acc": 25,
+            "nme": "CLASS_ANY",
+            "dsc": "I",
+            "val": 255
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DefaultDnsQuery.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsQuery",
+        "super": "io/netty/handler/codec/dns/AbstractDnsMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)V"
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsQuestion.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsQuestion",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "timeToLive",
+            "acc": 1025,
+            "dsc": "()J"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DatagramDnsQueryDecoder$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsQueryDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/DatagramDnsQueryDecoder;Lio/netty/channel/socket/DatagramPacket;)V"
+          },
+          {
+            "nme": "newQuery",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$packet",
+            "dsc": "Lio/netty/channel/socket/DatagramPacket;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/dns/DatagramDnsQueryDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DatagramDnsResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsResponseDecoder",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/socket/DatagramPacket;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/socket/DatagramPacket;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/socket/DatagramPacket;)Lio/netty/handler/codec/dns/DnsResponse;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "responseDecoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseDecoder;",
+            "sig": "Lio/netty/handler/codec/dns/DnsResponseDecoder<Ljava/net/InetSocketAddress;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "id",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setId",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "opCode",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "isRecursionDesired",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "z",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "count",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)I"
+          },
+          {
+            "nme": "count",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;)TT;"
+          },
+          {
+            "nme": "recordAt",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;I)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;I)TT;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)TT;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "removeRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;I)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/handler/codec/dns/DnsSection;I)TT;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsOptEcsRecord.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsOptEcsRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "sourcePrefixLength",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "scopePrefixLength",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "address",
+            "acc": 1025,
+            "dsc": "()[B"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DefaultDnsRecordEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DefaultDnsRecordEncoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeQuestion",
+            "acc": 17,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsQuestion;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeRecord0",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodePtrRecord",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsPtrRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeOptPseudoRecord",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOptPseudoRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeOptEcsRecord",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOptEcsRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "calculateEcsAddressLength",
+            "acc": 8,
+            "dsc": "(II)I"
+          },
+          {
+            "nme": "encodeRawRecord",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRawRecord;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeName",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "padWithZeros",
+            "acc": 10,
+            "dsc": "(BI)B"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "PREFIX_MASK",
+            "dsc": "I",
+            "val": 7
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/codec/dns/TcpDnsResponseDecoder$1",
+        "super": "io/netty/handler/codec/dns/DnsResponseDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/dns/TcpDnsResponseDecoder;Lio/netty/handler/codec/dns/DnsRecordDecoder;)V"
+          },
+          {
+            "nme": "newResponse",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/dns/TcpDnsResponseDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsQueryDecoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/dns/TcpDnsQueryDecoder",
+        "super": "io/netty/handler/codec/LengthFieldBasedFrameDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;I)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "decoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsOpCode.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DnsOpCode",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "QUERY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "IQUERY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "STATUS",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NOTIFY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "UPDATE",
+            "dsc": "Lio/netty/handler/codec/dns/DnsOpCode;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsMessageUtil.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/dns/DnsMessageUtil",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "appendQuery",
+            "acc": 8,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsQuery;)Ljava/lang/StringBuilder;"
+          },
+          {
+            "nme": "appendResponse",
+            "acc": 8,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsResponse;)Ljava/lang/StringBuilder;"
+          },
+          {
+            "nme": "appendRecordClass",
+            "acc": 8,
+            "dsc": "(Ljava/lang/StringBuilder;I)Ljava/lang/StringBuilder;"
+          },
+          {
+            "nme": "appendQueryHeader",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsQuery;)V"
+          },
+          {
+            "nme": "appendResponseHeader",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsResponse;)V"
+          },
+          {
+            "nme": "appendAddresses",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsMessage;)Ljava/lang/StringBuilder;"
+          },
+          {
+            "nme": "appendAllRecords",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsMessage;)V"
+          },
+          {
+            "nme": "appendRecords",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;Lio/netty/handler/codec/dns/DnsMessage;Lio/netty/handler/codec/dns/DnsSection;)V"
+          },
+          {
+            "nme": "decodeDnsQuery",
+            "acc": 8,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/dns/DnsMessageUtil$DnsQueryFactory;)Lio/netty/handler/codec/dns/DnsQuery;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newQuery",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/dns/DnsMessageUtil$DnsQueryFactory;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "decodeQuestions",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/buffer/ByteBuf;I)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRecords",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;Lio/netty/handler/codec/dns/DnsQuery;Lio/netty/handler/codec/dns/DnsSection;Lio/netty/buffer/ByteBuf;I)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeDnsResponse",
+            "acc": 8,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeQuestions",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeRecords",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;Lio/netty/handler/codec/dns/DnsResponse;Lio/netty/handler/codec/dns/DnsSection;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/AbstractDnsRecord.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/dns/AbstractDnsRecord",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;J)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/dns/DnsRecordType;IJ)V"
+          },
+          {
+            "nme": "IDNtoASCII",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "appendTrailingDot",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "nme": "dnsClass",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "timeToLive",
+            "acc": 1,
+            "dsc": "()J"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordType;"
+          },
+          {
+            "acc": 18,
+            "nme": "dnsClass",
+            "dsc": "S"
+          },
+          {
+            "acc": 18,
+            "nme": "timeToLive",
+            "dsc": "J"
+          },
+          {
+            "acc": 2,
+            "nme": "hashCode",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "isAuthoritativeAnswer",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setAuthoritativeAnswer",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "isTruncated",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setTruncated",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "isRecursionAvailable",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRecursionAvailable",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "code",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "nme": "setCode",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponseCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setId",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponse;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DatagramDnsQuery.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsQuery",
+        "super": "io/netty/handler/codec/dns/DefaultDnsQuery",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;ILio/netty/handler/codec/dns/DnsOpCode;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "sender",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "recipient",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DatagramDnsQuery;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsQuery;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "clear",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;ILio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "addRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecord",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsSection;Lio/netty/handler/codec/dns/DnsRecord;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setZ",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setRecursionDesired",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setOpCode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "setId",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/AddressedEnvelope;"
+          },
+          {
+            "nme": "recipient",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "sender",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "content",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "sender",
+            "dsc": "Ljava/net/InetSocketAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "recipient",
+            "dsc": "Ljava/net/InetSocketAddress;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DatagramDnsQueryDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DatagramDnsQueryDecoder",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordDecoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/socket/DatagramPacket;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/socket/DatagramPacket;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "recordDecoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordDecoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsMessageUtil$DnsQueryFactory.class": {
+        "ver": 50,
+        "acc": 1536,
+        "nme": "io/netty/handler/codec/dns/DnsMessageUtil$DnsQueryFactory",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "newQuery",
+            "acc": 1025,
+            "dsc": "(ILio/netty/handler/codec/dns/DnsOpCode;)Lio/netty/handler/codec/dns/DnsQuery;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/dns/DnsRecordDecoder.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/dns/DnsRecordDecoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "decodeQuestion",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsQuestion;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRecord",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/dns/DnsRecord;",
+            "sig": "<T::Lio/netty/handler/codec/dns/DnsRecord;>(Lio/netty/buffer/ByteBuf;)TT;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/DnsResponseCode.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/dns/DnsResponseCode",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "intValue",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsResponseCode;)I"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "NOERROR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "FORMERR",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "SERVFAIL",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NXDOMAIN",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NOTIMP",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "REFUSED",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "YXDOMAIN",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "YXRRSET",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NXRRSET",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NOTAUTH",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "NOTZONE",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADVERS_OR_BADSIG",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADKEY",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADTIME",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADMODE",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADNAME",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 25,
+            "nme": "BADALG",
+            "dsc": "Lio/netty/handler/codec/dns/DnsResponseCode;"
+          },
+          {
+            "acc": 18,
+            "nme": "code",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/dns/TcpDnsResponseEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/dns/TcpDnsResponseEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/dns/DnsRecordEncoder;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/dns/DnsResponse;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/dns/DnsResponse;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "encoder",
+            "dsc": "Lio/netty/handler/codec/dns/DnsRecordEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      }
+    }
+  }
+}

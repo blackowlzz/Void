@@ -1,0 +1,289 @@
+# Void 配置文件 — https://github.com/blackowlzz/Void
+# Copyright 2025 MWHunter (DefineOutside), blackowlzz 及贡献者，GPLv3 许可证。
+
+# ─── 常规设置 ─────────────────────────────────────────────────────────────────
+
+alerts:
+    # 除了向在线管理员发送违规警告外，也同时输出至控制台。
+    print-to-console: true
+    proxy:
+        # 将警告转发至代理中的其他服务器 (BungeeCord/Velocity)。
+        send: false
+        receive: false
+
+verbose:
+    print-to-console: false
+
+check-for-updates: true
+experimental-checks: false
+
+client-brand:
+    # 静默忽略的客户端品牌正则表达式列表（不向OP广播）。
+    ignored-clients:
+        - "^vanilla$"
+        - "^fabric$"
+        - "^quilt$"
+        - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
+        - "^Feather Fabric$"
+        - "^labymod$"
+    # 断开含有内置 Reach 漏洞的 Forge 1.18.2–1.19.3 客户端。
+    disconnect-blacklisted-forge-versions: true
+
+spectators:
+    # 始终隐藏拥有 void.spectator 权限的旁观者，即使未主动旁观。
+    hide-regardless: false
+    # 仅在以下世界中隐藏旁观者，留空则适用于全部世界。
+    allowed-worlds:
+        - ""
+
+# 玩家停止响应后被踢出前的等待秒数。
+max-transaction-time: 60
+
+# /void debug 上传用 Pastebin API 密钥。留空则保存至本地。
+pastebin-api-key: ""
+
+# ─── 检测项目 ─────────────────────────────────────────────────────────────────
+
+Simulation:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+    setback-violation-threshold: 1
+
+Knockback:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+
+Explosion:
+    threshold: 0.001
+    setbackvl: 3
+
+Phase:
+    setbackvl: 1
+    decay: 0.005
+
+NoSlow:
+    threshold: 0.001
+    setbackvl: 5
+    decay: 0.05
+
+Reach:
+    threshold: 0.0005
+    block-impossible-hits: true
+    enable-post-packet: false
+
+TimerA:
+    setbackvl: 10
+    drift: 120
+
+TimerLimit:
+    ping-abuse-limit-threshold: 1000
+
+NegativeTimer:
+    drift: 1200
+
+VehicleTimer:
+    setbackvl: 10
+
+AirLiquidPlace:
+    cancelvl: 0
+
+FabricatedPlace:
+    cancelvl: 5
+
+FarPlace:
+    cancelvl: 5
+
+PositionPlace:
+    cancelvl: 5
+
+RotationPlace:
+    cancelvl: 5
+
+PacketOrderI:
+    # 若使用 1.7 动画 Mod 的玩家被误检，请启用此项。
+    exempt-placing-while-digging: false
+
+exploit:
+    allow-sprint-jumping-when-using-elytra: true
+    allow-building-on-ghostblocks: true
+    distance-to-check-if-ghostblocks: 2
+
+    auto-totem:
+        autopunish:
+            enabled: false
+            action: ban
+            duration: "1d"
+            reason: |
+                &cAutoTotem 已检测到。
+                &7Check: &f%check_name% &8(&dVL %vl%&8)
+            # 若为 true，以下命令通过控制台执行，替代内置封禁系统。
+            prefer-custom-ban: false
+            # 命令模板。占位符：{player}  {duration}  {reason}
+            # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+            # AdvancedBan: "ban {player} {reason} -t {duration}"
+            # EssentialsX: "ban {player} {reason}"
+            custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── 处罚系统 ─────────────────────────────────────────────────────────────────
+
+punishments:
+
+    auto-punish:
+        enabled: false
+        threshold: 10
+        action: ban
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &c账号已封禁
+            &7封禁 ID: &d%ban_id%
+            &7时长: &f%duration%
+        support-link: ""
+        broadcast-message: "&8[&5Void&8] &f%player% &c因不公平游戏被封禁。"
+        # 若为 true，以下命令通过控制台执行，替代内置封禁系统。
+        prefer-custom-ban: false
+        # 命令模板。占位符：{player}  {duration}  {reason}
+        # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+        # AdvancedBan: "ban {player} {reason} -t {duration}"
+        # EssentialsX: "ban {player} {reason}"
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+    manual-punish:
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &c账号已封禁
+            &7封禁者: &f{issued_by}
+            &7封禁 ID: &d{ban_id}
+            &7时长: &f{duration}
+        prefer-custom-ban: false
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── 封禁浪潮 ─────────────────────────────────────────────────────────────────
+# /void banwave add <player> [duration]  — 加入队列
+# /void banwave execute                  — 立即封禁所有人
+
+ban-wave:
+    enabled: true
+    queue-on-auto-punish: false
+    auto-execute-days: 7
+    duration: "7d"
+    reason: |
+        &5VoidAC
+        &c账号已封禁
+        &7封禁浪潮: &d#{wave}
+        &7封禁 ID: &d{ban_id}
+        &7时长: &f{duration}
+    broadcast: "&8[&5Void&8] &7封禁浪潮 &d#{wave} &7已执行 — &d{count} &7名玩家已被移除。"
+    prefer-custom-ban: false
+    # 命令模板。占位符：{player}  {duration}  {reason}
+    # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+    # AdvancedBan: "ban {player} {reason} -t {duration}"
+    custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+
+storage-esp-decoys:
+    enabled: false
+    decoys-per-chunk: 20
+    include-client-side-blocks: false
+    auto-flag-threshold: 16
+
+# ─── 反矿透 ──────────────────────────────────────────────────────────────────
+
+AntiXray:
+    configure-paper: false
+    engine-mode: 2
+    max-block-height: 320
+    update-radius: 16
+    hidden-blocks:
+        - air
+        - copper_ore
+        - deepslate_copper_ore
+        - raw_copper_block
+        - iron_ore
+        - deepslate_iron_ore
+        - gold_ore
+        - deepslate_gold_ore
+        - diamond_ore
+        - deepslate_diamond_ore
+        - emerald_ore
+        - deepslate_emerald_ore
+        - lapis_ore
+        - deepslate_lapis_ore
+        - redstone_ore
+        - deepslate_redstone_ore
+        - coal_ore
+        - deepslate_coal_ore
+        - nether_quartz_ore
+        - nether_gold_ore
+        - ancient_debris
+        - chest
+        - trapped_chest
+        - barrel
+        - ender_chest
+        - shulker_box
+        - white_shulker_box
+        - orange_shulker_box
+        - magenta_shulker_box
+        - light_blue_shulker_box
+        - yellow_shulker_box
+        - lime_shulker_box
+        - pink_shulker_box
+        - gray_shulker_box
+        - light_gray_shulker_box
+        - cyan_shulker_box
+        - purple_shulker_box
+        - blue_shulker_box
+        - brown_shulker_box
+        - green_shulker_box
+        - red_shulker_box
+        - black_shulker_box
+    replacement-blocks:
+        - stone
+        - deepslate
+        - granite
+        - diorite
+        - andesite
+        - dirt
+        - gravel
+        - tuff
+        - calcite
+        - smooth_basalt
+        - coal_ore
+        - deepslate_coal_ore
+
+# ─── 阈值优化器 ───────────────────────────────────────────────────────────────
+
+threshold-optimizer:
+    enabled: false
+
+# ─── 高级设置 ─────────────────────────────────────────────────────────────────
+
+packet-spam-threshold: 100
+debug-packet-cancel: false
+
+max-ping-out-of-flying: 1000
+max-ping-firework-boost: 1000
+
+disable-pong-cancelling: false
+disable-default-resync-handler: false
+
+cancel-duplicate-packet: true
+ignore-duplicate-packet-rotation: false
+
+reset-item-usage-on-item-update: true
+reset-item-usage-on-attack: true
+reset-item-usage-on-slot-change: true
+reset-item-usage-on-item-use: true
+
+debug-pipeline-on-join: false
+
+config-flavor: V2
+config-version: 19

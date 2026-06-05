@@ -1,0 +1,653 @@
+{
+  "md5": "d2917b943f60c8dcbf65f435989fb9fc",
+  "sha2": "595f9a8737fb178e989f295c79951bb2447d3bfd",
+  "sha256": "19780d48b515f4f30ab9aa45fdeaacdbc382222d369bb2ddf87221621079669a",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/xml/XmlSpace.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlSpace",
+        "super": "io/netty/handler/codec/xml/XmlContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/xml/XmlContent.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/xml/XmlContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "data",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "data",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlNamespace.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlNamespace",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "prefix",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "uri",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "prefix",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "uri",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlComment.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlComment",
+        "super": "io/netty/handler/codec/xml/XmlContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/xml/XmlCdata.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlCdata",
+        "super": "io/netty/handler/codec/xml/XmlContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/xml/XmlDTD.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlDTD",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "text",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlDecoder",
+        "super": "io/netty/handler/codec/ByteToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "XML_INPUT_FACTORY",
+            "dsc": "Lcom/fasterxml/aalto/AsyncXMLInputFactory;"
+          },
+          {
+            "acc": 26,
+            "nme": "XML_DOCUMENT_END",
+            "dsc": "Lio/netty/handler/codec/xml/XmlDocumentEnd;"
+          },
+          {
+            "acc": 18,
+            "nme": "streamReader",
+            "dsc": "Lcom/fasterxml/aalto/AsyncXMLStreamReader;",
+            "sig": "Lcom/fasterxml/aalto/AsyncXMLStreamReader<Lcom/fasterxml/aalto/AsyncByteArrayFeeder;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "streamFeeder",
+            "dsc": "Lcom/fasterxml/aalto/AsyncByteArrayFeeder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlCharacters.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlCharacters",
+        "super": "io/netty/handler/codec/xml/XmlContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/xml/XmlElementStart.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlElementStart",
+        "super": "io/netty/handler/codec/xml/XmlElement",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "attributes",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/xml/XmlAttribute;>;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "attributes",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/xml/XmlAttribute;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlEntityReference.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlEntityReference",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "text",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlElementEnd.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlElementEnd",
+        "super": "io/netty/handler/codec/xml/XmlElement",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/xml/XmlDocumentEnd.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/xml/XmlDocumentEnd",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/xml/XmlDocumentEnd;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlElement.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/xml/XmlElement",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "namespace",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "prefix",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "namespaces",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/xml/XmlNamespace;>;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "namespace",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "prefix",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "namespaces",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/xml/XmlNamespace;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlProcessingInstruction.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlProcessingInstruction",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "data",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "target",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "data",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "target",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlAttribute.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlAttribute",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "prefix",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "namespace",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "prefix",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "namespace",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/xml/XmlDocumentStart.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/xml/XmlDocumentStart",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V"
+          },
+          {
+            "nme": "encoding",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "version",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "standalone",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "encodingScheme",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "encoding",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "version",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "standalone",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "encodingScheme",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      }
+    }
+  }
+}

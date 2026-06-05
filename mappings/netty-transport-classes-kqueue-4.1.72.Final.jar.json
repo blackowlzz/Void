@@ -1,0 +1,6576 @@
+{
+  "md5": "a1c106eb5650211b4ba5f4673111d738",
+  "sha2": "fbcce97a6f9f79b8c5fc118bb838e7a4526d8efa",
+  "sha256": "e47ef6c2d1a0aa8d4f05836e8160c4223894278a34e5967bf669154a4a30d20b",
+  "contents": {
+    "classes": {
+      "io/netty/channel/kqueue/KQueueDatagramChannelConfig.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDatagramChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDatagramChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setActiveOnOpen",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "getActiveOnOpen",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isReusePort",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setReusePort",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "getTrafficClass",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setTrafficClass",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "isReuseAddress",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "isBroadcast",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setBroadcast",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "isLoopbackModeDisabled",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setLoopbackModeDisabled",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "getTimeToLive",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setTimeToLive",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "getInterface",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetAddress;"
+          },
+          {
+            "nme": "setInterface",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "getNetworkInterface",
+            "acc": 1,
+            "dsc": "()Ljava/net/NetworkInterface;"
+          },
+          {
+            "nme": "setNetworkInterface",
+            "acc": 1,
+            "dsc": "(Ljava/net/NetworkInterface;)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerWrite",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerWrite",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setNetworkInterface",
+            "acc": 4161,
+            "dsc": "(Ljava/net/NetworkInterface;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setInterface",
+            "acc": 4161,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setTimeToLive",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setBroadcast",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setTrafficClass",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DEFAULT_RCVBUF_ALLOCATOR",
+            "dsc": "Lio/netty/channel/RecvByteBufAllocator;"
+          },
+          {
+            "acc": 2,
+            "nme": "activeOnOpen",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueSocketChannelConfig.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueSocketChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueSocketChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSoLinger",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getTrafficClass",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isKeepAlive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isReuseAddress",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isTcpNoDelay",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "getSndLowAt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSndLowAt",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "isTcpNoPush",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setTcpNoPush",
+            "acc": 1,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "setKeepAlive",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setTcpNoDelay",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setTrafficClass",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "isAllowHalfClosure",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setTcpFastOpenConnect",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "isTcpFastOpenConnect",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 1,
+            "dsc": "(III)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllowHalfClosure",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "calculateMaxBytesPerGatheringWrite",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setAllowHalfClosure",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 4161,
+            "dsc": "(III)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setTrafficClass",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setKeepAlive",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setTcpNoDelay",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/SocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DuplexChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAllowHalfClosure",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "allowHalfClosure",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "tcpFastopen",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AcceptFilter.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/AcceptFilter",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "filterName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "filterArgs",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "PLATFORM_UNSUPPORTED",
+            "dsc": "Lio/netty/channel/kqueue/AcceptFilter;"
+          },
+          {
+            "acc": 18,
+            "nme": "filterName",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "filterArgs",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDatagramChannel$KQueueDatagramChannelUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueDatagramChannel$KQueueDatagramChannelUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDatagramChannel;)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDatagramChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueEventLoop.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueEventLoop",
+        "super": "io/netty/channel/SingleThreadEventLoop",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/EventLoopGroup;Ljava/util/concurrent/Executor;ILio/netty/channel/SelectStrategy;Lio/netty/util/concurrent/RejectedExecutionHandler;Lio/netty/channel/EventLoopTaskQueueFactory;Lio/netty/channel/EventLoopTaskQueueFactory;)V"
+          },
+          {
+            "nme": "newTaskQueue",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/EventLoopTaskQueueFactory;)Ljava/util/Queue;",
+            "sig": "(Lio/netty/channel/EventLoopTaskQueueFactory;)Ljava/util/Queue<Ljava/lang/Runnable;>;"
+          },
+          {
+            "nme": "add",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V"
+          },
+          {
+            "nme": "evSet",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;SSI)V"
+          },
+          {
+            "nme": "remove",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "cleanArray",
+            "acc": 0,
+            "dsc": "()Lio/netty/channel/unix/IovArray;"
+          },
+          {
+            "nme": "wakeup",
+            "acc": 4,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "wakeup",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "kqueueWait",
+            "acc": 2,
+            "dsc": "(Z)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "kqueueWaitNow",
+            "acc": 2,
+            "dsc": "()I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "kqueueWait",
+            "acc": 2,
+            "dsc": "(II)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "processReady",
+            "acc": 2,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "run",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "newTaskQueue",
+            "acc": 4,
+            "dsc": "(I)Ljava/util/Queue;",
+            "sig": "(I)Ljava/util/Queue<Ljava/lang/Runnable;>;"
+          },
+          {
+            "nme": "newTaskQueue0",
+            "acc": 10,
+            "dsc": "(I)Ljava/util/Queue;",
+            "sig": "(I)Ljava/util/Queue<Ljava/lang/Runnable;>;"
+          },
+          {
+            "nme": "getIoRatio",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setIoRatio",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "registeredChannels",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "cleanup",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "closeAll",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "handleLoopException",
+            "acc": 10,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueEventLoop;)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "WAKEN_UP_UPDATER",
+            "dsc": "Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;",
+            "sig": "Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater<Lio/netty/channel/kqueue/KQueueEventLoop;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_WAKE_UP_IDENT",
+            "dsc": "I",
+            "val": 0
+          },
+          {
+            "acc": 18,
+            "nme": "allowGrowing",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "kqueueFd",
+            "dsc": "Lio/netty/channel/unix/FileDescriptor;"
+          },
+          {
+            "acc": 18,
+            "nme": "changeList",
+            "dsc": "Lio/netty/channel/kqueue/KQueueEventArray;"
+          },
+          {
+            "acc": 18,
+            "nme": "eventList",
+            "dsc": "Lio/netty/channel/kqueue/KQueueEventArray;"
+          },
+          {
+            "acc": 18,
+            "nme": "selectStrategy",
+            "dsc": "Lio/netty/channel/SelectStrategy;"
+          },
+          {
+            "acc": 18,
+            "nme": "iovArray",
+            "dsc": "Lio/netty/channel/unix/IovArray;"
+          },
+          {
+            "acc": 18,
+            "nme": "selectNowSupplier",
+            "dsc": "Lio/netty/util/IntSupplier;"
+          },
+          {
+            "acc": 18,
+            "nme": "channels",
+            "dsc": "Lio/netty/util/collection/IntObjectMap;",
+            "sig": "Lio/netty/util/collection/IntObjectMap<Lio/netty/channel/kqueue/AbstractKQueueChannel;>;"
+          },
+          {
+            "acc": 66,
+            "nme": "wakenUp",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "ioRatio",
+            "dsc": "I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainSocketChannelConfig.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDomainSocketChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setReadMode",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/unix/DomainSocketReadMode;)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "getReadMode",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketReadMode;"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "isAllowHalfClosure",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setAllowHalfClosure",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setReadMode",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/unix/DomainSocketReadMode;)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DuplexChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/DuplexChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAllowHalfClosure",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/DuplexChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "mode",
+            "dsc": "Lio/netty/channel/unix/DomainSocketReadMode;"
+          },
+          {
+            "acc": 66,
+            "nme": "allowHalfClosure",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$1",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueSocketChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueSocketChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueStreamChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Ljava/net/InetSocketAddress;)V"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          },
+          {
+            "nme": "parent",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/socket/ServerSocketChannel;"
+          },
+          {
+            "nme": "doConnect0",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "parent",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/Channel;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/socket/SocketChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueSocketChannelConfig;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainSocketChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDomainSocketChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueStreamChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;)V"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "doWriteSingle",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "peerCredentials",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/PeerCredentials;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDomainSocketChannelConfig;"
+          },
+          {
+            "acc": 66,
+            "nme": "local",
+            "dsc": "Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "acc": 66,
+            "nme": "remote",
+            "dsc": "Lio/netty/channel/unix/DomainSocketAddress;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel.class": {
+        "ver": 50,
+        "acc": 1056,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel",
+        "super": "io/netty/channel/AbstractChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "isSoErrorZero",
+            "acc": 8,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;)Z"
+          },
+          {
+            "nme": "fd",
+            "acc": 17,
+            "dsc": "()Lio/netty/channel/unix/FileDescriptor;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "resetCachedAddresses",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isCompatible",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/EventLoop;)Z"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "doDeregister",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "unregisterFilters",
+            "acc": 0,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doBeginRead",
+            "acc": 20,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doRegister",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 1028,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "newDirectBuffer",
+            "acc": 20,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "newDirectBuffer",
+            "acc": 20,
+            "dsc": "(Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "newDirectBuffer0",
+            "acc": 10,
+            "dsc": "(Ljava/lang/Object;Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBufAllocator;I)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "checkResolvable",
+            "acc": 12,
+            "dsc": "(Ljava/net/InetSocketAddress;)V"
+          },
+          {
+            "nme": "doReadBytes",
+            "acc": 20,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteBytes",
+            "acc": 20,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;Lio/netty/buffer/ByteBuf;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "shouldBreakReadReady",
+            "acc": 16,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)Z"
+          },
+          {
+            "nme": "isAllowHalfClosure",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)Z"
+          },
+          {
+            "nme": "clearReadFilter",
+            "acc": 16,
+            "dsc": "()V"
+          },
+          {
+            "nme": "readFilter",
+            "acc": 0,
+            "dsc": "(Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "writeFilter",
+            "acc": 0,
+            "dsc": "(Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "evSet",
+            "acc": 2,
+            "dsc": "(SS)V"
+          },
+          {
+            "nme": "evSet0",
+            "acc": 2,
+            "dsc": "(SS)V"
+          },
+          {
+            "nme": "evSet0",
+            "acc": 2,
+            "dsc": "(SSI)V"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect0",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "nme": "access$002",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)Z"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)Z"
+          },
+          {
+            "nme": "access$302",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Ljava/net/SocketAddress;)Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "access$402",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Lio/netty/util/concurrent/Future;)Lio/netty/util/concurrent/Future;"
+          },
+          {
+            "nme": "access$400",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)Lio/netty/util/concurrent/Future;"
+          },
+          {
+            "nme": "access$300",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "access$502",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Ljava/net/SocketAddress;)Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 2,
+            "nme": "connectPromise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 2,
+            "nme": "connectTimeoutFuture",
+            "dsc": "Lio/netty/util/concurrent/Future;",
+            "sig": "Lio/netty/util/concurrent/Future<*>;"
+          },
+          {
+            "acc": 2,
+            "nme": "requestedRemoteAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 16,
+            "nme": "socket",
+            "dsc": "Lio/netty/channel/kqueue/BsdSocket;"
+          },
+          {
+            "acc": 2,
+            "nme": "readFilterEnabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "writeFilterEnabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 0,
+            "nme": "readReadyRunnablePending",
+            "dsc": "Z"
+          },
+          {
+            "acc": 0,
+            "nme": "inputClosedSeenErrorOnRead",
+            "dsc": "Z"
+          },
+          {
+            "acc": 68,
+            "nme": "active",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "local",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 66,
+            "nme": "remote",
+            "dsc": "Ljava/net/SocketAddress;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueDatagramChannel.class": {
+        "ver": 50,
+        "acc": 1056,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueDatagramChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 1028,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWrite",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDatagramChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDatagramChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueDatagramChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isConnected",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/NetworkInterface;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/NetworkInterface;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "joinGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/NetworkInterface;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/NetworkInterface;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "leaveGroup",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "block",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "block",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "block",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "block",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "metadata",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/socket/DatagramChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "EXPECTED_TYPES",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 66,
+            "nme": "connected",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDatagramChannelConfig;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueSocketChannel$KQueueSocketChannelUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueSocketChannel$KQueueSocketChannelUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueStreamUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueSocketChannel;)V"
+          },
+          {
+            "nme": "prepareToClose",
+            "acc": 4,
+            "dsc": "()Ljava/util/concurrent/Executor;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueSocketChannel;Lio/netty/channel/kqueue/KQueueSocketChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueSocketChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$5.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$5",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelFuture;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 4161,
+            "dsc": "(Lio/netty/util/concurrent/Future;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$shutdownOutputFuture",
+            "dsc": "Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/kqueue/KQueueServerChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "isReuseAddress",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "getBacklog",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "isTcpFastOpen",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setTcpFastOpen",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 1,
+            "dsc": "(III)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 4161,
+            "dsc": "(III)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "backlog",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "enableTcpFastOpen",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueChannelConfig.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "super": "io/netty/channel/DefaultChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Lio/netty/channel/RecvByteBufAllocator;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "getRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "autoReadCleared",
+            "acc": 20,
+            "dsc": "()V"
+          },
+          {
+            "nme": "setMaxBytesPerGatheringWrite",
+            "acc": 16,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "getMaxBytesPerGatheringWrite",
+            "acc": 16,
+            "dsc": "()J"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "transportProvidesGuess",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "maxBytesPerGatheringWrite",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueue.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueue",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "isAvailable",
+            "acc": 9,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "ensureAvailability",
+            "acc": 9,
+            "dsc": "()V"
+          },
+          {
+            "nme": "unavailabilityCause",
+            "acc": 9,
+            "dsc": "()Ljava/lang/Throwable;"
+          },
+          {
+            "nme": "isTcpFastOpenClientSideAvailable",
+            "acc": 9,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isTcpFastOpenServerSideAvailable",
+            "acc": 9,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "UNAVAILABILITY_CAUSE",
+            "dsc": "Ljava/lang/Throwable;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$remoteAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$1",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueServerSocketChannelConfig.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/kqueue/KQueueServerSocketChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueServerChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueServerSocketChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setReusePort",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "isReusePort",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setAcceptFilter",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/kqueue/AcceptFilter;)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "getAcceptFilter",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/AcceptFilter;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 1,
+            "dsc": "(III)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setTcpFastOpen",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 4161,
+            "dsc": "(III)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setTcpFastOpen",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setPerformancePreferences",
+            "acc": 4161,
+            "dsc": "(III)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/kqueue/NativeLongArray.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/NativeLongArray",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "idx",
+            "acc": 10,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "calculateBufferCapacity",
+            "acc": 10,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "add",
+            "acc": 0,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "clear",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isEmpty",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "size",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "free",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "memoryAddress",
+            "acc": 0,
+            "dsc": "()J"
+          },
+          {
+            "nme": "memoryAddressEnd",
+            "acc": 0,
+            "dsc": "()J"
+          },
+          {
+            "nme": "memoryOffset",
+            "acc": 2,
+            "dsc": "(I)J"
+          },
+          {
+            "nme": "reallocIfNeeded",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "memory",
+            "dsc": "Ljava/nio/ByteBuffer;"
+          },
+          {
+            "acc": 2,
+            "nme": "memoryAddress",
+            "dsc": "J"
+          },
+          {
+            "acc": 2,
+            "nme": "capacity",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "size",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueServerChannel.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueServerChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "isCompatible",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/EventLoop;)Z"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "doWrite",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newChildChannel",
+            "acc": 1024,
+            "dsc": "(I[BII)Lio/netty/channel/Channel;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isActive",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueServerDomainSocketChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueServerDomainSocketChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueServerChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "newChildChannel",
+            "acc": 4,
+            "dsc": "(I[BII)Lio/netty/channel/Channel;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueServerChannelConfig;"
+          },
+          {
+            "acc": 66,
+            "nme": "local",
+            "dsc": "Lio/netty/channel/unix/DomainSocketAddress;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/Channel;Lio/netty/channel/kqueue/BsdSocket;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;)V"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "writeBytes",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;Lio/netty/buffer/ByteBuf;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "adjustMaxBytesPerGatheringWrite",
+            "acc": 2,
+            "dsc": "(JJJ)V"
+          },
+          {
+            "nme": "writeBytesMultiple",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;Lio/netty/channel/unix/IovArray;)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "writeBytesMultiple",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;[Ljava/nio/ByteBuffer;IJJ)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "writeDefaultFileRegion",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;Lio/netty/channel/DefaultFileRegion;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "writeFileRegion",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;Lio/netty/channel/FileRegion;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWrite",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteSingle",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMultiple",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "doShutdownOutput",
+            "acc": 20,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isOutputShutdown",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isInputShutdown",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isShutdown",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "shutdownOutput",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdownOutput",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdownInput",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdownInput",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdownInput0",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "shutdown",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdown",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "shutdownOutputDone",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "shutdownDone",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isActive",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelFuture;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 26,
+            "nme": "EXPECTED_TYPES",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "byteChannel",
+            "dsc": "Ljava/nio/channels/WritableByteChannel;"
+          },
+          {
+            "acc": 18,
+            "nme": "flushTask",
+            "dsc": "Ljava/lang/Runnable;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueStreamUnsafe.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueStreamUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;)V"
+          },
+          {
+            "nme": "prepareToClose",
+            "acc": 4,
+            "dsc": "()Ljava/util/concurrent/Executor;"
+          },
+          {
+            "nme": "readReady",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "handleReadException",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelPipeline;Lio/netty/buffer/ByteBuf;Ljava/lang/Throwable;ZLio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueSocketChannel$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/kqueue/KQueueSocketChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/channel/kqueue/KQueueDomainSocketChannel$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/kqueue/KQueueDomainSocketChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$channel$unix$DomainSocketReadMode",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueSocketWritableByteChannel.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueSocketWritableByteChannel",
+        "super": "io/netty/channel/unix/SocketWritableByteChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;)V"
+          },
+          {
+            "nme": "alloc",
+            "acc": 4,
+            "dsc": "()Lio/netty/buffer/ByteBufAllocator;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/Native.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/Native",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "registerUnix",
+            "acc": 266,
+            "dsc": "()I"
+          },
+          {
+            "nme": "newKQueue",
+            "acc": 8,
+            "dsc": "()Lio/netty/channel/unix/FileDescriptor;"
+          },
+          {
+            "nme": "keventWait",
+            "acc": 8,
+            "dsc": "(ILio/netty/channel/kqueue/KQueueEventArray;Lio/netty/channel/kqueue/KQueueEventArray;II)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "kqueueCreate",
+            "acc": 266,
+            "dsc": "()I"
+          },
+          {
+            "nme": "keventWait",
+            "acc": 266,
+            "dsc": "(IJIJIII)I"
+          },
+          {
+            "nme": "keventTriggerUserEvent",
+            "acc": 264,
+            "dsc": "(II)I"
+          },
+          {
+            "nme": "keventAddUserEvent",
+            "acc": 264,
+            "dsc": "(II)I"
+          },
+          {
+            "nme": "sizeofKEvent",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "offsetofKEventIdent",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "offsetofKEventFlags",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "offsetofKEventFFlags",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "offsetofKEventFilter",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "offsetofKeventData",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "loadNativeLibrary",
+            "acc": 10,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isSupportingFastOpenClient",
+            "acc": 10,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isSupportingFastOpenServer",
+            "acc": 10,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_ADD",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_ENABLE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_DISABLE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_DELETE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_CLEAR",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_ERROR",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_EOF",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "NOTE_READCLOSED",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "NOTE_CONNRESET",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "NOTE_DISCONNECTED",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "NOTE_RDHUP",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_ADD_CLEAR_ENABLE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EV_DELETE_DISABLE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EVFILT_READ",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EVFILT_WRITE",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EVFILT_USER",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EVFILT_SOCK",
+            "dsc": "S"
+          },
+          {
+            "acc": 26,
+            "nme": "CONNECT_RESUME_ON_READ_WRITE",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "CONNECT_DATA_IDEMPOTENT",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "CONNECT_TCP_FASTOPEN",
+            "dsc": "I"
+          },
+          {
+            "acc": 24,
+            "nme": "IS_SUPPORTING_TCP_FASTOPEN_CLIENT",
+            "dsc": "Z"
+          },
+          {
+            "acc": 24,
+            "nme": "IS_SUPPORTING_TCP_FASTOPEN_SERVER",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueStaticallyReferencedJniMethods.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueStaticallyReferencedJniMethods",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "evAdd",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evEnable",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evDisable",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evDelete",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evClear",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evEOF",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evError",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "noteReadClosed",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "noteConnReset",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "noteDisconnected",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evfiltRead",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evfiltWrite",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evfiltUser",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "evfiltSock",
+            "acc": 264,
+            "dsc": "()S"
+          },
+          {
+            "nme": "connectResumeOnReadWrite",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "connectDataIdempotent",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "fastOpenClient",
+            "acc": 264,
+            "dsc": "()I"
+          },
+          {
+            "nme": "fastOpenServer",
+            "acc": 264,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/kqueue/KQueueChannelOption.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueChannelOption",
+        "super": "io/netty/channel/unix/UnixChannelOption",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SO_SNDLOWAT",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "TCP_NOPUSH",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SO_ACCEPTFILTER",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Lio/netty/channel/kqueue/AcceptFilter;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "RCV_ALLOC_TRANSPORT_PROVIDES_GUESS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueServerChannel$KQueueServerSocketUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueServerChannel$KQueueServerSocketUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueServerChannel;)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "acceptedAddress",
+            "dsc": "[B"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueServerChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$4.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$4",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelFuture;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 4161,
+            "dsc": "(Lio/netty/util/concurrent/Future;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$unsafe",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueEventLoop$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/KQueueEventLoop$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueEventLoop;)V"
+          },
+          {
+            "nme": "get",
+            "acc": 1,
+            "dsc": "()I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueEventLoop;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainDatagramChannel$KQueueDomainDatagramChannelUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueDomainDatagramChannel$KQueueDomainDatagramChannelUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDomainDatagramChannel;)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDomainDatagramChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainDatagramChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDomainDatagramChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueDatagramChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isConnected",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          },
+          {
+            "nme": "peerCredentials",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/PeerCredentials;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 4161,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4164,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "EXPECTED_TYPES",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 66,
+            "nme": "connected",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "local",
+            "dsc": "Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "acc": 66,
+            "nme": "remote",
+            "dsc": "Lio/netty/channel/unix/DomainSocketAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueRecvByteAllocatorHandle$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/KQueueRecvByteAllocatorHandle$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "get",
+            "acc": 1,
+            "dsc": "()Z"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueServerSocketChannel.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueServerSocketChannel",
+        "super": "io/netty/channel/kqueue/AbstractKQueueServerChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/BsdSocket;Z)V"
+          },
+          {
+            "nme": "isCompatible",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/EventLoop;)Z"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          },
+          {
+            "nme": "newChildChannel",
+            "acc": 4,
+            "dsc": "(I[BII)Lio/netty/channel/Channel;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/socket/ServerSocketChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/kqueue/KQueueServerSocketChannelConfig;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueEventLoopGroup.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueEventLoopGroup",
+        "super": "io/netty/channel/MultithreadEventLoopGroup",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/concurrent/ThreadFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/channel/SelectStrategyFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/ThreadFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/ThreadFactory;Lio/netty/channel/SelectStrategyFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "(ILjava/util/concurrent/ThreadFactory;I)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "(ILjava/util/concurrent/ThreadFactory;ILio/netty/channel/SelectStrategyFactory;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;Lio/netty/channel/SelectStrategyFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;Lio/netty/util/concurrent/EventExecutorChooserFactory;Lio/netty/channel/SelectStrategyFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;Lio/netty/util/concurrent/EventExecutorChooserFactory;Lio/netty/channel/SelectStrategyFactory;Lio/netty/util/concurrent/RejectedExecutionHandler;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;Lio/netty/util/concurrent/EventExecutorChooserFactory;Lio/netty/channel/SelectStrategyFactory;Lio/netty/util/concurrent/RejectedExecutionHandler;Lio/netty/channel/EventLoopTaskQueueFactory;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/util/concurrent/Executor;Lio/netty/util/concurrent/EventExecutorChooserFactory;Lio/netty/channel/SelectStrategyFactory;Lio/netty/util/concurrent/RejectedExecutionHandler;Lio/netty/channel/EventLoopTaskQueueFactory;Lio/netty/channel/EventLoopTaskQueueFactory;)V"
+          },
+          {
+            "nme": "setIoRatio",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "newChild",
+            "acc": 132,
+            "dsc": "(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Lio/netty/channel/EventLoop;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newChild",
+            "acc": 4164,
+            "dsc": "(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Lio/netty/util/concurrent/EventExecutor;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/kqueue/Native$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/Native$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe",
+        "super": "io/netty/channel/AbstractChannel$AbstractUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 16,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 1024,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "readReadyBefore",
+            "acc": 16,
+            "dsc": "()V"
+          },
+          {
+            "nme": "readReadyFinally",
+            "acc": 16,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)V"
+          },
+          {
+            "nme": "failConnectPromise",
+            "acc": 16,
+            "dsc": "(Ljava/lang/Throwable;)Z"
+          },
+          {
+            "nme": "writeReady",
+            "acc": 16,
+            "dsc": "()V"
+          },
+          {
+            "nme": "shutdownInput",
+            "acc": 0,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "readEOF",
+            "acc": 16,
+            "dsc": "()V"
+          },
+          {
+            "nme": "recvBufAllocHandle",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;"
+          },
+          {
+            "nme": "flush0",
+            "acc": 20,
+            "dsc": "()V"
+          },
+          {
+            "nme": "executeReadReadyRunnable",
+            "acc": 16,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)V"
+          },
+          {
+            "nme": "clearReadFilter0",
+            "acc": 20,
+            "dsc": "()V"
+          },
+          {
+            "nme": "fireEventAndClose",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Object;)V"
+          },
+          {
+            "nme": "connect",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "fulfillConnectPromise",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelPromise;Z)V"
+          },
+          {
+            "nme": "fulfillConnectPromise",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelPromise;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "finishConnect",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 2,
+            "dsc": "()Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "close",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "recvBufAllocHandle",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/RecvByteBufAllocator$Handle;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 0,
+            "nme": "readPending",
+            "dsc": "Z"
+          },
+          {
+            "acc": 0,
+            "nme": "maybeMoreDataToRead",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "allocHandle",
+            "dsc": "Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;"
+          },
+          {
+            "acc": 18,
+            "nme": "readReadyRunnable",
+            "dsc": "Ljava/lang/Runnable;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/BsdSocket.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/BsdSocket",
+        "super": "io/netty/channel/unix/Socket",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "setAcceptFilter",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AcceptFilter;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setTcpNoPush",
+            "acc": 0,
+            "dsc": "(Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setSndLowAt",
+            "acc": 0,
+            "dsc": "(I)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setTcpFastOpen",
+            "acc": 1,
+            "dsc": "(Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "isTcpNoPush",
+            "acc": 0,
+            "dsc": "()Z",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getSndLowAt",
+            "acc": 0,
+            "dsc": "()I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getAcceptFilter",
+            "acc": 0,
+            "dsc": "()Lio/netty/channel/kqueue/AcceptFilter;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "isTcpFastOpen",
+            "acc": 1,
+            "dsc": "()Z",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getPeerCredentials",
+            "acc": 0,
+            "dsc": "()Lio/netty/channel/unix/PeerCredentials;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "sendFile",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/DefaultFileRegion;JJJ)J",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "connectx",
+            "acc": 0,
+            "dsc": "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Lio/netty/channel/unix/IovArray;Z)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "newSocketStream",
+            "acc": 9,
+            "dsc": "()Lio/netty/channel/kqueue/BsdSocket;"
+          },
+          {
+            "nme": "newSocketDgram",
+            "acc": 9,
+            "dsc": "()Lio/netty/channel/kqueue/BsdSocket;"
+          },
+          {
+            "nme": "newSocketDomain",
+            "acc": 9,
+            "dsc": "()Lio/netty/channel/kqueue/BsdSocket;"
+          },
+          {
+            "nme": "newSocketDomainDgram",
+            "acc": 9,
+            "dsc": "()Lio/netty/channel/kqueue/BsdSocket;"
+          },
+          {
+            "nme": "sendFile",
+            "acc": 266,
+            "dsc": "(ILio/netty/channel/DefaultFileRegion;JJJ)J",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "connectx",
+            "acc": 266,
+            "dsc": "(IIZ[BIIZ[BIIIJII)I"
+          },
+          {
+            "nme": "getAcceptFilter",
+            "acc": 266,
+            "dsc": "(I)[Ljava/lang/String;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getTcpNoPush",
+            "acc": 266,
+            "dsc": "(I)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getSndLowAt",
+            "acc": 266,
+            "dsc": "(I)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "isTcpFastOpen",
+            "acc": 266,
+            "dsc": "(I)I",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getPeerCredentials",
+            "acc": 266,
+            "dsc": "(I)Lio/netty/channel/unix/PeerCredentials;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setAcceptFilter",
+            "acc": 266,
+            "dsc": "(ILjava/lang/String;Ljava/lang/String;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setTcpNoPush",
+            "acc": 266,
+            "dsc": "(II)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setSndLowAt",
+            "acc": 266,
+            "dsc": "(II)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "setTcpFastOpen",
+            "acc": 266,
+            "dsc": "(II)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "APPLE_SND_LOW_AT_MAX",
+            "dsc": "I",
+            "val": 131072
+          },
+          {
+            "acc": 26,
+            "nme": "FREEBSD_SND_LOW_AT_MAX",
+            "dsc": "I",
+            "val": 32768
+          },
+          {
+            "acc": 24,
+            "nme": "BSD_SND_LOW_AT_MAX",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "UNSPECIFIED_SOURCE_INTERFACE",
+            "dsc": "I",
+            "val": 0
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueStreamChannel$3.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$3",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueStreamChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueRecvByteAllocatorHandle.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueRecvByteAllocatorHandle",
+        "super": "io/netty/channel/RecvByteBufAllocator$DelegatingHandle",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator$ExtendedHandle;)V"
+          },
+          {
+            "nme": "guess",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "reset",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelConfig;)V"
+          },
+          {
+            "nme": "allocate",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "lastBytesRead",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "continueReading",
+            "acc": 1,
+            "dsc": "(Lio/netty/util/UncheckedBooleanSupplier;)Z"
+          },
+          {
+            "nme": "continueReading",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "readEOF",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isReadEOF",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "numberBytesPending",
+            "acc": 0,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "maybeMoreDataToRead",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "guess0",
+            "acc": 2,
+            "dsc": "()I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "preferredDirectByteBufAllocator",
+            "dsc": "Lio/netty/channel/unix/PreferredDirectByteBufAllocator;"
+          },
+          {
+            "acc": 18,
+            "nme": "defaultMaybeMoreDataSupplier",
+            "dsc": "Lio/netty/util/UncheckedBooleanSupplier;"
+          },
+          {
+            "acc": 2,
+            "nme": "overrideGuess",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "readEOF",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "numberBytesPending",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainSocketChannel$KQueueDomainUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueDomainSocketChannel$KQueueDomainUnsafe",
+        "super": "io/netty/channel/kqueue/AbstractKQueueStreamChannel$KQueueStreamUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDomainSocketChannel;)V"
+          },
+          {
+            "nme": "readReady",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueRecvByteAllocatorHandle;)V"
+          },
+          {
+            "nme": "readReadyFd",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDomainSocketChannel;Lio/netty/channel/kqueue/KQueueDomainSocketChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/kqueue/KQueueDomainSocketChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$3.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe$3",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;)V"
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelFuture;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 4161,
+            "dsc": "(Lio/netty/util/concurrent/Future;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$1",
+            "dsc": "Lio/netty/channel/kqueue/AbstractKQueueChannel$AbstractKQueueUnsafe;"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueDomainDatagramChannelConfig.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/kqueue/KQueueDomainDatagramChannelConfig",
+        "super": "io/netty/channel/kqueue/KQueueChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/KQueueDomainDatagramChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setActiveOnOpen",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "getActiveOnOpen",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setMaxMessagesPerWrite",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueDomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setRcvAllocTransportProvidesGuess",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/kqueue/KQueueChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerWrite",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainDatagramChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/unix/DomainDatagramChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DEFAULT_RCVBUF_ALLOCATOR",
+            "dsc": "Lio/netty/channel/RecvByteBufAllocator;"
+          },
+          {
+            "acc": 2,
+            "nme": "activeOnOpen",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/kqueue/KQueueEventArray.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/kqueue/KQueueEventArray",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "memoryAddress",
+            "acc": 0,
+            "dsc": "()J"
+          },
+          {
+            "nme": "capacity",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "size",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "clear",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "evSet",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/kqueue/AbstractKQueueChannel;SSI)V"
+          },
+          {
+            "nme": "reallocIfNeeded",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "realloc",
+            "acc": 0,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "free",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "getKEventOffset",
+            "acc": 10,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "getKEventOffsetAddress",
+            "acc": 2,
+            "dsc": "(I)J"
+          },
+          {
+            "nme": "getShort",
+            "acc": 2,
+            "dsc": "(II)S"
+          },
+          {
+            "nme": "flags",
+            "acc": 0,
+            "dsc": "(I)S"
+          },
+          {
+            "nme": "filter",
+            "acc": 0,
+            "dsc": "(I)S"
+          },
+          {
+            "nme": "fflags",
+            "acc": 0,
+            "dsc": "(I)S"
+          },
+          {
+            "nme": "fd",
+            "acc": 0,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "data",
+            "acc": 0,
+            "dsc": "(I)J"
+          },
+          {
+            "nme": "calculateBufferCapacity",
+            "acc": 10,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "evSet",
+            "acc": 266,
+            "dsc": "(JISSI)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "KQUEUE_EVENT_SIZE",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_IDENT_OFFSET",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_FILTER_OFFSET",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_FFLAGS_OFFSET",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_FLAGS_OFFSET",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "KQUEUE_DATA_OFFSET",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "memory",
+            "dsc": "Ljava/nio/ByteBuffer;"
+          },
+          {
+            "acc": 2,
+            "nme": "memoryAddress",
+            "dsc": "J"
+          },
+          {
+            "acc": 2,
+            "nme": "size",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "capacity",
+            "dsc": "I"
+          }
+        ]
+      }
+    }
+  }
+}

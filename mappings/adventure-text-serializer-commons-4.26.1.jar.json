@@ -1,0 +1,354 @@
+{
+  "md5": "5c386895e6a935720e63b0ee067243e7",
+  "sha2": "ef0ca2d1307415c9700d8e2f04adf283d6da46fa",
+  "sha256": "66527fef559da4d91cda692491034f903d5b01e835de1b091edfbb6b51cee5a2",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/commons/ComponentTreeConstants.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/commons/ComponentTreeConstants",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "TEXT",
+            "dsc": "Ljava/lang/String;",
+            "val": "text"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE",
+            "dsc": "Ljava/lang/String;",
+            "val": "translate"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE_FALLBACK",
+            "dsc": "Ljava/lang/String;",
+            "val": "fallback"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE_WITH",
+            "dsc": "Ljava/lang/String;",
+            "val": "with"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE",
+            "dsc": "Ljava/lang/String;",
+            "val": "score"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE_OBJECTIVE",
+            "dsc": "Ljava/lang/String;",
+            "val": "objective"
+          },
+          {
+            "acc": 131097,
+            "nme": "SCORE_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "SELECTOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "selector"
+          },
+          {
+            "acc": 25,
+            "nme": "KEYBIND",
+            "dsc": "Ljava/lang/String;",
+            "val": "keybind"
+          },
+          {
+            "acc": 25,
+            "nme": "EXTRA",
+            "dsc": "Ljava/lang/String;",
+            "val": "extra"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT",
+            "dsc": "Ljava/lang/String;",
+            "val": "nbt"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_INTERPRET",
+            "dsc": "Ljava/lang/String;",
+            "val": "interpret"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_BLOCK",
+            "dsc": "Ljava/lang/String;",
+            "val": "block"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_ENTITY",
+            "dsc": "Ljava/lang/String;",
+            "val": "entity"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_STORAGE",
+            "dsc": "Ljava/lang/String;",
+            "val": "storage"
+          },
+          {
+            "acc": 25,
+            "nme": "SEPARATOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "separator"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_ATLAS",
+            "dsc": "Ljava/lang/String;",
+            "val": "atlas"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_SPRITE",
+            "dsc": "Ljava/lang/String;",
+            "val": "sprite"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_HAT",
+            "dsc": "Ljava/lang/String;",
+            "val": "hat"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_PLAYER",
+            "dsc": "Ljava/lang/String;",
+            "val": "player"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_PLAYER_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_PLAYER_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_PLAYER_PROPERTIES",
+            "dsc": "Ljava/lang/String;",
+            "val": "properties"
+          },
+          {
+            "acc": 25,
+            "nme": "OBJECT_PLAYER_TEXTURE",
+            "dsc": "Ljava/lang/String;",
+            "val": "texture"
+          },
+          {
+            "acc": 25,
+            "nme": "PROFILE_PROPERTY_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "PROFILE_PROPERTY_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "PROFILE_PROPERTY_SIGNATURE",
+            "dsc": "Ljava/lang/String;",
+            "val": "signature"
+          },
+          {
+            "acc": 25,
+            "nme": "FONT",
+            "dsc": "Ljava/lang/String;",
+            "val": "font"
+          },
+          {
+            "acc": 25,
+            "nme": "COLOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "color"
+          },
+          {
+            "acc": 25,
+            "nme": "SHADOW_COLOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "shadow_color"
+          },
+          {
+            "acc": 25,
+            "nme": "INSERTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "insertion"
+          },
+          {
+            "acc": 131097,
+            "nme": "CLICK_EVENT_CAMEL",
+            "dsc": "Ljava/lang/String;",
+            "val": "clickEvent"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_SNAKE",
+            "dsc": "Ljava/lang/String;",
+            "val": "click_event"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_ACTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "action"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_URL",
+            "dsc": "Ljava/lang/String;",
+            "val": "url"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_PATH",
+            "dsc": "Ljava/lang/String;",
+            "val": "path"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_COMMAND",
+            "dsc": "Ljava/lang/String;",
+            "val": "command"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_PAGE",
+            "dsc": "Ljava/lang/String;",
+            "val": "page"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_PAYLOAD",
+            "dsc": "Ljava/lang/String;",
+            "val": "payload"
+          },
+          {
+            "acc": 131097,
+            "nme": "HOVER_EVENT_CAMEL",
+            "dsc": "Ljava/lang/String;",
+            "val": "hoverEvent"
+          },
+          {
+            "acc": 25,
+            "nme": "HOVER_EVENT_SNAKE",
+            "dsc": "Ljava/lang/String;",
+            "val": "hover_event"
+          },
+          {
+            "acc": 25,
+            "nme": "HOVER_EVENT_ACTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "action"
+          },
+          {
+            "acc": 131097,
+            "nme": "HOVER_EVENT_CONTENTS",
+            "dsc": "Ljava/lang/String;",
+            "val": "contents"
+          },
+          {
+            "acc": 131097,
+            "nme": "HOVER_EVENT_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 131097,
+            "nme": "SHOW_ENTITY_TYPE",
+            "dsc": "Ljava/lang/String;",
+            "val": "type"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_UUID",
+            "dsc": "Ljava/lang/String;",
+            "val": "uuid"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_COUNT",
+            "dsc": "Ljava/lang/String;",
+            "val": "count"
+          },
+          {
+            "acc": 131097,
+            "nme": "SHOW_ITEM_TAG",
+            "dsc": "Ljava/lang/String;",
+            "val": "tag"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_COMPONENTS",
+            "dsc": "Ljava/lang/String;",
+            "val": "components"
+          }
+        ]
+      }
+    }
+  }
+}

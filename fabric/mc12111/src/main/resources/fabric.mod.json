@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "void-mc12111",
+  "version": "${version}",
+  "name": "Void for 1.21.2+ built against 1.21.11",
+  "description": "A lightweight simulation anticheat for 1.21.2+, powered by PacketEvents 2.0.",
+  "authors": [
+    "Void"
+  ],
+  "license": "GPLv3",
+  "environment": "server",
+  "entrypoints": {
+    "voidMainLoad": [
+      "ac.voidac.platform.fabric.mc1216.VoidFabric12111LoaderPlugin"
+    ]
+  },
+  "accessWidener": "void.accesswidener",
+  "depends": {
+    "minecraft": ">=1.21.2",
+    "fabric-lifecycle-events-v1": "*"
+  }
+}

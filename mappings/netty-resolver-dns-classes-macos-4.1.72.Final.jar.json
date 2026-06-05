@@ -1,0 +1,206 @@
+{
+  "md5": "bc1ee14eff6ede355bd0d3e9dc8f67f8",
+  "sha2": "2d5645e4a9fadae08312ef9c7241285d02ac8995",
+  "sha256": "52e79ecdb923715d0fd074f17924fc5b7a629da78ada881f0648a88a7e38cde4",
+  "contents": {
+    "classes": {
+      "io/netty/resolver/dns/macos/DnsResolver.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/resolver/dns/macos/DnsResolver",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[[BI[Ljava/lang/String;Ljava/lang/String;II)V"
+          },
+          {
+            "nme": "domain",
+            "acc": 0,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "nameservers",
+            "acc": 0,
+            "dsc": "()[Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "port",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "searches",
+            "acc": 0,
+            "dsc": "()[Ljava/lang/String;"
+          },
+          {
+            "nme": "options",
+            "acc": 0,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "timeout",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "searchOrder",
+            "acc": 0,
+            "dsc": "()I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "domain",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "nameservers",
+            "dsc": "[Ljava/net/InetSocketAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "port",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "searches",
+            "dsc": "[Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "options",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "timeout",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "searchOrder",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/resolver/dns/macos/MacOSDnsServerAddressStreamProvider$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/resolver/dns/macos/MacOSDnsServerAddressStreamProvider$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "compare",
+            "acc": 1,
+            "dsc": "(Lio/netty/resolver/dns/macos/DnsResolver;Lio/netty/resolver/dns/macos/DnsResolver;)I"
+          },
+          {
+            "nme": "compare",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/Object;)I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/resolver/dns/macos/MacOSDnsServerAddressStreamProvider.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/resolver/dns/macos/MacOSDnsServerAddressStreamProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "loadNativeLibrary",
+            "acc": 10,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isAvailable",
+            "acc": 9,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "ensureAvailability",
+            "acc": 9,
+            "dsc": "()V"
+          },
+          {
+            "nme": "unavailabilityCause",
+            "acc": 9,
+            "dsc": "()Ljava/lang/Throwable;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "retrieveCurrentMappings",
+            "acc": 10,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Ljava/lang/String;Lio/netty/resolver/dns/DnsServerAddresses;>;"
+          },
+          {
+            "nme": "nameServerAddressStream",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/resolver/dns/DnsServerAddressStream;"
+          },
+          {
+            "nme": "resolvers",
+            "acc": 266,
+            "dsc": "()[Lio/netty/resolver/dns/macos/DnsResolver;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "RESOLVER_COMPARATOR",
+            "dsc": "Ljava/util/Comparator;",
+            "sig": "Ljava/util/Comparator<Lio/netty/resolver/dns/macos/DnsResolver;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "UNAVAILABILITY_CAUSE",
+            "dsc": "Ljava/lang/Throwable;"
+          },
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "REFRESH_INTERVAL",
+            "dsc": "J"
+          },
+          {
+            "acc": 66,
+            "nme": "currentMappings",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lio/netty/resolver/dns/DnsServerAddresses;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "lastRefresh",
+            "dsc": "Ljava/util/concurrent/atomic/AtomicLong;"
+          }
+        ]
+      }
+    }
+  }
+}

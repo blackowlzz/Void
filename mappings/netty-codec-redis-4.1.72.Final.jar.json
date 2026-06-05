@@ -1,0 +1,2842 @@
+{
+  "md5": "0705612764b2bc657efb2729760a32ba",
+  "sha2": "8c8cd4ec85daef3955be2b4bb4fdf37079362ef7",
+  "sha256": "7d73cb1f02db342dba8eae7231f6b2d7c09db1a0749324d8164290f30a757587",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/redis/RedisDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/redis/RedisDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$redis$RedisDecoder$State",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$redis$RedisMessageType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/FixedRedisMessagePool.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/FixedRedisMessagePool",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "getSimpleString",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/SimpleStringRedisMessage;"
+          },
+          {
+            "nme": "getSimpleString",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;)Lio/netty/handler/codec/redis/SimpleStringRedisMessage;"
+          },
+          {
+            "nme": "getSimpleString",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/SimpleStringRedisMessage;"
+          },
+          {
+            "nme": "getError",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/ErrorRedisMessage;"
+          },
+          {
+            "nme": "getError",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;)Lio/netty/handler/codec/redis/ErrorRedisMessage;"
+          },
+          {
+            "nme": "getError",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/ErrorRedisMessage;"
+          },
+          {
+            "nme": "getInteger",
+            "acc": 1,
+            "dsc": "(J)Lio/netty/handler/codec/redis/IntegerRedisMessage;"
+          },
+          {
+            "nme": "getInteger",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/IntegerRedisMessage;"
+          },
+          {
+            "nme": "getByteBufOfInteger",
+            "acc": 1,
+            "dsc": "(J)[B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "MIN_CACHED_INTEGER_NUMBER",
+            "dsc": "J",
+            "val": -1
+          },
+          {
+            "acc": 26,
+            "nme": "MAX_CACHED_INTEGER_NUMBER",
+            "dsc": "J",
+            "val": 128
+          },
+          {
+            "acc": 26,
+            "nme": "SIZE_CACHED_INTEGER_NUMBER",
+            "dsc": "I",
+            "val": 129
+          },
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteBufToSimpleStrings",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/redis/SimpleStringRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "stringToSimpleStrings",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lio/netty/handler/codec/redis/SimpleStringRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "keyToSimpleStrings",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;Lio/netty/handler/codec/redis/SimpleStringRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteBufToErrors",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/redis/ErrorRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "stringToErrors",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lio/netty/handler/codec/redis/ErrorRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "keyToErrors",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;Lio/netty/handler/codec/redis/ErrorRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteBufToIntegers",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/redis/IntegerRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "longToIntegers",
+            "dsc": "Lio/netty/util/collection/LongObjectMap;",
+            "sig": "Lio/netty/util/collection/LongObjectMap<Lio/netty/handler/codec/redis/IntegerRedisMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "longToByteBufs",
+            "dsc": "Lio/netty/util/collection/LongObjectMap;",
+            "sig": "Lio/netty/util/collection/LongObjectMap<[B>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/IntegerRedisMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/IntegerRedisMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()J"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/redis/RedisMessage",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/ErrorRedisMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/ErrorRedisMessage",
+        "super": "io/netty/handler/codec/redis/AbstractStringRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisMessageType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/redis/RedisMessageType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;ILjava/lang/Byte;Z)V",
+            "sig": "(Ljava/lang/Byte;Z)V"
+          },
+          {
+            "nme": "length",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isInline",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "readFrom",
+            "acc": 9,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Z)Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "nme": "writeTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 10,
+            "dsc": "(B)Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INLINE_COMMAND",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SIMPLE_STRING",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERROR",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "INTEGER",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BULK_STRING",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ARRAY_HEADER",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/Byte;"
+          },
+          {
+            "acc": 18,
+            "nme": "inline",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/redis/RedisMessageType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisConstants.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/RedisConstants",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "TYPE_LENGTH",
+            "dsc": "I",
+            "val": 1
+          },
+          {
+            "acc": 24,
+            "nme": "EOL_LENGTH",
+            "dsc": "I",
+            "val": 2
+          },
+          {
+            "acc": 24,
+            "nme": "NULL_LENGTH",
+            "dsc": "I",
+            "val": 2
+          },
+          {
+            "acc": 24,
+            "nme": "NULL_VALUE",
+            "dsc": "I",
+            "val": -1
+          },
+          {
+            "acc": 24,
+            "nme": "REDIS_MESSAGE_MAX_LENGTH",
+            "dsc": "I",
+            "val": 536870912
+          },
+          {
+            "acc": 24,
+            "nme": "REDIS_INLINE_MESSAGE_MAX_LENGTH",
+            "dsc": "I",
+            "val": 65536
+          },
+          {
+            "acc": 24,
+            "nme": "POSITIVE_LONG_MAX_LENGTH",
+            "dsc": "I",
+            "val": 19
+          },
+          {
+            "acc": 24,
+            "nme": "LONG_MAX_LENGTH",
+            "dsc": "I",
+            "val": 20
+          },
+          {
+            "acc": 24,
+            "nme": "NULL_SHORT",
+            "dsc": "S"
+          },
+          {
+            "acc": 24,
+            "nme": "EOL_SHORT",
+            "dsc": "S"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/SimpleStringRedisMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/SimpleStringRedisMessage",
+        "super": "io/netty/handler/codec/redis/AbstractStringRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/ArrayHeaderRedisMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/ArrayHeaderRedisMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "length",
+            "acc": 17,
+            "dsc": "()J"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "length",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisMessagePool.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/redis/RedisMessagePool",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getSimpleString",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/SimpleStringRedisMessage;"
+          },
+          {
+            "nme": "getSimpleString",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/SimpleStringRedisMessage;"
+          },
+          {
+            "nme": "getError",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/ErrorRedisMessage;"
+          },
+          {
+            "nme": "getError",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/ErrorRedisMessage;"
+          },
+          {
+            "nme": "getInteger",
+            "acc": 1025,
+            "dsc": "(J)Lio/netty/handler/codec/redis/IntegerRedisMessage;"
+          },
+          {
+            "nme": "getInteger",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/IntegerRedisMessage;"
+          },
+          {
+            "nme": "getByteBufOfInteger",
+            "acc": 1025,
+            "dsc": "(J)[B"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisDecoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/RedisDecoder",
+        "super": "io/netty/handler/codec/ByteToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/redis/RedisMessagePool;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/redis/RedisMessagePool;Z)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "resetDecoder",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decodeType",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeInline",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/util/List;)Z",
+            "sig": "(Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeLength",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/util/List;)Z",
+            "sig": "(Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeBulkString",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/util/List;)Z",
+            "sig": "(Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeBulkStringEndOfLine",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/util/List;)Z",
+            "sig": "(Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeBulkStringContent",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/util/List;)Z",
+            "sig": "(Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "readEndOfLine",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "newInlineRedisMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisMessageType;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/RedisMessage;"
+          },
+          {
+            "nme": "readLine",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "parseRedisNumber",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)J"
+          },
+          {
+            "nme": "parsePositiveNumber",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)J"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "toPositiveLongProcessor",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$ToPositiveLongProcessor;"
+          },
+          {
+            "acc": 18,
+            "nme": "decodeInlineCommands",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "maxInlineMessageLength",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "messagePool",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessagePool;"
+          },
+          {
+            "acc": 2,
+            "nme": "state",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 2,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessageType;"
+          },
+          {
+            "acc": 2,
+            "nme": "remainingBulkLength",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisCodecUtil.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/RedisCodecUtil",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "longToAsciiBytes",
+            "acc": 8,
+            "dsc": "(J)[B"
+          },
+          {
+            "nme": "makeShort",
+            "acc": 8,
+            "dsc": "(CC)S"
+          },
+          {
+            "nme": "shortToBytes",
+            "acc": 8,
+            "dsc": "(S)[B"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisArrayAggregator.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/RedisArrayAggregator",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeRedisArrayHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/redis/ArrayHeaderRedisMessage;)Lio/netty/handler/codec/redis/RedisMessage;"
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "depths",
+            "dsc": "Ljava/util/Deque;",
+            "sig": "Ljava/util/Deque<Lio/netty/handler/codec/redis/RedisArrayAggregator$AggregateState;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/ArrayRedisMessage$2.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/ArrayRedisMessage$2",
+        "super": "io/netty/handler/codec/redis/ArrayRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/DefaultLastBulkStringRedisContent.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/DefaultLastBulkStringRedisContent",
+        "super": "io/netty/handler/codec/redis/DefaultBulkStringRedisContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/LastBulkStringRedisContent$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/LastBulkStringRedisContent$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisDecoder$State.class": {
+        "ver": 50,
+        "acc": 16432,
+        "nme": "io/netty/handler/codec/redis/RedisDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "DECODE_TYPE",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DECODE_INLINE",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DECODE_LENGTH",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DECODE_BULK_STRING_EOL",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DECODE_BULK_STRING_CONTENT",
+            "dsc": "Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/redis/RedisDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/InlineCommandRedisMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/InlineCommandRedisMessage",
+        "super": "io/netty/handler/codec/redis/AbstractStringRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "OK",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PONG",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "QUEUED",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisReplyKey;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/BulkStringHeaderRedisMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/BulkStringHeaderRedisMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "bulkStringLength",
+            "acc": 17,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "bulkStringLength",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/FullBulkStringRedisMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/FullBulkStringRedisMessage",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/codec/redis/FullBulkStringRedisMessage$1;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "NULL_INSTANCE",
+            "dsc": "Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMPTY_INSTANCE",
+            "dsc": "Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/FullBulkStringRedisMessage$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/FullBulkStringRedisMessage$1",
+        "super": "io/netty/handler/codec/redis/FullBulkStringRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;ILjava/lang/String;)V",
+            "sig": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "ERR",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERR_IDX",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERR_NOKEY",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERR_SAMEOBJ",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ERR_SYNTAX",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BUSY",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BUSYKEY",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EXECABORT",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "LOADING",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MASTERDOWN",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MISCONF",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "NOREPLICAS",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "NOSCRIPT",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "OOM",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READONLY",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "WRONGTYPE",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 16409,
+            "nme": "NOT_AUTH",
+            "dsc": "Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          },
+          {
+            "acc": 18,
+            "nme": "msg",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/redis/FixedRedisMessagePool$RedisErrorKey;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/AbstractStringRedisMessage.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/redis/AbstractStringRedisMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 17,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisDecoder$ToPositiveLongProcessor.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/RedisDecoder$ToPositiveLongProcessor",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "process",
+            "acc": 1,
+            "dsc": "(B)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()J"
+          },
+          {
+            "nme": "reset",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisDecoder$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "result",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/RedisBulkStringAggregator.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/RedisBulkStringAggregator",
+        "super": "io/netty/handler/codec/MessageAggregator",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisMessage;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisMessage;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/BulkStringRedisContent;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisMessage;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/BulkStringHeaderRedisMessage;I)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/BulkStringHeaderRedisMessage;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "closeAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "ignoreContentAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/redis/BulkStringHeaderRedisMessage;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;I)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBufHolder;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/DefaultBulkStringRedisContent.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/DefaultBulkStringRedisContent",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/RedisEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisMessagePool;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "writeRedisMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/RedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeInlineCommandMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/InlineCommandRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/InlineCommandRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeSimpleStringMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/SimpleStringRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/SimpleStringRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeErrorMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ErrorRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ErrorRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeString",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/RedisMessageType;Ljava/lang/String;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/RedisMessageType;Ljava/lang/String;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeIntegerMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/IntegerRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/IntegerRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeBulkStringHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/BulkStringHeaderRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/BulkStringHeaderRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeBulkStringContent",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/BulkStringRedisContent;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/BulkStringRedisContent;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeFullBulkStringMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeArrayHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ArrayHeaderRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ArrayHeaderRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeArrayMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ArrayRedisMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/redis/ArrayRedisMessage;Ljava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "writeArrayHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;ZJLjava/util/List;)V",
+            "sig": "(Lio/netty/buffer/ByteBufAllocator;ZJLjava/util/List<Ljava/lang/Object;>;)V"
+          },
+          {
+            "nme": "numberToBytes",
+            "acc": 2,
+            "dsc": "(J)[B"
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "messagePool",
+            "dsc": "Lio/netty/handler/codec/redis/RedisMessagePool;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/FullBulkStringRedisMessage$2.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/FullBulkStringRedisMessage$2",
+        "super": "io/netty/handler/codec/redis/FullBulkStringRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/FullBulkStringRedisMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisCodecException.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/redis/RedisCodecException",
+        "super": "io/netty/handler/codec/CodecException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": 5570454251549268063
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/ArrayRedisMessage$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/ArrayRedisMessage$1",
+        "super": "io/netty/handler/codec/redis/ArrayRedisMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/RedisArrayAggregator$AggregateState.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/redis/RedisArrayAggregator$AggregateState",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisArrayAggregator$AggregateState;)Ljava/util/List;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/redis/RedisArrayAggregator$AggregateState;)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "length",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "children",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/redis/RedisMessage;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/BulkStringRedisContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/redis/BulkStringRedisContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/BulkStringRedisContent;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/redis/ArrayRedisMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/redis/ArrayRedisMessage",
+        "super": "io/netty/util/AbstractReferenceCounted",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Lio/netty/handler/codec/redis/RedisMessage;>;)V"
+          },
+          {
+            "nme": "children",
+            "acc": 17,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/redis/RedisMessage;>;"
+          },
+          {
+            "nme": "isNull",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/codec/redis/ArrayRedisMessage$1;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "children",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/redis/RedisMessage;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "NULL_INSTANCE",
+            "dsc": "Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMPTY_INSTANCE",
+            "dsc": "Lio/netty/handler/codec/redis/ArrayRedisMessage;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/redis/LastBulkStringRedisContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/redis/LastBulkStringRedisContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EMPTY_LAST_CONTENT",
+            "dsc": "Lio/netty/handler/codec/redis/LastBulkStringRedisContent;"
+          }
+        ]
+      }
+    }
+  }
+}

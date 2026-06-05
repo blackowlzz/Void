@@ -1,0 +1,736 @@
+{
+  "md5": "6be0440604d0cfcdae3258c9f6476a36",
+  "sha2": "0be07b3e282f9dbc1c0b24a65f0d442ebc504d4d",
+  "sha256": "803778584a5bf8fa5f17bab9b3b62450ee1310fd928f200f1683929a430c2664",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/key/KeyedValueImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/key/KeyedValueImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/key/Key;Ljava/lang/Object;)V",
+            "sig": "(Lnet/kyori/adventure/key/Key;TT;)V"
+          },
+          {
+            "nme": "key",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;",
+            "sig": "()TT;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "key",
+            "dsc": "Lnet/kyori/adventure/key/Key;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/Object;",
+            "sig": "TT;"
+          }
+        ]
+      },
+      "net/kyori/adventure/key/KeyImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/key/KeyImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "checkError",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/OptionalInt;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "allowedInNamespace",
+            "acc": 8,
+            "dsc": "(C)Z"
+          },
+          {
+            "nme": "allowedInValue",
+            "acc": 8,
+            "dsc": "(C)Z"
+          },
+          {
+            "nme": "namespace",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "asString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "asString",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/key/Key;)I"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "COMPARATOR",
+            "dsc": "Ljava/util/Comparator;",
+            "sig": "Ljava/util/Comparator<-Lnet/kyori/adventure/key/Key;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "NAMESPACE_PATTERN",
+            "dsc": "Ljava/lang/String;",
+            "val": "[a-z0-9_\\-.]+"
+          },
+          {
+            "acc": 24,
+            "nme": "VALUE_PATTERN",
+            "dsc": "Ljava/lang/String;",
+            "val": "[a-z0-9_\\-./]+"
+          },
+          {
+            "acc": 18,
+            "nme": "namespace",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "net/kyori/adventure/key/Keyed.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/key/Keyed",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "key",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/key/KeyPattern$Value.class": {
+        "ver": 52,
+        "acc": 9729,
+        "nme": "net/kyori/adventure/key/KeyPattern$Value",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/annotation/Documented;"
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Retention;",
+            "vals": [
+              "value",
+              [
+                "Ljava/lang/annotation/RetentionPolicy;",
+                "CLASS"
+              ]
+            ]
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Target;",
+            "vals": [
+              "value",
+              [
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "FIELD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "LOCAL_VARIABLE"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "METHOD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "PARAMETER"
+                ]
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/intellij/lang/annotations/Pattern;",
+            "vals": [
+              "value",
+              "[a-z0-9_\\-./]+"
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/key/Namespaced.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/key/Namespaced",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "namespace",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/key/KeyPattern$Namespace;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/key/KeyedValue.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/key/KeyedValue",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "keyedValue",
+            "acc": 9,
+            "dsc": "(Lnet/kyori/adventure/key/Key;Ljava/lang/Object;)Lnet/kyori/adventure/key/KeyedValue;",
+            "sig": "<T:Ljava/lang/Object;>(Lnet/kyori/adventure/key/Key;TT;)Lnet/kyori/adventure/key/KeyedValue<TT;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 131081,
+            "dsc": "(Lnet/kyori/adventure/key/Key;Ljava/lang/Object;)Lnet/kyori/adventure/key/KeyedValue;",
+            "sig": "<T:Ljava/lang/Object;>(Lnet/kyori/adventure/key/Key;TT;)Lnet/kyori/adventure/key/KeyedValue<TT;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "value",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/Object;",
+            "sig": "()TT;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/key/KeyPattern.class": {
+        "ver": 52,
+        "acc": 9729,
+        "nme": "net/kyori/adventure/key/KeyPattern",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/annotation/Documented;"
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Retention;",
+            "vals": [
+              "value",
+              [
+                "Ljava/lang/annotation/RetentionPolicy;",
+                "CLASS"
+              ]
+            ]
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Target;",
+            "vals": [
+              "value",
+              [
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "FIELD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "LOCAL_VARIABLE"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "METHOD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "PARAMETER"
+                ]
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/intellij/lang/annotations/Pattern;",
+            "vals": [
+              "value",
+              "(?:([a-z0-9_\\-.]+:)?|:)[a-z0-9_\\-./]+"
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/key/InvalidKeyException.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/key/InvalidKeyException",
+        "super": "java/lang/RuntimeException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "keyNamespace",
+            "acc": 17,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "keyValue",
+            "acc": 17,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": -5413304087321449434
+          },
+          {
+            "acc": 18,
+            "nme": "keyNamespace",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "keyValue",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "net/kyori/adventure/key/Key.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/key/Key",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "key",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "key",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;C)Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "key",
+            "acc": 9,
+            "dsc": "(Lnet/kyori/adventure/key/Namespaced;Ljava/lang/String;)Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "key",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "comparator",
+            "acc": 9,
+            "dsc": "()Ljava/util/Comparator;",
+            "sig": "()Ljava/util/Comparator<-Lnet/kyori/adventure/key/Key;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "parseable",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Z"
+          },
+          {
+            "nme": "parseableNamespace",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Z"
+          },
+          {
+            "nme": "checkNamespace",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Ljava/util/OptionalInt;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "parseableValue",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Z"
+          },
+          {
+            "nme": "checkValue",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Ljava/util/OptionalInt;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "allowedInNamespace",
+            "acc": 9,
+            "dsc": "(C)Z"
+          },
+          {
+            "nme": "allowedInValue",
+            "acc": 9,
+            "dsc": "(C)Z"
+          },
+          {
+            "nme": "namespace",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/key/KeyPattern$Namespace;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "value",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/key/KeyPattern$Value;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "asString",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "asMinimalString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/key/Key;)I"
+          },
+          {
+            "nme": "key",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "MINECRAFT_NAMESPACE",
+            "dsc": "Ljava/lang/String;",
+            "val": "minecraft"
+          },
+          {
+            "acc": 25,
+            "nme": "DEFAULT_SEPARATOR",
+            "dsc": "C",
+            "val": 58
+          }
+        ]
+      },
+      "net/kyori/adventure/key/KeyPattern$Namespace.class": {
+        "ver": 52,
+        "acc": 9729,
+        "nme": "net/kyori/adventure/key/KeyPattern$Namespace",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/annotation/Documented;"
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Retention;",
+            "vals": [
+              "value",
+              [
+                "Ljava/lang/annotation/RetentionPolicy;",
+                "CLASS"
+              ]
+            ]
+          },
+          {
+            "dsc": "Ljava/lang/annotation/Target;",
+            "vals": [
+              "value",
+              [
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "FIELD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "LOCAL_VARIABLE"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "METHOD"
+                ],
+                [
+                  "Ljava/lang/annotation/ElementType;",
+                  "PARAMETER"
+                ]
+              ]
+            ]
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/intellij/lang/annotations/Pattern;",
+            "vals": [
+              "value",
+              "[a-z0-9_\\-.]+"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

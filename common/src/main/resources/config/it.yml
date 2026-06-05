@@ -1,0 +1,349 @@
+# Configurazione di Void — https://github.com/blackowlzz/Void
+# Copyright 2025 MWHunter (DefineOutside), blackowlzz and contributors, Licenza GPLv3.
+
+# ─── Generale ────────────────────────────────────────────────────────────────
+
+alerts:
+    # Invia gli avvisi di violazione anche alla console oltre che allo staff online.
+    print-to-console: true
+    proxy:
+        # Invia gli avvisi agli altri server del proxy (BungeeCord/Velocity).
+        # Richiede bungee-plugin-message-channel abilitato in Velocity se usato.
+        send: false
+        receive: false
+
+verbose:
+    print-to-console: false
+
+check-for-updates: true
+experimental-checks: false
+
+client-brand:
+    # Regex dei client il cui brand viene ignorato silenziosamente e non trasmesso agli op.
+    ignored-clients:
+        - "^vanilla$"
+        - "^fabric$"
+        - "^quilt$"
+        - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
+        - "^Feather Fabric$"
+        - "^labymod$"
+    # Disconnette i client Forge 1.18.2–1.19.3 che includono reach hack integrati.
+    disconnect-blacklisted-forge-versions: true
+
+spectators:
+    # Nascondi gli spettatori con il permesso void.spectator anche quando non spettano attivamente.
+    hide-regardless: false
+    # Limita il nascondimento degli spettatori ai mondi specificati. Lasciare vuoto per tutti.
+    allowed-worlds:
+        - ""
+
+# Secondi prima di espellere un giocatore che smette di rispondere alle keep-alive.
+max-transaction-time: 60
+
+# Chiave API Pastebin per /void debug. Lasciare vuoto per salvare i log localmente.
+pastebin-api-key: ""
+
+# ─── Check ───────────────────────────────────────────────────────────────────
+
+Simulation:
+    # Moltiplicatore di decadimento del vantaggio accumulato durante il movimento legittimo.
+    setback-decay-multiplier: 0.999
+    # Offset minimo per sollevare una violazione. Valore più basso = più restrittivo.
+    threshold: 0.001
+    # Offset in un singolo tick che attiva un setback immediato. -1 per disabilitare.
+    immediate-setback-threshold: 0.1
+    # Vantaggio totale accumulato prima che inizino i setback. -1 per disabilitare.
+    max-advantage: 1
+    # Limite massimo del vantaggio per evitare accumulo infinito.
+    max-ceiling: 4
+    setback-violation-threshold: 1
+
+Knockback:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+
+Explosion:
+    threshold: 0.001
+    setbackvl: 3
+
+Phase:
+    setbackvl: 1
+    decay: 0.005
+
+NoSlow:
+    threshold: 0.001
+    setbackvl: 5
+    decay: 0.05
+
+Reach:
+    # Espansione della hitbox per il rilevamento. 0.0005 rileva tutto sopra 3.0005 blocchi.
+    threshold: 0.0005
+    block-impossible-hits: true
+    # Invia un pacchetto extra per tick per migliorare la copertura.
+    # Aumenta leggermente la banda. Consigliato solo per server PvP 1.8.
+    enable-post-packet: false
+
+TimerA:
+    setbackvl: 10
+    # Millisecondi di bilanciamento timer accumulabili per compensare il lag.
+    drift: 120
+
+TimerLimit:
+    # Soglia di ping oltre la quale il limitatore di bilanciamento timer si attiva. -1 per disabilitare.
+    ping-abuse-limit-threshold: 1000
+
+NegativeTimer:
+    # Millisecondi di deficit di movimento prima di segnalare. -1 per disabilitare.
+    drift: 1200
+
+VehicleTimer:
+    setbackvl: 10
+
+AirLiquidPlace:
+    cancelvl: 0
+
+FabricatedPlace:
+    cancelvl: 5
+
+FarPlace:
+    cancelvl: 5
+
+PositionPlace:
+    cancelvl: 5
+
+RotationPlace:
+    cancelvl: 5
+
+PacketOrderI:
+    # Abilitare se i giocatori con mod di animazioni 1.7 vengono segnalati erroneamente.
+    exempt-placing-while-digging: false
+
+exploit:
+    # Previene l'exploit di velocità con sprint+salto in elytra.
+    allow-sprint-jumping-when-using-elytra: true
+    # Risincronizza il giocatore quando piazza blocchi su ghost block.
+    allow-building-on-ghostblocks: true
+    # Distanza di controllo per i ghost block. Range valido: 2–4.
+    distance-to-check-if-ghostblocks: 2
+
+    auto-totem:
+        autopunish:
+            enabled: false
+            # kick o ban
+            action: ban
+            # Durata del ban passata al custom-ban-command quando action=ban.
+            duration: "1d"
+            # Placeholder: %check_name%  %vl%
+            reason: |
+                &cAutoTotem rilevato.
+                &7Check: &f%check_name% &8(&dVL %vl%&8)
+            # Se true, esegue il comando seguente dalla console al posto del ban interno.
+            prefer-custom-ban: false
+            # Template del comando. Placeholder: {player}  {duration}  {reason}
+            # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+            # AdvancedBan: "ban {player} {reason} -t {duration}"
+            # EssentialsX: "ban {player} {reason}"
+            custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Punizioni ───────────────────────────────────────────────────────────────
+
+punishments:
+
+    auto-punish:
+        enabled: false
+        # Flag totali su tutti i check prima che Void agisca.
+        threshold: 10
+        # kick o ban
+        action: ban
+        # Durata: "7d", "30d", "24h", "permanent"
+        duration: "7d"
+        # Placeholder: %check_name%  %vl%  %ban_id%  %date%  %duration%
+        reason: |
+            &5VoidAC
+            &cAccount Sospeso
+            &7Ban ID: &d%ban_id%
+            &7Durata: &f%duration%
+        # URL di appello opzionale mostrato in fondo al messaggio di espulsione.
+        support-link: ""
+        # Messaggio in broadcast a tutti i giocatori quando scatta la punizione.
+        broadcast-message: "&8[&5Void&8] &f%player% &cè stato bannato &7per gioco scorretto."
+        # Se true, esegue il comando seguente dalla console al posto del ban interno.
+        prefer-custom-ban: false
+        # Template del comando. Placeholder: {player}  {duration}  {reason}
+        # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+        # AdvancedBan: "ban {player} {reason} -t {duration}"
+        # EssentialsX: "ban {player} {reason}"
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+    manual-punish:
+        # Durata predefinita per /void punish quando non viene specificata.
+        duration: "7d"
+        # Placeholder: {player}  {issued_by}  {duration}  {ban_id}  {date}
+        reason: |
+            &5VoidAC
+            &cAccount Sospeso
+            &7Bannato da: &f{issued_by}
+            &7Ban ID: &d{ban_id}
+            &7Durata: &f{duration}
+        # Se true, esegue il comando seguente dalla console al posto del ban interno.
+        prefer-custom-ban: false
+        # Template del comando. Placeholder: {player}  {duration}  {reason}
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Ban Wave ────────────────────────────────────────────────────────────────
+# Metti i giocatori in coda e bannali tutti in una volta.
+# /void banwave add <player> [duration]  — aggiunge alla coda
+# /void banwave execute                  — banna tutti nella coda ora
+
+ban-wave:
+    enabled: true
+    # Se true, auto-punish mette in coda invece di bannare subito.
+    queue-on-auto-punish: false
+    # Giorni tra le esecuzioni automatiche. 0 = solo manuale.
+    auto-execute-days: 7
+    # Durata predefinita del ban. Sovrascrivibile con /void banwave add <player> <duration>.
+    duration: "7d"
+    # Placeholder: {wave}  {player}  {check}  {ban_id}  {date}  {duration}
+    reason: |
+        &5VoidAC
+        &cAccount Sospeso
+        &7Ban Wave: &d#{wave}
+        &7Ban ID: &d{ban_id}
+        &7Durata: &f{duration}
+    # Placeholder: {wave}  {count}
+    broadcast: "&8[&5Void&8] &7Ban Wave &d#{wave} &7eseguita — &d{count} &7giocatori rimossi."
+    # Se true, esegue il comando seguente dalla console al posto del ban interno.
+    prefer-custom-ban: false
+    # Template del comando. Placeholder: {player}  {duration}  {reason}
+    # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+    # AdvancedBan: "ban {player} {reason} -t {duration}"
+    custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+
+storage-esp-decoys:
+    # Invia blocchi di storage falsi (casse, botti, shulker) per confondere i client ESP.
+    # I giocatori con il permesso void.storageesp bypassano i decoy.
+    enabled: false
+    # Blocchi falsi iniettati per chunk. Consigliati 10–20.
+    decoys-per-chunk: 20
+    include-client-side-blocks: false
+    # Interazioni con un decoy prima del flag automatico. -1 per disabilitare.
+    auto-flag-threshold: 16
+
+# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+# Configura l'anti-xray integrato di Paper all'avvio. Solo server Paper.
+# Richiede un riavvio completo per applicare i cambiamenti.
+
+AntiXray:
+    # Impostare true per far scrivere a Void le impostazioni di seguito nel config di Paper.
+    configure-paper: false
+    # 1 = sostituisce i minerali con pietra lato client (debole)
+    # 2 = invia blocchi falsi al posto dei minerali (consigliato)
+    engine-mode: 2
+    max-block-height: 320
+    # Raggio intorno all'aria esposta dove i dati reali vengono rivelati al client.
+    update-radius: 16
+    hidden-blocks:
+        - air
+        # Minerali
+        - copper_ore
+        - deepslate_copper_ore
+        - raw_copper_block
+        - iron_ore
+        - deepslate_iron_ore
+        - gold_ore
+        - deepslate_gold_ore
+        - diamond_ore
+        - deepslate_diamond_ore
+        - emerald_ore
+        - deepslate_emerald_ore
+        - lapis_ore
+        - deepslate_lapis_ore
+        - redstone_ore
+        - deepslate_redstone_ore
+        - coal_ore
+        - deepslate_coal_ore
+        - nether_quartz_ore
+        - nether_gold_ore
+        - ancient_debris
+        # Blocchi di storage
+        - chest
+        - trapped_chest
+        - barrel
+        - ender_chest
+        - shulker_box
+        - white_shulker_box
+        - orange_shulker_box
+        - magenta_shulker_box
+        - light_blue_shulker_box
+        - yellow_shulker_box
+        - lime_shulker_box
+        - pink_shulker_box
+        - gray_shulker_box
+        - light_gray_shulker_box
+        - cyan_shulker_box
+        - purple_shulker_box
+        - blue_shulker_box
+        - brown_shulker_box
+        - green_shulker_box
+        - red_shulker_box
+        - black_shulker_box
+    replacement-blocks:
+        - stone
+        - deepslate
+        - granite
+        - diorite
+        - andesite
+        - dirt
+        - gravel
+        - tuff
+        - calcite
+        - smooth_basalt
+        - coal_ore
+        - deepslate_coal_ore
+
+# ─── Ottimizzatore Soglie ─────────────────────────────────────────────────────
+# Analizza i flag in tempo reale e suggerisce soglie di punizione più sicure.
+# Comandi: /void optimizer start | stop | status | save | discard
+# Richiede il permesso void.optimizer. Tagga i giocatori legit con void.optimizer.legit.
+
+threshold-optimizer:
+    enabled: false
+
+# ─── Avanzato ────────────────────────────────────────────────────────────────
+
+# Numero massimo di cancellazioni pacchetti illegali al secondo prima dell'espulsione.
+packet-spam-threshold: 100
+debug-packet-cancel: false
+
+# Ping massimo (ms) per i giocatori non in volo. -1 per disabilitare.
+max-ping-out-of-flying: 1000
+# Ping massimo (ms) con un boost di fuochi d'artificio in elytra attivo. -1 per disabilitare.
+max-ping-firework-boost: 1000
+
+# Disabilita la cancellazione dei pacchetti pong da parte di Void.
+disable-pong-cancelling: false
+
+# Disabilita il gestore di risincronizzazione blocchi predefinito.
+# Abilitare se usi plugin che creano blocchi falsi via pacchetti.
+disable-default-resync-handler: false
+
+# Cancella i pacchetti di movimento duplicati dei client 1.17–1.20.5 su server 1.8.
+cancel-duplicate-packet: true
+ignore-duplicate-packet-rotation: false
+
+# Reimposta il tracking dell'uso degli oggetti a questi eventi per prevenire bypass.
+reset-item-usage-on-item-update: true
+reset-item-usage-on-attack: true
+reset-item-usage-on-slot-change: true
+reset-item-usage-on-item-use: true
+
+# Logga i plugin che hanno iniettato nella pipeline Netty al join (debug compatibilità).
+debug-pipeline-on-join: false
+
+config-flavor: V2
+config-version: 19

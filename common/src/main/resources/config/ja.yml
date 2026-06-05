@@ -1,0 +1,289 @@
+# Void 設定ファイル — https://github.com/blackowlzz/Void
+# Copyright 2025 MWHunter (DefineOutside), blackowlzz and contributors, GPLv3ライセンス.
+
+# ─── 一般設定 ─────────────────────────────────────────────────────────────────
+
+alerts:
+    # 違反アラートをオンラインスタッフだけでなくコンソールにも送信する。
+    print-to-console: true
+    proxy:
+        # プロキシの他のサーバーにアラートを転送する (BungeeCord/Velocity)。
+        send: false
+        receive: false
+
+verbose:
+    print-to-console: false
+
+check-for-updates: true
+experimental-checks: false
+
+client-brand:
+    # 無視するクライアントブランドの正規表現リスト（OPに通知しない）。
+    ignored-clients:
+        - "^vanilla$"
+        - "^fabric$"
+        - "^quilt$"
+        - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
+        - "^Feather Fabric$"
+        - "^labymod$"
+    # 内蔵リーチハックを持つForge 1.18.2–1.19.3クライアントを切断する。
+    disconnect-blacklisted-forge-versions: true
+
+spectators:
+    # void.spectatorパーミッションを持つ観戦者を常に非表示にする。
+    hide-regardless: false
+    # 観戦者を非表示にするワールドを指定。空白=全ワールド。
+    allowed-worlds:
+        - ""
+
+# キープアライブに応答しなくなったプレイヤーをキックするまでの秒数。
+max-transaction-time: 60
+
+# /void debug アップロード用PastebinaAPIキー。空白でローカル保存。
+pastebin-api-key: ""
+
+# ─── チェック ─────────────────────────────────────────────────────────────────
+
+Simulation:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+    setback-violation-threshold: 1
+
+Knockback:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+
+Explosion:
+    threshold: 0.001
+    setbackvl: 3
+
+Phase:
+    setbackvl: 1
+    decay: 0.005
+
+NoSlow:
+    threshold: 0.001
+    setbackvl: 5
+    decay: 0.05
+
+Reach:
+    threshold: 0.0005
+    block-impossible-hits: true
+    enable-post-packet: false
+
+TimerA:
+    setbackvl: 10
+    drift: 120
+
+TimerLimit:
+    ping-abuse-limit-threshold: 1000
+
+NegativeTimer:
+    drift: 1200
+
+VehicleTimer:
+    setbackvl: 10
+
+AirLiquidPlace:
+    cancelvl: 0
+
+FabricatedPlace:
+    cancelvl: 5
+
+FarPlace:
+    cancelvl: 5
+
+PositionPlace:
+    cancelvl: 5
+
+RotationPlace:
+    cancelvl: 5
+
+PacketOrderI:
+    # 1.7アニメーションModを使用しているプレイヤーが誤検知される場合に有効化。
+    exempt-placing-while-digging: false
+
+exploit:
+    allow-sprint-jumping-when-using-elytra: true
+    allow-building-on-ghostblocks: true
+    distance-to-check-if-ghostblocks: 2
+
+    auto-totem:
+        autopunish:
+            enabled: false
+            action: ban
+            duration: "1d"
+            reason: |
+                &cAutoTotemが検出されました。
+                &7Check: &f%check_name% &8(&dVL %vl%&8)
+            # trueの場合、内部banの代わりに以下のコマンドをコンソールで実行します。
+            prefer-custom-ban: false
+            # コマンドテンプレート。プレースホルダー: {player}  {duration}  {reason}
+            # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+            # AdvancedBan: "ban {player} {reason} -t {duration}"
+            # EssentialsX: "ban {player} {reason}"
+            custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── 処罰 ────────────────────────────────────────────────────────────────────
+
+punishments:
+
+    auto-punish:
+        enabled: false
+        threshold: 10
+        action: ban
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &cアカウント停止
+            &7BAN ID: &d%ban_id%
+            &7期間: &f%duration%
+        support-link: ""
+        broadcast-message: "&8[&5Void&8] &f%player% &cが不正行為のためBANされました。"
+        # trueの場合、内部banの代わりに以下のコマンドをコンソールで実行します。
+        prefer-custom-ban: false
+        # コマンドテンプレート。プレースホルダー: {player}  {duration}  {reason}
+        # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+        # AdvancedBan: "ban {player} {reason} -t {duration}"
+        # EssentialsX: "ban {player} {reason}"
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+    manual-punish:
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &cアカウント停止
+            &7BANした人: &f{issued_by}
+            &7BAN ID: &d{ban_id}
+            &7期間: &f{duration}
+        prefer-custom-ban: false
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── BAN WAVE ────────────────────────────────────────────────────────────────
+# /void banwave add <player> [duration]  — キューに追加
+# /void banwave execute                  — 今すぐ全員BAN
+
+ban-wave:
+    enabled: true
+    queue-on-auto-punish: false
+    auto-execute-days: 7
+    duration: "7d"
+    reason: |
+        &5VoidAC
+        &cアカウント停止
+        &7BAN WAVE: &d#{wave}
+        &7BAN ID: &d{ban_id}
+        &7期間: &f{duration}
+    broadcast: "&8[&5Void&8] &7BAN WAVE &d#{wave} &7実行完了 — &d{count} &7人のプレイヤーが削除されました。"
+    prefer-custom-ban: false
+    # コマンドテンプレート。プレースホルダー: {player}  {duration}  {reason}
+    # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+    # AdvancedBan: "ban {player} {reason} -t {duration}"
+    custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+
+storage-esp-decoys:
+    enabled: false
+    decoys-per-chunk: 20
+    include-client-side-blocks: false
+    auto-flag-threshold: 16
+
+# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+
+AntiXray:
+    configure-paper: false
+    engine-mode: 2
+    max-block-height: 320
+    update-radius: 16
+    hidden-blocks:
+        - air
+        - copper_ore
+        - deepslate_copper_ore
+        - raw_copper_block
+        - iron_ore
+        - deepslate_iron_ore
+        - gold_ore
+        - deepslate_gold_ore
+        - diamond_ore
+        - deepslate_diamond_ore
+        - emerald_ore
+        - deepslate_emerald_ore
+        - lapis_ore
+        - deepslate_lapis_ore
+        - redstone_ore
+        - deepslate_redstone_ore
+        - coal_ore
+        - deepslate_coal_ore
+        - nether_quartz_ore
+        - nether_gold_ore
+        - ancient_debris
+        - chest
+        - trapped_chest
+        - barrel
+        - ender_chest
+        - shulker_box
+        - white_shulker_box
+        - orange_shulker_box
+        - magenta_shulker_box
+        - light_blue_shulker_box
+        - yellow_shulker_box
+        - lime_shulker_box
+        - pink_shulker_box
+        - gray_shulker_box
+        - light_gray_shulker_box
+        - cyan_shulker_box
+        - purple_shulker_box
+        - blue_shulker_box
+        - brown_shulker_box
+        - green_shulker_box
+        - red_shulker_box
+        - black_shulker_box
+    replacement-blocks:
+        - stone
+        - deepslate
+        - granite
+        - diorite
+        - andesite
+        - dirt
+        - gravel
+        - tuff
+        - calcite
+        - smooth_basalt
+        - coal_ore
+        - deepslate_coal_ore
+
+# ─── 閾値オプティマイザー ─────────────────────────────────────────────────────
+
+threshold-optimizer:
+    enabled: false
+
+# ─── 詳細設定 ─────────────────────────────────────────────────────────────────
+
+packet-spam-threshold: 100
+debug-packet-cancel: false
+
+max-ping-out-of-flying: 1000
+max-ping-firework-boost: 1000
+
+disable-pong-cancelling: false
+disable-default-resync-handler: false
+
+cancel-duplicate-packet: true
+ignore-duplicate-packet-rotation: false
+
+reset-item-usage-on-item-update: true
+reset-item-usage-on-attack: true
+reset-item-usage-on-slot-change: true
+reset-item-usage-on-item-use: true
+
+debug-pipeline-on-join: false
+
+config-flavor: V2
+config-version: 19

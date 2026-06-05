@@ -1,0 +1,126 @@
+# \u00BB eşittir » (çift >>), ANSI ve UTF-8 bunu farklı yorumlar. bu nedenle ? bile görebilirsiniz
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Uyarılar &aetkin&7."
+alerts-disabled: "%prefix% &7Uyarılar &cdevre dışı&7."
+verbose-enabled: "%prefix% &7Verbose &aetkin&7."
+verbose-disabled: "%prefix% &7Verbose &cdevre dışı&7."
+brands-enabled: "%prefix% &7Marka takibi &aetkin&7."
+brands-disabled: "%prefix% &7Marka takibi &cdevre dışı&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &cKonsol olarak bir hedef belirtmelisiniz!"
+reloading: "%prefix% &7Yeniden yükleniyor..."
+reloaded: "%prefix% &7Yapılandırma &ayeniden yüklendi&7."
+reload-failed: "%prefix% &7Yeniden yükleme &cbaşarısız&7."
+player-not-found: "%prefix% &cOyuncu bulunamadı veya aktif değil!"
+player-not-this-server: "%prefix% &cBu oyuncu sunucuda değil!"
+sender-not-found: "%prefix% &cMuafsanız bu komutu kullanamazsınız!"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fBir önceki konuma dönmek için buraya tıklayın.\n</hover></click>"
+cannot-spectate-return: "%prefix% &cBunu yalnızca bir oyuncuyu izledikten sonra yapabilirsiniz."
+cannot-run-on-self: "%prefix% &cBu komutu kendi üzerinizde kullanamazsınız!"
+upload-log: "%prefix% &fDebug şu adrese yüklendi: %url%"
+upload-log-start: "%prefix% &fLog yükleniyor... lütfen bekleyin."
+upload-log-not-found: "%prefix% &cLog bulunamadı."
+upload-log-upload-failure: "%prefix% &cLog yüklenirken bir problem oluştu, lütfen konsolu kontrol edin."
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cBu komut yalnızca oyuncular tarafından kullanılabilir!"
+run-as-player-or-console: "%prefix% &cBu komut yalnızca oyuncular veya konsol tarafından kullanılabilir!"
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void webhook test succeeded!"
+webhook-test-failed: "Void webhook test failed!"
+
+# Geçerli placeholderlar:
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - ihlal uyarıları
+# %verbose% - detaylı olarak verilen tüm uyarılar, checkler tüm bilgileri vermez
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+
+profile:
+    - ""
+    - "  %prefix% &5Profil &8─ &f%player%"
+    - "  &8▸ &7Gecikme     &f%ping% ms"
+    - "  &8▸ &7Versiyon    &f%version%"
+    - "  &8▸ &7Client      &f%brand%"
+    - "  &8▸ &7Hassasiyet  &fY %h_sensitivity%% &8│ &fD %v_sensitivity%%"
+    - "  &8▸ &7FastMath    &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Uyarıları aç/kapat"
+    - "  &5/void verbose             &8│ &7Verbose'u aç/kapat"
+    - "  &5/void brands              &8│ &7Marka takibini aç/kapat"
+    - "  &5/void profile &8<oyuncu>    &8│ &7Oyuncu profilini görüntüle"
+    - "  &5/void debug &8<oyuncu>      &8│ &7Debug trace görüntüle"
+    - "  &5/void spectate &8<oyuncu>   &8│ &7Oyuncu izle"
+    - "  &5/void history &8<oyuncu>    &8│ &7Oturum geçmişi"
+    - "  &5/void log &8[0-255]         &8│ &7Debug log yükle"
+    - "  &5/void perf                &8│ &7Tahmin zamanlarını görüntüle"
+    - "  &5/void reload              &8│ &7Yapılandırmayı yeniden yükle"
+    - "  &5/void version             &8│ &7Güncellemeleri kontrol et"
+    - "  &5/void punish &8<oyuncu>     &8│ &7Oyuncuyu manuel cezalandır"
+    - "  &5/void banwave             &8│ &7Ban dalgasını yönet"
+    - "  &5/void punishments &8<query> &8│ &7Ceza kayıtlarını ara"
+
+# === /void history ===
+# Oturum tabanlı geçmiş arayüzü. Aşağıdaki tüm satırlar tamamen yapılandırılabilir;
+# placeholder'lar her anahtarda belgelenmiştir. Oturum ve ihlal satırlarındaki
+# hover metni, ham verilerden (verbose, kontrol kırılımı) renderer tarafından
+# üretilir; bir şablona ihtiyaç yoktur. Yine de herhangi bir satıra
+# <hover:show_text:'...'> ekleyerek üzerine ek tooltip katmanı koyabilirsin.
+
+void-history-load-failure: "%prefix% &cGeçmiş altsistemi yüklenemedi! Hatalar için sunucu konsolunu kontrol edin."
+void-history-disabled: "%prefix% &cGeçmiş alt sistemi devre dışı!"
+void-history-failed: "%prefix% &cGeçmiş yüklenemedi: &7%error%"
+void-history-unknown-player: "%prefix% &cBilinmeyen oyuncu: &f%player%"
+void-history-no-sessions: "%prefix% &7&f%player% &7için oturum geçmişi yok."
+void-history-session-not-found: "%prefix% &c&f%player% &ciçin &f%ordinal% &cnumaralı oturum bulunamadı."
+
+# Oturum listesi — geçerli placeholder'lar: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Tek oturum özeti satırı — geçerli placeholder'lar:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# Bağlantısı düzgün kapanmadan kopan oturumlar (sunucu çökmesi, kill -9,
+# UserDisconnectEvent tetiklemeyen channel RST gibi) için %crashed_marker%
+# void-history-crashed-marker olarak genişler. Devam eden veya düzgün
+# kapatılmış oturumlarda boş string olur.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# closed_at == last_activity olan oturumlar (yani disconnect yolu yerine bir
+# sonraki başlatmanın crash-sweep'i tarafından damgalananlar) için
+# %crashed_marker%'a yerleştirilen satır içi işaret. Var olduğunda doğal
+# okunsun, yokken temiz kaybolsun diye başında bir boşluk içerir.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Oturum detayı — geçerli placeholder'lar:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Versiyon &f%void_version% &8│ &7Sunucu &f%server_name% &8│ &7Süre &f%duration% &8│ &7%timeago% önce"
+void-history-detail-meta2: "  &8▸ &7İstemci &f%client_version% &8│ &7Marka &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7ihlal &8(&d%unique_checks% &7benzersiz&8)"
+void-history-detail-empty: "  &8▸ &7(yok)"
+# Gruplanmış satır (varsayılan) — geçerli placeholder'lar: %prefix% %offset% %checks_list%
+#   %checks_list%, void-history-check-count girdileri ", " ile birleştirilerek oluşur
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Tek ham ihlal satırı (--detailed) — geçerli placeholder'lar:
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# %checks_list% içinde her kontrol için iç biçim — geçerli placeholder'lar: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+config-flavor: V2
+config-version: 1

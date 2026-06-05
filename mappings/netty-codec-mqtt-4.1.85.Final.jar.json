@@ -1,0 +1,4200 @@
+{
+  "md5": "75b27ac003618d64cca476d3753d5d03",
+  "sha2": "b53bbe8fa4bf9813ebc3ce3b59dc9487a025ced9",
+  "sha256": "45a62d2fc43581cf2ea8ab06269665959408ad176bceeb706fcfa500bfe16912",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/mqtt/MqttEncoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/mqtt/MqttEncoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttMessageType",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttProperties$MqttPropertyType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "reasonCode",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder;"
+          },
+          {
+            "nme": "packetId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder;"
+          },
+          {
+            "nme": "packetId",
+            "acc": 131073,
+            "dsc": "(S)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "packetId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "reasonCode",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttUnsubscribePayload.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttUnsubscribePayload",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/String;>;)V"
+          },
+          {
+            "nme": "topics",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "topics",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/String;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageFactory.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageFactory",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "newMessage",
+            "acc": 9,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Ljava/lang/Object;Ljava/lang/Object;)Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "nme": "newInvalidMessage",
+            "acc": 9,
+            "dsc": "(Ljava/lang/Throwable;)Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "nme": "newInvalidMessage",
+            "acc": 9,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Ljava/lang/Object;Ljava/lang/Throwable;)Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttFixedHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttFixedHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttMessageType;ZLio/netty/handler/codec/mqtt/MqttQoS;ZI)V"
+          },
+          {
+            "nme": "messageType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "nme": "isDup",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "qosLevel",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "isRetain",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "remainingLength",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "messageType",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 18,
+            "nme": "isDup",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "qosLevel",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 18,
+            "nme": "isRetain",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "remainingLength",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$PropertiesInitializer.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$PropertiesInitializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "apply",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)V",
+            "sig": "(TT;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageIdVariableHeader.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageIdVariableHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "from",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "messageId",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "withEmptyProperties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "withDefaultEmptyProperties",
+            "acc": 0,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "messageId",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Ljava/lang/Object;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Ljava/lang/Object;Ljava/lang/Object;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Ljava/lang/Object;Ljava/lang/Object;Lio/netty/handler/codec/DecoderResult;)V"
+          },
+          {
+            "nme": "fixedHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "mqttFixedHeader",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "acc": 18,
+            "nme": "variableHeader",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 18,
+            "nme": "payload",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 18,
+            "nme": "decoderResult",
+            "dsc": "Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "acc": 25,
+            "nme": "PINGREQ",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "acc": 25,
+            "nme": "PINGRESP",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "acc": 25,
+            "nme": "DISCONNECT",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessage;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doEncode",
+            "acc": 8,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeConnectMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttConnectMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "getConnVariableHeaderFlag",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttConnectVariableHeader;)I"
+          },
+          {
+            "nme": "encodeConnAckMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttConnAckMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeSubscribeMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttSubscribeMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeUnsubscribeMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttUnsubscribeMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeSubAckMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttSubAckMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeUnsubAckMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttUnsubAckMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodePublishMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttPublishMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodePubReplyMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeMessageWithOnlySingleByteFixedHeaderAndMessageId",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/mqtt/MqttMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeReasonCodePlusPropertiesMessage",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeMessageWithOnlySingleByteFixedHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/mqtt/MqttMessage;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodePropertiesIfNeeded",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttVersion;Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeProperties",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "getFixedHeaderByte1",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;)I"
+          },
+          {
+            "nme": "writeVariableLengthInt",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)V"
+          },
+          {
+            "nme": "nullableUtf8Bytes",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)I"
+          },
+          {
+            "nme": "nullableMaxUtf8Bytes",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)I"
+          },
+          {
+            "nme": "writeExactUTF8String",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "writeEagerUTF8String",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "writeUnsafeUTF8String",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "getVariableLengthInt",
+            "acc": 10,
+            "dsc": "(I)I"
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttEncoder;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttIdentifierRejectedException.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttIdentifierRejectedException",
+        "super": "io/netty/handler/codec/DecoderException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": -1323503322689614981
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttConnAckVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnAckVariableHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;ZLio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "connectReturnCode",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "nme": "isSessionPresent",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "connectReturnCode",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 18,
+            "nme": "sessionPresent",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttSubAckPayload.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubAckPayload",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "([I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Iterable;)V",
+            "sig": "(Ljava/lang/Iterable<Ljava/lang/Integer;>;)V"
+          },
+          {
+            "nme": "grantedQoSLevels",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/Integer;>;"
+          },
+          {
+            "nme": "reasonCodes",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/Integer;>;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "reasonCodes",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/Integer;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageFactory$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageFactory$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttMessageType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttSubscriptionOption.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubscriptionOption",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "onlyFromQos",
+            "acc": 9,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/handler/codec/mqtt/MqttSubscriptionOption;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;ZZLio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;)V"
+          },
+          {
+            "nme": "qos",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "isNoLocal",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isRetainAsPublished",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "retainHandling",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "qos",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 18,
+            "nme": "noLocal",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "retainAsPublished",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "retainHandling",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttSubAckMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubAckMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;Lio/netty/handler/codec/mqtt/MqttSubAckPayload;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;Lio/netty/handler/codec/mqtt/MqttSubAckPayload;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "idAndPropertiesVariableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubAckPayload;"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttConnectVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnectVariableHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;IZZZIZZI)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;IZZZIZZILio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "version",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "hasUserName",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "hasPassword",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isWillRetain",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "willQos",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isWillFlag",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isCleanSession",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "keepAliveTimeSeconds",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "version",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "hasUserName",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "hasPassword",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "isWillRetain",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "willQos",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "isWillFlag",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "isCleanSession",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "keepAliveTimeSeconds",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttPubReplyMessageVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttPubReplyMessageVariableHeader",
+        "super": "io/netty/handler/codec/mqtt/MqttMessageIdVariableHeader",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IBLio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "reasonCode",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "reasonCode",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 25,
+            "nme": "REASON_CODE_OK",
+            "dsc": "B",
+            "val": 0
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttPublishMessage.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/mqtt/MqttPublishMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttPublishVariableHeader;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "protocolVersion",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttVersion;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "clientId",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "cleanSession",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "keepAlive",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willFlag",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willQoS",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willTopic",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willMessage",
+            "acc": 131073,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "willMessage",
+            "acc": 1,
+            "dsc": "([B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willRetain",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "willProperties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "hasUser",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "hasPassword",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "password",
+            "acc": 131073,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "password",
+            "acc": 1,
+            "dsc": "([B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnectMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "version",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "acc": 2,
+            "nme": "clientId",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "cleanSession",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "hasUser",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "hasPassword",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "keepAliveSecs",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "willProperties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "willFlag",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "willRetain",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "willQos",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 2,
+            "nme": "willTopic",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "willMessage",
+            "dsc": "[B"
+          },
+          {
+            "acc": 2,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "password",
+            "dsc": "[B"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttTopicSubscription.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttTopicSubscription",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttQoS;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttSubscriptionOption;)V"
+          },
+          {
+            "nme": "topicName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "qualityOfService",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "option",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubscriptionOption;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "topicFilter",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "option",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttSubscriptionOption;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "returnCode",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;"
+          },
+          {
+            "nme": "sessionPresent",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PropertiesInitializer;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;",
+            "sig": "(Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PropertiesInitializer<Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;>;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnAckMessage;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttMessageBuilders$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "returnCode",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 2,
+            "nme": "sessionPresent",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "propsBuilder",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(ILjava/lang/Object;)V",
+            "sig": "(ITT;)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;",
+            "sig": "()TT;"
+          },
+          {
+            "nme": "propertyId",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16,
+            "nme": "value",
+            "dsc": "Ljava/lang/Object;",
+            "sig": "TT;"
+          },
+          {
+            "acc": 16,
+            "nme": "propertyId",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttConnAckMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnAckMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttConnAckVariableHeader;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnAckVariableHeader;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttSubscribePayload.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubscribePayload",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttTopicSubscription;>;)V"
+          },
+          {
+            "nme": "topicSubscriptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttTopicSubscription;>;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "topicSubscriptions",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttTopicSubscription;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttDecoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(II)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "invalidMessage",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Throwable;)Lio/netty/handler/codec/mqtt/MqttMessage;"
+          },
+          {
+            "nme": "decodeFixedHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "nme": "decodeVariableHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<*>;"
+          },
+          {
+            "nme": "decodeConnectionVariableHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttConnectVariableHeader;>;"
+          },
+          {
+            "nme": "decodeConnAckVariableHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttConnAckVariableHeader;>;"
+          },
+          {
+            "nme": "decodeMessageIdAndPropertiesVariableHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;>;"
+          },
+          {
+            "nme": "decodePubReplyMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttPubReplyMessageVariableHeader;>;"
+          },
+          {
+            "nme": "decodeReasonCodeAndPropertiesVariableHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttReasonCodeAndPropertiesVariableHeader;>;"
+          },
+          {
+            "nme": "decodePublishVariableHeader",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttPublishVariableHeader;>;"
+          },
+          {
+            "nme": "decodeMessageId",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "decodePayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttMessageType;IILjava/lang/Object;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttMessageType;IILjava/lang/Object;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<*>;"
+          },
+          {
+            "nme": "decodeConnectionPayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;ILio/netty/handler/codec/mqtt/MqttConnectVariableHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;ILio/netty/handler/codec/mqtt/MqttConnectVariableHeader;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttConnectPayload;>;"
+          },
+          {
+            "nme": "decodeSubscribePayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttSubscribePayload;>;"
+          },
+          {
+            "nme": "decodeSubackPayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttSubAckPayload;>;"
+          },
+          {
+            "nme": "decodeUnsubAckPayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;>;"
+          },
+          {
+            "nme": "decodeUnsubscribePayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttUnsubscribePayload;>;"
+          },
+          {
+            "nme": "decodePublishPayload",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;I)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/buffer/ByteBuf;>;"
+          },
+          {
+            "nme": "decodeString",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "decodeString",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;II)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;II)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "decodeByteArray",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)[B"
+          },
+          {
+            "nme": "packInts",
+            "acc": 10,
+            "dsc": "(II)J"
+          },
+          {
+            "nme": "unpackA",
+            "acc": 10,
+            "dsc": "(J)I"
+          },
+          {
+            "nme": "unpackB",
+            "acc": 10,
+            "dsc": "(J)I"
+          },
+          {
+            "nme": "decodeMsbLsb",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "decodeVariableByteInteger",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)J"
+          },
+          {
+            "nme": "decodeProperties",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttDecoder$Result<Lio/netty/handler/codec/mqtt/MqttProperties;>;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "mqttFixedHeader",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "acc": 2,
+            "nme": "variableHeader",
+            "dsc": "Ljava/lang/Object;"
+          },
+          {
+            "acc": 2,
+            "nme": "bytesRemainingInVariablePart",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "maxBytesInMessage",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "maxClientIdLength",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttVersion.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttVersion",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;ILjava/lang/String;B)V",
+            "sig": "(Ljava/lang/String;B)V"
+          },
+          {
+            "nme": "protocolName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "protocolNameBytes",
+            "acc": 1,
+            "dsc": "()[B"
+          },
+          {
+            "nme": "protocolLevel",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "fromProtocolNameAndLevel",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;B)Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "MQTT_3_1",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MQTT_3_1_1",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MQTT_5",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "level",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttUnsubscribeMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttUnsubscribeMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;Lio/netty/handler/codec/mqtt/MqttUnsubscribePayload;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;Lio/netty/handler/codec/mqtt/MqttUnsubscribePayload;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "idAndPropertiesVariableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttUnsubscribePayload;"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttPublishVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttPublishVariableHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;ILio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "topicName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "messageId",
+            "acc": 131073,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "packetId",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "topicName",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "packetId",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttConnectReturnCode.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnectReturnCode",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_ACCEPTED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_UNACCEPTABLE_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_IDENTIFIER_REJECTED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_SERVER_UNAVAILABLE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_BAD_USER_NAME_OR_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_NOT_AUTHORIZED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_UNSPECIFIED_ERROR",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_MALFORMED_PACKET",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_PROTOCOL_ERROR",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_IMPLEMENTATION_SPECIFIC",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_UNSUPPORTED_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_CLIENT_IDENTIFIER_NOT_VALID",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_BAD_USERNAME_OR_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_NOT_AUTHORIZED_5",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_SERVER_UNAVAILABLE_5",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_SERVER_BUSY",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_BANNED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_BAD_AUTHENTICATION_METHOD",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_TOPIC_NAME_INVALID",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_PACKET_TOO_LARGE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_QUOTA_EXCEEDED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_PAYLOAD_FORMAT_INVALID",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_RETAIN_NOT_SUPPORTED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_QOS_NOT_SUPPORTED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_USE_ANOTHER_SERVER",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_SERVER_MOVED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNECTION_REFUSED_CONNECTION_RATE_EXCEEDED",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 26,
+            "nme": "VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader",
+        "super": "io/netty/handler/codec/mqtt/MqttMessageIdVariableHeader",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "withDefaultEmptyProperties",
+            "acc": 0,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttDecoder$Result.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/mqtt/MqttDecoder$Result",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/Object;I)V",
+            "sig": "(TT;I)V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttDecoder$Result;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttDecoder$Result;)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/Object;",
+            "sig": "TT;"
+          },
+          {
+            "acc": 18,
+            "nme": "numberOfBytesConsumed",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttConstant.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConstant",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT_MAX_BYTES_IN_MESSAGE",
+            "dsc": "I",
+            "val": 8092
+          },
+          {
+            "acc": 25,
+            "nme": "MIN_CLIENT_ID_LENGTH",
+            "dsc": "I",
+            "val": 1
+          },
+          {
+            "acc": 25,
+            "nme": "DEFAULT_MAX_CLIENT_ID_LENGTH",
+            "dsc": "I",
+            "val": 23
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$BinaryProperty.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$BinaryProperty",
+        "super": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I[B)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "withEmptyDefaults",
+            "acc": 8,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "add",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties$MqttProperty;)V"
+          },
+          {
+            "nme": "listAll",
+            "acc": 1,
+            "dsc": "()Ljava/util/Collection;",
+            "sig": "()Ljava/util/Collection<+Lio/netty/handler/codec/mqtt/MqttProperties$MqttProperty;>;"
+          },
+          {
+            "nme": "isEmpty",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "getProperty",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttProperties$MqttProperty;"
+          },
+          {
+            "nme": "getProperties",
+            "acc": 1,
+            "dsc": "(I)Ljava/util/List;",
+            "sig": "(I)Ljava/util/List<+Lio/netty/handler/codec/mqtt/MqttProperties$MqttProperty;>;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "NO_PROPERTIES",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "props",
+            "dsc": "Lio/netty/util/collection/IntObjectHashMap;",
+            "sig": "Lio/netty/util/collection/IntObjectHashMap<Lio/netty/handler/codec/mqtt/MqttProperties$MqttProperty;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "userProperties",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttProperties$UserProperty;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "subscriptionIds",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttProperties$IntegerProperty;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "canModify",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttUnsubAckMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttUnsubAckMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;)V"
+          },
+          {
+            "nme": "fallbackVariableHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;)Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "idAndPropertiesVariableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CONNECT",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONNACK",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBLISH",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBACK",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBREC",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBREL",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBCOMP",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUBACK",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNSUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNSUBACK",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PINGREQ",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PINGRESP",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DISCONNECT",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTH",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 26,
+            "nme": "VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttMessageType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SEND_AT_SUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SEND_AT_SUBSCRIBE_IF_NOT_YET_EXISTS",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DONT_SEND_AT_SUBSCRIBE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttSubscriptionOption$RetainedHandlingPolicy;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$StringPair.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$StringPair",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 17,
+            "nme": "key",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 17,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttSubscribeMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttSubscribeMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;Lio/netty/handler/codec/mqtt/MqttSubscribePayload;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;Lio/netty/handler/codec/mqtt/MqttSubscribePayload;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "idAndPropertiesVariableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdAndPropertiesVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubscribePayload;"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttUnsubAckPayload.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttUnsubAckPayload",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "withEmptyDefaults",
+            "acc": 9,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;)Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "([S)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Iterable;)V",
+            "sig": "(Ljava/lang/Iterable<Ljava/lang/Short;>;)V"
+          },
+          {
+            "nme": "unsubscribeReasonCodes",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/Short;>;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "unsubscribeReasonCodes",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/Short;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "EMPTY",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttUnsubAckPayload;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttCodecUtil.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/mqtt/MqttCodecUtil",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getMqttVersion",
+            "acc": 8,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)Lio/netty/handler/codec/mqtt/MqttVersion;"
+          },
+          {
+            "nme": "setMqttVersion",
+            "acc": 8,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttVersion;)V"
+          },
+          {
+            "nme": "isValidPublishTopicName",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;)Z"
+          },
+          {
+            "nme": "isValidMessageId",
+            "acc": 8,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "isValidClientId",
+            "acc": 8,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttVersion;ILjava/lang/String;)Z"
+          },
+          {
+            "nme": "validateFixedHeader",
+            "acc": 8,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "nme": "resetUnusedFields",
+            "acc": 8,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;)Lio/netty/handler/codec/mqtt/MqttFixedHeader;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "TOPIC_WILDCARDS",
+            "dsc": "[C"
+          },
+          {
+            "acc": 24,
+            "nme": "MQTT_VERSION_KEY",
+            "dsc": "Lio/netty/util/AttributeKey;",
+            "sig": "Lio/netty/util/AttributeKey<Lio/netty/handler/codec/mqtt/MqttVersion;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "packetId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;"
+          },
+          {
+            "nme": "packetId",
+            "acc": 131073,
+            "dsc": "(S)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;"
+          },
+          {
+            "nme": "addGrantedQos",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;"
+          },
+          {
+            "nme": "addGrantedQoses",
+            "acc": 129,
+            "dsc": "([Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubAckMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "packetId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 18,
+            "nme": "grantedQoses",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttQoS;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$StringProperty.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$StringProperty",
+        "super": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttQoS.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttQoS",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "AT_MOST_ONCE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AT_LEAST_ONCE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EXACTLY_ONCE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttQoS;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "connect",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnectBuilder;"
+          },
+          {
+            "nme": "connAck",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckBuilder;"
+          },
+          {
+            "nme": "publish",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "subscribe",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder;"
+          },
+          {
+            "nme": "unsubscribe",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder;"
+          },
+          {
+            "nme": "pubAck",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PubAckBuilder;"
+          },
+          {
+            "nme": "subAck",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubAckBuilder;"
+          },
+          {
+            "nme": "unsubAck",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;"
+          },
+          {
+            "nme": "disconnect",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$DisconnectBuilder;"
+          },
+          {
+            "nme": "auth",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageBuilders$AuthBuilder;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttReasonCodeAndPropertiesVariableHeader.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttReasonCodeAndPropertiesVariableHeader",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(BLio/netty/handler/codec/mqtt/MqttProperties;)V"
+          },
+          {
+            "nme": "reasonCode",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "reasonCode",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 25,
+            "nme": "REASON_CODE_OK",
+            "dsc": "B",
+            "val": 0
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "PAYLOAD_FORMAT_INDICATOR",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "REQUEST_PROBLEM_INFORMATION",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "REQUEST_RESPONSE_INFORMATION",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MAXIMUM_QOS",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RETAIN_AVAILABLE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "WILDCARD_SUBSCRIPTION_AVAILABLE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUBSCRIPTION_IDENTIFIER_AVAILABLE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SHARED_SUBSCRIPTION_AVAILABLE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SERVER_KEEP_ALIVE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RECEIVE_MAXIMUM",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "TOPIC_ALIAS_MAXIMUM",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "TOPIC_ALIAS",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PUBLICATION_EXPIRY_INTERVAL",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SESSION_EXPIRY_INTERVAL",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "WILL_DELAY_INTERVAL",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MAXIMUM_PACKET_SIZE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUBSCRIPTION_IDENTIFIER",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CONTENT_TYPE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RESPONSE_TOPIC",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ASSIGNED_CLIENT_IDENTIFIER",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTHENTICATION_METHOD",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RESPONSE_INFORMATION",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SERVER_REFERENCE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "REASON_STRING",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "USER_PROPERTY",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CORRELATION_DATA",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTHENTICATION_DATA",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 26,
+            "nme": "VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttProperties$MqttPropertyType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$UserProperty.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$UserProperty",
+        "super": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "sessionExpiryInterval",
+            "acc": 1,
+            "dsc": "(J)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "receiveMaximum",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "maximumQos",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "retainAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "maximumPacketSize",
+            "acc": 1,
+            "dsc": "(J)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "assignedClientId",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "topicAliasMaximum",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "reasonString",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "userProperty",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "wildcardSubscriptionAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "subscriptionIdentifiersAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "sharedSubscriptionAvailable",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "serverKeepAlive",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "responseInformation",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "serverReference",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "authenticationMethod",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          },
+          {
+            "nme": "authenticationData",
+            "acc": 1,
+            "dsc": "([B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$ConnAckPropertiesBuilder;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "clientId",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "sessionExpiryInterval",
+            "dsc": "Ljava/lang/Long;"
+          },
+          {
+            "acc": 2,
+            "nme": "receiveMaximum",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "maximumQos",
+            "dsc": "Ljava/lang/Byte;"
+          },
+          {
+            "acc": 2,
+            "nme": "retain",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "maximumPacketSize",
+            "dsc": "Ljava/lang/Long;"
+          },
+          {
+            "acc": 2,
+            "nme": "topicAliasMaximum",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "reasonString",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "userProperties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties$UserProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "wildcardSubscriptionAvailable",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "subscriptionIdentifiersAvailable",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "sharedSubscriptionAvailable",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "serverKeepAlive",
+            "dsc": "Ljava/lang/Integer;"
+          },
+          {
+            "acc": 2,
+            "nme": "responseInformation",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "serverReference",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "authenticationMethod",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "authenticationData",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttUnacceptableProtocolVersionException.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttUnacceptableProtocolVersionException",
+        "super": "io/netty/handler/codec/DecoderException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": 4914652213232455749
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "addTopicFilter",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder;"
+          },
+          {
+            "nme": "messageId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubscribeBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttUnsubscribeMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "topicFilters",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/String;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "messageId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttPubAckMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttPubAckMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttConnectPayload.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnectPayload",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;[BLjava/lang/String;[B)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttProperties;Ljava/lang/String;[BLjava/lang/String;[B)V"
+          },
+          {
+            "nme": "clientIdentifier",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "willProperties",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "nme": "willTopic",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "willMessage",
+            "acc": 131073,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "willMessageInBytes",
+            "acc": 1,
+            "dsc": "()[B"
+          },
+          {
+            "nme": "userName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 131073,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "passwordInBytes",
+            "acc": 1,
+            "dsc": "()[B"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "clientIdentifier",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "willProperties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 18,
+            "nme": "willTopic",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "willMessage",
+            "dsc": "[B"
+          },
+          {
+            "acc": 18,
+            "nme": "userName",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "password",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$UserProperties.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$UserProperties",
+        "super": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/Collection;)V",
+            "sig": "(Ljava/util/Collection<Lio/netty/handler/codec/mqtt/MqttProperties$StringPair;>;)V"
+          },
+          {
+            "nme": "fromUserPropertyCollection",
+            "acc": 10,
+            "dsc": "(Ljava/util/Collection;)Lio/netty/handler/codec/mqtt/MqttProperties$UserProperties;",
+            "sig": "(Ljava/util/Collection<Lio/netty/handler/codec/mqtt/MqttProperties$UserProperty;>;)Lio/netty/handler/codec/mqtt/MqttProperties$UserProperties;"
+          },
+          {
+            "nme": "add",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties$StringPair;)V"
+          },
+          {
+            "nme": "add",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Ljava/util/Collection;)Lio/netty/handler/codec/mqtt/MqttProperties$UserProperties;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$DisconnectBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$DisconnectBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$DisconnectBuilder;"
+          },
+          {
+            "nme": "reasonCode",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$DisconnectBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "reasonCode",
+            "dsc": "B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttCodecUtil$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/mqtt/MqttCodecUtil$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttMessageType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttProperties$IntegerProperty.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttProperties$IntegerProperty",
+        "super": "io/netty/handler/codec/mqtt/MqttProperties$MqttProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/Integer;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "addSubscription",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder;"
+          },
+          {
+            "nme": "addSubscription",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttSubscriptionOption;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder;"
+          },
+          {
+            "nme": "messageId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$SubscribeBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttSubscribeMessage;"
+          },
+          {
+            "nme": "ensureSubscriptionsExist",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "subscriptions",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/mqtt/MqttTopicSubscription;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "messageId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/mqtt/MqttDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttDecoder$DecoderState",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttMessageType",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$mqtt$MqttProperties$MqttPropertyType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$AuthBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$AuthBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$AuthBuilder;"
+          },
+          {
+            "nme": "reasonCode",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$AuthBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 2,
+            "nme": "reasonCode",
+            "dsc": "B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttDecoder$DecoderState.class": {
+        "ver": 50,
+        "acc": 16432,
+        "nme": "io/netty/handler/codec/mqtt/MqttDecoder$DecoderState",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "READ_FIXED_HEADER",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_VARIABLE_HEADER",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_PAYLOAD",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BAD_MESSAGE",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/mqtt/MqttDecoder$DecoderState;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "topicName",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "retained",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "qos",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "messageId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$PublishBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttPublishMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "topic",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "retained",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "qos",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttQoS;"
+          },
+          {
+            "acc": 2,
+            "nme": "payload",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "acc": 2,
+            "nme": "messageId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "mqttProperties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "packetId",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;"
+          },
+          {
+            "nme": "packetId",
+            "acc": 131073,
+            "dsc": "(S)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "properties",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttProperties;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;"
+          },
+          {
+            "nme": "addReasonCode",
+            "acc": 1,
+            "dsc": "(S)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;"
+          },
+          {
+            "nme": "addReasonCodes",
+            "acc": 129,
+            "dsc": "([Ljava/lang/Short;)Lio/netty/handler/codec/mqtt/MqttMessageBuilders$UnsubAckBuilder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttUnsubAckMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "packetId",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "properties",
+            "dsc": "Lio/netty/handler/codec/mqtt/MqttProperties;"
+          },
+          {
+            "acc": 18,
+            "nme": "reasonCodes",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/Short;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/mqtt/MqttConnectMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/mqtt/MqttConnectMessage",
+        "super": "io/netty/handler/codec/mqtt/MqttMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttConnectVariableHeader;Lio/netty/handler/codec/mqtt/MqttConnectPayload;)V"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnectVariableHeader;"
+          },
+          {
+            "nme": "payload",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/mqtt/MqttConnectPayload;"
+          },
+          {
+            "nme": "payload",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          },
+          {
+            "nme": "variableHeader",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;"
+          }
+        ],
+        "flds": []
+      }
+    }
+  }
+}

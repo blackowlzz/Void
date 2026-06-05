@@ -1,0 +1,1631 @@
+{
+  "md5": "4d52236d5c68f56b6041205485476abf",
+  "sha2": "e42f93118086a0968f1e47352a321b742ad0f63a",
+  "sha256": "ec56d931c6cb9bf8fd02c197b0fc39d68aedfa6aff6eb41b5a4fb05f62c74196",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/haproxy/HAProxyMessageEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/haproxy/HAProxyMessage;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeV1",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessage;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeV2",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessage;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeTlv",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyTLV;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeTlvs",
+            "acc": 10,
+            "dsc": "(Ljava/util/List;Lio/netty/buffer/ByteBuf;)V",
+            "sig": "(Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "V2_VERSION_BITMASK",
+            "dsc": "I",
+            "val": 32
+          },
+          {
+            "acc": 24,
+            "nme": "UNIX_ADDRESS_BYTES_LENGTH",
+            "dsc": "I",
+            "val": 108
+          },
+          {
+            "acc": 24,
+            "nme": "TOTAL_UNIX_ADDRESS_BYTES_LENGTH",
+            "dsc": "I",
+            "val": 216
+          },
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyMessageEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyTLV.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyTLV",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "totalNumBytes",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "contentNumBytes",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(BLio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;BLio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "nme": "typeByteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 18,
+            "nme": "typeByteValue",
+            "dsc": "B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyProtocolVersion.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyProtocolVersion",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "V1",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "V2",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_MASK",
+            "dsc": "B",
+            "val": -16
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyCommand.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyCommand",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "LOCAL",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PROXY",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "acc": 26,
+            "nme": "COMMAND_MASK",
+            "dsc": "B",
+            "val": 15
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessageDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder",
+        "super": "io/netty/handler/codec/ByteToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IZ)V"
+          },
+          {
+            "nme": "findVersion",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "findEndOfHeader",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "findEndOfLine",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "isSingleDecode",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "channelRead",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decode",
+            "acc": 20,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeStruct",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decodeLine",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "failOverLimit",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;I)V"
+          },
+          {
+            "nme": "failOverLimit",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/String;Ljava/lang/Exception;)V"
+          },
+          {
+            "nme": "detectProtocol",
+            "acc": 9,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/ProtocolDetectionResult;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/ProtocolDetectionResult<Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;>;"
+          },
+          {
+            "nme": "match",
+            "acc": 10,
+            "dsc": "([BLio/netty/buffer/ByteBuf;I)Z"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;)Z"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;Lio/netty/channel/ChannelHandlerContext;I)V"
+          },
+          {
+            "nme": "access$202",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;I)I"
+          },
+          {
+            "nme": "access$002",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;Z)Z"
+          },
+          {
+            "nme": "access$300",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;)Z"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;)I"
+          },
+          {
+            "nme": "access$400",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;Lio/netty/channel/ChannelHandlerContext;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "access$500",
+            "acc": 4104,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "access$600",
+            "acc": 4104,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "V1_MAX_LENGTH",
+            "dsc": "I",
+            "val": 108
+          },
+          {
+            "acc": 26,
+            "nme": "V2_MAX_LENGTH",
+            "dsc": "I",
+            "val": 65551
+          },
+          {
+            "acc": 26,
+            "nme": "V2_MIN_LENGTH",
+            "dsc": "I",
+            "val": 232
+          },
+          {
+            "acc": 26,
+            "nme": "V2_MAX_TLV",
+            "dsc": "I",
+            "val": 65319
+          },
+          {
+            "acc": 26,
+            "nme": "BINARY_PREFIX_LENGTH",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "DETECTION_RESULT_V1",
+            "dsc": "Lio/netty/handler/codec/ProtocolDetectionResult;",
+            "sig": "Lio/netty/handler/codec/ProtocolDetectionResult<Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "DETECTION_RESULT_V2",
+            "dsc": "Lio/netty/handler/codec/ProtocolDetectionResult;",
+            "sig": "Lio/netty/handler/codec/ProtocolDetectionResult<Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "headerExtractor",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder$HeaderExtractor;"
+          },
+          {
+            "acc": 2,
+            "nme": "discarding",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "discardedBytes",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "failFast",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "finished",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "version",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "v2MaxHeaderSize",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "UNSPEC",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "STREAM",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DGRAM",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "acc": 26,
+            "nme": "TRANSPORT_MASK",
+            "dsc": "B",
+            "val": 15
+          },
+          {
+            "acc": 18,
+            "nme": "transportByte",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessage",
+        "super": "io/netty/util/AbstractReferenceCounted",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;Lio/netty/handler/codec/haproxy/HAProxyCommand;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;Lio/netty/handler/codec/haproxy/HAProxyCommand;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;Ljava/lang/String;Ljava/lang/String;II)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;Lio/netty/handler/codec/haproxy/HAProxyCommand;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;Ljava/lang/String;Ljava/lang/String;IILjava/util/List;)V",
+            "sig": "(Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;Lio/netty/handler/codec/haproxy/HAProxyCommand;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;Ljava/lang/String;Ljava/lang/String;IILjava/util/List<+Lio/netty/handler/codec/haproxy/HAProxyTLV;>;)V"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 8,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "readTlvs",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Ljava/util/List;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;"
+          },
+          {
+            "nme": "readNextTLV",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/haproxy/HAProxyTLV;"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "unknownMsg",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;Lio/netty/handler/codec/haproxy/HAProxyCommand;)Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "ipBytesToString",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Ljava/lang/String;"
+          },
+          {
+            "nme": "portStringToInt",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)I"
+          },
+          {
+            "nme": "checkAddress",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;)V"
+          },
+          {
+            "nme": "checkPort",
+            "acc": 10,
+            "dsc": "(ILio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;)V"
+          },
+          {
+            "nme": "protocolVersion",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "nme": "command",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "nme": "proxiedProtocol",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "nme": "sourceAddress",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "destinationAddress",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "sourcePort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "destinationPort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "tlvs",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;"
+          },
+          {
+            "nme": "tlvNumBytes",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/haproxy/HAProxyMessage;"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "tryRecord",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "leakDetector",
+            "dsc": "Lio/netty/util/ResourceLeakDetector;",
+            "sig": "Lio/netty/util/ResourceLeakDetector<Lio/netty/handler/codec/haproxy/HAProxyMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "leak",
+            "dsc": "Lio/netty/util/ResourceLeakTracker;",
+            "sig": "Lio/netty/util/ResourceLeakTracker<Lio/netty/handler/codec/haproxy/HAProxyMessage;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "protocolVersion",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProtocolVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "command",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyCommand;"
+          },
+          {
+            "acc": 18,
+            "nme": "proxiedProtocol",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 18,
+            "nme": "sourceAddress",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "destinationAddress",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "sourcePort",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "destinationPort",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "tlvs",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IBLio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;)V",
+            "sig": "(BLio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "addressFamily",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "nme": "transportProtocol",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "TCP4",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "TCP6",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UDP4",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UDP6",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNIX_STREAM",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNIX_DGRAM",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "addressFamily",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "acc": 18,
+            "nme": "transportProtocol",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$TransportProtocol;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessage$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessage$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$haproxy$HAProxyTLV$Type",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$haproxy$HAProxyProxiedProtocol$AddressFamily",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyTLV$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyTLV$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$haproxy$HAProxyTLV$Type",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyTLV$Type.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyTLV$Type",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "typeForByteValue",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "nme": "byteValueForType",
+            "acc": 9,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;)B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_ALPN",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_AUTHORITY",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_SSL",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_SSL_VERSION",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_SSL_CN",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "PP2_TYPE_NETNS",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 16409,
+            "nme": "OTHER",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyTLV$Type;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$HeaderExtractor.class": {
+        "ver": 50,
+        "acc": 1056,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$HeaderExtractor",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;I)V"
+          },
+          {
+            "nme": "extract",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBuf;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "findEndOfHeader",
+            "acc": 1028,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "delimiterLength",
+            "acc": 1028,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "maxHeaderSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$LineHeaderExtractor.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$LineHeaderExtractor",
+        "super": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$HeaderExtractor",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;I)V"
+          },
+          {
+            "nme": "findEndOfHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "delimiterLength",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessageEncoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageEncoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$haproxy$HAProxyProtocolVersion",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$haproxy$HAProxyProxiedProtocol$AddressFamily",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyProtocolException.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyProtocolException",
+        "super": "io/netty/handler/codec/DecoderException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": 713710864325167351
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxySSLTLV.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/haproxy/HAProxySSLTLV",
+        "super": "io/netty/handler/codec/haproxy/HAProxyTLV",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IBLjava/util/List;)V",
+            "sig": "(IBLjava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(IBLjava/util/List;Lio/netty/buffer/ByteBuf;)V",
+            "sig": "(IBLjava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "isPP2ClientCertConn",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isPP2ClientSSL",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "isPP2ClientCertSess",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "client",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "verify",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "encapsulatedTLVs",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;"
+          },
+          {
+            "nme": "contentNumBytes",
+            "acc": 0,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "verify",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "tlvs",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/haproxy/HAProxyTLV;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "clientBitField",
+            "dsc": "B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "AF_UNSPEC",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AF_IPv4",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AF_IPv6",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AF_UNIX",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          },
+          {
+            "acc": 26,
+            "nme": "FAMILY_MASK",
+            "dsc": "B",
+            "val": -16
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/haproxy/HAProxyProxiedProtocol$AddressFamily;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyConstants.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyConstants",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "COMMAND_LOCAL_BYTE",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 24,
+            "nme": "COMMAND_PROXY_BYTE",
+            "dsc": "B",
+            "val": 1
+          },
+          {
+            "acc": 24,
+            "nme": "VERSION_ONE_BYTE",
+            "dsc": "B",
+            "val": 16
+          },
+          {
+            "acc": 24,
+            "nme": "VERSION_TWO_BYTE",
+            "dsc": "B",
+            "val": 32
+          },
+          {
+            "acc": 24,
+            "nme": "TRANSPORT_UNSPEC_BYTE",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 24,
+            "nme": "TRANSPORT_STREAM_BYTE",
+            "dsc": "B",
+            "val": 1
+          },
+          {
+            "acc": 24,
+            "nme": "TRANSPORT_DGRAM_BYTE",
+            "dsc": "B",
+            "val": 2
+          },
+          {
+            "acc": 24,
+            "nme": "AF_UNSPEC_BYTE",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 24,
+            "nme": "AF_IPV4_BYTE",
+            "dsc": "B",
+            "val": 16
+          },
+          {
+            "acc": 24,
+            "nme": "AF_IPV6_BYTE",
+            "dsc": "B",
+            "val": 32
+          },
+          {
+            "acc": 24,
+            "nme": "AF_UNIX_BYTE",
+            "dsc": "B",
+            "val": 48
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_UNKNOWN_BYTE",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_TCP4_BYTE",
+            "dsc": "B",
+            "val": 17
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_TCP6_BYTE",
+            "dsc": "B",
+            "val": 33
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_UDP4_BYTE",
+            "dsc": "B",
+            "val": 18
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_UDP6_BYTE",
+            "dsc": "B",
+            "val": 34
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_UNIX_STREAM_BYTE",
+            "dsc": "B",
+            "val": 49
+          },
+          {
+            "acc": 24,
+            "nme": "TPAF_UNIX_DGRAM_BYTE",
+            "dsc": "B",
+            "val": 50
+          },
+          {
+            "acc": 24,
+            "nme": "BINARY_PREFIX",
+            "dsc": "[B"
+          },
+          {
+            "acc": 24,
+            "nme": "TEXT_PREFIX",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$StructHeaderExtractor.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$StructHeaderExtractor",
+        "super": "io/netty/handler/codec/haproxy/HAProxyMessageDecoder$HeaderExtractor",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;I)V"
+          },
+          {
+            "nme": "findEndOfHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "delimiterLength",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/haproxy/HAProxyMessageDecoder;"
+          }
+        ]
+      }
+    }
+  }
+}

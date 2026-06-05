@@ -1,0 +1,126 @@
+# \u00BB é » (>> duplo), ANSI e UTF-8 interpretam isso diferentemente... você pode acabar vendo '?' por conta disso.
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Alertas &aativados&7."
+alerts-disabled: "%prefix% &7Alertas &cdesativados&7."
+verbose-enabled: "%prefix% &7Verbose &aativado&7."
+verbose-disabled: "%prefix% &7Verbose &cdesativado&7."
+brands-enabled: "%prefix% &7Rastreamento de marcas &aativado&7."
+brands-disabled: "%prefix% &7Rastreamento de marcas &cdesativado&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &cVocê deve especificar o nome do alvo!"
+reloading: "%prefix% &7Recarregando..."
+reloaded: "%prefix% &7Configuração &arecarregada&7."
+reload-failed: "%prefix% &7Recarga &cfalhada&7."
+player-not-found: "%prefix% &cJogador não encontrado!"
+player-not-this-server: "%prefix% &cO jogador não está no servidor!"
+sender-not-found: "%prefix% &cVocê não pode usar este comando se estiver isento!"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fClique aqui para retornar a localização anterior\n</hover></click>"
+cannot-spectate-return: "%prefix% &cVocê só pode fazer isso após espectar um jogador."
+cannot-run-on-self: "%prefix% &cVocê não pode usar esse comando em sí mesmo!"
+upload-log: "%prefix% &fRegistro enviado para: %url%"
+upload-log-start: "%prefix% &fEnviando o registro. Aguarde."
+upload-log-not-found: "%prefix% &cNúmero do registro não encontrado."
+upload-log-upload-failure: "%prefix% &cAlgo deu errado ao enviar o registro, veja o terminal para mais informações."
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cEste comando só pode ser usado por jogadores!"
+run-as-player-or-console: "%prefix% &cEste comando só pode ser usado por jogadores ou pelo console!"
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void webhook test succeeded!"
+webhook-test-failed: "Void webhook test failed!"
+
+# Placeholders válidos:
+# %prefix%
+# %player%
+# %check_name%
+# %experimental%
+# %vl% - violações
+# %verbose% - Informação extra da verificação, como os desalinhamentos, nem todas as verifiações terão essa informação.
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+profile:
+    - ""
+    - "  %prefix% &5Perfil &8─ &f%player%"
+    - "  &8▸ &7Ping          &f%ping% ms"
+    - "  &8▸ &7Versão         &f%version%"
+    - "  &8▸ &7Marca          &f%brand%"
+    - "  &8▸ &7Sensibilidade  &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
+    - "  &8▸ &7FastMath       &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Ativar/desativar alertas"
+    - "  &5/void verbose             &8│ &7Ativar/desativar verbose"
+    - "  &5/void brands              &8│ &7Monitorar marcas de cliente"
+    - "  &5/void profile &8<jogador>   &8│ &7Inspecionar perfil de jogador"
+    - "  &5/void debug &8<jogador>     &8│ &7Ver debug trace"
+    - "  &5/void spectate &8<jogador>  &8│ &7Espectar um jogador"
+    - "  &5/void history &8<jogador>   &8│ &7Histórico de sessões"
+    - "  &5/void log &8[0-255]         &8│ &7Enviar log de debug"
+    - "  &5/void perf                &8│ &7Ver tempos de predição"
+    - "  &5/void reload              &8│ &7Recarregar configuração"
+    - "  &5/void version             &8│ &7Verificar atualizações"
+    - "  &5/void punish &8<jogador>    &8│ &7Punir manualmente um jogador"
+    - "  &5/void banwave             &8│ &7Gerenciar a ban wave"
+    - "  &5/void punishments &8<query> &8│ &7Buscar registros de punições"
+
+# === /void history ===
+# UI de histórico baseada em sessões. Todas as linhas abaixo são totalmente
+# configuráveis; os placeholders estão documentados em cada chave. O texto de
+# hover das linhas de sessão e violação é construído pelo renderer a partir
+# dos dados brutos (verbose, divisão de checks) e não precisa de template —
+# mas você pode adicionar <hover:show_text:'...'> a qualquer linha para
+# sobrepor tooltips adicionais.
+
+void-history-load-failure: "%prefix% &cO subsistema de histórico falhou ao carregar! Verifique o console do servidor por erros."
+void-history-disabled: "%prefix% &cO subsistema de histórico está desativado!"
+void-history-failed: "%prefix% &cFalha ao carregar o histórico: &7%error%"
+void-history-unknown-player: "%prefix% &cJogador desconhecido: &f%player%"
+void-history-no-sessions: "%prefix% &7Sem histórico de sessões para &f%player%&7."
+void-history-session-not-found: "%prefix% &cSessão &f%ordinal%&c não encontrada para &f%player%&c."
+
+# Lista de sessões — placeholders válidos: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Linha de resumo de sessão — placeholders válidos:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% expande para void-history-crashed-marker em sessões cuja
+# conexão caiu sem fechamento limpo (queda do servidor, kill -9, RST de canal
+# que não disparou UserDisconnectEvent). String vazia para sessões em curso
+# ou encerradas normalmente.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Marcador inline substituído em %crashed_marker% para sessões cujo
+# closed_at == last_activity (ou seja, marcadas pelo varrimento de queda no
+# próximo arranque, não pelo caminho de desconexão). Inclui um espaço inicial
+# para que o marcador leia naturalmente quando presente e desapareça
+# limpamente quando vazio.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Detalhe de sessão — placeholders válidos:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Versão &f%void_version% &8│ &7Servidor &f%server_name% &8│ &7Duração &f%duration% &8│ &7%timeago% atrás"
+void-history-detail-meta2: "  &8▸ &7Cliente &f%client_version% &8│ &7Marca &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7violações &8(&d%unique_checks% &7únicas&8)"
+void-history-detail-empty: "  &8▸ &7(nenhuma)"
+# Linha agrupada (padrão) — placeholders válidos: %prefix% %offset% %checks_list%
+#   %checks_list% é construída unindo entradas void-history-check-count com ", "
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Linha de violação bruta (--detailed) — placeholders válidos:
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Formato interno por check em %checks_list% — placeholders válidos: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Marcadores de esquema — ver o comentário do cabeçalho em config.yml.
+config-flavor: V2
+config-version: 1

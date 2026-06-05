@@ -1,0 +1,128 @@
+# \u00BB is » (double >>), ANSI en UTF-8 interpreteren dit anders... je kunt zelfs "?" zien als gevolg hiervan
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Meldingen &aingeschakeld&7."
+alerts-disabled: "%prefix% &7Meldingen &cuitgeschakeld&7."
+verbose-enabled: "%prefix% &7Verbose &aingeschakeld&7."
+verbose-disabled: "%prefix% &7Verbose &cuitgeschakeld&7."
+brands-enabled: "%prefix% &7Merk-tracking &aingeschakeld&7."
+brands-disabled: "%prefix% &7Merk-tracking &cuitgeschakeld&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &cJe moet een doel opgeven als de console!"
+reloading: "%prefix% &7Herladen..."
+reloaded: "%prefix% &7Configuratie &aherladen&7."
+reload-failed: "%prefix% &7Herladen &cmislukt&7."
+player-not-found: "%prefix% &cSpeler is vrijgesteld of offline!"
+player-not-this-server: "%prefix% &cSpeler is niet op deze server!"
+sender-not-found: "%prefix% &cJe kunt dit commando niet gebruiken als je vrijgesteld bent!"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fKlik hier om terug te keren naar de vorige locatie\n</hover></click>"
+cannot-spectate-return: "%prefix% &cJe kunt dit alleen doen nadat je een speler hebt bekeken"
+cannot-run-on-self: "%prefix% &cJe kunt dit commando niet op jezelf gebruiken!"
+upload-log: "%prefix% &fDebug geüpload naar: %url%"
+upload-log-start: "%prefix% &fLog wordt geüpload... even geduld"
+upload-log-not-found: "%prefix% &cKan dat log niet vinden"
+upload-log-upload-failure: "%prefix% &cEr is iets misgegaan tijdens het uploaden van dit log, zie console voor meer informatie"
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cDit commando kan alleen door spelers worden gebruikt!"
+run-as-player-or-console: "%prefix% &cDit commando kan alleen door spelers of de console worden gebruikt!"
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void webhook test succeeded!"
+webhook-test-failed: "Void webhook test failed!"
+
+# Geldige plaatsaanduidingen:
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - overtredingen
+# %verbose% - extra informatie van de controle zoals offsets, niet alle controles voegen informatie toe
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+
+profile:
+    - ""
+    - "  %prefix% &5Profiel &8─ &f%player%"
+    - "  &8▸ &7Ping        &f%ping% ms"
+    - "  &8▸ &7Versie      &f%version%"
+    - "  &8▸ &7Merk        &f%brand%"
+    - "  &8▸ &7Gevoeligheid &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
+    - "  &8▸ &7FastMath    &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Meldingen in-/uitschakelen"
+    - "  &5/void verbose             &8│ &7Verbose in-/uitschakelen"
+    - "  &5/void brands              &8│ &7Merktracking in-/uitschakelen"
+    - "  &5/void profile &8<speler>    &8│ &7Spelersprofiel bekijken"
+    - "  &5/void debug &8<speler>      &8│ &7Debug trace bekijken"
+    - "  &5/void spectate &8<speler>   &8│ &7Speler bekijken"
+    - "  &5/void history &8<speler>    &8│ &7Sessiegeschiedenis"
+    - "  &5/void log &8[0-255]         &8│ &7Debug-log uploaden"
+    - "  &5/void perf                &8│ &7Voorspellingstijden bekijken"
+    - "  &5/void reload              &8│ &7Configuratie herladen"
+    - "  &5/void version             &8│ &7Updates controleren"
+    - "  &5/void punish &8<speler>     &8│ &7Speler handmatig straffen"
+    - "  &5/void banwave             &8│ &7Ban wave beheren"
+    - "  &5/void punishments &8<query> &8│ &7Straffen opzoeken"
+
+# === /void history ===
+# Op sessies gebaseerde geschiedenis-UI. Alle regels hieronder zijn vrij
+# instelbaar; placeholders zijn per sleutel gedocumenteerd. Hover-tekst voor
+# sessie- en overtredingsregels wordt door de renderer opgebouwd uit de ruwe
+# data (verbose, check-uitsplitsing) en heeft geen template nodig — je kunt
+# echter <hover:show_text:'...'> aan elke regel toevoegen om extra tooltips
+# erbovenop te leggen.
+
+void-history-load-failure: "%prefix% &cGeschiedenissubsysteem kon niet worden geladen! Controleer de serverconsole op fouten."
+void-history-disabled: "%prefix% &cHet geschiedenissubsysteem is uitgeschakeld!"
+void-history-failed: "%prefix% &cKon geschiedenis niet laden: &7%error%"
+void-history-unknown-player: "%prefix% &cOnbekende speler: &f%player%"
+void-history-no-sessions: "%prefix% &7Geen sessiegeschiedenis voor &f%player%&7."
+void-history-session-not-found: "%prefix% &cSessie &f%ordinal%&c niet gevonden voor &f%player%&c."
+
+# Sessielijst — geldige placeholders: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Samenvattingsregel per sessie — geldige placeholders:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% breidt uit naar void-history-crashed-marker voor sessies
+# waarvan de verbinding zonder nette afsluiting wegviel (servercrash, kill -9,
+# kanaal-RST die geen UserDisconnectEvent vuurt). Lege string voor lopende of
+# netjes gesloten sessies.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Inline-markering die in %crashed_marker% wordt geplaatst voor sessies met
+# closed_at == last_activity (d.w.z. gestempeld door de crash-sweep bij de
+# volgende start, niet door het disconnect-pad). Begint met een spatie zodat
+# de markering natuurlijk leest wanneer aanwezig en netjes verdwijnt
+# wanneer leeg.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Sessiedetail — geldige placeholders:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Versie &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duur &f%duration% &8│ &7%timeago% geleden"
+void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Merk &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7overtredingen &8(&d%unique_checks% &7uniek&8)"
+void-history-detail-empty: "  &8▸ &7(geen)"
+# Gegroepeerde regel (standaard) — geldige placeholders: %prefix% %offset% %checks_list%
+#   %checks_list% wordt gebouwd door void-history-check-count-items te verbinden met ", "
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Enkele ruwe overtredingsregel (--detailed) — geldige placeholders:
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Intern formaat per check in %checks_list% — geldige placeholders: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Schemamarkers — zie de header-comment in config.yml.
+config-flavor: V2
+config-version: 1

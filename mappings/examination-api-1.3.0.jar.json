@@ -1,0 +1,1667 @@
+{
+  "md5": "b1887361d811c89ccca4dbf61b88def4",
+  "sha2": "8a2d185275307f1e2ef2adf7152b9a0d1d44c30b",
+  "sha256": "c9237ffecb05428f6eff86216246ac70ce0b47b04c08ea7ca35020fde57f8492",
+  "contents": {
+    "classes": {
+      "net/kyori/examination/ExaminableProperty$15.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$15",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;J)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "J"
+          }
+        ]
+      },
+      "net/kyori/examination/AbstractExaminer.class": {
+        "ver": 52,
+        "acc": 1057,
+        "nme": "net/kyori/examination/AbstractExaminer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/Object;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 2,
+            "dsc": "([Ljava/lang/Object;)Ljava/lang/Object;",
+            "sig": "<E:Ljava/lang/Object;>([TE;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 1028,
+            "dsc": "([Ljava/lang/Object;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "<E:Ljava/lang/Object;>([TE;Ljava/util/stream/Stream<TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 2,
+            "dsc": "(Ljava/util/Collection;)Ljava/lang/Object;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 1028,
+            "dsc": "(Ljava/util/Collection;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;Ljava/util/stream/Stream<TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinable",
+            "acc": 1028,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<Ljava/util/Map$Entry<Ljava/lang/String;TR;>;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 2,
+            "dsc": "(Ljava/util/Map;)Ljava/lang/Object;",
+            "sig": "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 1028,
+            "dsc": "(Ljava/util/Map;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/stream/Stream<Ljava/util/Map$Entry<TR;TR;>;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "nil",
+            "acc": 1028,
+            "dsc": "()Ljava/lang/Object;",
+            "sig": "()TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "scalar",
+            "acc": 1028,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/Object;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 1028,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<TT;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 1028,
+            "dsc": "(Ljava/util/stream/DoubleStream;)Ljava/lang/Object;",
+            "sig": "(Ljava/util/stream/DoubleStream;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 1028,
+            "dsc": "(Ljava/util/stream/IntStream;)Ljava/lang/Object;",
+            "sig": "(Ljava/util/stream/IntStream;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 1028,
+            "dsc": "(Ljava/util/stream/LongStream;)Ljava/lang/Object;",
+            "sig": "(Ljava/util/stream/LongStream;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([Z)Ljava/lang/Object;",
+            "sig": "([Z)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([B)Ljava/lang/Object;",
+            "sig": "([B)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([C)Ljava/lang/Object;",
+            "sig": "([C)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([D)Ljava/lang/Object;",
+            "sig": "([D)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([F)Ljava/lang/Object;",
+            "sig": "([F)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([I)Ljava/lang/Object;",
+            "sig": "([I)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([J)Ljava/lang/Object;",
+            "sig": "([J)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "([S)Ljava/lang/Object;",
+            "sig": "([S)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 1028,
+            "dsc": "(ILjava/util/function/IntFunction;)Ljava/lang/Object;",
+            "sig": "(ILjava/util/function/IntFunction<TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$examine$9",
+            "acc": 4098,
+            "dsc": "([SI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$8",
+            "acc": 4098,
+            "dsc": "([JI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$7",
+            "acc": 4098,
+            "dsc": "([II)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$6",
+            "acc": 4098,
+            "dsc": "([FI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$5",
+            "acc": 4098,
+            "dsc": "([DI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$4",
+            "acc": 4098,
+            "dsc": "([CI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$3",
+            "acc": 4098,
+            "dsc": "([BI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$examine$2",
+            "acc": 4098,
+            "dsc": "([ZI)Ljava/lang/Object;"
+          },
+          {
+            "nme": "lambda$map$1",
+            "acc": 4098,
+            "dsc": "(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;"
+          },
+          {
+            "nme": "lambda$examine$0",
+            "acc": 4098,
+            "dsc": "(Lnet/kyori/examination/ExaminableProperty;)Ljava/util/Map$Entry;"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/examination/ExaminableProperty$1.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$1",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "Ljava/lang/Object;"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$14.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$14",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[I)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$6.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$6",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[B)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$16.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$16",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[J)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[J"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$8.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$8",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[C)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[C"
+          }
+        ]
+      },
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      },
+      "net/kyori/examination/ExaminableProperty$10.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$10",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[D)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[D"
+          }
+        ]
+      },
+      "net/kyori/examination/Examinable.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/examination/Examinable",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "examinableName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/examination/ExaminableProperty$2.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$2",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$3.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$3",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;Z)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$7.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$7",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;C)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "C"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$4.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$4",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[Z)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[Z"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$12.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$12",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[F)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[F"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$11.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$11",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;F)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "F"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$18.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$18",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;[S)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "[S"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty.class": {
+        "ver": 52,
+        "acc": 1057,
+        "nme": "net/kyori/examination/ExaminableProperty",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "name",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Object;)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Z)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[Z)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;B)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[B)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;C)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[C)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;D)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[D)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;F)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[F)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;I)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[I)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;J)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[J)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;S)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;[S)Lnet/kyori/examination/ExaminableProperty;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lnet/kyori/examination/ExaminableProperty$1;)V"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/examination/ExaminableProperty$5.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$5",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;B)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "B"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$13.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$13",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "I"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$17.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$17",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;S)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "S"
+          }
+        ]
+      },
+      "net/kyori/examination/ExaminableProperty$9.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/examination/ExaminableProperty$9",
+        "super": "net/kyori/examination/ExaminableProperty",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/lang/String;D)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examiner;)Ljava/lang/Object;",
+            "sig": "<R:Ljava/lang/Object;>(Lnet/kyori/examination/Examiner<+TR;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$value",
+            "dsc": "D"
+          }
+        ]
+      },
+      "net/kyori/examination/Examiner.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/examination/Examiner",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/Examinable;)Ljava/lang/Object;",
+            "sig": "(Lnet/kyori/examination/Examinable;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/Object;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(Z)Ljava/lang/Object;",
+            "sig": "(Z)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([Z)Ljava/lang/Object;",
+            "sig": "([Z)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(B)Ljava/lang/Object;",
+            "sig": "(B)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([B)Ljava/lang/Object;",
+            "sig": "([B)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(C)Ljava/lang/Object;",
+            "sig": "(C)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([C)Ljava/lang/Object;",
+            "sig": "([C)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(D)Ljava/lang/Object;",
+            "sig": "(D)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([D)Ljava/lang/Object;",
+            "sig": "([D)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(F)Ljava/lang/Object;",
+            "sig": "(F)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([F)Ljava/lang/Object;",
+            "sig": "([F)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(I)Ljava/lang/Object;",
+            "sig": "(I)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([I)Ljava/lang/Object;",
+            "sig": "([I)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(J)Ljava/lang/Object;",
+            "sig": "(J)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([J)Ljava/lang/Object;",
+            "sig": "([J)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(S)Ljava/lang/Object;",
+            "sig": "(S)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "([S)Ljava/lang/Object;",
+            "sig": "([S)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/Object;",
+            "sig": "(Ljava/lang/String;)TR;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      }
+    }
+  }
+}

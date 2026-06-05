@@ -1,0 +1,1144 @@
+{
+  "md5": "5d1eaf2ff42853b3824e21bcf23a6310",
+  "sha2": "378f863e27848f1e7e2eba2c63dc7f8f3395bd0d",
+  "sha256": "3869c89ae49e3ad13e823eab1c6d1d0ae6eb50046c52ba67cd50a9749531660a",
+  "contents": {
+    "classes": {
+      "io/netty/handler/proxy/ProxyHandler.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/proxy/ProxyHandler",
+        "super": "io/netty/channel/ChannelDuplexHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "protocol",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "proxyAddress",
+            "acc": 17,
+            "dsc": "()Ljava/net/SocketAddress;",
+            "sig": "<T:Ljava/net/SocketAddress;>()TT;"
+          },
+          {
+            "nme": "destinationAddress",
+            "acc": 17,
+            "dsc": "()Ljava/net/SocketAddress;",
+            "sig": "<T:Ljava/net/SocketAddress;>()TT;"
+          },
+          {
+            "nme": "isConnected",
+            "acc": 17,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "connectFuture",
+            "acc": 17,
+            "dsc": "()Lio/netty/util/concurrent/Future;",
+            "sig": "()Lio/netty/util/concurrent/Future<Lio/netty/channel/Channel;>;"
+          },
+          {
+            "nme": "connectTimeoutMillis",
+            "acc": 17,
+            "dsc": "()J"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 17,
+            "dsc": "(J)V"
+          },
+          {
+            "nme": "handlerAdded",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "addCodec",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeEncoder",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeDecoder",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "connect",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/net/SocketAddress;Ljava/net/SocketAddress;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelActive",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "sendInitialMessage",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newInitialMessage",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "sendToProxyServer",
+            "acc": 20,
+            "dsc": "(Ljava/lang/Object;)V"
+          },
+          {
+            "nme": "channelInactive",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "exceptionCaught",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelRead",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handleResponse",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "setConnectSuccess",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "safeRemoveDecoder",
+            "acc": 2,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "safeRemoveEncoder",
+            "acc": 2,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setConnectFailure",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "failPendingWritesAndClose",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "cancelConnectTimeoutFuture",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "exceptionMessage",
+            "acc": 20,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "channelReadComplete",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "flush",
+            "acc": 17,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "readIfNeeded",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V"
+          },
+          {
+            "nme": "writePendingWrites",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "failPendingWrites",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "addPendingWrite",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;)Lio/netty/handler/proxy/ProxyHandler$LazyChannelPromise;"
+          },
+          {
+            "nme": "access$300",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;)Lio/netty/channel/ChannelHandlerContext;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "DEFAULT_CONNECT_TIMEOUT_MILLIS",
+            "dsc": "J",
+            "val": 10000
+          },
+          {
+            "acc": 24,
+            "nme": "AUTH_NONE",
+            "dsc": "Ljava/lang/String;",
+            "val": "none"
+          },
+          {
+            "acc": 18,
+            "nme": "proxyAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 66,
+            "nme": "destinationAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 66,
+            "nme": "connectTimeoutMillis",
+            "dsc": "J"
+          },
+          {
+            "acc": 66,
+            "nme": "ctx",
+            "dsc": "Lio/netty/channel/ChannelHandlerContext;"
+          },
+          {
+            "acc": 2,
+            "nme": "pendingWrites",
+            "dsc": "Lio/netty/channel/PendingWriteQueue;"
+          },
+          {
+            "acc": 2,
+            "nme": "finished",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "suppressChannelReadComplete",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "flushedPrematurely",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "connectPromise",
+            "dsc": "Lio/netty/handler/proxy/ProxyHandler$LazyChannelPromise;"
+          },
+          {
+            "acc": 2,
+            "nme": "connectTimeoutFuture",
+            "dsc": "Lio/netty/util/concurrent/Future;",
+            "sig": "Lio/netty/util/concurrent/Future<*>;"
+          },
+          {
+            "acc": 18,
+            "nme": "writeListener",
+            "dsc": "Lio/netty/channel/ChannelFutureListener;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/ProxyHandler$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/proxy/ProxyHandler$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;)V"
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelFuture;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "operationComplete",
+            "acc": 4161,
+            "dsc": "(Lio/netty/util/concurrent/Future;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/proxy/ProxyHandler;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/HttpProxyHandler$HttpClientCodecWrapper.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/proxy/HttpProxyHandler$HttpClientCodecWrapper",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "handlerAdded",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handlerRemoved",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "exceptionCaught",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelRegistered",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelUnregistered",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelActive",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelInactive",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelRead",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelReadComplete",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "userEventTriggered",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelWritabilityChanged",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "bind",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/net/SocketAddress;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "connect",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/net/SocketAddress;Ljava/net/SocketAddress;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "disconnect",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "close",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "deregister",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/channel/ChannelPromise;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "flush",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/proxy/HttpProxyHandler$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16,
+            "nme": "codec",
+            "dsc": "Lio/netty/handler/codec/http/HttpClientCodec;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/ProxyConnectException.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/proxy/ProxyConnectException",
+        "super": "java/net/ConnectException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/Throwable;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": 5211364632246265538
+          }
+        ]
+      },
+      "io/netty/handler/proxy/ProxyHandler$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/handler/proxy/ProxyHandler$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/proxy/ProxyHandler;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/HttpProxyHandler$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/proxy/HttpProxyHandler$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/proxy/ProxyHandler$LazyChannelPromise.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/proxy/ProxyHandler$LazyChannelPromise",
+        "super": "io/netty/util/concurrent/DefaultPromise",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;)V"
+          },
+          {
+            "nme": "executor",
+            "acc": 4,
+            "dsc": "()Lio/netty/util/concurrent/EventExecutor;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/proxy/ProxyHandler;Lio/netty/handler/proxy/ProxyHandler$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/proxy/ProxyHandler;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/HttpProxyHandler.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/proxy/HttpProxyHandler",
+        "super": "io/netty/handler/proxy/ProxyHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Lio/netty/handler/codec/http/HttpHeaders;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Lio/netty/handler/codec/http/HttpHeaders;Z)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/lang/String;Ljava/lang/String;Lio/netty/handler/codec/http/HttpHeaders;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/lang/String;Ljava/lang/String;Lio/netty/handler/codec/http/HttpHeaders;Z)V"
+          },
+          {
+            "nme": "protocol",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "addCodec",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeEncoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeDecoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newInitialMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handleResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "PROTOCOL",
+            "dsc": "Ljava/lang/String;",
+            "val": "http"
+          },
+          {
+            "acc": 26,
+            "nme": "AUTH_BASIC",
+            "dsc": "Ljava/lang/String;",
+            "val": "basic"
+          },
+          {
+            "acc": 18,
+            "nme": "codecWrapper",
+            "dsc": "Lio/netty/handler/proxy/HttpProxyHandler$HttpClientCodecWrapper;"
+          },
+          {
+            "acc": 18,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "password",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "authorization",
+            "dsc": "Ljava/lang/CharSequence;"
+          },
+          {
+            "acc": 18,
+            "nme": "outboundHeaders",
+            "dsc": "Lio/netty/handler/codec/http/HttpHeaders;"
+          },
+          {
+            "acc": 18,
+            "nme": "ignoreDefaultPortsInConnectHostHeader",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "status",
+            "dsc": "Lio/netty/handler/codec/http/HttpResponseStatus;"
+          },
+          {
+            "acc": 2,
+            "nme": "inboundHeaders",
+            "dsc": "Lio/netty/handler/codec/http/HttpHeaders;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/Socks4ProxyHandler.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/proxy/Socks4ProxyHandler",
+        "super": "io/netty/handler/proxy/ProxyHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "protocol",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "addCodec",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeEncoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeDecoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newInitialMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handleResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "PROTOCOL",
+            "dsc": "Ljava/lang/String;",
+            "val": "socks4"
+          },
+          {
+            "acc": 26,
+            "nme": "AUTH_USERNAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "username"
+          },
+          {
+            "acc": 18,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "decoderName",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "encoderName",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/ProxyConnectionEvent.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/proxy/ProxyConnectionEvent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/net/SocketAddress;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "protocol",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "proxyAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/SocketAddress;",
+            "sig": "<T:Ljava/net/SocketAddress;>()TT;"
+          },
+          {
+            "nme": "destinationAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/SocketAddress;",
+            "sig": "<T:Ljava/net/SocketAddress;>()TT;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "protocol",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "authScheme",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "proxyAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "destinationAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          },
+          {
+            "acc": 2,
+            "nme": "strVal",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/HttpProxyHandler$HttpProxyConnectException.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/proxy/HttpProxyHandler$HttpProxyConnectException",
+        "super": "io/netty/handler/proxy/ProxyConnectException",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lio/netty/handler/codec/http/HttpHeaders;)V"
+          },
+          {
+            "nme": "headers",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/http/HttpHeaders;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": -8824334609292146066
+          },
+          {
+            "acc": 18,
+            "nme": "headers",
+            "dsc": "Lio/netty/handler/codec/http/HttpHeaders;"
+          }
+        ]
+      },
+      "io/netty/handler/proxy/Socks5ProxyHandler.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/proxy/Socks5ProxyHandler",
+        "super": "io/netty/handler/proxy/ProxyHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "protocol",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "addCodec",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeEncoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "removeDecoder",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newInitialMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handleResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "socksAuthMethod",
+            "acc": 2,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "nme": "sendConnectCommand",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "PROTOCOL",
+            "dsc": "Ljava/lang/String;",
+            "val": "socks5"
+          },
+          {
+            "acc": 26,
+            "nme": "AUTH_PASSWORD",
+            "dsc": "Ljava/lang/String;",
+            "val": "password"
+          },
+          {
+            "acc": 26,
+            "nme": "INIT_REQUEST_NO_AUTH",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "INIT_REQUEST_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialRequest;"
+          },
+          {
+            "acc": 18,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "password",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "decoderName",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "encoderName",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      }
+    }
+  }
+}

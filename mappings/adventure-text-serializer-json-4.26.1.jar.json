@@ -1,0 +1,1138 @@
+{
+  "md5": "639c8885a9d6dfe00df6da66fe870d58",
+  "sha2": "7f98d4d9105254b1567379629a52236f5ebaf215",
+  "sha256": "55c64b4333d5d2968a0125b8f29dae7cfba15392d5f99f78dbaea711cb0d4dc2",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/json/JSONComponentConstants.class": {
+        "ver": 52,
+        "acc": 131121,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentConstants",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "TEXT",
+            "dsc": "Ljava/lang/String;",
+            "val": "text"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE",
+            "dsc": "Ljava/lang/String;",
+            "val": "translate"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE_FALLBACK",
+            "dsc": "Ljava/lang/String;",
+            "val": "fallback"
+          },
+          {
+            "acc": 25,
+            "nme": "TRANSLATE_WITH",
+            "dsc": "Ljava/lang/String;",
+            "val": "with"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE",
+            "dsc": "Ljava/lang/String;",
+            "val": "score"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "SCORE_OBJECTIVE",
+            "dsc": "Ljava/lang/String;",
+            "val": "objective"
+          },
+          {
+            "acc": 131097,
+            "nme": "SCORE_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "SELECTOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "selector"
+          },
+          {
+            "acc": 25,
+            "nme": "KEYBIND",
+            "dsc": "Ljava/lang/String;",
+            "val": "keybind"
+          },
+          {
+            "acc": 25,
+            "nme": "EXTRA",
+            "dsc": "Ljava/lang/String;",
+            "val": "extra"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT",
+            "dsc": "Ljava/lang/String;",
+            "val": "nbt"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_INTERPRET",
+            "dsc": "Ljava/lang/String;",
+            "val": "interpret"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_BLOCK",
+            "dsc": "Ljava/lang/String;",
+            "val": "block"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_ENTITY",
+            "dsc": "Ljava/lang/String;",
+            "val": "entity"
+          },
+          {
+            "acc": 25,
+            "nme": "NBT_STORAGE",
+            "dsc": "Ljava/lang/String;",
+            "val": "storage"
+          },
+          {
+            "acc": 25,
+            "nme": "SEPARATOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "separator"
+          },
+          {
+            "acc": 25,
+            "nme": "FONT",
+            "dsc": "Ljava/lang/String;",
+            "val": "font"
+          },
+          {
+            "acc": 25,
+            "nme": "COLOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "color"
+          },
+          {
+            "acc": 25,
+            "nme": "SHADOW_COLOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "shadow_color"
+          },
+          {
+            "acc": 25,
+            "nme": "INSERTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "insertion"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT",
+            "dsc": "Ljava/lang/String;",
+            "val": "clickEvent"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_ACTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "action"
+          },
+          {
+            "acc": 25,
+            "nme": "CLICK_EVENT_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "HOVER_EVENT",
+            "dsc": "Ljava/lang/String;",
+            "val": "hoverEvent"
+          },
+          {
+            "acc": 25,
+            "nme": "HOVER_EVENT_ACTION",
+            "dsc": "Ljava/lang/String;",
+            "val": "action"
+          },
+          {
+            "acc": 25,
+            "nme": "HOVER_EVENT_CONTENTS",
+            "dsc": "Ljava/lang/String;",
+            "val": "contents"
+          },
+          {
+            "acc": 131097,
+            "nme": "HOVER_EVENT_VALUE",
+            "dsc": "Ljava/lang/String;",
+            "val": "value"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_TYPE",
+            "dsc": "Ljava/lang/String;",
+            "val": "type"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ENTITY_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_COUNT",
+            "dsc": "Ljava/lang/String;",
+            "val": "count"
+          },
+          {
+            "acc": 131097,
+            "nme": "SHOW_ITEM_TAG",
+            "dsc": "Ljava/lang/String;",
+            "val": "tag"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_COMPONENTS",
+            "dsc": "Ljava/lang/String;",
+            "val": "components"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONOptions.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONOptions",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "key",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "schema",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/option/OptionSchema;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "byDataVersion",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/option/OptionState$Versioned;"
+          },
+          {
+            "nme": "compatibility",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/option/OptionState;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$static$6",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$5",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$4",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$3",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$2",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "VERSION_INITIAL",
+            "dsc": "I",
+            "val": 0
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_16",
+            "dsc": "I",
+            "val": 2526
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_20_3",
+            "dsc": "I",
+            "val": 3679
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_20_5",
+            "dsc": "I",
+            "val": 3819
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_21_4",
+            "dsc": "I",
+            "val": 4174
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_21_5",
+            "dsc": "I",
+            "val": 4298
+          },
+          {
+            "acc": 26,
+            "nme": "VERSION_1_21_6",
+            "dsc": "I",
+            "val": 4422
+          },
+          {
+            "acc": 26,
+            "nme": "UNSAFE_SCHEMA",
+            "dsc": "Lnet/kyori/option/OptionSchema$Mutable;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_RGB",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_HOVER_EVENT_TYPE",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_CLICK_EVENT_TYPE",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_COMPACT_TEXT_COMPONENT",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_HOVER_SHOW_ENTITY_ID_AS_INT_ARRAY",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_HOVER_SHOW_ENTITY_KEY_AS_TYPE_AND_UUID_AS_ID",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "VALIDATE_STRICT_EVENTS",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_DEFAULT_ITEM_HOVER_QUANTITY",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SHOW_ITEM_HOVER_DATA_MODE",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SHADOW_COLOR_MODE",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_CHANGE_PAGE_CLICK_EVENT_PAGE_AS_STRING",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMIT_CLICK_URL_HTTPS",
+            "dsc": "Lnet/kyori/option/Option;",
+            "sig": "Lnet/kyori/option/Option<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "SCHEMA",
+            "dsc": "Lnet/kyori/option/OptionSchema;"
+          },
+          {
+            "acc": 26,
+            "nme": "BY_DATA_VERSION",
+            "dsc": "Lnet/kyori/option/OptionState$Versioned;"
+          },
+          {
+            "acc": 26,
+            "nme": "MOST_COMPATIBLE",
+            "dsc": "Lnet/kyori/option/OptionState;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/DummyJSONComponentSerializer$BuilderImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/json/DummyJSONComponentSerializer$BuilderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "options",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 1,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "sig": "(Ljava/util/function/Consumer<Lnet/kyori/option/OptionState$Builder;>;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "downsampleColors",
+            "acc": 131073,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "emitLegacyHoverEvent",
+            "acc": 131073,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "deserializeShowItem",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeShowItem",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;)Lnet/kyori/adventure/text/Component;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeShowEntity",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/Component;Lnet/kyori/adventure/util/Codec$Decoder;)Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;",
+            "sig": "(Lnet/kyori/adventure/text/Component;Lnet/kyori/adventure/util/Codec$Decoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;+Ljava/lang/RuntimeException;>;)Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeShowEntity",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;Lnet/kyori/adventure/util/Codec$Encoder;)Lnet/kyori/adventure/text/Component;",
+            "sig": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;Lnet/kyori/adventure/util/Codec$Encoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;+Ljava/lang/RuntimeException;>;)Lnet/kyori/adventure/text/Component;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/json/DummyJSONComponentSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/json/DummyJSONComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;"
+          },
+          {
+            "acc": 26,
+            "nme": "UNSUPPORTED_MESSAGE",
+            "dsc": "Ljava/lang/String;",
+            "val": "No JsonComponentSerializer implementation found\n\nAre you missing an implementation artifact like adventure-text-serializer-gson?\nIs your environment configured in a way that causes ServiceLoader to malfunction?"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "options",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 1025,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "sig": "(Ljava/util/function/Consumer<Lnet/kyori/option/OptionState$Builder;>;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "downsampleColors",
+            "acc": 132097,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "emitLegacyHoverEvent",
+            "acc": 132097,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/json/JSONComponentSerializerAccessor$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializerAccessor$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;"
+          },
+          {
+            "acc": 24,
+            "nme": "BUILDER_SUPPLIER",
+            "dsc": "Ljava/util/function/Supplier;",
+            "sig": "Ljava/util/function/Supplier<Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONComponentSerializer$Provider.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializer$Provider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "instance",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 1025,
+            "dsc": "()Ljava/util/function/Supplier;",
+            "sig": "()Ljava/util/function/Supplier<Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;>;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SNAKE_CASE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CAMEL_CASE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "VALUE_FIELD",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ALL",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 131097,
+            "nme": "MODERN_ONLY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 131097,
+            "nme": "LEGACY_ONLY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 131097,
+            "nme": "BOTH",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/json/JSONOptions$HoverEventValueMode;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "NONE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EMIT_INTEGER",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EMIT_ARRAY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShadowColorEmitMode;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONComponentSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "json",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "EMIT_LEGACY_NBT",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EMIT_DATA_COMPONENTS",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EMIT_EITHER",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONComponentSerializerAccessor.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializerAccessor",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()Ljava/util/Optional;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "SERVICE",
+            "dsc": "Ljava/util/Optional;",
+            "sig": "Ljava/util/Optional<Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Provider;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SNAKE_CASE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CAMEL_CASE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BOTH",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/json/JSONOptions$ClickEventValueMode;"
+          }
+        ]
+      }
+    }
+  }
+}

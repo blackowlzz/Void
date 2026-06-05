@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "void-mc1171",
+  "version": "${version}",
+  "name": "Void for 1.17+ built against 1.17.1",
+  "description": "A lightweight simulation anticheat for 1.17+, powered by PacketEvents 2.0.",
+  "authors": [
+    "Void"
+  ],
+  "license": "GPLv3",
+  "environment": "server",
+  "entrypoints": {
+    "voidMainLoad": [
+      "ac.voidac.platform.fabric.mc1171.VoidFabric1171LoaderPlugin"
+    ]
+  },
+  "accessWidener": "void.accesswidener",
+  "depends": {
+    "minecraft": ">=1.17",
+    "fabric-lifecycle-events-v1": "*"
+  }
+}

@@ -1,0 +1,2024 @@
+{
+  "md5": "c465fb67c049565730555377ac59aa8d",
+  "sha2": "cbd8fe06848a96254a901f1b2637be0aa4d2fa64",
+  "sha256": "cda526001de0710eebe5517873fdb5a815b3186cbadb673d9b04e9c80cc283c8",
+  "contents": {
+    "classes": {
+      "io/netty/channel/udt/UdtChannelOption.class": {
+        "ver": 50,
+        "acc": 131121,
+        "nme": "io/netty/channel/udt/UdtChannelOption",
+        "super": "io/netty/channel/ChannelOption",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "PROTOCOL_RECEIVE_BUFFER_SIZE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "PROTOCOL_SEND_BUFFER_SIZE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SYSTEM_RECEIVE_BUFFER_SIZE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SYSTEM_SEND_BUFFER_SIZE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel$2.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$com$barchart$udt$StatusUDT",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/channel/udt/DefaultUdtChannelConfig.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/DefaultUdtChannelConfig",
+        "super": "io/netty/channel/DefaultChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/udt/UdtChannel;Lcom/barchart/udt/nio/ChannelUDT;Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "apply",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/nio/ChannelUDT;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getProtocolReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSoLinger",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isReuseAddress",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setProtocolReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "getSystemReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSystemSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "getProtocolSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setProtocolSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSystemReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "getSystemSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "K",
+            "dsc": "I",
+            "val": 1024
+          },
+          {
+            "acc": 26,
+            "nme": "M",
+            "dsc": "I",
+            "val": 1048576
+          },
+          {
+            "acc": 66,
+            "nme": "protocolReceiveBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "protocolSendBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "systemReceiveBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "systemSendBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "allocatorReceiveBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "allocatorSendBufferSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "soLinger",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "reuseAddress",
+            "dsc": "Z"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtByteAcceptorChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtByteAcceptorChannel",
+        "super": "io/netty/channel/udt/nio/NioUdtAcceptorChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "newConnectorChannel",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;)Lio/netty/channel/udt/UdtChannel;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/UdtServerChannel.class": {
+        "ver": 50,
+        "acc": 132609,
+        "nme": "io/netty/channel/udt/UdtServerChannel",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtAcceptorChannel.class": {
+        "ver": 50,
+        "acc": 132129,
+        "nme": "io/netty/channel/udt/nio/NioUdtAcceptorChannel",
+        "super": "io/netty/channel/nio/AbstractNioMessageChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/nio/ServerSocketChannelUDT;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)V"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;Lio/netty/channel/ChannelOutboundBuffer;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 20,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4,
+            "dsc": "()Lcom/barchart/udt/nio/ServerSocketChannelUDT;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newConnectorChannel",
+            "acc": 1028,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;)Lio/netty/channel/udt/UdtChannel;"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4164,
+            "dsc": "()Ljava/nio/channels/SelectableChannel;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 28,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/udt/UdtServerChannelConfig;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtByteConnectorChannel$2.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/udt/nio/NioUdtByteConnectorChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$com$barchart$udt$StatusUDT",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/channel/udt/UdtMessage.class": {
+        "ver": 50,
+        "acc": 131121,
+        "nme": "io/netty/channel/udt/UdtMessage",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/channel/udt/UdtMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Void;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "run",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$socketChannel",
+            "dsc": "Lcom/barchart/udt/nio/SocketChannelUDT;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/UdtChannelConfig.class": {
+        "ver": 50,
+        "acc": 132609,
+        "nme": "io/netty/channel/udt/UdtChannelConfig",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getProtocolReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getProtocolSendBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSoLinger",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSystemReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getSystemSendBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isReuseAddress",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 132097,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setProtocolReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setProtocolSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSystemReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSystemSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtByteConnectorChannel$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/udt/nio/NioUdtByteConnectorChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;Ljava/net/SocketAddress;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Void;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "run",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$socketChannel",
+            "dsc": "Lcom/barchart/udt/nio/SocketChannelUDT;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/SocketAddress;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtMessageRendezvousChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtMessageRendezvousChannel",
+        "super": "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtByteConnectorChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtByteConnectorChannel",
+        "super": "io/netty/channel/nio/AbstractNioByteChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/Channel;Lcom/barchart/udt/nio/SocketChannelUDT;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)V"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doReadBytes",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteBytes",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "shutdownInput",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "doWriteFileRegion",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/FileRegion;)J",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4,
+            "dsc": "()Lcom/barchart/udt/nio/SocketChannelUDT;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "privilegedBind",
+            "acc": 10,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4164,
+            "dsc": "()Ljava/nio/channels/SelectableChannel;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/udt/UdtChannelConfig;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtProvider$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/udt/nio/NioUdtProvider$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$com$barchart$udt$TypeUDT",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$com$barchart$udt$nio$KindUDT",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/channel/udt/DefaultUdtServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/DefaultUdtServerChannelConfig",
+        "super": "io/netty/channel/udt/DefaultUdtChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/udt/UdtChannel;Lcom/barchart/udt/nio/ChannelUDT;Z)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "apply",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/nio/ChannelUDT;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "getBacklog",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setProtocolReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setProtocolSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSystemReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSystemSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSystemReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setProtocolSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSystemSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setProtocolReceiveBufferSize",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "backlog",
+            "dsc": "I"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/UdtServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 132609,
+        "nme": "io/netty/channel/udt/UdtServerChannelConfig",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getBacklog",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 132097,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setProtocolReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setProtocolSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setReuseAddress",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSoLinger",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSystemReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setSystemSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/udt/UdtServerChannelConfig;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtProvider.class": {
+        "ver": 50,
+        "acc": 131121,
+        "nme": "io/netty/channel/udt/nio/NioUdtProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "channelUDT",
+            "acc": 9,
+            "dsc": "(Lio/netty/channel/Channel;)Lcom/barchart/udt/nio/ChannelUDT;"
+          },
+          {
+            "nme": "newAcceptorChannelUDT",
+            "acc": 8,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)Lcom/barchart/udt/nio/ServerSocketChannelUDT;"
+          },
+          {
+            "nme": "newConnectorChannelUDT",
+            "acc": 8,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)Lcom/barchart/udt/nio/SocketChannelUDT;"
+          },
+          {
+            "nme": "newRendezvousChannelUDT",
+            "acc": 8,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)Lcom/barchart/udt/nio/RendezvousChannelUDT;"
+          },
+          {
+            "nme": "socketUDT",
+            "acc": 9,
+            "dsc": "(Lio/netty/channel/Channel;)Lcom/barchart/udt/SocketUDT;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;Lcom/barchart/udt/nio/KindUDT;)V"
+          },
+          {
+            "nme": "kind",
+            "acc": 1,
+            "dsc": "()Lcom/barchart/udt/nio/KindUDT;"
+          },
+          {
+            "nme": "newChannel",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtChannel;",
+            "sig": "()TT;"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lcom/barchart/udt/TypeUDT;"
+          },
+          {
+            "nme": "newChannel",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/Channel;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "BYTE_ACCEPTOR",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtServerChannel;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "BYTE_CONNECTOR",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtChannel;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "BYTE_PROVIDER",
+            "dsc": "Ljava/nio/channels/spi/SelectorProvider;"
+          },
+          {
+            "acc": 25,
+            "nme": "BYTE_RENDEZVOUS",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtChannel;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE_ACCEPTOR",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtServerChannel;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE_CONNECTOR",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtChannel;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE_PROVIDER",
+            "dsc": "Ljava/nio/channels/spi/SelectorProvider;"
+          },
+          {
+            "acc": 25,
+            "nme": "MESSAGE_RENDEZVOUS",
+            "dsc": "Lio/netty/channel/ChannelFactory;",
+            "sig": "Lio/netty/channel/ChannelFactory<Lio/netty/channel/udt/UdtChannel;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "kind",
+            "dsc": "Lcom/barchart/udt/nio/KindUDT;"
+          },
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lcom/barchart/udt/TypeUDT;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtMessageConnectorChannel",
+        "super": "io/netty/channel/nio/AbstractNioMessageChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/Channel;Lcom/barchart/udt/nio/SocketChannelUDT;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/barchart/udt/TypeUDT;)V"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;Lio/netty/channel/ChannelOutboundBuffer;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4,
+            "dsc": "()Lcom/barchart/udt/nio/SocketChannelUDT;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "privilegedBind",
+            "acc": 10,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4164,
+            "dsc": "()Ljava/nio/channels/SelectableChannel;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/udt/UdtChannelConfig;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtMessageAcceptorChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtMessageAcceptorChannel",
+        "super": "io/netty/channel/udt/nio/NioUdtAcceptorChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "newConnectorChannel",
+            "acc": 4,
+            "dsc": "(Lcom/barchart/udt/nio/SocketChannelUDT;)Lio/netty/channel/udt/UdtChannel;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/nio/NioUdtByteRendezvousChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/udt/nio/NioUdtByteRendezvousChannel",
+        "super": "io/netty/channel/udt/nio/NioUdtByteConnectorChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/udt/UdtChannel.class": {
+        "ver": 50,
+        "acc": 132609,
+        "nme": "io/netty/channel/udt/UdtChannel",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "config",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/udt/UdtChannelConfig;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1025,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1025,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      }
+    }
+  }
+}

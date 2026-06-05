@@ -1,0 +1,2228 @@
+{
+  "md5": "ede70dd1983dc7e4a4f07205c51346d0",
+  "sha2": "bf81a8f6f9509e2c826fac29a0e580e8c377ba37",
+  "sha256": "3e2683da2d14030323cc9645bba4cd86d7cbabfce42bd162ec2da50c5e7d6228",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/gson/ShowItemSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/ShowItemSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/Gson;Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lcom/google/gson/Gson;Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lcom/google/gson/Gson;ZLnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;)V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "maybeWriteLegacy",
+            "acc": 10,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "LEGACY_SHOW_ITEM_TAG",
+            "dsc": "Ljava/lang/String;",
+            "val": "tag"
+          },
+          {
+            "acc": 26,
+            "nme": "DATA_COMPONENT_REMOVAL_PREFIX",
+            "dsc": "Ljava/lang/String;",
+            "val": "!"
+          },
+          {
+            "acc": 18,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          },
+          {
+            "acc": 18,
+            "nme": "emitDefaultQuantity",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "itemDataMode",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/JSONOptions$ShowItemHoverDataMode;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/SerializerFactory.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/SerializerFactory",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/option/OptionState;Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)V"
+          },
+          {
+            "nme": "create",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;",
+            "sig": "<T:Ljava/lang/Object;>(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken<TT;>;)Lcom/google/gson/TypeAdapter<TT;>;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "KEY_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/key/Key;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "COMPONENT_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/Component;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "STYLE_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/format/Style;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "CLICK_ACTION_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/event/ClickEvent$Action;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "HOVER_ACTION_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/event/HoverEvent$Action;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "SHOW_ITEM_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "SHOW_ENTITY_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "STRING_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Ljava/lang/String;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "COLOR_WRAPPER_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/serializer/gson/TextColorWrapper;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "COLOR_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/format/TextColor;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "SHADOW_COLOR_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/format/ShadowColor;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "TEXT_DECORATION_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/format/TextDecoration;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "BLOCK_NBT_POS_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/BlockNBTComponent$Pos;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "UUID_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Ljava/util/UUID;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "TRANSLATION_ARGUMENT_TYPE",
+            "dsc": "Ljava/lang/Class;",
+            "sig": "Ljava/lang/Class<Lnet/kyori/adventure/text/TranslationArgument;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "features",
+            "dsc": "Lnet/kyori/option/OptionState;"
+          },
+          {
+            "acc": 18,
+            "nme": "legacyHoverSerializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/TranslationArgumentSerializer$1.class": {
+        "ver": 52,
+        "acc": 4128,
+        "nme": "net/kyori/adventure/text/serializer/gson/TranslationArgumentSerializer$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$com$google$gson$stream$JsonToken",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/impl/JSONComponentSerializerProviderImpl.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/gson/impl/JSONComponentSerializerProviderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "instance",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 1,
+            "dsc": "()Ljava/util/function/Supplier;",
+            "sig": "()Ljava/util/function/Supplier<Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          },
+          {
+            "dsc": "Lcom/google/auto/service/AutoService;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/kyori/adventure/text/serializer/json/JSONComponentSerializer$Provider"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/ClickEventActionSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/ClickEventActionSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/event/ClickEvent$Action;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/KeySerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/KeySerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/key/Key;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/key/Key;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/key/Key;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/BlockNBTComponentPosSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/BlockNBTComponentPosSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/BlockNBTComponent$Pos;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/BlockNBTComponent$Pos;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/BlockNBTComponent$Pos;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl$1.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl$1",
+        "super": "com/google/gson/reflect/TypeToken",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/gson/LegacyHoverEventSerializer.class": {
+        "ver": 52,
+        "acc": 132609,
+        "nme": "net/kyori/adventure/text/serializer/gson/LegacyHoverEventSerializer",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+            "vals": [
+              "inVersion",
+              "5.0.0"
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl$RemovedGsonComponentValueImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl$RemovedGsonComponentValueImpl",
+        "super": "net/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl$RemovedGsonComponentValueImpl;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/HoverEventActionSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/HoverEventActionSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/event/HoverEvent$Action<*>;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/TranslationArgumentSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/TranslationArgumentSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/TranslationArgument;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lcom/google/gson/Gson;)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/TranslationArgument;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/TranslationArgument;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lnet/kyori/option/OptionState;Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lnet/kyori/option/OptionState;Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/Component;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(ZLcom/google/gson/Gson;)V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/BuildableComponent;",
+            "sig": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/BuildableComponent<**>;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "nbt",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/NBTComponentBuilder;Ljava/lang/String;ZLnet/kyori/adventure/text/Component;)Lnet/kyori/adventure/text/NBTComponentBuilder;",
+            "sig": "<C::Lnet/kyori/adventure/text/NBTComponent<TC;TB;>;B::Lnet/kyori/adventure/text/NBTComponentBuilder<TC;TB;>;>(TB;Ljava/lang/String;ZLnet/kyori/adventure/text/Component;)TB;"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/Component;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeSeparator",
+            "acc": 2,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/Component;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "notSureHowToDeserialize",
+            "acc": 8,
+            "dsc": "(Ljava/lang/Object;)Lcom/google/gson/JsonParseException;"
+          },
+          {
+            "nme": "notSureHowToSerialize",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/IllegalArgumentException;"
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "COMPONENT_LIST_TYPE",
+            "dsc": "Ljava/lang/reflect/Type;"
+          },
+          {
+            "acc": 24,
+            "nme": "TRANSLATABLE_ARGUMENT_LIST_TYPE",
+            "dsc": "Ljava/lang/reflect/Type;"
+          },
+          {
+            "acc": 18,
+            "nme": "emitCompactTextComponent",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/impl/GsonDataComponentValueConverterProvider.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/gson/impl/GsonDataComponentValueConverterProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "id",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/key/Key;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "conversions",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Iterable;",
+            "sig": "()Ljava/lang/Iterable<Lnet/kyori/adventure/text/event/DataComponentValueConverterRegistry$Conversion<**>;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$conversions$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/key/Key;Lnet/kyori/adventure/text/event/DataComponentValue$Removed;)Lnet/kyori/adventure/text/serializer/gson/GsonDataComponentValue;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "ID",
+            "dsc": "Lnet/kyori/adventure/key/Key;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lcom/google/auto/service/AutoService;",
+            "vals": [
+              "value",
+              [
+                {
+                  "itrlNme": "net/kyori/adventure/text/event/DataComponentValueConverterRegistry$Provider"
+                }
+              ]
+            ]
+          },
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/StyleSerializer$1.class": {
+        "ver": 52,
+        "acc": 4128,
+        "nme": "net/kyori/adventure/text/serializer/gson/StyleSerializer$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$net$kyori$adventure$text$event$ClickEvent$Action",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/TextColorWrapper$Serializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/TextColorWrapper$Serializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/serializer/gson/TextColorWrapper;)V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/serializer/gson/TextColorWrapper;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/gson/TextColorWrapper$Serializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonDataComponentValueImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lcom/google/gson/JsonElement;)V"
+          },
+          {
+            "nme": "element",
+            "acc": 1,
+            "dsc": "()Lcom/google/gson/JsonElement;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "element",
+            "dsc": "Lcom/google/gson/JsonElement;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/IndexedSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/IndexedSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "strict",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Lnet/kyori/adventure/util/Index;)Lcom/google/gson/TypeAdapter;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/lang/String;Lnet/kyori/adventure/util/Index<Ljava/lang/String;TE;>;)Lcom/google/gson/TypeAdapter<TE;>;"
+          },
+          {
+            "nme": "lenient",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Lnet/kyori/adventure/util/Index;)Lcom/google/gson/TypeAdapter;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/lang/String;Lnet/kyori/adventure/util/Index<Ljava/lang/String;TE;>;)Lcom/google/gson/TypeAdapter<TE;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;Lnet/kyori/adventure/util/Index;Z)V",
+            "sig": "(Ljava/lang/String;Lnet/kyori/adventure/util/Index<Ljava/lang/String;TE;>;Z)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "sig": "(Lcom/google/gson/stream/JsonWriter;TE;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "sig": "(Lcom/google/gson/stream/JsonReader;)TE;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "map",
+            "dsc": "Lnet/kyori/adventure/util/Index;",
+            "sig": "Lnet/kyori/adventure/util/Index<Ljava/lang/String;TE;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "throwOnUnknownKey",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/TextDecorationSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/TextDecorationSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/format/TextDecoration;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/ShowEntitySerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/ShowEntitySerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/Gson;Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lcom/google/gson/Gson;Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lcom/google/gson/Gson;Z)V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          },
+          {
+            "acc": 18,
+            "nme": "emitKeyAsTypeAndUuidAsId",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/StyleSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/StyleSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;Lnet/kyori/option/OptionState;Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;Lnet/kyori/option/OptionState;Lcom/google/gson/Gson;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/format/Style;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;ZZZZZZZZLcom/google/gson/Gson;)V"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/format/Style;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "legacyHoverEventContents",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent$Action;Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "sig": "(Lnet/kyori/adventure/text/event/HoverEvent$Action<*>;Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "decoder",
+            "acc": 2,
+            "dsc": "()Lnet/kyori/adventure/util/Codec$Decoder;",
+            "sig": "()Lnet/kyori/adventure/util/Codec$Decoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;Lcom/google/gson/JsonParseException;>;"
+          },
+          {
+            "nme": "encoder",
+            "acc": 2,
+            "dsc": "()Lnet/kyori/adventure/util/Codec$Encoder;",
+            "sig": "()Lnet/kyori/adventure/util/Codec$Encoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;Lcom/google/gson/JsonParseException;>;"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/format/Style;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeLegacyHoverEvent",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent;Lcom/google/gson/stream/JsonWriter;)V",
+            "sig": "(Lnet/kyori/adventure/text/event/HoverEvent<*>;Lcom/google/gson/stream/JsonWriter;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "lambda$encoder$1",
+            "acc": 4098,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ]
+          },
+          {
+            "nme": "lambda$decoder$0",
+            "acc": 4098,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/Component;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DECORATIONS",
+            "dsc": "[Lnet/kyori/adventure/text/format/TextDecoration;"
+          },
+          {
+            "acc": 18,
+            "nme": "legacyHover",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;"
+          },
+          {
+            "acc": 18,
+            "nme": "emitValueFieldHover",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitCamelCaseHover",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitSnakeCaseHover",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitCamelCaseClick",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitSnakeCaseClick",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "strictEventValues",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitShadowColor",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "emitStringPage",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/TextColorWrapper.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/TextColorWrapper",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextColor;Lnet/kyori/adventure/text/format/TextDecoration;Z)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16,
+            "nme": "color",
+            "dsc": "Lnet/kyori/adventure/text/format/TextColor;"
+          },
+          {
+            "acc": 16,
+            "nme": "decoration",
+            "dsc": "Lnet/kyori/adventure/text/format/TextDecoration;"
+          },
+          {
+            "acc": 16,
+            "nme": "reset",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/ShadowColorSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/ShadowColorSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "create",
+            "acc": 8,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/format/ShadowColor;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/format/ShadowColor;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/format/ShadowColor;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "componentAsFloat",
+            "acc": 8,
+            "dsc": "(I)F"
+          },
+          {
+            "nme": "componentFromFloat",
+            "acc": 8,
+            "dsc": "(D)I"
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "emitArray",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonDataComponentValue.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonDataComponentValue",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "gsonDataComponentValue",
+            "acc": 9,
+            "dsc": "(Lcom/google/gson/JsonElement;)Lnet/kyori/adventure/text/serializer/gson/GsonDataComponentValue;"
+          },
+          {
+            "nme": "element",
+            "acc": 1025,
+            "dsc": "()Lcom/google/gson/JsonElement;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$NonExtendable;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/impl/package-info.class": {
+        "ver": 52,
+        "acc": 5632,
+        "nme": "net/kyori/adventure/text/serializer/gson/impl/package-info",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          },
+          {
+            "acc": 24,
+            "nme": "LEGACY_INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Provider.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Provider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "gson",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "gsonLegacy",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 1025,
+            "dsc": "()Ljava/util/function/Consumer;",
+            "sig": "()Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;>;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "gson",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "colorDownsamplingGson",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;"
+          },
+          {
+            "nme": "serializer",
+            "acc": 1025,
+            "dsc": "()Lcom/google/gson/Gson;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "populator",
+            "acc": 1025,
+            "dsc": "()Ljava/util/function/UnaryOperator;",
+            "sig": "()Ljava/util/function/UnaryOperator<Lcom/google/gson/GsonBuilder;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeFromTree",
+            "acc": 1025,
+            "dsc": "(Lcom/google/gson/JsonElement;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serializeToTree",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Lcom/google/gson/JsonElement;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonHacks.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonHacks",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "isNullOrEmpty",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/JsonElement;)Z"
+          },
+          {
+            "nme": "readBoolean",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Z",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "readString",
+            "acc": 8,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/String;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl$2.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/adventure/text/serializer/gson/ComponentSerializerImpl$2",
+        "super": "com/google/gson/reflect/TypeToken",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/gson/TextColorSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/TextColorSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Lnet/kyori/adventure/text/format/TextColor;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "asUpperCaseHexString",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextColor;)Ljava/lang/String;"
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Lnet/kyori/adventure/text/format/TextColor;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "fromString",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/format/TextColor;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/format/TextColor;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "DOWNSAMPLE_COLOR",
+            "dsc": "Lcom/google/gson/TypeAdapter;",
+            "sig": "Lcom/google/gson/TypeAdapter<Lnet/kyori/adventure/text/format/TextColor;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "downsampleColor",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/option/OptionState;Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)V"
+          },
+          {
+            "nme": "serializer",
+            "acc": 1,
+            "dsc": "()Lcom/google/gson/Gson;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "populator",
+            "acc": 1,
+            "dsc": "()Ljava/util/function/UnaryOperator;",
+            "sig": "()Ljava/util/function/UnaryOperator<Lcom/google/gson/GsonBuilder;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeOr",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lnet/kyori/adventure/text/Component;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeFromTree",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serializeToTree",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Lcom/google/gson/JsonElement;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeOr",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Lnet/kyori/adventure/text/Component;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/util/Buildable$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$new$2",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState;Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;Lcom/google/gson/GsonBuilder;)Lcom/google/gson/GsonBuilder;"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "()Ljava/util/function/Consumer;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;)V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()Ljava/util/Optional;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl;)Lnet/kyori/option/OptionState;"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl;)Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "SERVICE",
+            "dsc": "Ljava/util/Optional;",
+            "sig": "Ljava/util/Optional<Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Provider;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "BUILDER",
+            "dsc": "Ljava/util/function/Consumer;",
+            "sig": "Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "serializer",
+            "dsc": "Lcom/google/gson/Gson;"
+          },
+          {
+            "acc": 18,
+            "nme": "populator",
+            "dsc": "Ljava/util/function/UnaryOperator;",
+            "sig": "Ljava/util/function/UnaryOperator<Lcom/google/gson/GsonBuilder;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "legacyHoverSerializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;"
+          },
+          {
+            "acc": 18,
+            "nme": "flags",
+            "dsc": "Lnet/kyori/option/OptionState;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/UUIDSerializer.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/UUIDSerializer",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "uuidSerializer",
+            "acc": 8,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter;",
+            "sig": "(Lnet/kyori/option/OptionState;)Lcom/google/gson/TypeAdapter<Ljava/util/UUID;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/util/UUID;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/util/UUID;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "emitIntArray",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "options",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 1025,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "sig": "(Ljava/util/function/Consumer<Lnet/kyori/option/OptionState$Builder;>;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "downsampleColors",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 131073,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "emitLegacyHoverEvent",
+            "acc": 131073,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "emitLegacyHoverEvent",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "downsampleColors",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 4161,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "options",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$emitLegacyHoverEvent$1",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          },
+          {
+            "nme": "lambda$downsampleColors$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/option/OptionState$Builder;)V"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl$BuilderImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl$BuilderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializerImpl;)V"
+          },
+          {
+            "nme": "options",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 1,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "sig": "(Ljava/util/function/Consumer<Lnet/kyori/option/OptionState$Builder;>;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyHoverEventSerializer",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "editOptions",
+            "acc": 4161,
+            "dsc": "(Ljava/util/function/Consumer;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "options",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/option/OptionState;)Lnet/kyori/adventure/text/serializer/json/JSONComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "flags",
+            "dsc": "Lnet/kyori/option/OptionState;"
+          },
+          {
+            "acc": 2,
+            "nme": "legacyHoverSerializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;"
+          }
+        ]
+      }
+    }
+  }
+}

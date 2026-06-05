@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "void",
+  "version": "${version}",
+  "name": "Void",
+  "description": "A lightweight simulation anticheat for 1.8-26.1, powered by PacketEvents 2.0.",
+  "authors": [
+    "Void"
+  ],
+  "license": "GPLv3",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "ac.voidac.platform.fabric.VoidFabricEntryPoint"
+    ],
+    "preLaunch": [
+      "ac.voidac.platform.fabric.VoidFabricEntryPoint"
+    ]
+  },
+  "mixins": [
+    "void.mixins.json"
+  ],
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/world/level/Level": [
+        "ac/voidac/platform/api/world/PlatformWorld"
+      ]
+    }
+  },
+  "accessWidener": "void.accesswidener",
+  "depends": {
+    "fabricloader": "\u003e\u003d0.16",
+    "fabric-lifecycle-events-v1": "*",
+    "packetevents": "*"
+  },
+  "recommends": {
+    "cloud": "*",
+    "fabric-permissions-api-v0": "*"
+  }
+}

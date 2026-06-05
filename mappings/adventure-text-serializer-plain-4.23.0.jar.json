@@ -1,0 +1,664 @@
+{
+  "md5": "a9de8262ecc50f3500c4f32fbf6d729c",
+  "sha2": "2331599c8e892fe3996b6a25f85477152a1b2b3d",
+  "sha256": "c2e1d804ca1be78434f4ad6bdbd53cc97a113ad9295cb4c936cf3b9d902c591e",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl$BuilderImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl$BuilderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl;)V"
+          },
+          {
+            "nme": "flattener",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "flattener",
+            "dsc": "Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainComponentSerializerImpl$BuilderImpl.class": {
+        "ver": 52,
+        "acc": 131120,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainComponentSerializerImpl$BuilderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 131072,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131072,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "flattener",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder;"
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "builder",
+            "dsc": "Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainComponentSerializer.class": {
+        "ver": 52,
+        "acc": 131105,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "plain",
+            "acc": 131081,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 131081,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "(Ljava/util/function/Function;Ljava/util/function/Function;)V",
+            "sig": "(Ljava/util/function/Function<Lnet/kyori/adventure/text/KeybindComponent;Ljava/lang/String;>;Ljava/util/function/Function<Lnet/kyori/adventure/text/TranslatableComponent;Ljava/lang/String;>;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131072,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/TextComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 131073,
+            "dsc": "(Ljava/lang/StringBuilder;Lnet/kyori/adventure/text/Component;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder;"
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/util/Buildable$Builder;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 131088,
+            "nme": "serializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+            "vals": [
+              "inVersion",
+              "5.0.0"
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder.class": {
+        "ver": 52,
+        "acc": 132609,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "flattener",
+            "acc": 132097,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+                "vals": [
+                  "inVersion",
+                  "5.0.0"
+                ]
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$ScheduledForRemoval;",
+            "vals": [
+              "inVersion",
+              "5.0.0"
+            ]
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "flattener",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainComponentSerializerImpl.class": {
+        "ver": 52,
+        "acc": 131120,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainComponentSerializerImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "createRealSerializerFromLegacyFunctions",
+            "acc": 131080,
+            "dsc": "(Ljava/util/function/Function;Ljava/util/function/Function;)Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;",
+            "sig": "(Ljava/util/function/Function<Lnet/kyori/adventure/text/KeybindComponent;Ljava/lang/String;>;Ljava/util/function/Function<Lnet/kyori/adventure/text/TranslatableComponent;Ljava/lang/String;>;)Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 131096,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/plain/PlainComponentSerializer;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Provider.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Provider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "plainTextSimple",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "plainText",
+            "acc": 1025,
+            "dsc": "()Ljava/util/function/Consumer;",
+            "sig": "()Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;>;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "plainText",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;"
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/TextComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/StringBuilder;Lnet/kyori/adventure/text/Component;)V"
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/plain/PlainTextComponentSerializerImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)V"
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/StringBuilder;Lnet/kyori/adventure/text/Component;)V"
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/util/Buildable$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$static$2",
+            "acc": 4106,
+            "dsc": "()Ljava/util/function/Consumer;"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;)V"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()Ljava/util/Optional;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "()Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DEFAULT_FLATTENER",
+            "dsc": "Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          },
+          {
+            "acc": 26,
+            "nme": "SERVICE",
+            "dsc": "Ljava/util/Optional;",
+            "sig": "Ljava/util/Optional<Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Provider;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "BUILDER",
+            "dsc": "Ljava/util/function/Consumer;",
+            "sig": "Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/plain/PlainTextComponentSerializer$Builder;>;"
+          },
+          {
+            "acc": 16,
+            "nme": "flattener",
+            "dsc": "Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          }
+        ]
+      }
+    }
+  }
+}

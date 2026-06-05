@@ -1,0 +1,68 @@
+package ac.voidac.checks.impl.combat;
+
+import ac.voidac.checks.Check;
+import ac.voidac.checks.CheckData;
+import ac.voidac.checks.type.PostPredictionCheck;
+import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.anticheat.MessageUtil;
+import ac.voidac.utils.anticheat.update.PredictionComplete;
+import com.github.retrooper.packetevents.event.PacketReceiveEvent;
+import com.github.retrooper.packetevents.protocol.packettype.PacketType;
+import com.github.retrooper.packetevents.util.Vector3d;
+import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
+
+import java.util.ArrayList;
+
+@CheckData(name = "MultiInteractB", stableKey = "void.multiinteract.interact_at_position_changed", experimental = true)
+public class MultiInteractB extends Check implements PostPredictionCheck {
+    private final ArrayList<String> flags = new ArrayList<>();
+    private Vector3d lastPos;
+    private boolean hasInteracted;
+
+    public MultiInteractB(final VoidPlayer player) {
+        super(player);
+    }
+
+    @Override
+    public void onPacketReceive(PacketReceiveEvent event) {
+        if (event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
+            WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
+            if (packet.getAction() != WrapperPlayClientInteractEntity.InteractAction.INTERACT_AT) return;
+
+            Vector3d pos = packet.getLocation();
+            if (pos == null) return; // shouldn't ever happen, but whatever
+
+            if (hasInteracted && !pos.equals(lastPos)) {
+                String verbose = "pos=" + MessageUtil.toUnlabledString(pos) + ", lastPos=" + MessageUtil.toUnlabledString(lastPos);
+                if (!player.canSkipTicks()) {
+                    if (flagAndAlert(verbose) && shouldModifyPackets()) {
+                        event.setCancelled(true);
+                        player.onPacketCancel();
+                    }
+                } else {
+                    flags.add(verbose);
+                }
+            }
+
+            lastPos = pos;
+            hasInteracted = true;
+        }
+
+        if (!player.cameraEntity.isSelf() || isTickPacket(event.getPacketType())) {
+            hasInteracted = false;
+        }
+    }
+
+    @Override
+    public void onPredictionComplete(PredictionComplete predictionComplete) {
+        if (!player.canSkipTicks()) return;
+
+        if (player.isTickingReliablyFor(3)) {
+            for (String verbose : flags) {
+                flagAndAlert(verbose);
+            }
+        }
+
+        flags.clear();
+    }
+}

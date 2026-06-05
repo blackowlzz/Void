@@ -1,0 +1,129 @@
+# \u00BB se traduit par » (double >>). Les interprétations diffèrent entre les normes ANSI et UTF-8... vous pouvez même voir ? en raison de cela
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Alertes &aactivées&7."
+alerts-disabled: "%prefix% &7Alertes &cdésactivées&7."
+verbose-enabled: "%prefix% &7Verbose &aactivé&7."
+verbose-disabled: "%prefix% &7Verbose &cdésactivé&7."
+brands-enabled: "%prefix% &7Suivi des marques &aactivé&7."
+brands-disabled: "%prefix% &7Suivi des marques &cdésactivé&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &cVous devez spécifier une cible en tant que console !"
+reloading: "%prefix% &7Rechargement..."
+reloaded: "%prefix% &7Configuration &arechargée&7."
+reload-failed: "%prefix% &7Rechargement &céchoué&7."
+player-not-found: "%prefix% &cPlayer est ignoré ou hors ligne !"
+player-not-this-server: "%prefix% &cPlayer n'est pas sur ce serveur !"
+sender-not-found: "%prefix% &cVous ne pouvez pas utiliser cette commande si vous êtes exempté !"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fClickez ici pour retourner à votre position d'origine\n</hover></click>"
+cannot-spectate-return: "%prefix% &cVous pouvez faire cela uniquement en étant en spectateur"
+cannot-run-on-self: "%prefix% &cVous ne pouvez pas utiliser cette commande sur vous-même !"
+upload-log: "%prefix% &fLe fichier de débogage a été téléversé vers : %url%"
+upload-log-start: "%prefix% &fTéléversement du journal... Veuillez patienter"
+upload-log-not-found: "%prefix% &cUImpossible de trouver le journal de débogage"
+upload-log-upload-failure: "%prefix% &cUne erreur est survenue lors du téléversement de ce journal, regardez la console pour plus d'information"
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cCette commande ne peut être utilisée que par les joueurs !"
+run-as-player-or-console: "%prefix% &cCette commande ne peut être utilisée que par les joueurs ou la console !"
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void webhook test succeeded!"
+webhook-test-failed: "Void webhook test failed!"
+
+# Placeholders valides :
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - violations
+# %verbose% - Informations supplémentaires sur les vérifivations comme les écarts, toutes les vérifications n'ajoutent pas d'information
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+
+profile:
+    - ""
+    - "  %prefix% &5Profil &8─ &f%player%"
+    - "  &8▸ &7Ping         &f%ping% ms"
+    - "  &8▸ &7Version      &f%version%"
+    - "  &8▸ &7Marque       &f%brand%"
+    - "  &8▸ &7Sensibilité  &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
+    - "  &8▸ &7FastMath     &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Activer/désactiver les alertes"
+    - "  &5/void verbose             &8│ &7Activer/désactiver le verbose"
+    - "  &5/void brands              &8│ &7Surveiller les marques clients"
+    - "  &5/void profile &8<joueur>    &8│ &7Inspecter le profil d'un joueur"
+    - "  &5/void debug &8<joueur>      &8│ &7Voir le debug trace"
+    - "  &5/void spectate &8<joueur>   &8│ &7Observer un joueur"
+    - "  &5/void history &8<joueur>    &8│ &7Historique des sessions"
+    - "  &5/void log &8[0-255]         &8│ &7Téléverser le log de debug"
+    - "  &5/void perf                &8│ &7Voir les temps de prédiction"
+    - "  &5/void reload              &8│ &7Recharger la configuration"
+    - "  &5/void version             &8│ &7Vérifier les mises à jour"
+    - "  &5/void punish &8<joueur>     &8│ &7Punir manuellement un joueur"
+    - "  &5/void banwave             &8│ &7Gérer la vague de bans"
+    - "  &5/void punishments &8<query> &8│ &7Rechercher des punitions"
+
+# === /void history ===
+# UI d'historique basée sur les sessions. Toutes les lignes ci-dessous sont
+# entièrement configurables ; les placeholders sont documentés à chaque clé.
+# Le texte au survol des lignes de session et de violation est construit par
+# le renderer à partir des données brutes (verbose, ventilation des checks)
+# et n'a pas besoin de modèle — mais vous pouvez ajouter
+# <hover:show_text:'...'> sur n'importe quelle ligne pour superposer des
+# tooltips supplémentaires.
+
+void-history-load-failure: "%prefix% &cLe sous-système d'historique n'a pas pu être chargé ! Vérifiez la console du serveur pour les erreurs."
+void-history-disabled: "%prefix% &cLe sous-système d'historique est désactivé !"
+void-history-failed: "%prefix% &cÉchec du chargement de l'historique : &7%error%"
+void-history-unknown-player: "%prefix% &cJoueur inconnu : &f%player%"
+void-history-no-sessions: "%prefix% &7Pas d'historique de sessions pour &f%player%&7."
+void-history-session-not-found: "%prefix% &cSession &f%ordinal%&c introuvable pour &f%player%&c."
+
+# Liste des sessions — placeholders valides : %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Ligne de résumé d'une session — placeholders valides :
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% s'étend en void-history-crashed-marker pour les sessions
+# dont la connexion a disparu sans fermeture propre (crash serveur, kill -9,
+# RST de canal sans UserDisconnectEvent). Chaîne vide pour les sessions en
+# cours ou closes proprement.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Marqueur en ligne substitué dans %crashed_marker% pour les sessions dont
+# closed_at == last_activity (c.-à-d. estampillées par le balayage de crash
+# au prochain démarrage, et non par le chemin de déconnexion). Inclut un
+# espace de tête pour que le marqueur se lise naturellement quand il est
+# présent et disparaisse proprement quand il est vide.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Détail de session — placeholders valides :
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
+void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Marque &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7violations &8(&d%unique_checks% &7uniques&8)"
+void-history-detail-empty: "  &8▸ &7(aucune)"
+# Ligne groupée (par défaut) — placeholders valides : %prefix% %offset% %checks_list%
+#   %checks_list% est construite en joignant les entrées void-history-check-count avec ", "
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Ligne de violation brute (--detailed) — placeholders valides :
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Format interne pour chaque check dans %checks_list% — placeholders valides : %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Marqueurs de schéma — voir le commentaire d'en-tête dans config.yml.
+config-flavor: V2
+config-version: 1

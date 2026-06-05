@@ -1,0 +1,127 @@
+# \u00BB это " (двойной >>), ANSI и UTF-8 интерпретируют это по-разному... вы можете даже увидеть "?" из-за этого
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Оповещения &aвключены&7."
+alerts-disabled: "%prefix% &7Оповещения &cотключены&7."
+verbose-enabled: "%prefix% &7Verbose &aвключён&7."
+verbose-disabled: "%prefix% &7Verbose &cотключён&7."
+brands-enabled: "%prefix% &7Отслеживание брендов &aвключено&7."
+brands-disabled: "%prefix% &7Отслеживание брендов &cотключено&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &cВы должны указать цель в качестве консоли!"
+reloading: "%prefix% &7Перезагрузка..."
+reloaded: "%prefix% &7Конфигурация &aперезагружена&7."
+reload-failed: "%prefix% &7Перезагрузка &cне удалась&7."
+player-not-found: "%prefix% &cИгрок исключен или находится вне сети!"
+player-not-this-server: "%prefix% &cИгрок не находится на этом сервере!"
+sender-not-found: "%prefix% &cВы не можете использовать эту команду, если у вас есть исключение!"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fНажмите здесь, чтобы вернуться на предыдущее место\n</hover></click>"
+cannot-spectate-return: "%prefix% &cВы можете сделать это только после наблюдения за игроком"
+cannot-run-on-self: "%prefix% &cВы не можете использовать эту команду на себе!"
+upload-log: "%prefix% &fОтладка была загружена на: %url%"
+upload-log-start: "%prefix% &fЗагрузка журнала... пожалуйста, подождите"
+upload-log-not-found: "%prefix% &cНевозможно найти этот журнал"
+upload-log-upload-failure: "%prefix% &cЧто-то пошло не так при загрузке этого журнала, смотрите консоль для получения дополнительной информации"
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cЭту команду могут использовать только игроки!"
+run-as-player-or-console: "%prefix% &cЭту команду могут использовать только игроки или консоль!"
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void webhook test succeeded!"
+webhook-test-failed: "Void webhook test failed!"
+
+# Допустимые заполнители:
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - нарушения
+# %verbose% - дополнительная информация от проверки, например, смещения, не все проверки добавляют информацию.
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+
+profile:
+    - ""
+    - "  %prefix% &5Профиль &8─ &f%player%"
+    - "  &8▸ &7Пинг           &f%ping% ms"
+    - "  &8▸ &7Версия          &f%version%"
+    - "  &8▸ &7Бренд           &f%brand%"
+    - "  &8▸ &7Чувствительность &fГ %h_sensitivity%% &8│ &fВ %v_sensitivity%%"
+    - "  &8▸ &7FastMath        &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Включить/выключить оповещения"
+    - "  &5/void verbose             &8│ &7Включить/выключить verbose"
+    - "  &5/void brands              &8│ &7Отслеживание брендов"
+    - "  &5/void profile &8<игрок>     &8│ &7Профиль игрока"
+    - "  &5/void debug &8<игрок>       &8│ &7Debug trace игрока"
+    - "  &5/void spectate &8<игрок>    &8│ &7Наблюдать за игроком"
+    - "  &5/void history &8<игрок>     &8│ &7История сессий"
+    - "  &5/void log &8[0-255]         &8│ &7Загрузить debug-лог"
+    - "  &5/void perf                &8│ &7Время предсказаний"
+    - "  &5/void reload              &8│ &7Перезагрузить конфигурацию"
+    - "  &5/void version             &8│ &7Проверить обновления"
+    - "  &5/void punish &8<игрок>      &8│ &7Вручную наказать игрока"
+    - "  &5/void banwave             &8│ &7Управление бан-волной"
+    - "  &5/void punishments &8<query> &8│ &7Найти записи наказаний"
+
+# === /void history ===
+# UI истории на основе сессий. Все строки ниже полностью настраиваются;
+# плейсхолдеры задокументированы у каждого ключа. Текст hover для строк
+# сессий и нарушений собирает рендерер из сырых данных (verbose, разбивка
+# по чекам), шаблон для него не нужен — но в любую строку можно добавить
+# <hover:show_text:'...'> и наложить дополнительный тултип.
+
+void-history-load-failure: "%prefix% &cНе удалось загрузить подсистему истории! Проверьте консоль сервера на наличие ошибок."
+void-history-disabled: "%prefix% &cПодсистема истории отключена!"
+void-history-failed: "%prefix% &cНе удалось загрузить историю: &7%error%"
+void-history-unknown-player: "%prefix% &cНеизвестный игрок: &f%player%"
+void-history-no-sessions: "%prefix% &7Нет истории сессий для &f%player%&7."
+void-history-session-not-found: "%prefix% &cСессия &f%ordinal%&c не найдена для &f%player%&c."
+
+# Список сессий — допустимые плейсхолдеры: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Сводная строка одной сессии — допустимые плейсхолдеры:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% разворачивается в void-history-crashed-marker для сессий,
+# чьё соединение оборвалось без штатного закрытия (краш сервера, kill -9,
+# RST канала, не вызвавший UserDisconnectEvent). Для активных или штатно
+# закрытых сессий — пустая строка.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Встроенный маркер, подставляемый в %crashed_marker% для сессий с
+# closed_at == last_activity (то есть проставленных при следующем запуске
+# crash-sweep'ом, а не путём штатного дисконнекта). Содержит ведущий
+# пробел: при наличии маркер читается естественно, при отсутствии чисто
+# исчезает.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Детали сессии — допустимые плейсхолдеры:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Версия &f%void_version% &8│ &7Сервер &f%server_name% &8│ &7Длительность &f%duration% &8│ &7%timeago% назад"
+void-history-detail-meta2: "  &8▸ &7Клиент &f%client_version% &8│ &7Бренд &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7нарушений &8(&d%unique_checks% &7уникальных&8)"
+void-history-detail-empty: "  &8▸ &7(нет)"
+# Сгруппированная строка (по умолчанию) — допустимые плейсхолдеры: %prefix% %offset% %checks_list%
+#   %checks_list% строится склейкой записей void-history-check-count через ", "
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Одиночная строка нарушения (--detailed) — допустимые плейсхолдеры:
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Внутренний формат каждой записи в %checks_list% — допустимые плейсхолдеры: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Маркеры схемы — см. шапку config.yml.
+config-flavor: V2
+config-version: 1

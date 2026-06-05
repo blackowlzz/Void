@@ -1,0 +1,311 @@
+{
+  "md5": "72b5af6caa32d9a9016bd141322742b4",
+  "sha2": "b7af0e6d45318dfb1ac2e950ebab37eab3a4ee7a",
+  "sha256": "e1bc376c6dc7a2100016015735ce4ccc534d2b26bf5ab82aac751c5032056c39",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable$AdapterFactory.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable$AdapterFactory",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "create",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;",
+            "sig": "<T:Ljava/lang/Object;>(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken<TT;>;)Lcom/google/gson/TypeAdapter<TT;>;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable$AdapterFactory$SelfSerializableTypeAdapter.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable$AdapterFactory$SelfSerializableTypeAdapter",
+        "super": "com/google/gson/TypeAdapter",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lcom/google/gson/reflect/TypeToken;)V",
+            "sig": "(Lcom/google/gson/reflect/TypeToken<TT;>;)V"
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V",
+            "sig": "(Lcom/google/gson/stream/JsonWriter;TT;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "read",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;",
+            "sig": "(Lcom/google/gson/stream/JsonReader;)TT;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lcom/google/gson/reflect/TypeToken;",
+            "sig": "Lcom/google/gson/reflect/TypeToken<TT;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable.class": {
+        "ver": 52,
+        "acc": 1536,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/SelfSerializable",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "write",
+            "acc": 1025,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/bungeecord/GsonInjections.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/GsonInjections",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "field",
+            "acc": 9,
+            "dsc": "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;",
+            "sig": "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Field;",
+            "exs": [
+              "java/lang/NoSuchFieldException"
+            ]
+          },
+          {
+            "nme": "injectGson",
+            "acc": 9,
+            "dsc": "(Lcom/google/gson/Gson;Ljava/util/function/Consumer;)Z",
+            "sig": "(Lcom/google/gson/Gson;Ljava/util/function/Consumer<Lcom/google/gson/GsonBuilder;>;)Z"
+          },
+          {
+            "nme": "findExcluderIndex",
+            "acc": 10,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;)I"
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer$AdapterComponent.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer$AdapterComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;Lnet/kyori/adventure/text/Component;)V"
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "write",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/stream/JsonWriter;)V",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer$AdapterComponent;)Lnet/kyori/adventure/text/Component;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "component",
+            "dsc": "Lnet/kyori/adventure/text/Component;"
+          },
+          {
+            "acc": 66,
+            "nme": "legacy",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "isNative",
+            "acc": 9,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "get",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          },
+          {
+            "nme": "legacy",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;)Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          },
+          {
+            "nme": "inject",
+            "acc": 9,
+            "dsc": "(Lcom/google/gson/Gson;)Z"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;)V"
+          },
+          {
+            "nme": "bind",
+            "acc": 10,
+            "dsc": "()V"
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$inject$0",
+            "acc": 4106,
+            "dsc": "(Lcom/google/gson/GsonBuilder;)V"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;)Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 10,
+            "nme": "SUPPORTED",
+            "dsc": "Z"
+          },
+          {
+            "acc": 26,
+            "nme": "MODERN",
+            "dsc": "Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          },
+          {
+            "acc": 26,
+            "nme": "PRE_1_16",
+            "dsc": "Lnet/kyori/adventure/text/serializer/bungeecord/BungeeComponentSerializer;"
+          },
+          {
+            "acc": 18,
+            "nme": "serializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/gson/GsonComponentSerializer;"
+          },
+          {
+            "acc": 18,
+            "nme": "legacySerializer",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          }
+        ]
+      }
+    }
+  }
+}

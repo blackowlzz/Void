@@ -1,0 +1,2488 @@
+{
+  "md5": "92d0cf0869e642e74f79da767c2527ab",
+  "sha2": "1439e2a909cc94c253b7f1e088008899b999cf7c",
+  "sha256": "1aae28b71821471139682e9b36d8df478ee43c4e9f7e3b3b2a6f75799b804a05",
+  "contents": {
+    "classes": {
+      "io/netty/channel/sctp/SctpChannel.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/channel/sctp/SctpChannel",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "parent",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "association",
+            "acc": 1025,
+            "dsc": "()Lcom/sun/nio/sctp/Association;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1025,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1025,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "config",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1025,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "allRemoteAddresses",
+            "acc": 1025,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/sctp/oio/OioSctpChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/sctp/oio/OioSctpChannel",
+        "super": "io/netty/channel/oio/AbstractOioMessageChannel",
+        "mthds": [
+          {
+            "nme": "openChannel",
+            "acc": 10,
+            "dsc": "()Lcom/sun/nio/sctp/SctpChannel;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/Channel;Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "parent",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWrite",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "association",
+            "acc": 1,
+            "dsc": "()Lcom/sun/nio/sctp/Association;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "allRemoteAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "closeSelector",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Ljava/nio/channels/Selector;)V"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "parent",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/Channel;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpChannel;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 26,
+            "nme": "EXPECTED_TYPE",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "ch",
+            "dsc": "Lcom/sun/nio/sctp/SctpChannel;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "acc": 18,
+            "nme": "readSelector",
+            "dsc": "Ljava/nio/channels/Selector;"
+          },
+          {
+            "acc": 18,
+            "nme": "writeSelector",
+            "dsc": "Ljava/nio/channels/Selector;"
+          },
+          {
+            "acc": 18,
+            "nme": "connectSelector",
+            "dsc": "Ljava/nio/channels/Selector;"
+          },
+          {
+            "acc": 18,
+            "nme": "notificationHandler",
+            "dsc": "Lcom/sun/nio/sctp/NotificationHandler;",
+            "sig": "Lcom/sun/nio/sctp/NotificationHandler<*>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpServerChannel.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/channel/sctp/SctpServerChannel",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "config",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1025,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1025,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1025,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/sctp/nio/NioSctpServerChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/nio/NioSctpServerChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpServerChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpServerChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpMessage.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/sctp/SctpMessage",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IILio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IIZLio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/MessageInfo;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "streamIdentifier",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "protocolIdentifier",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "isUnordered",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "messageInfo",
+            "acc": 1,
+            "dsc": "()Lcom/sun/nio/sctp/MessageInfo;"
+          },
+          {
+            "nme": "isComplete",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/channel/sctp/SctpMessage;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "streamIdentifier",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "protocolIdentifier",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "unordered",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "msgInfo",
+            "dsc": "Lcom/sun/nio/sctp/MessageInfo;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/channel/sctp/SctpServerChannelConfig",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getBacklog",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getInitMaxStreams",
+            "acc": 1025,
+            "dsc": "()Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;"
+          },
+          {
+            "nme": "setInitMaxStreams",
+            "acc": 1025,
+            "dsc": "(Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 132097,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/sctp/DefaultSctpChannelConfig.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/sctp/DefaultSctpChannelConfig",
+        "super": "io/netty/channel/DefaultChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/sctp/SctpChannel;Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "isSctpNoDelay",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setSctpNoDelay",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getInitMaxStreams",
+            "acc": 1,
+            "dsc": "()Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;"
+          },
+          {
+            "nme": "setInitMaxStreams",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "javaChannel",
+            "dsc": "Lcom/sun/nio/sctp/SctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpServerChannel.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/sctp/nio/NioSctpServerChannel",
+        "super": "io/netty/channel/nio/AbstractNioMessageChannel",
+        "mthds": [
+          {
+            "nme": "newSocket",
+            "acc": 10,
+            "dsc": "()Lcom/sun/nio/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4,
+            "dsc": "()Lcom/sun/nio/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;Lio/netty/channel/ChannelOutboundBuffer;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4164,
+            "dsc": "()Ljava/nio/channels/SelectableChannel;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpServerChannel;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpServerChannel$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/nio/NioSctpServerChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpServerChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpServerChannel;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/sctp/SctpOutboundByteStreamHandler.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/sctp/SctpOutboundByteStreamHandler",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(II)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IIZ)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "streamIdentifier",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "protocolIdentifier",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "unordered",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpChannel$NioSctpChannelConfig.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/sctp/nio/NioSctpChannel$NioSctpChannelConfig",
+        "super": "io/netty/channel/sctp/DefaultSctpChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpChannel;Lio/netty/channel/sctp/nio/NioSctpChannel;Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "autoReadCleared",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpChannel;Lio/netty/channel/sctp/nio/NioSctpChannel;Lcom/sun/nio/sctp/SctpChannel;Lio/netty/channel/sctp/nio/NioSctpChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpServerChannel$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/oio/OioSctpServerChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpServerChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpServerChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/oio/OioSctpChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/sctp/SctpMessageToMessageDecoder.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/sctp/SctpMessageToMessageDecoder",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "acceptInboundMessage",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/sctp/SctpInboundByteStreamHandler.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/sctp/SctpInboundByteStreamHandler",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(II)V"
+          },
+          {
+            "nme": "acceptInboundMessage",
+            "acc": 17,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "acceptInboundMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/sctp/SctpMessage;)Z"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/sctp/SctpMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/sctp/SctpMessage;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "protocolIdentifier",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "streamIdentifier",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpNotificationHandler.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/sctp/SctpNotificationHandler",
+        "super": "com/sun/nio/sctp/AbstractNotificationHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "handleNotification",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/AssociationChangeNotification;Ljava/lang/Object;)Lcom/sun/nio/sctp/HandlerResult;"
+          },
+          {
+            "nme": "handleNotification",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/PeerAddressChangeNotification;Ljava/lang/Object;)Lcom/sun/nio/sctp/HandlerResult;"
+          },
+          {
+            "nme": "handleNotification",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SendFailedNotification;Ljava/lang/Object;)Lcom/sun/nio/sctp/HandlerResult;"
+          },
+          {
+            "nme": "handleNotification",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/ShutdownNotification;Ljava/lang/Object;)Lcom/sun/nio/sctp/HandlerResult;"
+          },
+          {
+            "nme": "fireEvent",
+            "acc": 2,
+            "dsc": "(Lcom/sun/nio/sctp/Notification;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "sctpChannel",
+            "dsc": "Lio/netty/channel/sctp/SctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpServerChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/sctp/oio/OioSctpServerChannel",
+        "super": "io/netty/channel/oio/AbstractOioMessageChannel",
+        "mthds": [
+          {
+            "nme": "newServerSocket",
+            "acc": 10,
+            "dsc": "()Lcom/sun/nio/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SctpServerChannel;)V"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWrite",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelOutboundBuffer;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpServerChannel;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 18,
+            "nme": "sch",
+            "dsc": "Lcom/sun/nio/sctp/SctpServerChannel;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "acc": 18,
+            "nme": "selector",
+            "dsc": "Ljava/nio/channels/Selector;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpServerChannel$NioSctpServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/sctp/nio/NioSctpServerChannel$NioSctpServerChannelConfig",
+        "super": "io/netty/channel/sctp/DefaultSctpServerChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpServerChannel;Lio/netty/channel/sctp/nio/NioSctpServerChannel;Lcom/sun/nio/sctp/SctpServerChannel;)V"
+          },
+          {
+            "nme": "autoReadCleared",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpServerChannel;Lio/netty/channel/sctp/nio/NioSctpServerChannel;Lcom/sun/nio/sctp/SctpServerChannel;Lio/netty/channel/sctp/nio/NioSctpServerChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpServerChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpChannel$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/nio/NioSctpChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/DefaultSctpServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/sctp/DefaultSctpServerChannelConfig",
+        "super": "io/netty/channel/DefaultChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/sctp/SctpServerChannel;Lcom/sun/nio/sctp/SctpServerChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getInitMaxStreams",
+            "acc": 1,
+            "dsc": "()Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;"
+          },
+          {
+            "nme": "setInitMaxStreams",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "getBacklog",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setBacklog",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/sctp/SctpServerChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "javaChannel",
+            "dsc": "Lcom/sun/nio/sctp/SctpServerChannel;"
+          },
+          {
+            "acc": 66,
+            "nme": "backlog",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpChannel.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/channel/sctp/nio/NioSctpChannel",
+        "super": "io/netty/channel/nio/AbstractNioMessageChannel",
+        "mthds": [
+          {
+            "nme": "newSctpChannel",
+            "acc": 10,
+            "dsc": "()Lcom/sun/nio/sctp/SctpChannel;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/Channel;Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Ljava/net/InetSocketAddress;"
+          },
+          {
+            "nme": "parent",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpServerChannel;"
+          },
+          {
+            "nme": "metadata",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "nme": "association",
+            "acc": 1,
+            "dsc": "()Lcom/sun/nio/sctp/Association;"
+          },
+          {
+            "nme": "allLocalAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "allRemoteAddresses",
+            "acc": 1,
+            "dsc": "()Ljava/util/Set;",
+            "sig": "()Ljava/util/Set<Ljava/net/InetSocketAddress;>;"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4,
+            "dsc": "()Lcom/sun/nio/sctp/SctpChannel;"
+          },
+          {
+            "nme": "isActive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doFinishConnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doReadMessages",
+            "acc": 4,
+            "dsc": "(Ljava/util/List;)I",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;)I",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doWriteMessage",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;Lio/netty/channel/ChannelOutboundBuffer;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "filterOutboundMessage",
+            "acc": 20,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "bindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "unbindAddress",
+            "acc": 1,
+            "dsc": "(Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "javaChannel",
+            "acc": 4164,
+            "dsc": "()Ljava/nio/channels/SelectableChannel;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "parent",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/Channel;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpChannel;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "METADATA",
+            "dsc": "Lio/netty/channel/ChannelMetadata;"
+          },
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "acc": 18,
+            "nme": "notificationHandler",
+            "dsc": "Lcom/sun/nio/sctp/NotificationHandler;",
+            "sig": "Lcom/sun/nio/sctp/NotificationHandler<*>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/sctp/SctpMessageCompletionHandler.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/sctp/SctpMessageCompletionHandler",
+        "super": "io/netty/handler/codec/MessageToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/sctp/SctpMessage;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/channel/sctp/SctpMessage;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "handlerRemoved",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "fragments",
+            "dsc": "Lio/netty/util/collection/IntObjectMap;",
+            "sig": "Lio/netty/util/collection/IntObjectMap<Lio/netty/buffer/ByteBuf;>;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpChannel$OioSctpChannelConfig.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/sctp/oio/OioSctpChannel$OioSctpChannelConfig",
+        "super": "io/netty/channel/sctp/DefaultSctpChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpChannel;Lio/netty/channel/sctp/oio/OioSctpChannel;Lcom/sun/nio/sctp/SctpChannel;)V"
+          },
+          {
+            "nme": "autoReadCleared",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpChannel;Lio/netty/channel/sctp/oio/OioSctpChannel;Lcom/sun/nio/sctp/SctpChannel;Lio/netty/channel/sctp/oio/OioSctpChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpServerChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/oio/OioSctpServerChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpServerChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpServerChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpChannelConfig.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/channel/sctp/SctpChannelConfig",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "isSctpNoDelay",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setSctpNoDelay",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getSendBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setSendBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setReceiveBufferSize",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "getInitMaxStreams",
+            "acc": 1025,
+            "dsc": "()Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;"
+          },
+          {
+            "nme": "setInitMaxStreams",
+            "acc": 1025,
+            "dsc": "(Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 132097,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/sctp/SctpChannelConfig;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/channel/sctp/oio/OioSctpChannel$2.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/oio/OioSctpChannel$2",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/SctpChannelOption.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/channel/sctp/SctpChannelOption",
+        "super": "io/netty/channel/ChannelOption",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SCTP_DISABLE_FRAGMENTS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_EXPLICIT_COMPLETE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_FRAGMENT_INTERLEAVE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_INIT_MAXSTREAMS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Lcom/sun/nio/sctp/SctpStandardSocketOptions$InitMaxStreams;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_NODELAY",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_PRIMARY_ADDR",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/net/SocketAddress;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "SCTP_SET_PEER_PRIMARY_ADDR",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/net/SocketAddress;>;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/nio/NioSctpChannel$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/sctp/nio/NioSctpChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/sctp/nio/NioSctpChannel;Ljava/net/InetAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$localAddress",
+            "dsc": "Ljava/net/InetAddress;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/nio/NioSctpChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/sctp/oio/OioSctpServerChannel$OioSctpServerChannelConfig.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/sctp/oio/OioSctpServerChannel$OioSctpServerChannelConfig",
+        "super": "io/netty/channel/sctp/DefaultSctpServerChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpServerChannel;Lio/netty/channel/sctp/oio/OioSctpServerChannel;Lcom/sun/nio/sctp/SctpServerChannel;)V"
+          },
+          {
+            "nme": "autoReadCleared",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/sctp/oio/OioSctpServerChannel;Lio/netty/channel/sctp/oio/OioSctpServerChannel;Lcom/sun/nio/sctp/SctpServerChannel;Lio/netty/channel/sctp/oio/OioSctpServerChannel$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/sctp/oio/OioSctpServerChannel;"
+          }
+        ]
+      }
+    }
+  }
+}

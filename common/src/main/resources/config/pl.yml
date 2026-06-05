@@ -1,0 +1,289 @@
+# Konfiguracja Void — https://github.com/blackowlzz/Void
+# Copyright 2025 MWHunter (DefineOutside), blackowlzz i współautorzy, licencja GPLv3.
+
+# ─── Ogólne ──────────────────────────────────────────────────────────────────
+
+alerts:
+    # Wysyłaj alerty o naruszeniach do konsoli oprócz personelu online.
+    print-to-console: true
+    proxy:
+        # Przekazuj alerty do innych serwerów na proxy (BungeeCord/Velocity).
+        send: false
+        receive: false
+
+verbose:
+    print-to-console: false
+
+check-for-updates: true
+experimental-checks: false
+
+client-brand:
+    # Lista regex klientów, których marka jest ignorowana w ciszy.
+    ignored-clients:
+        - "^vanilla$"
+        - "^fabric$"
+        - "^quilt$"
+        - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
+        - "^Feather Fabric$"
+        - "^labymod$"
+    # Rozłączaj klientów Forge 1.18.2–1.19.3 z wbudowanymi hackami zasięgu.
+    disconnect-blacklisted-forge-versions: true
+
+spectators:
+    # Ukrywaj widzów z uprawnieniem void.spectator nawet gdy nie obserwują aktywnie.
+    hide-regardless: false
+    # Ukrywaj widzów tylko w wybranych światach. Puste = wszystkie światy.
+    allowed-worlds:
+        - ""
+
+# Sekundy przed wyrzuceniem gracza, który przestaje odpowiadać.
+max-transaction-time: 60
+
+# Klucz API Pastebin dla /void debug. Puste = zapis lokalny.
+pastebin-api-key: ""
+
+# ─── Checki ──────────────────────────────────────────────────────────────────
+
+Simulation:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+    setback-violation-threshold: 1
+
+Knockback:
+    setback-decay-multiplier: 0.999
+    threshold: 0.001
+    immediate-setback-threshold: 0.1
+    max-advantage: 1
+    max-ceiling: 4
+
+Explosion:
+    threshold: 0.001
+    setbackvl: 3
+
+Phase:
+    setbackvl: 1
+    decay: 0.005
+
+NoSlow:
+    threshold: 0.001
+    setbackvl: 5
+    decay: 0.05
+
+Reach:
+    threshold: 0.0005
+    block-impossible-hits: true
+    enable-post-packet: false
+
+TimerA:
+    setbackvl: 10
+    drift: 120
+
+TimerLimit:
+    ping-abuse-limit-threshold: 1000
+
+NegativeTimer:
+    drift: 1200
+
+VehicleTimer:
+    setbackvl: 10
+
+AirLiquidPlace:
+    cancelvl: 0
+
+FabricatedPlace:
+    cancelvl: 5
+
+FarPlace:
+    cancelvl: 5
+
+PositionPlace:
+    cancelvl: 5
+
+RotationPlace:
+    cancelvl: 5
+
+PacketOrderI:
+    # Włącz jeśli gracze z modami animacji 1.7 są błędnie flagowani.
+    exempt-placing-while-digging: false
+
+exploit:
+    allow-sprint-jumping-when-using-elytra: true
+    allow-building-on-ghostblocks: true
+    distance-to-check-if-ghostblocks: 2
+
+    auto-totem:
+        autopunish:
+            enabled: false
+            action: ban
+            duration: "1d"
+            reason: |
+                &cAutoTotem wykryto.
+                &7Check: &f%check_name% &8(&dVL %vl%&8)
+            # Jesli true, ponizsze polecenie jest wykonywane przez konsole zamiast wewnetrznego bana.
+            prefer-custom-ban: false
+            # Szablon komendy. Znaczniki: {player}  {duration}  {reason}
+            # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+            # AdvancedBan: "ban {player} {reason} -t {duration}"
+            # EssentialsX: "ban {player} {reason}"
+            custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Kary ────────────────────────────────────────────────────────────────────
+
+punishments:
+
+    auto-punish:
+        enabled: false
+        threshold: 10
+        action: ban
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &cKonto Zawieszone
+            &7Ban ID: &d%ban_id%
+            &7Czas trwania: &f%duration%
+        support-link: ""
+        broadcast-message: "&8[&5Void&8] &f%player% &czostał zbanowany &7za nieuczciwa gre."
+        # Jesli true, ponizsze polecenie jest wykonywane przez konsole zamiast wewnetrznego bana.
+        prefer-custom-ban: false
+        # Szablon komendy. Znaczniki: {player}  {duration}  {reason}
+        # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+        # AdvancedBan: "ban {player} {reason} -t {duration}"
+        # EssentialsX: "ban {player} {reason}"
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+    manual-punish:
+        duration: "7d"
+        reason: |
+            &5VoidAC
+            &cKonto Zawieszone
+            &7Zbanowany przez: &f{issued_by}
+            &7Ban ID: &d{ban_id}
+            &7Czas trwania: &f{duration}
+        prefer-custom-ban: false
+        custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Fala Banów ──────────────────────────────────────────────────────────────
+# /void banwave add <player> [duration]  — dodaj do kolejki
+# /void banwave execute                  — zbanuj wszystkich teraz
+
+ban-wave:
+    enabled: true
+    queue-on-auto-punish: false
+    auto-execute-days: 7
+    duration: "7d"
+    reason: |
+        &5VoidAC
+        &cKonto Zawieszone
+        &7Fala Banów: &d#{wave}
+        &7Ban ID: &d{ban_id}
+        &7Czas trwania: &f{duration}
+    broadcast: "&8[&5Void&8] &7Fala Banów &d#{wave} &7wykonana — &d{count} &7graczy usuniętych."
+    prefer-custom-ban: false
+    # Szablon komendy. Znaczniki: {player}  {duration}  {reason}
+    # LiteBans:    "litebans:tempban {player} {duration} {reason}"
+    # AdvancedBan: "ban {player} {reason} -t {duration}"
+    custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+
+storage-esp-decoys:
+    enabled: false
+    decoys-per-chunk: 20
+    include-client-side-blocks: false
+    auto-flag-threshold: 16
+
+# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+
+AntiXray:
+    configure-paper: false
+    engine-mode: 2
+    max-block-height: 320
+    update-radius: 16
+    hidden-blocks:
+        - air
+        - copper_ore
+        - deepslate_copper_ore
+        - raw_copper_block
+        - iron_ore
+        - deepslate_iron_ore
+        - gold_ore
+        - deepslate_gold_ore
+        - diamond_ore
+        - deepslate_diamond_ore
+        - emerald_ore
+        - deepslate_emerald_ore
+        - lapis_ore
+        - deepslate_lapis_ore
+        - redstone_ore
+        - deepslate_redstone_ore
+        - coal_ore
+        - deepslate_coal_ore
+        - nether_quartz_ore
+        - nether_gold_ore
+        - ancient_debris
+        - chest
+        - trapped_chest
+        - barrel
+        - ender_chest
+        - shulker_box
+        - white_shulker_box
+        - orange_shulker_box
+        - magenta_shulker_box
+        - light_blue_shulker_box
+        - yellow_shulker_box
+        - lime_shulker_box
+        - pink_shulker_box
+        - gray_shulker_box
+        - light_gray_shulker_box
+        - cyan_shulker_box
+        - purple_shulker_box
+        - blue_shulker_box
+        - brown_shulker_box
+        - green_shulker_box
+        - red_shulker_box
+        - black_shulker_box
+    replacement-blocks:
+        - stone
+        - deepslate
+        - granite
+        - diorite
+        - andesite
+        - dirt
+        - gravel
+        - tuff
+        - calcite
+        - smooth_basalt
+        - coal_ore
+        - deepslate_coal_ore
+
+# ─── Optymalizator Progów ─────────────────────────────────────────────────────
+
+threshold-optimizer:
+    enabled: false
+
+# ─── Zaawansowane ────────────────────────────────────────────────────────────
+
+packet-spam-threshold: 100
+debug-packet-cancel: false
+
+max-ping-out-of-flying: 1000
+max-ping-firework-boost: 1000
+
+disable-pong-cancelling: false
+disable-default-resync-handler: false
+
+cancel-duplicate-packet: true
+ignore-duplicate-packet-rotation: false
+
+reset-item-usage-on-item-update: true
+reset-item-usage-on-attack: true
+reset-item-usage-on-slot-change: true
+reset-item-usage-on-item-use: true
+
+debug-pipeline-on-join: false
+
+config-flavor: V2
+config-version: 19

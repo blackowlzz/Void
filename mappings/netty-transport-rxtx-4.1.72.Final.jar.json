@@ -1,0 +1,1011 @@
+{
+  "md5": "828f713f2760a54464a70d333bcdfae6",
+  "sha2": "f52b4a6fcbe5ef2c2db2861643f1d0db09947600",
+  "sha256": "9a3e5e9312c5cff25adc5d8da3e00478f77c031c9800f97ce88c5d01a92d6bdc",
+  "contents": {
+    "classes": {
+      "io/netty/channel/rxtx/RxtxChannel$RxtxUnsafe.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/channel/rxtx/RxtxChannel$RxtxUnsafe",
+        "super": "io/netty/channel/AbstractChannel$AbstractUnsafe",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel;)V"
+          },
+          {
+            "nme": "connect",
+            "acc": 1,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel;Lio/netty/channel/rxtx/RxtxChannel$1;)V"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel$RxtxUnsafe;Lio/netty/channel/ChannelPromise;)V"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel$RxtxUnsafe;Lio/netty/channel/ChannelPromise;Ljava/lang/Throwable;)V"
+          },
+          {
+            "nme": "access$300",
+            "acc": 4104,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel$RxtxUnsafe;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannel;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannel.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/rxtx/RxtxChannel",
+        "super": "io/netty/channel/oio/OioByteStreamChannel",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "config",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "isOpen",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "newUnsafe",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/AbstractChannel$AbstractUnsafe;"
+          },
+          {
+            "nme": "doConnect",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doInit",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "localAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "nme": "doBind",
+            "acc": 4,
+            "dsc": "(Ljava/net/SocketAddress;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doDisconnect",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "doClose",
+            "acc": 4,
+            "dsc": "()V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isInputShutdown",
+            "acc": 4,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "shutdownInput",
+            "acc": 4,
+            "dsc": "()Lio/netty/channel/ChannelFuture;"
+          },
+          {
+            "nme": "remoteAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress0",
+            "acc": 4164,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "remoteAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "localAddress",
+            "acc": 4161,
+            "dsc": "()Ljava/net/SocketAddress;"
+          },
+          {
+            "nme": "config",
+            "acc": 4161,
+            "dsc": "()Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "LOCAL_ADDRESS",
+            "dsc": "Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "acc": 18,
+            "nme": "config",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "acc": 2,
+            "nme": "open",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "deviceAddress",
+            "dsc": "Lio/netty/channel/rxtx/RxtxDeviceAddress;"
+          },
+          {
+            "acc": 2,
+            "nme": "serialPort",
+            "dsc": "Lgnu/io/SerialPort;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannel$RxtxUnsafe$1.class": {
+        "ver": 50,
+        "acc": 32,
+        "nme": "io/netty/channel/rxtx/RxtxChannel$RxtxUnsafe$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel$RxtxUnsafe;Lio/netty/channel/ChannelPromise;Z)V"
+          },
+          {
+            "nme": "run",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "val$promise",
+            "dsc": "Lio/netty/channel/ChannelPromise;"
+          },
+          {
+            "acc": 4112,
+            "nme": "val$wasActive",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$1",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannel$RxtxUnsafe;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxDeviceAddress.class": {
+        "ver": 50,
+        "acc": 131105,
+        "nme": "io/netty/channel/rxtx/RxtxDeviceAddress",
+        "super": "java/net/SocketAddress",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "serialVersionUID",
+            "dsc": "J",
+            "val": -2907820090993709523
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannelConfig$Paritybit.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/channel/rxtx/RxtxChannelConfig$Paritybit",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "NONE",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ODD",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EVEN",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 16409,
+            "nme": "MARK",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SPACE",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannelConfig$Stopbits.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/channel/rxtx/RxtxChannelConfig$Stopbits",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "STOPBITS_1",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "acc": 16409,
+            "nme": "STOPBITS_2",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "acc": 16409,
+            "nme": "STOPBITS_1_5",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/DefaultRxtxChannelConfig.class": {
+        "ver": 50,
+        "acc": 131120,
+        "nme": "io/netty/channel/rxtx/DefaultRxtxChannelConfig",
+        "super": "io/netty/channel/DefaultChannelConfig",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannel;)V"
+          },
+          {
+            "nme": "getOptions",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Lio/netty/channel/ChannelOption<*>;Ljava/lang/Object;>;"
+          },
+          {
+            "nme": "getOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;)Ljava/lang/Object;",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;)TT;"
+          },
+          {
+            "nme": "setOption",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelOption;Ljava/lang/Object;)Z",
+            "sig": "<T:Ljava/lang/Object;>(Lio/netty/channel/ChannelOption<TT;>;TT;)Z"
+          },
+          {
+            "nme": "setBaudrate",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setStopbits",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setDatabits",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setParitybit",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getBaudrate",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getStopbits",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "nme": "getDatabits",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "nme": "getParitybit",
+            "acc": 1,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "nme": "isDtr",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setDtr",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "isRts",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRts",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getWaitTimeMillis",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setWaitTimeMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setReadTimeout",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getReadTimeout",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 131073,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 4161,
+            "dsc": "(Z)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/channel/ChannelConfig;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 66,
+            "nme": "baudrate",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "dtr",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "rts",
+            "dsc": "Z"
+          },
+          {
+            "acc": 66,
+            "nme": "stopbits",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "acc": 66,
+            "nme": "databits",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "acc": 66,
+            "nme": "paritybit",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "acc": 66,
+            "nme": "waitTime",
+            "dsc": "I"
+          },
+          {
+            "acc": 66,
+            "nme": "readTimeout",
+            "dsc": "I"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannelOption.class": {
+        "ver": 50,
+        "acc": 131121,
+        "nme": "io/netty/channel/rxtx/RxtxChannelOption",
+        "super": "io/netty/channel/ChannelOption",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "BAUD_RATE",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "DTR",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "RTS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Boolean;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "STOP_BITS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "DATA_BITS",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "PARITY_BIT",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "WAIT_TIME",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "READ_TIMEOUT",
+            "dsc": "Lio/netty/channel/ChannelOption;",
+            "sig": "Lio/netty/channel/ChannelOption<Ljava/lang/Integer;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannelConfig$Databits.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/channel/rxtx/RxtxChannelConfig$Databits",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;II)V",
+            "sig": "(I)V"
+          },
+          {
+            "nme": "value",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "DATABITS_5",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DATABITS_6",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DATABITS_7",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DATABITS_8",
+            "dsc": "Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "I"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          }
+        ]
+      },
+      "io/netty/channel/rxtx/RxtxChannel$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/channel/rxtx/RxtxChannel$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/channel/rxtx/RxtxChannelConfig.class": {
+        "ver": 50,
+        "acc": 132609,
+        "nme": "io/netty/channel/rxtx/RxtxChannelConfig",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "setBaudrate",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setStopbits",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setDatabits",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setParitybit",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getBaudrate",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "getStopbits",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Stopbits;"
+          },
+          {
+            "nme": "getDatabits",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Databits;"
+          },
+          {
+            "nme": "getParitybit",
+            "acc": 1025,
+            "dsc": "()Lio/netty/channel/rxtx/RxtxChannelConfig$Paritybit;"
+          },
+          {
+            "nme": "isDtr",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setDtr",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "isRts",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "setRts",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getWaitTimeMillis",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setWaitTimeMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setReadTimeout",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "getReadTimeout",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setConnectTimeoutMillis",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setMaxMessagesPerRead",
+            "acc": 132097,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWriteSpinCount",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBufAllocator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setRecvByteBufAllocator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/RecvByteBufAllocator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAutoRead",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setAutoClose",
+            "acc": 1025,
+            "dsc": "(Z)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferHighWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferLowWaterMark",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setWriteBufferWaterMark",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/WriteBufferWaterMark;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          },
+          {
+            "nme": "setMessageSizeEstimator",
+            "acc": 1025,
+            "dsc": "(Lio/netty/channel/MessageSizeEstimator;)Lio/netty/channel/rxtx/RxtxChannelConfig;"
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      }
+    }
+  }
+}

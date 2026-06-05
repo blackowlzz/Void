@@ -1,0 +1,4598 @@
+{
+  "md5": "3f8ef2dbaf460fe3dda37c9d6c99a64b",
+  "sha2": "5718ab476d588be5e7bea537dad659239886932d",
+  "sha256": "6c7419a93e0270759a05e6a0f26ed82d4b7b179132e149fb6e13d524fa935081",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/socks/SocksInitRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksInitRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/UnknownSocksResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/UnknownSocksResponse",
+        "super": "io/netty/handler/codec/socks/SocksResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthRequest.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthRequest",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "password",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksCmdType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksCmdType;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CONNECT",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BIND",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UDP",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksCmdType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksCmdResponse",
+        "super": "io/netty/handler/codec/socks/SocksResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksCmdStatus;Lio/netty/handler/codec/socks/SocksAddressType;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksCmdStatus;Lio/netty/handler/codec/socks/SocksAddressType;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "cmdStatus",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "nme": "addressType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "nme": "host",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "port",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "cmdStatus",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "addressType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "host",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "port",
+            "dsc": "I"
+          },
+          {
+            "acc": 26,
+            "nme": "DOMAIN_ZEROED",
+            "dsc": "[B"
+          },
+          {
+            "acc": 26,
+            "nme": "IPv4_HOSTNAME_ZEROED",
+            "dsc": "[B"
+          },
+          {
+            "acc": 26,
+            "nme": "IPv6_HOSTNAME_ZEROED",
+            "dsc": "[B"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "type",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "nme": "dstAddrType",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1025,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksResponse.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socks/SocksResponse",
+        "super": "io/netty/handler/codec/socks/SocksMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksResponseType;)V"
+          },
+          {
+            "nme": "responseType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksResponseType;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "responseType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponseType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "authMethods",
+            "acc": 1025,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;>;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandType.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandType",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandType;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "CONNECT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "acc": 25,
+            "nme": "BIND",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "acc": 25,
+            "nme": "UDP_ASSOCIATE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5PasswordAuthResponse",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;)V"
+          },
+          {
+            "nme": "status",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "status",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksMessageEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksMessageEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socks/SocksMessage;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksCmdRequest",
+        "super": "io/netty/handler/codec/socks/SocksRequest",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksCmdType;Lio/netty/handler/codec/socks/SocksAddressType;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "cmdType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "nme": "addressType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "nme": "host",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "port",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "cmdType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 18,
+            "nme": "addressType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "host",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "port",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksAuthResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/SocksPortUnificationServerHandler.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/SocksPortUnificationServerHandler",
+        "super": "io/netty/handler/codec/ByteToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5ServerEncoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "logKnownVersion",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socksx/SocksVersion;)V"
+          },
+          {
+            "nme": "logUnknownVersion",
+            "acc": 10,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;B)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "logger",
+            "dsc": "Lio/netty/util/internal/logging/InternalLogger;"
+          },
+          {
+            "acc": 18,
+            "nme": "socks5encoder",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5ServerEncoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v4$Socks4ClientDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "isSuccess",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AddressEncoder$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AddressEncoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeAddress",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Ljava/lang/String;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/SocksPortUnificationServerHandler$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/SocksPortUnificationServerHandler$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$SocksVersion",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksMessageType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksMessageType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "REQUEST",
+            "dsc": "Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RESPONSE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksMessageType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksAuthRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_USERNAME",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksAuthRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5CommandRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5CommandRequest",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandType;Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "nme": "dstAddrType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandType;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstAddrType",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstAddr",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstPort",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v4$Socks4ServerDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/AbstractSocks4Message.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socksx/v4/AbstractSocks4Message",
+        "super": "io/netty/handler/codec/socksx/AbstractSocksMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "version",
+            "acc": 17,
+            "dsc": "()Lio/netty/handler/codec/socksx/SocksVersion;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksCmdRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksCmdRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAddressType",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksCmdRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5PasswordAuthResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4CommandResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4CommandResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "status",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1025,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksInitResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksInitResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksInitResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksInitResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksInitResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_PREFERRED_AUTH_TYPE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksInitResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksInitResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4Message.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4Message",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksInitRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksInitRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksInitRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/AbstractSocks5Message.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "super": "io/netty/handler/codec/socksx/AbstractSocksMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "version",
+            "acc": 17,
+            "dsc": "()Lio/netty/handler/codec/socksx/SocksVersion;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ServerEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ServerEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socksx/v4/Socks4CommandResponse;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerEncoder;"
+          },
+          {
+            "acc": 26,
+            "nme": "IPv4_HOSTNAME_ZEROED",
+            "dsc": "[B"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressDecoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "addressDecoder",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4CommandStatus.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4CommandStatus",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "isSuccess",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "REJECTED_OR_FAILED",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "IDENTD_UNREACHABLE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "IDENTD_AUTH_FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "START",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v4/Socks4ClientDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCommonUtils.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/socks/SocksCommonUtils",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "ipv6toStr",
+            "acc": 9,
+            "dsc": "([B)Ljava/lang/String;"
+          },
+          {
+            "nme": "ipv6toStr",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;[BII)V"
+          },
+          {
+            "nme": "appendHextet",
+            "acc": 10,
+            "dsc": "(Ljava/lang/StringBuilder;[BI)V"
+          },
+          {
+            "nme": "readUsAscii",
+            "acc": 8,
+            "dsc": "(Lio/netty/buffer/ByteBuf;I)Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "UNKNOWN_SOCKS_REQUEST",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequest;"
+          },
+          {
+            "acc": 25,
+            "nme": "UNKNOWN_SOCKS_RESPONSE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponse;"
+          },
+          {
+            "acc": 26,
+            "nme": "ipv6hextetSeparator",
+            "dsc": "C",
+            "val": 58
+          },
+          {
+            "acc": 4120,
+            "nme": "$assertionsDisabled",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksInitResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksInitResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4CommandRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4CommandRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "type",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "nme": "userId",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1025,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksAuthRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksAuthRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAuthRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksInitResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksInitResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksInitResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/DefaultSocks4CommandRequest.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/DefaultSocks4CommandRequest",
+        "super": "io/netty/handler/codec/socksx/v4/AbstractSocks4Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandType;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandType;Ljava/lang/String;ILjava/lang/String;)V"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "userId",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstAddr",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstPort",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "userId",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/UnknownSocksRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/UnknownSocksRequest",
+        "super": "io/netty/handler/codec/socks/SocksRequest",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksAuthStatus.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksAuthStatus",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAuthStatus;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandStatus.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandStatus",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "isSuccess",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "FORBIDDEN",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "NETWORK_UNREACHABLE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "HOST_UNREACHABLE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "CONNECTION_REFUSED",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "TTL_EXPIRED",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "COMMAND_UNSUPPORTED",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 25,
+            "nme": "ADDRESS_UNSUPPORTED",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAddressType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksAddressType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAddressType;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "IPv4",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "DOMAIN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "IPv6",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksAddressType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "username",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "status",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "nme": "bndAddrType",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "nme": "bndAddr",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "bndPort",
+            "acc": 1025,
+            "dsc": "()I"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4CommandType.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4CommandType",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandType;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "CONNECT",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "acc": 25,
+            "nme": "BIND",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksCmdResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksCmdResponseDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "cmdStatus",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 2,
+            "nme": "addressType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/AbstractSocksMessage.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socksx/AbstractSocksMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "decoderResult",
+            "dsc": "Lio/netty/handler/codec/DecoderResult;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5PasswordAuthRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5ServerEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5ServerEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;)V"
+          },
+          {
+            "nme": "addressEncoder",
+            "acc": 20,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socksx/v5/Socks5Message;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeAuthMethodResponse",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5InitialResponse;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodePasswordAuthResponse",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponse;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeCommandResponse",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandResponse;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5ServerEncoder;"
+          },
+          {
+            "acc": 18,
+            "nme": "addressEncoder",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksCmdRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CMD_HEADER",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CMD_ADDRESS",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksCmdRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AddressDecoder.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AddressDecoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "decodeAddress",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Lio/netty/buffer/ByteBuf;)Ljava/lang/String;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ClientDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AddressDecoder$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AddressDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decodeAddress",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Lio/netty/buffer/ByteBuf;)Ljava/lang/String;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "IPv6_LEN",
+            "dsc": "I",
+            "val": 16
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5CommandResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5CommandResponse",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;Lio/netty/handler/codec/socksx/v5/Socks5AddressType;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "status",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "nme": "bndAddrType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "nme": "bndAddr",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "bndPort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "status",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "bndAddrType",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "bndAddr",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "bndPort",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksAuthResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksAuthResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksAuthResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_AUTH_RESPONSE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksAuthResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksAuthResponse",
+        "super": "io/netty/handler/codec/socks/SocksResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksAuthStatus;)V"
+          },
+          {
+            "nme": "authStatus",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "SUBNEGOTIATION_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "authStatus",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthStatus;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksMessage.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socks/SocksMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksMessageType;)V"
+          },
+          {
+            "nme": "type",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "nme": "protocolVersion",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 132097,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/socks/SocksMessageType;"
+          },
+          {
+            "acc": 18,
+            "nme": "protocolVersion",
+            "dsc": "Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdRequest$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksCmdRequest$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAddressType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksRequest.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/socks/SocksRequest",
+        "super": "io/netty/handler/codec/socks/SocksMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksRequestType;)V"
+          },
+          {
+            "nme": "requestType",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksRequestType;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "requestType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequestType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdStatus.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksCmdStatus",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksCmdStatus;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FORBIDDEN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "NETWORK_UNREACHABLE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "HOST_UNREACHABLE",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "REFUSED",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "TTL_EXPIRED",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "COMMAND_NOT_SUPPORTED",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ADDRESS_NOT_SUPPORTED",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNASSIGNED",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksCmdStatus;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksAuthResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksAuthResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAuthResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksProtocolVersion.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksProtocolVersion",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksProtocolVersion;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SOCKS4a",
+            "dsc": "Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SOCKS5",
+            "dsc": "Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksProtocolVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AddressEncoder.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AddressEncoder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "encodeAddress",
+            "acc": 1025,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressType;Ljava/lang/String;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5InitialRequest.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5InitialRequest",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "([Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Iterable;)V",
+            "sig": "(Ljava/lang/Iterable<Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;>;)V"
+          },
+          {
+            "nme": "authMethods",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;>;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "authMethods",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksCmdResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAddressType",
+            "dsc": "[I"
+          },
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksCmdResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthScheme.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksAuthScheme",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAuthScheme;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "NO_AUTH",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTH_GSSAPI",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTH_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          },
+          {
+            "nme": "readString",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "MAX_FIELD_LENGTH",
+            "dsc": "I",
+            "val": 255
+          },
+          {
+            "acc": 2,
+            "nme": "type",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandType;"
+          },
+          {
+            "acc": 2,
+            "nme": "dstAddr",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "dstPort",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "userId",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "status",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthStatus;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksInitRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksInitRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksInitRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksInitRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksInitRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_AUTH_SCHEMES",
+            "dsc": "Lio/netty/handler/codec/socks/SocksInitRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksInitRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksAuthRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksAuthRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5CommandResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5InitialRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "authMethod",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksRequestType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksRequestType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTH",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CMD",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksRequestType;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksRequestType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequestDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/SocksMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/SocksMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "version",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/socksx/SocksVersion;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksResponseType.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksResponseType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INIT",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "AUTH",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CMD",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksResponseType;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksResponseType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksInitRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksInitRequest",
+        "super": "io/netty/handler/codec/socks/SocksRequest",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Lio/netty/handler/codec/socks/SocksAuthScheme;>;)V"
+          },
+          {
+            "nme": "authSchemes",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lio/netty/handler/codec/socks/SocksAuthScheme;>;"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "authSchemes",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lio/netty/handler/codec/socks/SocksAuthScheme;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5ClientEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5ClientEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;)V"
+          },
+          {
+            "nme": "addressEncoder",
+            "acc": 20,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socksx/v5/Socks5Message;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeAuthMethodRequest",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5InitialRequest;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodePasswordAuthRequest",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5PasswordAuthRequest;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeCommandRequest",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5CommandRequest;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5ClientEncoder;"
+          },
+          {
+            "acc": 18,
+            "nme": "addressEncoder",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressEncoder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5InitialResponseDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5InitialResponseDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AuthMethod.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AuthMethod",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "NO_AUTH",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "acc": 25,
+            "nme": "GSSAPI",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "acc": 25,
+            "nme": "PASSWORD",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "acc": 25,
+            "nme": "UNACCEPTED",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/SocksVersion.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/SocksVersion",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SOCKS4a",
+            "dsc": "Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SOCKS5",
+            "dsc": "Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socksx/SocksVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/SocksVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/DefaultSocks4CommandResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v4/DefaultSocks4CommandResponse",
+        "super": "io/netty/handler/codec/socksx/v4/AbstractSocks4Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;Ljava/lang/String;I)V"
+          },
+          {
+            "nme": "status",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "nme": "dstAddr",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "dstPort",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "status",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4CommandStatus;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstAddr",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "dstPort",
+            "dsc": "I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdResponse$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socks/SocksCmdResponse$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socks$SocksAddressType",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksSubnegotiationVersion.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksSubnegotiationVersion",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;IB)V",
+            "sig": "(B)V"
+          },
+          {
+            "nme": "fromByte",
+            "acc": 131081,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "AUTH_PASSWORD",
+            "dsc": "Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "acc": 16409,
+            "nme": "UNKNOWN",
+            "dsc": "Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "b",
+            "dsc": "B"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksInitResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksInitResponse",
+        "super": "io/netty/handler/codec/socks/SocksResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socks/SocksAuthScheme;)V"
+          },
+          {
+            "nme": "authScheme",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "authScheme",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAuthScheme;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdResponseDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socks/SocksCmdResponseDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHECK_PROTOCOL_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CMD_HEADER",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CMD_ADDRESS",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socks/SocksCmdResponseDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5AddressType.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5AddressType",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(B)Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(ILjava/lang/String;)V"
+          },
+          {
+            "nme": "byteValue",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressType;)I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "compareTo",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "IPv4",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "acc": 25,
+            "nme": "DOMAIN",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "acc": 25,
+            "nme": "IPv6",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressType;"
+          },
+          {
+            "acc": 18,
+            "nme": "byteValue",
+            "dsc": "B"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/DefaultSocks5InitialResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/DefaultSocks5InitialResponse",
+        "super": "io/netty/handler/codec/socksx/v5/AbstractSocks5Message",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;)V"
+          },
+          {
+            "nme": "authMethod",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "authMethod",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AuthMethod;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/socksx/v5/Socks5AddressDecoder;)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "fail",
+            "acc": 2,
+            "dsc": "(Ljava/util/List;Ljava/lang/Exception;)V",
+            "sig": "(Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/Exception;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "addressDecoder",
+            "dsc": "Lio/netty/handler/codec/socksx/v5/Socks5AddressDecoder;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ClientEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ClientEncoder",
+        "super": "io/netty/handler/codec/MessageToByteEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/socksx/v4/Socks4CommandRequest;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ClientEncoder;"
+          },
+          {
+            "acc": 26,
+            "nme": "IPv4_DOMAIN_MARKER",
+            "dsc": "[B"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Lio/netty/channel/ChannelHandler$Sharable;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State.class": {
+        "ver": 50,
+        "acc": 16433,
+        "nme": "io/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "START",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_USERID",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_DOMAIN",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUCCESS",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FAILURE",
+            "dsc": "Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/socksx/v4/Socks4ServerDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5CommandRequestDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$socksx$v5$Socks5CommandRequestDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socks/SocksCmdRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/socks/SocksCmdRequestDecoder",
+        "super": "io/netty/handler/codec/ReplayingDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "cmdType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksCmdType;"
+          },
+          {
+            "acc": 2,
+            "nme": "addressType",
+            "dsc": "Lio/netty/handler/codec/socks/SocksAddressType;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/socksx/v5/Socks5Message.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/socksx/v5/Socks5Message",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/socks/SocksAuthRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/socks/SocksAuthRequest",
+        "super": "io/netty/handler/codec/socks/SocksRequest",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "username",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "password",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "encodeAsByteBuf",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "SUBNEGOTIATION_VERSION",
+            "dsc": "Lio/netty/handler/codec/socks/SocksSubnegotiationVersion;"
+          },
+          {
+            "acc": 18,
+            "nme": "username",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "password",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      }
+    }
+  }
+}

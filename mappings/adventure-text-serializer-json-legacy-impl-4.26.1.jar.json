@@ -1,0 +1,149 @@
+{
+  "md5": "29bfe3561e5a16a913fe5512817bec45",
+  "sha2": "e34006efef2384cb16e259055743ec422d160666",
+  "sha256": "cbe618e2ec55a4e77955afdeb72a2ff01dc309790c9562ae4c539bf30fe58b91",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/json/legacyimpl/NBTLegacyHoverEventSerializerImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/json/legacyimpl/NBTLegacyHoverEventSerializerImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "deserializeShowItem",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeShowItem",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowItem;)Lnet/kyori/adventure/text/Component;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeShowEntity",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;Lnet/kyori/adventure/util/Codec$Decoder;)Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;",
+            "sig": "(Lnet/kyori/adventure/text/Component;Lnet/kyori/adventure/util/Codec$Decoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;+Ljava/lang/RuntimeException;>;)Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;",
+            "exs": [
+              "java/io/IOException"
+            ]
+          },
+          {
+            "nme": "serializeShowEntity",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;Lnet/kyori/adventure/util/Codec$Encoder;)Lnet/kyori/adventure/text/Component;",
+            "sig": "(Lnet/kyori/adventure/text/event/HoverEvent$ShowEntity;Lnet/kyori/adventure/util/Codec$Encoder<Lnet/kyori/adventure/text/Component;Ljava/lang/String;+Ljava/lang/RuntimeException;>;)Lnet/kyori/adventure/text/Component;",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "assertTextComponent",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/json/legacyimpl/NBTLegacyHoverEventSerializerImpl;"
+          },
+          {
+            "acc": 26,
+            "nme": "SNBT_IO",
+            "dsc": "Lnet/kyori/adventure/nbt/TagStringIO;"
+          },
+          {
+            "acc": 26,
+            "nme": "SNBT_CODEC",
+            "dsc": "Lnet/kyori/adventure/util/Codec;",
+            "sig": "Lnet/kyori/adventure/util/Codec<Lnet/kyori/adventure/nbt/CompoundBinaryTag;Ljava/lang/String;Ljava/io/IOException;Ljava/io/IOException;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "ITEM_TYPE",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          },
+          {
+            "acc": 24,
+            "nme": "ITEM_COUNT",
+            "dsc": "Ljava/lang/String;",
+            "val": "Count"
+          },
+          {
+            "acc": 24,
+            "nme": "ITEM_TAG",
+            "dsc": "Ljava/lang/String;",
+            "val": "tag"
+          },
+          {
+            "acc": 24,
+            "nme": "ENTITY_NAME",
+            "dsc": "Ljava/lang/String;",
+            "val": "name"
+          },
+          {
+            "acc": 24,
+            "nme": "ENTITY_TYPE",
+            "dsc": "Ljava/lang/String;",
+            "val": "type"
+          },
+          {
+            "acc": 24,
+            "nme": "ENTITY_ID",
+            "dsc": "Ljava/lang/String;",
+            "val": "id"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/json/legacyimpl/NBTLegacyHoverEventSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/json/legacyimpl/NBTLegacyHoverEventSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "get",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/json/LegacyHoverEventSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      }
+    }
+  }
+}

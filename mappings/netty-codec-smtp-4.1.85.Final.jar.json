@@ -1,0 +1,1134 @@
+{
+  "md5": "61d4d094b85ab355d223731cdb0a2fe0",
+  "sha2": "d5bcba159ffe173aa2755d5ef17acf16512c95ea",
+  "sha256": "4299f37b15bc5976d3affbfbdf2abb0de5f7d8cc23a2e8201168586ba98d2bca",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/smtp/LastSmtpContent$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/smtp/LastSmtpContent$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/SmtpCommand.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/SmtpCommand",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/util/AsciiString;)V"
+          },
+          {
+            "nme": "name",
+            "acc": 1,
+            "dsc": "()Lio/netty/util/AsciiString;"
+          },
+          {
+            "nme": "encode",
+            "acc": 0,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "isContentExpected",
+            "acc": 0,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EHLO",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "HELO",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "AUTH",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "MAIL",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "RCPT",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "DATA",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "NOOP",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "RSET",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "EXPN",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "VRFY",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "HELP",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "QUIT",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 25,
+            "nme": "EMPTY",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 26,
+            "nme": "COMMANDS",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lio/netty/handler/codec/smtp/SmtpCommand;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Lio/netty/util/AsciiString;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/DefaultSmtpResponse.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/DefaultSmtpResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(I[Ljava/lang/CharSequence;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(ILjava/util/List;)V",
+            "sig": "(ILjava/util/List<Ljava/lang/CharSequence;>;)V"
+          },
+          {
+            "nme": "code",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "details",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/CharSequence;>;"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "code",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "details",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/CharSequence;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/DefaultSmtpRequest.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/DefaultSmtpRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/smtp/SmtpCommand;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(Lio/netty/handler/codec/smtp/SmtpCommand;[Ljava/lang/CharSequence;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/smtp/SmtpCommand;Ljava/util/List;)V",
+            "sig": "(Lio/netty/handler/codec/smtp/SmtpCommand;Ljava/util/List<Ljava/lang/CharSequence;>;)V"
+          },
+          {
+            "nme": "command",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "nme": "parameters",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/CharSequence;>;"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "command",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "acc": 18,
+            "nme": "parameters",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/CharSequence;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/LastSmtpContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/smtp/LastSmtpContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EMPTY_LAST_CONTENT",
+            "dsc": "Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/SmtpRequests.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/SmtpRequests",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "helo",
+            "acc": 9,
+            "dsc": "(Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "ehlo",
+            "acc": 9,
+            "dsc": "(Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "empty",
+            "acc": 137,
+            "dsc": "([Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "auth",
+            "acc": 137,
+            "dsc": "([Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "noop",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "data",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "rset",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "help",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "quit",
+            "acc": 9,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "mail",
+            "acc": 137,
+            "dsc": "(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "rcpt",
+            "acc": 137,
+            "dsc": "(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "expn",
+            "acc": 9,
+            "dsc": "(Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "vrfy",
+            "acc": 9,
+            "dsc": "(Ljava/lang/CharSequence;)Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DATA",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "NOOP",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "RSET",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "HELP_NO_ARG",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "QUIT",
+            "dsc": "Lio/netty/handler/codec/smtp/SmtpRequest;"
+          },
+          {
+            "acc": 26,
+            "nme": "FROM_NULL_SENDER",
+            "dsc": "Lio/netty/util/AsciiString;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/SmtpResponseDecoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/SmtpResponseDecoder",
+        "super": "io/netty/handler/codec/LineBasedFrameDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/SmtpResponse;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newDecoderException",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;II)Lio/netty/handler/codec/DecoderException;"
+          },
+          {
+            "nme": "parseCode",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)I"
+          },
+          {
+            "nme": "parseNumber",
+            "acc": 10,
+            "dsc": "(B)I"
+          },
+          {
+            "nme": "decode",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "details",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Ljava/lang/CharSequence;>;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/SmtpRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/smtp/SmtpRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "command",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpCommand;"
+          },
+          {
+            "nme": "parameters",
+            "acc": 1025,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/CharSequence;>;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/SmtpUtils.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/smtp/SmtpUtils",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "toUnmodifiableList",
+            "acc": 136,
+            "dsc": "([Ljava/lang/CharSequence;)Ljava/util/List;",
+            "sig": "([Ljava/lang/CharSequence;)Ljava/util/List<Ljava/lang/CharSequence;>;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/SmtpResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/smtp/SmtpResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "code",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "details",
+            "acc": 1025,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Ljava/lang/CharSequence;>;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/DefaultSmtpContent.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/smtp/DefaultSmtpContent",
+        "super": "io/netty/buffer/DefaultByteBufHolder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/SmtpRequestEncoder.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/SmtpRequestEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "acceptOutboundMessage",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "writeParameters",
+            "acc": 10,
+            "dsc": "(Ljava/util/List;Lio/netty/buffer/ByteBuf;Z)V",
+            "sig": "(Ljava/util/List<Ljava/lang/CharSequence;>;Lio/netty/buffer/ByteBuf;Z)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "CRLF_SHORT",
+            "dsc": "I",
+            "val": 3338
+          },
+          {
+            "acc": 26,
+            "nme": "SP",
+            "dsc": "B",
+            "val": 32
+          },
+          {
+            "acc": 26,
+            "nme": "DOT_CRLF_BUFFER",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "acc": 2,
+            "nme": "contentExpected",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/smtp/SmtpContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/smtp/SmtpContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/smtp/DefaultLastSmtpContent.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/smtp/DefaultLastSmtpContent",
+        "super": "io/netty/handler/codec/smtp/DefaultSmtpContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/DefaultLastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/DefaultLastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/smtp/DefaultLastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/DefaultLastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/SmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/smtp/LastSmtpContent;"
+          }
+        ],
+        "flds": []
+      }
+    }
+  }
+}

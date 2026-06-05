@@ -1,0 +1,126 @@
+# \u00BB is » (double >>), ANSI and UTF-8 interpret this differently... you may even see ? due to this
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &7Alerts &aenabled&7."
+alerts-disabled: "%prefix% &7Alerts &cdisabled&7."
+verbose-enabled: "%prefix% &7Verbose &aenabled&7."
+verbose-disabled: "%prefix% &7Verbose &cdisabled&7."
+brands-enabled: "%prefix% &7Brand tracking &aenabled&7."
+brands-disabled: "%prefix% &7Brand tracking &cdisabled&7."
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+console-specify-target: "%prefix% &7The console must specify a target."
+reloading: "%prefix% &7Reloading..."
+reloaded: "%prefix% &7Configuration &areloaded&7."
+reload-failed: "%prefix% &7Configuration reload &cfailed&7."
+player-not-found: "%prefix% &7That player could not be found."
+player-not-this-server: "%prefix% &7That player is not on this server."
+sender-not-found: "%prefix% &cThis command cannot be used by exempt users."
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7Click to return &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &7You can only do this after spectating a player."
+cannot-run-on-self: "%prefix% &cYou cannot use this command on yourself."
+upload-log: "%prefix% &7Trace saved &8→ &f%url%"
+upload-log-start: "%prefix% &7Saving trace..."
+upload-log-not-found: "%prefix% &cNo trace found."
+upload-log-upload-failure: "%prefix% &cTrace save failed. Check console for details."
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &cOnly players may invoke this command."
+run-as-player-or-console: "%prefix% &cOnly players or the console may invoke this command."
+webhook-not-enabled: "Void webhooks are dormant."
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "Void signal delivered."
+webhook-test-failed: "Void signal faded."
+
+# Valid placeholders:
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - violations
+# %verbose% - extra information from the check such as offsets, not all checks will add information
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+
+profile:
+    - ""
+    - "  %prefix% &5Profile &8─ &f%player%"
+    - "  &8▸ &7Ping        &f%ping% ms"
+    - "  &8▸ &7Version     &f%version%"
+    - "  &8▸ &7Brand       &f%brand%"
+    - "  &8▸ &7Sensitivity &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
+    - "  &8▸ &7FastMath    &f%fast_math%"
+    - ""
+help:
+    - "  &5/void alerts              &8│ &7Toggle alert notifications"
+    - "  &5/void verbose             &8│ &7Toggle verbose mode"
+    - "  &5/void brands              &8│ &7Monitor client brands"
+    - "  &5/void profile &8<player>    &8│ &7Inspect a player's profile"
+    - "  &5/void debug &8<player>      &8│ &7View debug trace"
+    - "  &5/void spectate &8<player>   &8│ &7Silently spectate a player"
+    - "  &5/void history &8<player>    &8│ &7Browse session history"
+    - "  &5/void log &8[0-255]         &8│ &7Upload debug log"
+    - "  &5/void perf                &8│ &7View prediction timings"
+    - "  &5/void reload              &8│ &7Reload configuration"
+    - "  &5/void version             &8│ &7Check for updates"
+    - "  &5/void punish &8<player>     &8│ &7Manually punish a player"
+    - "  &5/void banwave             &8│ &7Manage the ban wave queue"
+    - "  &5/void punishments &8<query> &8│ &7Look up punishment records"
+
+# === /void history ===
+# Session-based history UI. All lines below are fully configurable; placeholders
+# documented at each key. Hover-text on session and violation lines is built by
+# the renderer from the raw data (verbose, check breakdowns) and doesn't need a
+# template — but you can add <hover:show_text:'...'> to any line below to layer
+# additional tooltips on top.
+
+void-history-load-failure: "%prefix% &cThe archive failed to load. Check the console for errors."
+void-history-disabled: "%prefix% &cThe archive is disabled."
+void-history-failed: "%prefix% &cFailed to load the archive: &7%error%"
+void-history-unknown-player: "%prefix% &cUnknown player: &f%player%"
+void-history-no-sessions: "%prefix% &7No sessions for &f%player%&7."
+void-history-session-not-found: "%prefix% &cSession &f%ordinal%&c not found for &f%player%&c."
+
+# Session list — valid placeholders: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Single session summary line — valid placeholders:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% expands to void-history-crashed-marker for sessions
+# whose connection went away without a graceful close (server crash,
+# kill -9, channel RST that didn't fire UserDisconnectEvent). Empty
+# string for ongoing or gracefully-closed sessions.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Inline marker substituted into %crashed_marker% on session lines whose
+# closed_at == last_activity (i.e. stamped by the next-boot crash sweep
+# rather than the disconnect path). Includes a leading space so the
+# marker reads naturally when present and disappears when empty.
+void-history-crashed-marker: " &8(&ccrashed&8)"
+
+# Session detail — valid placeholders:
+#   %prefix% %player% %ordinal% %void_version% %server_name%
+#   %client_version% %client_brand% %duration% %timeago%
+#   %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
+void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Brand &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7violations &8(&d%unique_checks% &7unique&8)"
+void-history-detail-empty: "  &8▸ &7(none)"
+# A grouped row (default) — valid placeholders: %prefix% %offset% %checks_list%
+#   %checks_list% is built by joining void-history-check-count entries with ", "
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# A single raw violation row (--detailed) — valid placeholders:
+#   %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Inner format for each check in a group's %checks_list% — valid placeholders: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Schema markers — see header comment in config.yml.
+config-flavor: V2
+config-version: 1

@@ -1,0 +1,5808 @@
+{
+  "md5": "915fa22e4f0b9f322c1e31752449a004",
+  "sha2": "5035a741a44c35d9284251413050dc6470c09978",
+  "sha256": "5e61313bb35aae1b2be33276ab442f6e0d56258ff13297750d6ad9484d1a4fd6",
+  "contents": {
+    "classes": {
+      "net/md_5/bungee/api/chat/ClickEvent$Action.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/md_5/bungee/api/chat/ClickEvent$Action",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/md_5/bungee/api/chat/ClickEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ClickEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "OPEN_URL",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "OPEN_FILE",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "RUN_COMMAND",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SUGGEST_COMMAND",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "CHANGE_PAGE",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "COPY_TO_CLIPBOARD",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentBuilder$Joiner.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/md_5/bungee/api/chat/ComponentBuilder$Joiner",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "join",
+            "acc": 1025,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/Item.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/Item",
+        "super": "net/md_5/bungee/api/chat/hover/content/Content",
+        "mthds": [
+          {
+            "nme": "requiredAction",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getId",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getCount",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getTag",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ItemTag;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setCount",
+            "acc": 1,
+            "dsc": "(I)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setTag",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ItemTag;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;ILnet/md_5/bungee/api/chat/ItemTag;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "id",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "count",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "tag",
+            "dsc": "Lnet/md_5/bungee/api/chat/ItemTag;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentStyle.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ComponentStyle",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getColor",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hasColor",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getFont",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hasFont",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isBold",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isBoldRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isItalic",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isItalicRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isUnderlined",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isUnderlinedRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isStrikethrough",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isStrikethroughRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isObfuscated",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isObfuscatedRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isEmpty",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "clone",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setColor",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/ChatColor;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setFont",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setBold",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setItalic",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setUnderlined",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setStrikethrough",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setObfuscated",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/ChatColor;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "clone",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "exs": [
+              "java/lang/CloneNotSupportedException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "color",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 2,
+            "nme": "font",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "bold",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "italic",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "underlined",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "strikethrough",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "obfuscated",
+            "dsc": "Ljava/lang/Boolean;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TranslationRegistry$JsonProvider.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/md_5/bungee/chat/TranslationRegistry$JsonProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "exs": [
+              "java/io/IOException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "translate",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getTranslations",
+            "acc": 1,
+            "dsc": "()Ljava/util/Map;",
+            "sig": "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "translations",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentStyleBuilder.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ComponentStyleBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "color",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/ChatColor;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "font",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "bold",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "italic",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "underlined",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "strikethrough",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "obfuscated",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)Lnet/md_5/bungee/api/chat/ComponentStyleBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "color",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 2,
+            "nme": "font",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "bold",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "italic",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "underlined",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "strikethrough",
+            "dsc": "Ljava/lang/Boolean;"
+          },
+          {
+            "acc": 2,
+            "nme": "obfuscated",
+            "dsc": "Ljava/lang/Boolean;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/BaseComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4,
+            "dsc": "(Lcom/google/gson/JsonObject;Lnet/md_5/bungee/api/chat/BaseComponent;Lcom/google/gson/JsonDeserializationContext;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4,
+            "dsc": "(Lcom/google/gson/JsonObject;Lnet/md_5/bungee/api/chat/BaseComponent;Lcom/google/gson/JsonSerializationContext;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/TranslationProvider.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/md_5/bungee/api/chat/TranslationProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getTranslationKey",
+            "acc": 1025,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "asTranslatableComponent",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/TranslatableComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "asTranslatableComponent",
+            "acc": 129,
+            "dsc": "([Ljava/lang/Object;)Lnet/md_5/bungee/api/chat/TranslatableComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/HoverEvent$Action.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/md_5/bungee/api/chat/HoverEvent$Action",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "SHOW_TEXT",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SHOW_ITEM",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SHOW_ENTITY",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          },
+          {
+            "acc": 147481,
+            "nme": "SHOW_ACHIEVEMENT",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/ChatMessageType.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/md_5/bungee/api/ChatMessageType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/md_5/bungee/api/ChatMessageType;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/ChatMessageType;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "CHAT",
+            "dsc": "Lnet/md_5/bungee/api/ChatMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "SYSTEM",
+            "dsc": "Lnet/md_5/bungee/api/ChatMessageType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ACTION_BAR",
+            "dsc": "Lnet/md_5/bungee/api/ChatMessageType;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/md_5/bungee/api/ChatMessageType;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/SelectorComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/SelectorComponentSerializer",
+        "super": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/SelectorComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/SelectorComponent;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ScoreComponent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ScoreComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ScoreComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ScoreComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getObjective",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getValue",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setName",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setObjective",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setValue",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "objective",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TranslationRegistry$TranslationProvider.class": {
+        "ver": 52,
+        "acc": 1536,
+        "nme": "net/md_5/bungee/chat/TranslationRegistry$TranslationProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "translate",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TranslationRegistry.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/chat/TranslationRegistry",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "addProvider",
+            "acc": 2,
+            "dsc": "(Lnet/md_5/bungee/chat/TranslationRegistry$TranslationProvider;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "translate",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getProviders",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/md_5/bungee/chat/TranslationRegistry$TranslationProvider;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/md_5/bungee/chat/TranslationRegistry;"
+          },
+          {
+            "acc": 18,
+            "nme": "providers",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/md_5/bungee/chat/TranslationRegistry$TranslationProvider;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ItemTag$Builder.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/md_5/bungee/api/chat/ItemTag$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "nbt",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ItemTag$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 2,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ItemTag;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "nbt",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentBuilder$FormatRetention.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/md_5/bungee/api/chat/ComponentBuilder$FormatRetention",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "NONE",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;"
+          },
+          {
+            "acc": 16409,
+            "nme": "FORMATTING",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;"
+          },
+          {
+            "acc": 16409,
+            "nme": "EVENTS",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;"
+          },
+          {
+            "acc": 16409,
+            "nme": "ALL",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/TextComponent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/TextComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "fromLegacy",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "fromLegacy",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/ChatColor;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "fromLegacyText",
+            "acc": 131081,
+            "dsc": "(Ljava/lang/String;)[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "fromLegacyText",
+            "acc": 131081,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/ChatColor;)[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "populateComponentStructure",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/ChatColor;Ljava/util/function/Consumer;)V",
+            "sig": "(Ljava/lang/String;Lnet/md_5/bungee/api/ChatColor;Ljava/util/function/Consumer<Lnet/md_5/bungee/api/chat/BaseComponent;>;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "fromArray",
+            "acc": 137,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TextComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/TextComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getText",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setText",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "url",
+            "dsc": "Ljava/util/regex/Pattern;"
+          },
+          {
+            "acc": 2,
+            "nme": "text",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/BaseComponent.class": {
+        "ver": 52,
+        "acc": 1057,
+        "nme": "net/md_5/bungee/api/chat/BaseComponent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "copyFormatting",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "copyFormatting",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;Z)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "copyFormatting",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;Z)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicateWithoutFormatting",
+            "acc": 131073,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 137,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 137,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setStyle",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setColor",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/ChatColor;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getColor",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getColorRaw",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setFont",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getFont",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getFontRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setBold",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isBold",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isBoldRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setItalic",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isItalic",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isItalicRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setUnderlined",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isUnderlined",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isUnderlinedRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setStrikethrough",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isStrikethrough",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isStrikethroughRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setObfuscated",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Boolean;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isObfuscated",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isObfuscatedRaw",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Boolean;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "applyStyle",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setExtra",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addExtra",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addExtra",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hasStyle",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hasFormatting",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 0,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 0,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addFormat",
+            "acc": 0,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setInsertion",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setClickEvent",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ClickEvent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setHoverEvent",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setReset",
+            "acc": 1,
+            "dsc": "(Z)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getStyle",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getInsertion",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getExtra",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getClickEvent",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ClickEvent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getHoverEvent",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isReset",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 0,
+            "nme": "parent",
+            "dsc": "Lnet/md_5/bungee/api/chat/BaseComponent;"
+          },
+          {
+            "acc": 2,
+            "nme": "style",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentStyle;"
+          },
+          {
+            "acc": 2,
+            "nme": "insertion",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "extra",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "clickEvent",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent;"
+          },
+          {
+            "acc": 2,
+            "nme": "hoverEvent",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent;"
+          },
+          {
+            "acc": 130,
+            "nme": "reset",
+            "dsc": "Z"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/Text.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/Text",
+        "super": "net/md_5/bungee/api/chat/hover/content/Content",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "requiredAction",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getValue",
+            "acc": 1,
+            "dsc": "()Ljava/lang/Object;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/Object;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/ItemSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/ItemSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/hover/content/Item;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/hover/content/Item;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/ScoreComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/ScoreComponentSerializer",
+        "super": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/ScoreComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ScoreComponent;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/Entity.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/Entity",
+        "super": "net/md_5/bungee/api/chat/hover/content/Content",
+        "mthds": [
+          {
+            "nme": "requiredAction",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getType",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getId",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Llombok/NonNull;"
+              }
+            ]
+          },
+          {
+            "nme": "getName",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setType",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setId",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setName",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "type",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "id",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "name",
+            "dsc": "Lnet/md_5/bungee/api/chat/BaseComponent;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentBuilder$1.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/md_5/bungee/api/chat/ComponentBuilder$1",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lnet/md_5/bungee/api/chat/ComponentBuilder;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/TranslatableComponent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/TranslatableComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TranslatableComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(Ljava/lang/String;[Ljava/lang/Object;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TranslationProvider;[Ljava/lang/Object;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/TranslatableComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setWith",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)V",
+            "sig": "(Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addWith",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addWith",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "convert",
+            "acc": 2,
+            "dsc": "(Ljava/lang/StringBuilder;Z)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getFormat",
+            "acc": 1,
+            "dsc": "()Ljava/util/regex/Pattern;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getTranslate",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getWith",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getFallback",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setTranslate",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setFallback",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "format",
+            "dsc": "Ljava/util/regex/Pattern;"
+          },
+          {
+            "acc": 2,
+            "nme": "translate",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "with",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "fallback",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TranslatableComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/TranslatableComponentSerializer",
+        "super": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/TranslatableComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TranslatableComponent;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ComponentBuilder.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ComponentBuilder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getDummy",
+            "acc": 2,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "resetCursor",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setCursor",
+            "acc": 1,
+            "dsc": "(I)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "exs": [
+              "java/lang/IndexOutOfBoundsException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TranslationProvider;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TranslationProvider;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "appendLegacy",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder$Joiner;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "append",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder$Joiner;Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "removeComponent",
+            "acc": 1,
+            "dsc": "(I)V",
+            "exs": [
+              "java/lang/IndexOutOfBoundsException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getComponent",
+            "acc": 1,
+            "dsc": "(I)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "exs": [
+              "java/lang/IndexOutOfBoundsException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getCurrentComponent",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "color",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/ChatColor;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "font",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "bold",
+            "acc": 1,
+            "dsc": "(Z)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "italic",
+            "acc": 1,
+            "dsc": "(Z)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "underlined",
+            "acc": 1,
+            "dsc": "(Z)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "strikethrough",
+            "acc": 1,
+            "dsc": "(Z)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "obfuscated",
+            "acc": 1,
+            "dsc": "(Z)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "style",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "insertion",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "event",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ClickEvent;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "event",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "reset",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentBuilder$FormatRetention;)Lnet/md_5/bungee/api/chat/ComponentBuilder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "create",
+            "acc": 1,
+            "dsc": "()[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getCursor",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getParts",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "cursor",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "parts",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/md_5/bungee/api/chat/BaseComponent;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "dummy",
+            "dsc": "Lnet/md_5/bungee/api/chat/BaseComponent;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TextComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/TextComponentSerializer",
+        "super": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/TextComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/TextComponent;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/HoverEvent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/HoverEvent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 129,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;[Lnet/md_5/bungee/api/chat/hover/content/Content;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 131073,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;[Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getValue",
+            "acc": 131073,
+            "dsc": "()[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "addContent",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/hover/content/Content;)V",
+            "exs": [
+              "java/lang/UnsupportedOperationException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getClass",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;Z)Ljava/lang/Class;",
+            "sig": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;Z)Ljava/lang/Class<*>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getAction",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getContents",
+            "acc": 1,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/md_5/bungee/api/chat/hover/content/Content;>;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "isLegacy",
+            "acc": 1,
+            "dsc": "()Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;Ljava/util/List;)V",
+            "sig": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;Ljava/util/List<Lnet/md_5/bungee/api/chat/hover/content/Content;>;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setLegacy",
+            "acc": 1,
+            "dsc": "(Z)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "action",
+            "dsc": "Lnet/md_5/bungee/api/chat/HoverEvent$Action;"
+          },
+          {
+            "acc": 18,
+            "nme": "contents",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/md_5/bungee/api/chat/hover/content/Content;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "legacy",
+            "dsc": "Z"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/SelectorComponent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/SelectorComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/SelectorComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/SelectorComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getSelector",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getSeparator",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setSelector",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setSeparator",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/chat/BaseComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "selector",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 2,
+            "nme": "separator",
+            "dsc": "Lnet/md_5/bungee/api/chat/BaseComponent;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/TranslationRegistry$ResourceBundleProvider.class": {
+        "ver": 52,
+        "acc": 32,
+        "nme": "net/md_5/bungee/chat/TranslationRegistry$ResourceBundleProvider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "translate",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getBundle",
+            "acc": 1,
+            "dsc": "()Ljava/util/ResourceBundle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "bundle",
+            "dsc": "Ljava/util/ResourceBundle;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ItemTag$1.class": {
+        "ver": 52,
+        "acc": 4128,
+        "nme": "net/md_5/bungee/api/chat/ItemTag$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ItemTag.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ItemTag",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "ofNbt",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ItemTag;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 10,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ItemTag$Builder;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getNbt",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Ljava/lang/String;Lnet/md_5/bungee/api/chat/ItemTag$1;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "nbt",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/ComponentStyleSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/ComponentStyleSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getAsBoolean",
+            "acc": 10,
+            "dsc": "(Lcom/google/gson/JsonElement;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serializeTo",
+            "acc": 8,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;Lcom/google/gson/JsonObject;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ClickEvent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/ClickEvent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "getAction",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/ClickEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getValue",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ClickEvent$Action;Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "action",
+            "dsc": "Lnet/md_5/bungee/api/chat/ClickEvent$Action;"
+          },
+          {
+            "acc": 18,
+            "nme": "value",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/EntitySerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/EntitySerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/hover/content/Entity;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/hover/content/Entity;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "parseUUID",
+            "acc": 10,
+            "dsc": "([I)Ljava/util/UUID;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/TextSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/hover/content/TextSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/hover/content/Text;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/hover/content/Text;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/ChatColor.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/ChatColor",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(CLjava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(CLjava/lang/String;Ljava/awt/Color;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;Ljava/lang/String;I)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "stripColor",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "translateAlternateColorCodes",
+            "acc": 9,
+            "dsc": "(CLjava/lang/String;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getByChar",
+            "acc": 9,
+            "dsc": "(C)Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/awt/Color;)Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "of",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "valueOf",
+            "acc": 131081,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "values",
+            "acc": 131081,
+            "dsc": "()[Lnet/md_5/bungee/api/ChatColor;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "name",
+            "acc": 131073,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "ordinal",
+            "acc": 131073,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getName",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getColor",
+            "acc": 1,
+            "dsc": "()Ljava/awt/Color;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "COLOR_CHAR",
+            "dsc": "C",
+            "val": 167
+          },
+          {
+            "acc": 25,
+            "nme": "ALL_CODES",
+            "dsc": "Ljava/lang/String;",
+            "val": "0123456789AaBbCcDdEeFfKkLlMmNnOoRrXx"
+          },
+          {
+            "acc": 25,
+            "nme": "STRIP_COLOR_PATTERN",
+            "dsc": "Ljava/util/regex/Pattern;"
+          },
+          {
+            "acc": 26,
+            "nme": "BY_CHAR",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/Character;Lnet/md_5/bungee/api/ChatColor;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "BY_NAME",
+            "dsc": "Ljava/util/Map;",
+            "sig": "Ljava/util/Map<Ljava/lang/String;Lnet/md_5/bungee/api/ChatColor;>;"
+          },
+          {
+            "acc": 25,
+            "nme": "BLACK",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_BLUE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_GREEN",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_AQUA",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_RED",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_PURPLE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "GOLD",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "GRAY",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_GRAY",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "BLUE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "GREEN",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "AQUA",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "RED",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "LIGHT_PURPLE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "YELLOW",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "WHITE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "MAGIC",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "BOLD",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "STRIKETHROUGH",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "UNDERLINE",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "ITALIC",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 25,
+            "nme": "RESET",
+            "dsc": "Lnet/md_5/bungee/api/ChatColor;"
+          },
+          {
+            "acc": 10,
+            "nme": "count",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "toString",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "name",
+            "dsc": "Ljava/lang/String;"
+          },
+          {
+            "acc": 18,
+            "nme": "ordinal",
+            "dsc": "I"
+          },
+          {
+            "acc": 18,
+            "nme": "color",
+            "dsc": "Ljava/awt/Color;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/KeybindComponent.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/md_5/bungee/api/chat/KeybindComponent",
+        "super": "net/md_5/bungee/api/chat/BaseComponent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/KeybindComponent;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lnet/md_5/bungee/api/chat/KeybindComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toPlainText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toLegacyText",
+            "acc": 4,
+            "dsc": "(Ljava/lang/StringBuilder;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "getKeybind",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "setKeybind",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "keybind",
+            "dsc": "Ljava/lang/String;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/hover/content/Content.class": {
+        "ver": 52,
+        "acc": 1057,
+        "nme": "net/md_5/bungee/api/chat/hover/content/Content",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "requiredAction",
+            "acc": 1025,
+            "dsc": "()Lnet/md_5/bungee/api/chat/HoverEvent$Action;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "assertAction",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/HoverEvent$Action;)V",
+            "exs": [
+              "java/lang/UnsupportedOperationException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "canEqual",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/KeybindComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/KeybindComponentSerializer",
+        "super": "net/md_5/bungee/chat/BaseComponentSerializer",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/KeybindComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/KeybindComponent;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/chat/ComponentSerializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/chat/ComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "parse",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)[Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 9,
+            "dsc": "(Lcom/google/gson/JsonElement;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeStyle",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserializeStyle",
+            "acc": 9,
+            "dsc": "(Lcom/google/gson/JsonElement;)Lnet/md_5/bungee/api/chat/ComponentStyle;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toJson",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toJson",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 9,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/BaseComponent;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 137,
+            "dsc": "([Lnet/md_5/bungee/api/chat/BaseComponent;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "toString",
+            "acc": 9,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ComponentStyle;)Ljava/lang/String;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/BaseComponent;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "gson",
+            "dsc": "Lcom/google/gson/Gson;"
+          },
+          {
+            "acc": 25,
+            "nme": "serializedComponents",
+            "dsc": "Ljava/lang/ThreadLocal;",
+            "sig": "Ljava/lang/ThreadLocal<Ljava/util/Set<Lnet/md_5/bungee/api/chat/BaseComponent;>;>;"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/ItemTag$Serializer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/md_5/bungee/api/chat/ItemTag$Serializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/md_5/bungee/api/chat/ItemTag;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/md_5/bungee/api/chat/ItemTag;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;Ljava/lang/reflect/Type;Lcom/google/gson/JsonSerializationContext;)Lcom/google/gson/JsonElement;",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Ljava/lang/Object;",
+            "exs": [
+              "com/google/gson/JsonParseException"
+            ],
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/Keybinds.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/md_5/bungee/api/chat/Keybinds",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "JUMP",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.jump"
+          },
+          {
+            "acc": 25,
+            "nme": "SNEAK",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.sneak"
+          },
+          {
+            "acc": 25,
+            "nme": "SPRINT",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.sprint"
+          },
+          {
+            "acc": 25,
+            "nme": "LEFT",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.left"
+          },
+          {
+            "acc": 25,
+            "nme": "RIGHT",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.right"
+          },
+          {
+            "acc": 25,
+            "nme": "BACK",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.back"
+          },
+          {
+            "acc": 25,
+            "nme": "FORWARD",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.forward"
+          },
+          {
+            "acc": 25,
+            "nme": "ATTACK",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.attack"
+          },
+          {
+            "acc": 25,
+            "nme": "PICK_ITEM",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.pickItem"
+          },
+          {
+            "acc": 25,
+            "nme": "USE",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.use"
+          },
+          {
+            "acc": 25,
+            "nme": "DROP",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.drop"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_1",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.1"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_2",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.2"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_3",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.3"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_4",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.4"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_5",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.5"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_6",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.6"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_7",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.7"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_8",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.8"
+          },
+          {
+            "acc": 25,
+            "nme": "HOTBAR_9",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.hotbar.9"
+          },
+          {
+            "acc": 25,
+            "nme": "INVENTORY",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.inventory"
+          },
+          {
+            "acc": 25,
+            "nme": "SWAP_HANDS",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.swapHands"
+          },
+          {
+            "acc": 25,
+            "nme": "LOAD_TOOLBAR_ACTIVATOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.loadToolbarActivator"
+          },
+          {
+            "acc": 25,
+            "nme": "SAVE_TOOLBAR_ACTIVATOR",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.saveToolbarActivator"
+          },
+          {
+            "acc": 25,
+            "nme": "PLAYERLIST",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.playerlist"
+          },
+          {
+            "acc": 25,
+            "nme": "CHAT",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.chat"
+          },
+          {
+            "acc": 25,
+            "nme": "COMMAND",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.command"
+          },
+          {
+            "acc": 25,
+            "nme": "SOCIAL_INTERACTIONS",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.socialInteractions"
+          },
+          {
+            "acc": 25,
+            "nme": "ADVANCEMENTS",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.advancements"
+          },
+          {
+            "acc": 25,
+            "nme": "SPECTATOR_OUTLINES",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.spectatorOutlines"
+          },
+          {
+            "acc": 25,
+            "nme": "SCREENSHOT",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.screenshot"
+          },
+          {
+            "acc": 25,
+            "nme": "SMOOTH_CAMERA",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.smoothCamera"
+          },
+          {
+            "acc": 25,
+            "nme": "FULLSCREEN",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.fullscreen"
+          },
+          {
+            "acc": 25,
+            "nme": "TOGGLE_PERSPECTIVE",
+            "dsc": "Ljava/lang/String;",
+            "val": "key.togglePerspective"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      },
+      "net/md_5/bungee/api/chat/HoverEvent$1.class": {
+        "ver": 52,
+        "acc": 4128,
+        "nme": "net/md_5/bungee/api/chat/HoverEvent$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V",
+            "vanns": [
+              {
+                "dsc": "Ljava/lang/Deprecated;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$net$md_5$bungee$api$chat$HoverEvent$Action",
+            "dsc": "[I"
+          }
+        ],
+        "vanns": [
+          {
+            "dsc": "Ljava/lang/Deprecated;"
+          }
+        ]
+      }
+    }
+  }
+}

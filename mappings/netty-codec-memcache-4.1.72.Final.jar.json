@@ -1,0 +1,3169 @@
+{
+  "md5": "11e1838edc30e7d72bd0aadff9fc14fd",
+  "sha2": "a45e18d8f1458be114f36d3cd4ab390fec85845c",
+  "sha256": "7f90d48feb5139e2c69c5c51e20a334fbd231ff5192732d6069bcc2d81f2ff8d",
+  "contents": {
+    "classes": {
+      "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheResponse",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "status",
+            "acc": 1,
+            "dsc": "()S"
+          },
+          {
+            "nme": "setStatus",
+            "acc": 1,
+            "dsc": "(S)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "copyMeta",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheResponse;)V"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "RESPONSE_MAGIC_BYTE",
+            "dsc": "B",
+            "val": -127
+          },
+          {
+            "acc": 2,
+            "nme": "status",
+            "dsc": "S"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseStatus.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseStatus",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SUCCESS",
+            "dsc": "S",
+            "val": 0
+          },
+          {
+            "acc": 25,
+            "nme": "KEY_ENOENT",
+            "dsc": "S",
+            "val": 1
+          },
+          {
+            "acc": 25,
+            "nme": "KEY_EEXISTS",
+            "dsc": "S",
+            "val": 2
+          },
+          {
+            "acc": 25,
+            "nme": "E2BIG",
+            "dsc": "S",
+            "val": 3
+          },
+          {
+            "acc": 25,
+            "nme": "EINVA",
+            "dsc": "S",
+            "val": 4
+          },
+          {
+            "acc": 25,
+            "nme": "NOT_STORED",
+            "dsc": "S",
+            "val": 5
+          },
+          {
+            "acc": 25,
+            "nme": "DELTA_BADVAL",
+            "dsc": "S",
+            "val": 6
+          },
+          {
+            "acc": 25,
+            "nme": "AUTH_ERROR",
+            "dsc": "S",
+            "val": 32
+          },
+          {
+            "acc": 25,
+            "nme": "AUTH_CONTINUE",
+            "dsc": "S",
+            "val": 33
+          },
+          {
+            "acc": 25,
+            "nme": "UNKNOWN_COMMAND",
+            "dsc": "S",
+            "val": 129
+          },
+          {
+            "acc": 25,
+            "nme": "ENOMEM",
+            "dsc": "S",
+            "val": 130
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheServerCodec.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheServerCodec",
+        "super": "io/netty/channel/CombinedChannelDuplexHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "status",
+            "acc": 1025,
+            "dsc": "()S"
+          },
+          {
+            "nme": "setStatus",
+            "acc": 1025,
+            "dsc": "(S)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/DefaultFullBinaryMemcacheRequest.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/DefaultFullBinaryMemcacheRequest",
+        "super": "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheRequest",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "newInstance",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/DefaultFullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheEncoder.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheEncoder",
+        "super": "io/netty/handler/codec/memcache/AbstractMemcacheObjectEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;)Lio/netty/buffer/ByteBuf;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;TM;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "encodeExtras",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeKey",
+            "acc": 10,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 1028,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;)V",
+            "sig": "(Lio/netty/buffer/ByteBuf;TM;)V"
+          },
+          {
+            "nme": "encodeMessage",
+            "acc": 4164,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/memcache/MemcacheMessage;)Lio/netty/buffer/ByteBuf;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "MINIMUM_HEADER_SIZE",
+            "dsc": "I",
+            "val": 24
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/FullMemcacheMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/FullMemcacheMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheRequest.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheRequest",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheMessage",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "reserved",
+            "acc": 1,
+            "dsc": "()S"
+          },
+          {
+            "nme": "setReserved",
+            "acc": 1,
+            "dsc": "(S)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "copyMeta",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheRequest;)V"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "REQUEST_MAGIC_BYTE",
+            "dsc": "B",
+            "val": -128
+          },
+          {
+            "acc": 2,
+            "nme": "reserved",
+            "dsc": "S"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/AbstractMemcacheObjectDecoder.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/AbstractMemcacheObjectDecoder",
+        "super": "io/netty/handler/codec/ByteToMessageDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/MemcacheObject.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/MemcacheObject",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseDecoder",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "buildInvalidMessage",
+            "acc": 4,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "buildInvalidMessage",
+            "acc": 4164,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/MemcacheContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/MemcacheContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/DefaultFullBinaryMemcacheResponse.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/DefaultFullBinaryMemcacheResponse",
+        "super": "io/netty/handler/codec/memcache/binary/DefaultBinaryMemcacheResponse",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "newInstance",
+            "acc": 2,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/FullMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/AbstractMemcacheObject.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/AbstractMemcacheObject",
+        "super": "io/netty/util/AbstractReferenceCounted",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "decoderResult",
+            "dsc": "Lio/netty/handler/codec/DecoderResult;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$1",
+        "super": "java/lang/Object",
+        "mthds": [],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/MemcacheMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/MemcacheMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$Decoder.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$Decoder",
+        "super": "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;I)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "channelInactive",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/DefaultLastMemcacheContent.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/DefaultLastMemcacheContent",
+        "super": "io/netty/handler/codec/memcache/DefaultMemcacheContent",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/LastMemcacheContent.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/LastMemcacheContent",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "EMPTY_LAST_CONTENT",
+            "dsc": "Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequestEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequestEncoder",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;)V"
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder",
+        "super": "io/netty/handler/codec/memcache/AbstractMemcacheObjectDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "decode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/buffer/ByteBuf;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "invalidMessage",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Exception;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;",
+            "sig": "(Ljava/lang/Exception;)TM;"
+          },
+          {
+            "nme": "invalidChunk",
+            "acc": 2,
+            "dsc": "(Ljava/lang/Exception;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "channelInactive",
+            "acc": 1,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "resetDecoder",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 1028,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;",
+            "sig": "(Lio/netty/buffer/ByteBuf;)TM;"
+          },
+          {
+            "nme": "buildInvalidMessage",
+            "acc": 1028,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;",
+            "sig": "()TM;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "DEFAULT_MAX_CHUNK_SIZE",
+            "dsc": "I",
+            "val": 8192
+          },
+          {
+            "acc": 18,
+            "nme": "chunkSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "currentMessage",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;",
+            "sig": "TM;"
+          },
+          {
+            "acc": 2,
+            "nme": "alreadyReadChunkSize",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "state",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheOpcodes.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheOpcodes",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "GET",
+            "dsc": "B",
+            "val": 0
+          },
+          {
+            "acc": 25,
+            "nme": "SET",
+            "dsc": "B",
+            "val": 1
+          },
+          {
+            "acc": 25,
+            "nme": "ADD",
+            "dsc": "B",
+            "val": 2
+          },
+          {
+            "acc": 25,
+            "nme": "REPLACE",
+            "dsc": "B",
+            "val": 3
+          },
+          {
+            "acc": 25,
+            "nme": "DELETE",
+            "dsc": "B",
+            "val": 4
+          },
+          {
+            "acc": 25,
+            "nme": "INCREMENT",
+            "dsc": "B",
+            "val": 5
+          },
+          {
+            "acc": 25,
+            "nme": "DECREMENT",
+            "dsc": "B",
+            "val": 6
+          },
+          {
+            "acc": 25,
+            "nme": "QUIT",
+            "dsc": "B",
+            "val": 7
+          },
+          {
+            "acc": 25,
+            "nme": "FLUSH",
+            "dsc": "B",
+            "val": 8
+          },
+          {
+            "acc": 25,
+            "nme": "GETQ",
+            "dsc": "B",
+            "val": 9
+          },
+          {
+            "acc": 25,
+            "nme": "NOOP",
+            "dsc": "B",
+            "val": 10
+          },
+          {
+            "acc": 25,
+            "nme": "VERSION",
+            "dsc": "B",
+            "val": 11
+          },
+          {
+            "acc": 25,
+            "nme": "GETK",
+            "dsc": "B",
+            "val": 12
+          },
+          {
+            "acc": 25,
+            "nme": "GETKQ",
+            "dsc": "B",
+            "val": 13
+          },
+          {
+            "acc": 25,
+            "nme": "APPEND",
+            "dsc": "B",
+            "val": 14
+          },
+          {
+            "acc": 25,
+            "nme": "PREPEND",
+            "dsc": "B",
+            "val": 15
+          },
+          {
+            "acc": 25,
+            "nme": "STAT",
+            "dsc": "B",
+            "val": 16
+          },
+          {
+            "acc": 25,
+            "nme": "SETQ",
+            "dsc": "B",
+            "val": 17
+          },
+          {
+            "acc": 25,
+            "nme": "ADDQ",
+            "dsc": "B",
+            "val": 18
+          },
+          {
+            "acc": 25,
+            "nme": "REPLACEQ",
+            "dsc": "B",
+            "val": 19
+          },
+          {
+            "acc": 25,
+            "nme": "DELETEQ",
+            "dsc": "B",
+            "val": 20
+          },
+          {
+            "acc": 25,
+            "nme": "INCREMENTQ",
+            "dsc": "B",
+            "val": 21
+          },
+          {
+            "acc": 25,
+            "nme": "DECREMENTQ",
+            "dsc": "B",
+            "val": 22
+          },
+          {
+            "acc": 25,
+            "nme": "QUITQ",
+            "dsc": "B",
+            "val": 23
+          },
+          {
+            "acc": 25,
+            "nme": "FLUSHQ",
+            "dsc": "B",
+            "val": 24
+          },
+          {
+            "acc": 25,
+            "nme": "APPENDQ",
+            "dsc": "B",
+            "val": 25
+          },
+          {
+            "acc": 25,
+            "nme": "PREPENDQ",
+            "dsc": "B",
+            "val": 26
+          },
+          {
+            "acc": 25,
+            "nme": "TOUCH",
+            "dsc": "B",
+            "val": 28
+          },
+          {
+            "acc": 25,
+            "nme": "GAT",
+            "dsc": "B",
+            "val": 29
+          },
+          {
+            "acc": 25,
+            "nme": "GATQ",
+            "dsc": "B",
+            "val": 30
+          },
+          {
+            "acc": 25,
+            "nme": "GATK",
+            "dsc": "B",
+            "val": 35
+          },
+          {
+            "acc": 25,
+            "nme": "GATKQ",
+            "dsc": "B",
+            "val": 36
+          },
+          {
+            "acc": 25,
+            "nme": "SASL_LIST_MECHS",
+            "dsc": "B",
+            "val": 32
+          },
+          {
+            "acc": 25,
+            "nme": "SASL_AUTH",
+            "dsc": "B",
+            "val": 33
+          },
+          {
+            "acc": 25,
+            "nme": "SASL_STEP",
+            "dsc": "B",
+            "val": 34
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheMessage.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheMessage",
+        "super": "io/netty/handler/codec/memcache/AbstractMemcacheObject",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "key",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "extras",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "setKey",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "setExtras",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "magic",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setMagic",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "cas",
+            "acc": 1,
+            "dsc": "()J"
+          },
+          {
+            "nme": "setCas",
+            "acc": 1,
+            "dsc": "(J)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "opaque",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setOpaque",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "totalBodyLength",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setTotalBodyLength",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "dataType",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setDataType",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "extrasLength",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setExtrasLength",
+            "acc": 0,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "keyLength",
+            "acc": 1,
+            "dsc": "()S"
+          },
+          {
+            "nme": "setKeyLength",
+            "acc": 0,
+            "dsc": "(S)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "opcode",
+            "acc": 1,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setOpcode",
+            "acc": 1,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "copyMeta",
+            "acc": 0,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheMessage;)V"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheMessage;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "key",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "acc": 2,
+            "nme": "extras",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "acc": 2,
+            "nme": "magic",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "opcode",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "keyLength",
+            "dsc": "S"
+          },
+          {
+            "acc": 2,
+            "nme": "extrasLength",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "dataType",
+            "dsc": "B"
+          },
+          {
+            "acc": 2,
+            "nme": "totalBodyLength",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "opaque",
+            "dsc": "I"
+          },
+          {
+            "acc": 2,
+            "nme": "cas",
+            "dsc": "J"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/LastMemcacheContent$1.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/memcache/LastMemcacheContent$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/LastMemcacheContent;"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "decoderResult",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/DecoderResult;"
+          },
+          {
+            "nme": "setDecoderResult",
+            "acc": 1,
+            "dsc": "(Lio/netty/handler/codec/DecoderResult;)V"
+          },
+          {
+            "nme": "refCnt",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "release",
+            "acc": 1,
+            "dsc": "(I)Z"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheMessage.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheMessage",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "magic",
+            "acc": 1025,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setMagic",
+            "acc": 1025,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "opcode",
+            "acc": 1025,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setOpcode",
+            "acc": 1025,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "keyLength",
+            "acc": 1025,
+            "dsc": "()S"
+          },
+          {
+            "nme": "extrasLength",
+            "acc": 1025,
+            "dsc": "()B"
+          },
+          {
+            "nme": "dataType",
+            "acc": 1025,
+            "dsc": "()B"
+          },
+          {
+            "nme": "setDataType",
+            "acc": 1025,
+            "dsc": "(B)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "totalBodyLength",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setTotalBodyLength",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "opaque",
+            "acc": 1025,
+            "dsc": "()I"
+          },
+          {
+            "nme": "setOpaque",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "cas",
+            "acc": 1025,
+            "dsc": "()J"
+          },
+          {
+            "nme": "setCas",
+            "acc": 1025,
+            "dsc": "(J)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "key",
+            "acc": 1025,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "setKey",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "extras",
+            "acc": 1025,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "setExtras",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/DefaultMemcacheContent.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/DefaultMemcacheContent",
+        "super": "io/netty/handler/codec/memcache/AbstractMemcacheObject",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)V"
+          },
+          {
+            "nme": "content",
+            "acc": 1,
+            "dsc": "()Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "copy",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "()Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/MemcacheContent;"
+          },
+          {
+            "nme": "deallocate",
+            "acc": 4,
+            "dsc": "()V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/util/ReferenceCounted;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "touch",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "(I)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retain",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "replace",
+            "acc": 4161,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          },
+          {
+            "nme": "copy",
+            "acc": 4161,
+            "dsc": "()Lio/netty/buffer/ByteBufHolder;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "content",
+            "dsc": "Lio/netty/buffer/ByteBuf;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "reserved",
+            "acc": 1025,
+            "dsc": "()S"
+          },
+          {
+            "nme": "setReserved",
+            "acc": 1025,
+            "dsc": "(S)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/AbstractMemcacheObjectAggregator.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/AbstractMemcacheObjectAggregator",
+        "super": "io/netty/handler/codec/MessageAggregator",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 4,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheObject;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheContent;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheObject;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheMessage;I)Z",
+            "sig": "(TH;I)Z"
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheMessage;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;",
+            "sig": "(TH;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;"
+          },
+          {
+            "nme": "closeAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "ignoreContentAfterContinueResponse",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "newContinueResponse",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;ILio/netty/channel/ChannelPipeline;)Ljava/lang/Object;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentLengthInvalid",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;I)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isAggregated",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isLastContentMessage",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBufHolder;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isContentMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/AbstractMemcacheObjectEncoder.class": {
+        "ver": 50,
+        "acc": 1057,
+        "nme": "io/netty/handler/codec/memcache/AbstractMemcacheObjectEncoder",
+        "super": "io/netty/handler/codec/MessageToMessageEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "acceptOutboundMessage",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "encodeMessage",
+            "acc": 1028,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/memcache/MemcacheMessage;)Lio/netty/buffer/ByteBuf;",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;TM;)Lio/netty/buffer/ByteBuf;"
+          },
+          {
+            "nme": "contentLength",
+            "acc": 10,
+            "dsc": "(Ljava/lang/Object;)I"
+          },
+          {
+            "nme": "encodeAndRetain",
+            "acc": 10,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "expectingMoreContent",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec.class": {
+        "ver": 50,
+        "acc": 49,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec",
+        "super": "io/netty/channel/CombinedChannelDuplexHandler",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(IZ)V"
+          },
+          {
+            "nme": "access$100",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;)Z"
+          },
+          {
+            "nme": "access$200",
+            "acc": 4104,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;)Ljava/util/concurrent/atomic/AtomicLong;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "failOnMissingResponse",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "requestResponseCounter",
+            "dsc": "Ljava/util/concurrent/atomic/AtomicLong;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest.class": {
+        "ver": 50,
+        "acc": 1537,
+        "nme": "io/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "copy",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "duplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retainedDuplicate",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "replace",
+            "acc": 1025,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "(I)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "retain",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "touch",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/Object;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequestDecoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequestDecoder",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "buildInvalidMessage",
+            "acc": 4,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;"
+          },
+          {
+            "nme": "buildInvalidMessage",
+            "acc": 4164,
+            "dsc": "()Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          },
+          {
+            "nme": "decodeHeader",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State.class": {
+        "ver": 50,
+        "acc": 16432,
+        "nme": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "READ_HEADER",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_EXTRAS",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_KEY",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "READ_CONTENT",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BAD_MESSAGE",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lio/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$State;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseEncoder.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheResponseEncoder",
+        "super": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 4,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;)V"
+          },
+          {
+            "nme": "encodeHeader",
+            "acc": 4164,
+            "dsc": "(Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;)V"
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheObjectAggregator.class": {
+        "ver": 50,
+        "acc": 33,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheObjectAggregator",
+        "super": "io/netty/handler/codec/memcache/AbstractMemcacheObjectAggregator",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(I)V"
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/MemcacheObject;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheMessage;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/FullMemcacheMessage;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "toFullRequest",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheRequest;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheRequest;"
+          },
+          {
+            "nme": "toFullResponse",
+            "acc": 10,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheResponse;Lio/netty/buffer/ByteBuf;)Lio/netty/handler/codec/memcache/binary/FullBinaryMemcacheResponse;"
+          },
+          {
+            "nme": "beginAggregation",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;Lio/netty/buffer/ByteBuf;)Lio/netty/buffer/ByteBufHolder;",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "isStartMessage",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Z",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$Encoder.class": {
+        "ver": 50,
+        "acc": 48,
+        "nme": "io/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$Encoder",
+        "super": "io/netty/handler/codec/memcache/binary/BinaryMemcacheRequestEncoder",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;)V"
+          },
+          {
+            "nme": "encode",
+            "acc": 4,
+            "dsc": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List;)V",
+            "sig": "(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;Ljava/util/List<Ljava/lang/Object;>;)V",
+            "exs": [
+              "java/lang/Exception"
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lio/netty/handler/codec/memcache/binary/BinaryMemcacheClientCodec;"
+          }
+        ]
+      },
+      "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$1.class": {
+        "ver": 50,
+        "acc": 4128,
+        "nme": "io/netty/handler/codec/memcache/binary/AbstractBinaryMemcacheDecoder$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$io$netty$handler$codec$memcache$binary$AbstractBinaryMemcacheDecoder$State",
+            "dsc": "[I"
+          }
+        ]
+      }
+    }
+  }
+}

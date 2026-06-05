@@ -1,0 +1,1562 @@
+{
+  "md5": "8c95e49b044cab677c0d794ea1bdc5e2",
+  "sha2": "e9cacd4d98c1ecab249805e8058cf2eece047d5b",
+  "sha256": "d5280eb75bf2a5eaed0797971a6cc902dc6b8cbb6feac27011cc86246108209d",
+  "contents": {
+    "classes": {
+      "net/kyori/adventure/text/serializer/legacy/LegacyFormat.class": {
+        "ver": 52,
+        "acc": 49,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyFormat",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/format/NamedTextColor;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextDecoration;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Z)V"
+          },
+          {
+            "nme": "color",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/format/TextColor;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "decoration",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/format/TextDecoration;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "reset",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "RESET",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyFormat;"
+          },
+          {
+            "acc": 18,
+            "nme": "color",
+            "dsc": "Lnet/kyori/adventure/text/format/NamedTextColor;"
+          },
+          {
+            "acc": 18,
+            "nme": "decoration",
+            "dsc": "Lnet/kyori/adventure/text/format/TextDecoration;"
+          },
+          {
+            "acc": 18,
+            "nme": "reset",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "legacySection",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyAmpersand",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacy",
+            "acc": 9,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "parseChar",
+            "acc": 9,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "builder",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1025,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/TextComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "SECTION_CHAR",
+            "dsc": "C",
+            "val": 167
+          },
+          {
+            "acc": 25,
+            "nme": "AMPERSAND_CHAR",
+            "dsc": "C",
+            "val": 38
+          },
+          {
+            "acc": 25,
+            "nme": "HEX_CHAR",
+            "dsc": "C",
+            "val": 35
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$1.class": {
+        "ver": 52,
+        "acc": 4128,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$1",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 4120,
+            "nme": "$SwitchMap$net$kyori$adventure$text$format$TextDecoration$State",
+            "dsc": "[I"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$BuilderImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$BuilderImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)V"
+          },
+          {
+            "nme": "character",
+            "acc": 1,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "hexCharacter",
+            "acc": 1,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1,
+            "dsc": "(Ljava/util/regex/Pattern;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1,
+            "dsc": "(Ljava/util/regex/Pattern;Lnet/kyori/adventure/text/format/Style;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "hexColors",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "useUnusualXRepeatedCharacterHexFormat",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "flattener",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "formats",
+            "acc": 1,
+            "dsc": "(Ljava/util/List;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "sig": "(Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$extractUrls$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;Lnet/kyori/adventure/text/TextComponent$Builder;)Lnet/kyori/adventure/text/ComponentLike;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "character",
+            "dsc": "C"
+          },
+          {
+            "acc": 2,
+            "nme": "hexCharacter",
+            "dsc": "C"
+          },
+          {
+            "acc": 2,
+            "nme": "urlReplacementConfig",
+            "dsc": "Lnet/kyori/adventure/text/TextReplacementConfig;"
+          },
+          {
+            "acc": 2,
+            "nme": "hexColours",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "useTerriblyStupidHexFormat",
+            "dsc": "Z"
+          },
+          {
+            "acc": 2,
+            "nme": "flattener",
+            "dsc": "Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          },
+          {
+            "acc": 2,
+            "nme": "formats",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "SECTION",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          },
+          {
+            "acc": 24,
+            "nme": "AMPERSAND",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "of",
+            "acc": 8,
+            "dsc": "(Ljava/util/List;)Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;",
+            "sig": "(Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;)Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V",
+            "sig": "(Ljava/util/List<Lnet/kyori/adventure/text/format/TextFormat;>;Ljava/util/List<Lnet/kyori/adventure/text/format/TextColor;>;Ljava/lang/String;)V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "DEFAULT",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;"
+          },
+          {
+            "acc": 16,
+            "nme": "formats",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/kyori/adventure/text/format/TextFormat;>;"
+          },
+          {
+            "acc": 16,
+            "nme": "colors",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/kyori/adventure/text/format/TextColor;>;"
+          },
+          {
+            "acc": 16,
+            "nme": "characters",
+            "dsc": "Ljava/lang/String;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Provider.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Provider",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "legacyAmpersand",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacySection",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "legacy",
+            "acc": 1025,
+            "dsc": "()Ljava/util/function/Consumer;",
+            "sig": "()Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;>;",
+            "vanns": [
+              {
+                "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+              }
+            ],
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+              },
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [],
+        "vanns": [
+          {
+            "dsc": "Lnet/kyori/adventure/util/PlatformAPI;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$Internal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/CharacterAndFormat.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/legacy/CharacterAndFormat",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "characterAndFormat",
+            "acc": 9,
+            "dsc": "(CLnet/kyori/adventure/text/format/TextFormat;)Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "characterAndFormat",
+            "acc": 9,
+            "dsc": "(CLnet/kyori/adventure/text/format/TextFormat;Z)Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "defaults",
+            "acc": 9,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "character",
+            "acc": 1025,
+            "dsc": "()C"
+          },
+          {
+            "nme": "format",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/format/TextFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "caseInsensitive",
+            "acc": 1025,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "examinableProperties",
+            "acc": 1,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<+Lnet/kyori/examination/ExaminableProperty;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 25,
+            "nme": "BLACK",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_BLUE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_GREEN",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_AQUA",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_RED",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_PURPLE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "GOLD",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "GRAY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "DARK_GRAY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "BLUE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "GREEN",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "AQUA",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "RED",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "LIGHT_PURPLE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "YELLOW",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "WHITE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "OBFUSCATED",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "BOLD",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "STRIKETHROUGH",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "UNDERLINED",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "ITALIC",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          },
+          {
+            "acc": 25,
+            "nme": "RESET",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;"
+          }
+        ],
+        "invanns": [
+          {
+            "dsc": "Lorg/jetbrains/annotations/ApiStatus$NonExtendable;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal;)V"
+          },
+          {
+            "nme": "set",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState;)V"
+          },
+          {
+            "nme": "clear",
+            "acc": 1,
+            "dsc": "()V"
+          },
+          {
+            "nme": "apply",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;)V"
+          },
+          {
+            "nme": "applyFormat",
+            "acc": 0,
+            "dsc": "()V"
+          },
+          {
+            "nme": "applyFullFormat",
+            "acc": 2,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 2,
+            "nme": "color",
+            "dsc": "Lnet/kyori/adventure/text/format/TextColor;"
+          },
+          {
+            "acc": 18,
+            "nme": "decorations",
+            "dsc": "Ljava/util/Set;",
+            "sig": "Ljava/util/Set<Lnet/kyori/adventure/text/format/TextDecoration;>;"
+          },
+          {
+            "acc": 2,
+            "nme": "needsReset",
+            "dsc": "Z"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$1",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType.class": {
+        "ver": 52,
+        "acc": 16432,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "MOJANG_LEGACY",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "KYORI_HEX",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "acc": 16409,
+            "nme": "BUNGEECORD_UNUSUAL_HEX",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder.class": {
+        "ver": 52,
+        "acc": 1537,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "character",
+            "acc": 1025,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "hexCharacter",
+            "acc": 1025,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1025,
+            "dsc": "(Ljava/util/regex/Pattern;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrls",
+            "acc": 1025,
+            "dsc": "(Ljava/util/regex/Pattern;Lnet/kyori/adventure/text/format/Style;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "hexColors",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "useUnusualXRepeatedCharacterHexFormat",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "flattener",
+            "acc": 1025,
+            "dsc": "(Lnet/kyori/adventure/text/flattener/ComponentFlattener;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "formats",
+            "acc": 1025,
+            "dsc": "(Ljava/util/List;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "sig": "(Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 1025,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "build",
+            "acc": 4161,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(CCLnet/kyori/adventure/text/TextReplacementConfig;ZZLnet/kyori/adventure/text/flattener/ComponentFlattener;Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;)V"
+          },
+          {
+            "nme": "determineFormatType",
+            "acc": 2,
+            "dsc": "(CLjava/lang/String;I)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "legacyFormat",
+            "acc": 8,
+            "dsc": "(C)Lnet/kyori/adventure/text/serializer/legacy/LegacyFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "decodeTextFormat",
+            "acc": 2,
+            "dsc": "(CLjava/lang/String;I)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$DecodedFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "tryParseHexColor",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/format/TextColor;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "isHexTextColor",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextFormat;)Z"
+          },
+          {
+            "nme": "toLegacyCode",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextFormat;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/Nullable;"
+              }
+            ]
+          },
+          {
+            "nme": "extractUrl",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/TextComponent;)Lnet/kyori/adventure/text/TextComponent;"
+          },
+          {
+            "nme": "deserialize",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/TextComponent;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "applyFormat",
+            "acc": 10,
+            "dsc": "(Lnet/kyori/adventure/text/TextComponent$Builder;Lnet/kyori/adventure/text/format/TextFormat;)Z"
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "serialize",
+            "acc": 4161,
+            "dsc": "(Lnet/kyori/adventure/text/Component;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "deserialize",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/Object;)Lnet/kyori/adventure/text/Component;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "toBuilder",
+            "acc": 4161,
+            "dsc": "()Lnet/kyori/adventure/util/Buildable$Builder;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$static$1",
+            "acc": 4106,
+            "dsc": "()Ljava/util/function/Consumer;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;)V"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()Ljava/util/Optional;"
+          },
+          {
+            "nme": "access$300",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;Lnet/kyori/adventure/text/format/TextFormat;)Ljava/lang/String;"
+          },
+          {
+            "nme": "access$400",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)C"
+          },
+          {
+            "nme": "access$500",
+            "acc": 4104,
+            "dsc": "()[Lnet/kyori/adventure/text/format/TextDecoration;"
+          },
+          {
+            "nme": "access$800",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)C"
+          },
+          {
+            "nme": "access$900",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)Lnet/kyori/adventure/text/TextReplacementConfig;"
+          },
+          {
+            "nme": "access$1000",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)Z"
+          },
+          {
+            "nme": "access$1100",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)Z"
+          },
+          {
+            "nme": "access$1200",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          },
+          {
+            "nme": "access$1300",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "DEFAULT_URL_PATTERN",
+            "dsc": "Ljava/util/regex/Pattern;"
+          },
+          {
+            "acc": 24,
+            "nme": "URL_SCHEME_PATTERN",
+            "dsc": "Ljava/util/regex/Pattern;"
+          },
+          {
+            "acc": 26,
+            "nme": "DECORATIONS",
+            "dsc": "[Lnet/kyori/adventure/text/format/TextDecoration;"
+          },
+          {
+            "acc": 26,
+            "nme": "LEGACY_BUNGEE_HEX_CHAR",
+            "dsc": "C",
+            "val": 120
+          },
+          {
+            "acc": 26,
+            "nme": "SERVICE",
+            "dsc": "Ljava/util/Optional;",
+            "sig": "Ljava/util/Optional<Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Provider;>;"
+          },
+          {
+            "acc": 24,
+            "nme": "BUILDER",
+            "dsc": "Ljava/util/function/Consumer;",
+            "sig": "Ljava/util/function/Consumer<Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializer$Builder;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "character",
+            "dsc": "C"
+          },
+          {
+            "acc": 18,
+            "nme": "hexCharacter",
+            "dsc": "C"
+          },
+          {
+            "acc": 18,
+            "nme": "urlReplacementConfig",
+            "dsc": "Lnet/kyori/adventure/text/TextReplacementConfig;"
+          },
+          {
+            "acc": 18,
+            "nme": "hexColours",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "useTerriblyStupidHexFormat",
+            "dsc": "Z"
+          },
+          {
+            "acc": 18,
+            "nme": "flattener",
+            "dsc": "Lnet/kyori/adventure/text/flattener/ComponentFlattener;"
+          },
+          {
+            "acc": 18,
+            "nme": "formats",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormatSet;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;)V"
+          },
+          {
+            "nme": "pushStyle",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;)V"
+          },
+          {
+            "nme": "component",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)V"
+          },
+          {
+            "nme": "popStyle",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/adventure/text/format/Style;)V"
+          },
+          {
+            "nme": "append",
+            "acc": 0,
+            "dsc": "(Lnet/kyori/adventure/text/format/TextFormat;)V"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$1;)V"
+          },
+          {
+            "nme": "access$600",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal;)Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState;"
+          },
+          {
+            "nme": "access$700",
+            "acc": 4104,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal;)Lnet/kyori/adventure/text/format/TextFormat;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "sb",
+            "dsc": "Ljava/lang/StringBuilder;"
+          },
+          {
+            "acc": 18,
+            "nme": "style",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState;"
+          },
+          {
+            "acc": 2,
+            "nme": "lastWritten",
+            "dsc": "Lnet/kyori/adventure/text/format/TextFormat;"
+          },
+          {
+            "acc": 2,
+            "nme": "styles",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$Cereal$StyleState;"
+          },
+          {
+            "acc": 2,
+            "nme": "head",
+            "dsc": "I"
+          },
+          {
+            "acc": 4112,
+            "nme": "this$0",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/Reset.class": {
+        "ver": 52,
+        "acc": 16433,
+        "nme": "net/kyori/adventure/text/serializer/legacy/Reset",
+        "super": "java/lang/Enum",
+        "mthds": [
+          {
+            "nme": "values",
+            "acc": 9,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/legacy/Reset;"
+          },
+          {
+            "nme": "valueOf",
+            "acc": 9,
+            "dsc": "(Ljava/lang/String;)Lnet/kyori/adventure/text/serializer/legacy/Reset;"
+          },
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Ljava/lang/String;I)V",
+            "sig": "()V"
+          },
+          {
+            "nme": "$values",
+            "acc": 4106,
+            "dsc": "()[Lnet/kyori/adventure/text/serializer/legacy/Reset;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16409,
+            "nme": "INSTANCE",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/Reset;"
+          },
+          {
+            "acc": 4122,
+            "nme": "$VALUES",
+            "dsc": "[Lnet/kyori/adventure/text/serializer/legacy/Reset;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatImpl.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatImpl",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 0,
+            "dsc": "(CLnet/kyori/adventure/text/format/TextFormat;Z)V"
+          },
+          {
+            "nme": "character",
+            "acc": 1,
+            "dsc": "()C"
+          },
+          {
+            "nme": "format",
+            "acc": 1,
+            "dsc": "()Lnet/kyori/adventure/text/format/TextFormat;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "caseInsensitive",
+            "acc": 1,
+            "dsc": "()Z"
+          },
+          {
+            "nme": "equals",
+            "acc": 1,
+            "dsc": "(Ljava/lang/Object;)Z"
+          },
+          {
+            "nme": "hashCode",
+            "acc": 1,
+            "dsc": "()I"
+          },
+          {
+            "nme": "toString",
+            "acc": 1,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": [
+          {
+            "acc": 18,
+            "nme": "character",
+            "dsc": "C"
+          },
+          {
+            "acc": 18,
+            "nme": "format",
+            "dsc": "Lnet/kyori/adventure/text/format/TextFormat;"
+          },
+          {
+            "acc": 18,
+            "nme": "caseInsensitive",
+            "dsc": "Z"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatImpl$Defaults.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/CharacterAndFormatImpl$Defaults",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "createDefaults",
+            "acc": 8,
+            "dsc": "()Ljava/util/List;",
+            "sig": "()Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "DEFAULTS",
+            "dsc": "Ljava/util/List;",
+            "sig": "Ljava/util/List<Lnet/kyori/adventure/text/serializer/legacy/CharacterAndFormat;>;"
+          }
+        ]
+      },
+      "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$DecodedFormat.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$DecodedFormat",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;Lnet/kyori/adventure/text/format/TextFormat;)V"
+          },
+          {
+            "nme": "<init>",
+            "acc": 4096,
+            "dsc": "(Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;Lnet/kyori/adventure/text/format/TextFormat;Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$1;)V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 16,
+            "nme": "encodedFormat",
+            "dsc": "Lnet/kyori/adventure/text/serializer/legacy/LegacyComponentSerializerImpl$FormatCodeType;"
+          },
+          {
+            "acc": 16,
+            "nme": "format",
+            "dsc": "Lnet/kyori/adventure/text/format/TextFormat;"
+          }
+        ]
+      }
+    }
+  }
+}

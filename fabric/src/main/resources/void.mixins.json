@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "ac.voidac.platform.fabric.mixins",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "LevelChunkMixin",
+        "LevelMixin",
+        "ServerPlayerMixin",
+        "PistonBaseBlockMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

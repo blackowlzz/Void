@@ -1,0 +1,1125 @@
+{
+  "md5": "9e4752ea3f53ae45e736c9d8f016f23d",
+  "sha2": "6f34afef5c54ccce4996bc321abf77518b55b4bd",
+  "sha256": "7d01fc25a4bb3af0e1662685455f4541fbf4626216ea5846e455c1491e156b8c",
+  "contents": {
+    "classes": {
+      "net/kyori/examination/string/StringExaminer$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/examination/string/StringExaminer$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "SIMPLE_ESCAPING",
+            "dsc": "Lnet/kyori/examination/string/StringExaminer;"
+          }
+        ]
+      },
+      "net/kyori/examination/string/MultiLineStringExaminer$Instances.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/examination/string/MultiLineStringExaminer$Instances",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 24,
+            "nme": "SIMPLE_ESCAPING",
+            "dsc": "Lnet/kyori/examination/string/MultiLineStringExaminer;"
+          }
+        ]
+      },
+      "META-INF/versions/9/module-info.class": {
+        "ver": 53,
+        "acc": 32768,
+        "nme": "module-info",
+        "mthds": [],
+        "flds": []
+      },
+      "net/kyori/examination/string/MultiLineStringExaminer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/kyori/examination/string/MultiLineStringExaminer",
+        "super": "net/kyori/examination/AbstractExaminer",
+        "mthds": [
+          {
+            "nme": "simpleEscaping",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/examination/string/MultiLineStringExaminer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Lnet/kyori/examination/string/StringExaminer;)V"
+          },
+          {
+            "nme": "array",
+            "acc": 4,
+            "dsc": "([Ljava/lang/Object;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "<E:Ljava/lang/Object;>([TE;Ljava/util/stream/Stream<Ljava/util/stream/Stream<Ljava/lang/String;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 4,
+            "dsc": "(Ljava/util/Collection;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;Ljava/util/stream/Stream<Ljava/util/stream/Stream<Ljava/lang/String;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinable",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 4,
+            "dsc": "(Ljava/util/Map;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/stream/Stream<Ljava/util/Map$Entry<Ljava/util/stream/Stream<Ljava/lang/String;>;Ljava/util/stream/Stream<Ljava/lang/String;>;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "nil",
+            "acc": 4,
+            "dsc": "()Ljava/util/stream/Stream;",
+            "sig": "()Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "scalar",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/lang/Object;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Z)Ljava/util/stream/Stream;",
+            "sig": "(Z)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(B)Ljava/util/stream/Stream;",
+            "sig": "(B)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(C)Ljava/util/stream/Stream;",
+            "sig": "(C)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(D)Ljava/util/stream/Stream;",
+            "sig": "(D)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(F)Ljava/util/stream/Stream;",
+            "sig": "(F)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(I)Ljava/util/stream/Stream;",
+            "sig": "(I)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(J)Ljava/util/stream/Stream;",
+            "sig": "(J)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(S)Ljava/util/stream/Stream;",
+            "sig": "(S)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 4,
+            "dsc": "(ILjava/util/function/IntFunction;)Ljava/util/stream/Stream;",
+            "sig": "(ILjava/util/function/IntFunction<Ljava/util/stream/Stream<Ljava/lang/String;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<TT;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/DoubleStream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/DoubleStream;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/IntStream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/IntStream;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/LongStream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/LongStream;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/lang/String;>;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "arrayLike",
+            "acc": 2,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/Stream<Ljava/util/stream/Stream<Ljava/lang/String;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "enclose",
+            "acc": 10,
+            "dsc": "(Ljava/util/stream/Stream;Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/Stream<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "enclose",
+            "acc": 10,
+            "dsc": "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "flatten",
+            "acc": 10,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<Ljava/util/stream/Stream<Ljava/lang/String;>;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "association",
+            "acc": 10,
+            "dsc": "(Ljava/util/stream/Stream;Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/Stream<Ljava/lang/String;>;Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "association",
+            "acc": 10,
+            "dsc": "(Ljava/util/List;Ljava/lang/String;Ljava/util/List;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "indent",
+            "acc": 10,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;",
+            "sig": "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;"
+          },
+          {
+            "nme": "array",
+            "acc": 4164,
+            "dsc": "(ILjava/util/function/IntFunction;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/LongStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/IntStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/DoubleStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "scalar",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "nil",
+            "acc": 4164,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 4164,
+            "dsc": "(Ljava/util/Map;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinable",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 4164,
+            "dsc": "(Ljava/util/Collection;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 4164,
+            "dsc": "([Ljava/lang/Object;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(S)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(J)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(I)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(F)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(D)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(C)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(B)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(Z)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$indent$3",
+            "acc": 4106,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "lambda$flatten$2",
+            "acc": 4106,
+            "dsc": "(Ljava/util/List;Ljava/lang/String;Ljava/util/stream/Stream;)V"
+          },
+          {
+            "nme": "lambda$map$1",
+            "acc": 4106,
+            "dsc": "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;"
+          },
+          {
+            "nme": "lambda$examinable$0",
+            "acc": 4098,
+            "dsc": "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "INDENT_2",
+            "dsc": "Ljava/lang/String;",
+            "val": "  "
+          },
+          {
+            "acc": 18,
+            "nme": "examiner",
+            "dsc": "Lnet/kyori/examination/string/StringExaminer;"
+          }
+        ]
+      },
+      "net/kyori/examination/string/Strings.class": {
+        "ver": 52,
+        "acc": 48,
+        "nme": "net/kyori/examination/string/Strings",
+        "super": "java/lang/Object",
+        "mthds": [
+          {
+            "nme": "<init>",
+            "acc": 2,
+            "dsc": "()V"
+          },
+          {
+            "nme": "withSuffix",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;C)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "wrapIn",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;C)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "maxLength",
+            "acc": 8,
+            "dsc": "(Ljava/util/stream/Stream;)I",
+            "sig": "(Ljava/util/stream/Stream<Ljava/lang/String;>;)I"
+          },
+          {
+            "nme": "repeat",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;I)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "padEnd",
+            "acc": 8,
+            "dsc": "(Ljava/lang/String;IC)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          }
+        ],
+        "flds": []
+      },
+      "net/kyori/examination/string/StringExaminer.class": {
+        "ver": 52,
+        "acc": 33,
+        "nme": "net/kyori/examination/string/StringExaminer",
+        "super": "net/kyori/examination/AbstractExaminer",
+        "mthds": [
+          {
+            "nme": "simpleEscaping",
+            "acc": 9,
+            "dsc": "()Lnet/kyori/examination/string/StringExaminer;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "<init>",
+            "acc": 1,
+            "dsc": "(Ljava/util/function/Function;)V",
+            "sig": "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;)V"
+          },
+          {
+            "nme": "array",
+            "acc": 4,
+            "dsc": "([Ljava/lang/Object;Ljava/util/stream/Stream;)Ljava/lang/String;",
+            "sig": "<E:Ljava/lang/Object;>([TE;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 4,
+            "dsc": "(Ljava/util/Collection;Ljava/util/stream/Stream;)Ljava/lang/String;",
+            "sig": "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinable",
+            "acc": 4,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/String;",
+            "sig": "(Ljava/lang/String;Ljava/util/stream/Stream<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 4,
+            "dsc": "(Ljava/util/Map;Ljava/util/stream/Stream;)Ljava/lang/String;",
+            "sig": "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/stream/Stream<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "nil",
+            "acc": 4,
+            "dsc": "()Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "scalar",
+            "acc": 4,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Z)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(B)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(C)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(D)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(F)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(I)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(J)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(S)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/lang/String;",
+            "sig": "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<TT;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/DoubleStream;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/IntStream;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4,
+            "dsc": "(Ljava/util/stream/LongStream;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 1,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 4,
+            "dsc": "(ILjava/util/function/IntFunction;)Ljava/lang/String;",
+            "sig": "(ILjava/util/function/IntFunction<Ljava/lang/String;>;)Ljava/lang/String;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 4164,
+            "dsc": "(ILjava/util/function/IntFunction;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/LongStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/IntStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/DoubleStream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "stream",
+            "acc": 4164,
+            "dsc": "(Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "scalar",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "nil",
+            "acc": 4164,
+            "dsc": "()Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "map",
+            "acc": 4164,
+            "dsc": "(Ljava/util/Map;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examinable",
+            "acc": 4164,
+            "dsc": "(Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "collection",
+            "acc": 4164,
+            "dsc": "(Ljava/util/Collection;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "array",
+            "acc": 4164,
+            "dsc": "([Ljava/lang/Object;Ljava/util/stream/Stream;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(S)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(J)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(I)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(F)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(D)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(C)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(B)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "examine",
+            "acc": 4161,
+            "dsc": "(Z)Ljava/lang/Object;",
+            "invanns": [
+              {
+                "dsc": "Lorg/jetbrains/annotations/NotNull;"
+              }
+            ]
+          },
+          {
+            "nme": "lambda$map$2",
+            "acc": 4106,
+            "dsc": "(Ljava/util/Map$Entry;)Ljava/lang/String;"
+          },
+          {
+            "nme": "lambda$examinable$1",
+            "acc": 4106,
+            "dsc": "(Ljava/util/Map$Entry;)Ljava/lang/String;"
+          },
+          {
+            "nme": "lambda$static$0",
+            "acc": 4106,
+            "dsc": "(Ljava/lang/String;)Ljava/lang/String;"
+          },
+          {
+            "nme": "access$000",
+            "acc": 4104,
+            "dsc": "()Ljava/util/function/Function;"
+          },
+          {
+            "nme": "<clinit>",
+            "acc": 8,
+            "dsc": "()V"
+          }
+        ],
+        "flds": [
+          {
+            "acc": 26,
+            "nme": "DEFAULT_ESCAPER",
+            "dsc": "Ljava/util/function/Function;",
+            "sig": "Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "COMMA_CURLY",
+            "dsc": "Ljava/util/stream/Collector;",
+            "sig": "Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;"
+          },
+          {
+            "acc": 26,
+            "nme": "COMMA_SQUARE",
+            "dsc": "Ljava/util/stream/Collector;",
+            "sig": "Ljava/util/stream/Collector<Ljava/lang/CharSequence;*Ljava/lang/String;>;"
+          },
+          {
+            "acc": 18,
+            "nme": "escaper",
+            "dsc": "Ljava/util/function/Function;",
+            "sig": "Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/String;>;"
+          }
+        ]
+      }
+    }
+  }
+}
