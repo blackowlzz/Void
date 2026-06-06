@@ -9,7 +9,7 @@ make the process go more smoothly.*
 
 - **Compatibility**
   - Any changes must be compatible with
-  the [supported environments](https://github.com/VoidAnticheat/Void/wiki/Supported-environments) (Spigot, Paper, Folia, Fabric, etc.)
+  the supported environments (Spigot, Paper, Folia, Fabric, etc.)
   - The plugin must be compatible with minecraft versions 1.8 and higher. Exempting checks from specific versions is acceptable.
   - The plugin must be able to run on Java 17 or higher. Changes that don't support Java 17 at runtime will not be accepted.
 
@@ -36,5 +36,4 @@ make the process go more smoothly.*
 
 ### Questions & Support
 
-- Join our [Discord](https://discord.void.ac) if you have questions or need assistance.
-- Refer to the [Wiki](https://github.com/VoidAnticheat/Void/wiki) for project documentation.
+- Join our [Discord](https://discord.gg/ZxBc4NvAnt) if you have questions or need assistance.
