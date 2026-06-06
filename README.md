@@ -15,8 +15,6 @@ Dont want to build anything? Just download Void from Modrinth!.
 [![Modrinth](https://img.shields.io/badge/Download-Modrinth-green)](https://modrinth.com/plugin/voidac)
 
 ---
-
----
 ## Discord / Support
 
 Join the community for support, false positive reports, and updates.
