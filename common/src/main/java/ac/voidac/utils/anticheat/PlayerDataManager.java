@@ -105,6 +105,7 @@ public class PlayerDataManager {
         VoidPlayer voidPlayer = remove(user);
         if (voidPlayer != null) Channels.QUIT.fire(voidPlayer);
         if (voidPlayer != null) voidPlayer.storageEspDecoyManager.shutdown();
+        if (voidPlayer != null && voidPlayer.diagnosticLogger != null) voidPlayer.diagnosticLogger.close();
         exemptUsers.remove(user);
 
         UUID uuid = user.getProfile().getUUID();

@@ -1,7 +1,7 @@
-# Void configuratie — https://github.com/blackowlzz/Void
-# Copyright 2025 MWHunter (DefineOutside), blackowlzz en bijdragers, GPLv3 licentie.
+﻿# Void configuratie: https://github.com/blackowlzz/Void
+# Copyright 2026 blackowlzz, MWHunter (DefineOutside) en bijdragers, GPLv3 licentie.
 
-# ─── Algemeen ────────────────────────────────────────────────────────────────
+# Algemeen
 
 alerts:
     # Overtredingswaarschuwingen ook naar de console sturen naast online staff.
@@ -14,8 +14,48 @@ alerts:
 verbose:
     print-to-console: false
 
-check-for-updates: true
 experimental-checks: false
+
+# Spelers die verbinding maken via een proxy met ViaVersion kunnen
+# pakketvertaalproblemen veroorzaken die fout-positieven genereren.
+# allow: stel in op true om ze toe te laten in plaats van te kicken.
+# disable-setbacks: houdt alerts actief maar schakelt setbacks uit voor deze spelers.
+via-proxy:
+    allow: false
+    disable-setbacks: true
+
+# Cross-versie voorspellings-offset demping.
+#
+# Wanneer ViaVersion actief is: geïnstalleerd op deze server of op een proxy:
+# gebruiken clients met een andere Minecraft-versie licht afwijkende fysicaformules.
+# ViaVersion vertaalt pakketten getrouw maar kan deze numerieke verschillen niet
+# compenseren, wat leidt tot kleine systematische offsets (~0.001–0.003 blokken/tick)
+# zelfs bij volledig legitieme spelers.
+#
+# Met viaversion-attenuation ingeschakeld trekt Void 0.005 af van de ruwe
+# voorspellings-offset voor spelers met een afwijkende versie. Speed hacks en fly hacks
+# produceren offsets van 0.01–1.0+ (minimaal 2× de tolerantie), detectie blijft intact.
+#
+# Uitschakelen alleen als je server één versie draait zonder cross-versie spelers en
+# je de strengste detectiedrempel wilt benutten.
+viaversion-attenuation: false
+
+# Elytra-specifieke voorspellingsoffset-demping voor cross-version spelers.
+#
+# De elytra-fysica (glijden) wijkt meer af tussen Minecraft-versies dan normale beweging
+# - aerodynamische weerstand, blikrichtingsschaling en per-tick snelheidsopbouw verschillen
+# tussen versies. Met actieve ViaVersion kan een legitieme speler die met een elytra glijdt
+# ruwe offsets tot ~0.032 blokken/tick produceren, veel hoger dan de ~0.001-0.003
+# bij normale beweging.
+#
+# Wanneer ingeschakeld past Void een extra demping van 0.03 toe (bovenop
+# viaversion-attenuation) voor cross-version spelers tijdens het glijden of net na het
+# landen. Echte elytra-exploits produceren offsets van 0.1+ (3x de extra tolerantie),
+# detectie blijft volledig intact.
+#
+# Inschakelen als je Simulation valse alarmen ziet bij cross-version spelers met elytra.
+# Heeft geen effect als viaversion-attenuation niet is ingeschakeld.
+viaversion-elytra-attenuation: false
 
 client-brand:
     # Regex-lijst van clients waarvan de brand stilzwijgend wordt genegeerd.
@@ -42,7 +82,7 @@ max-transaction-time: 60
 # Pastebin API-sleutel voor /void debug. Leeg laten voor lokale opslag.
 pastebin-api-key: ""
 
-# ─── Checks ──────────────────────────────────────────────────────────────────
+# Checks
 
 Simulation:
     setback-decay-multiplier: 0.999
@@ -76,6 +116,31 @@ Reach:
     threshold: 0.0005
     block-impossible-hits: true
     enable-post-packet: false
+
+AutoClickerA:
+    # Hard CPS cap. No human technique sustains above 30 CPS long-term.
+    # Raise only if you host drag-click tournaments; do not lower below 25.
+    max-cps: 30
+    # Minimum CPS before interval regularity analysis kicks in.
+    analysis-cps: 8
+    # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
+    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    min-cv: 0.05
+
+AutoClickerB:
+    # Minimum mean CPS across 1-second buckets before analysis runs.
+    analysis-cps: 8
+    # Minimum bucket-CV (std_dev/mean of per-second CPS). Randomized autoclickers: 0.04-0.08.
+    # Human butterfly/jitter even at peak CPS: typically 0.15+.
+    # 0.10 is the safe middle ground: catches bots, cannot false flag legitimate players.
+    min-bucket-cv: 0.10
+
+AutoClickerC:
+    # Vanilla clients send at most 1 attack per tick. Keep at 1.
+    max-attacks-per-tick: 1
+    # Consecutive ticks with too many attacks before flagging.
+    # 3 absorbs rare ViaVersion packet reordering without missing real violations.
+    min-consecutive-ticks: 3
 
 TimerA:
     setbackvl: 10
@@ -130,7 +195,7 @@ exploit:
             # EssentialsX: "ban {player} {reason}"
             custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Straffen ────────────────────────────────────────────────────────────────
+# Straffen
 
 punishments:
 
@@ -165,9 +230,9 @@ punishments:
         prefer-custom-ban: false
         custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Ban Wave ────────────────────────────────────────────────────────────────
-# /void banwave add <player> [duration]  — toevoegen aan wachtrij
-# /void banwave execute                  — iedereen nu verbannen
+# Ban Wave
+# /void banwave add <player> [duration] : toevoegen aan wachtrij
+# /void banwave execute                 : iedereen nu verbannen
 
 ban-wave:
     enabled: true
@@ -180,14 +245,14 @@ ban-wave:
         &7Ban Wave: &d#{wave}
         &7Ban ID: &d{ban_id}
         &7Duur: &f{duration}
-    broadcast: "&8[&5Void&8] &7Ban Wave &d#{wave} &7uitgevoerd — &d{count} &7spelers verwijderd."
+    broadcast: "&8[&5Void&8] &7Ban Wave &d#{wave} &7uitgevoerd: &d{count} &7spelers verwijderd."
     prefer-custom-ban: false
     # Commandosjabloon. Plaatshouders: {player}  {duration}  {reason}
     # LiteBans:    "litebans:tempban {player} {duration} {reason}"
     # AdvancedBan: "ban {player} {reason} -t {duration}"
     custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+# Storage ESP Decoys
 
 storage-esp-decoys:
     enabled: false
@@ -195,7 +260,7 @@ storage-esp-decoys:
     include-client-side-blocks: false
     auto-flag-threshold: 16
 
-# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+# Anti-Xray
 
 AntiXray:
     configure-paper: false
@@ -259,12 +324,12 @@ AntiXray:
         - coal_ore
         - deepslate_coal_ore
 
-# ─── Drempeloptimalisator ─────────────────────────────────────────────────────
+# Drempeloptimalisator
 
 threshold-optimizer:
     enabled: false
 
-# ─── Geavanceerd ─────────────────────────────────────────────────────────────
+# Geavanceerd
 
 packet-spam-threshold: 100
 debug-packet-cancel: false
@@ -285,5 +350,16 @@ reset-item-usage-on-item-use: true
 
 debug-pipeline-on-join: false
 
+
+# Diagnostic Logger
+# WARNING: Extremely high CPU and disk I/O cost. Never enable on a production server.
+# Enable only on a private test server to collect movement data for engine research.
+# Writes one structured log block per prediction tick per player to plugins/Void/diagnostic/.
+# Use the logs to distinguish false flags (lerp/slime/edge=Y) from real cheats (all N, offset >> threshold).
+
+diagnostic-logger:
+    enabled: false
+    # Async write queue depth. Entries are dropped (oldest first) when full.
+    queue-capacity: 4096
 config-flavor: V2
-config-version: 19
+config-version: 21

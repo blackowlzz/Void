@@ -1,12 +1,9 @@
-# ===========================================================================
 #  Impostazioni del backend Postgres.
 #
 #  Postgres supporta deployment multi-server (più istanze Void che
 #  scrivono in un DB centrale). Richiede il driver JDBC Postgres a
 #  runtime; se manca, il backend si disabilita all'avvio e il routing che
 #  puntava qui ricade sul suo fallback.
-# ===========================================================================
-
 # Tutte le chiavi vivono sotto `postgres:` così il keyspace di questo file
 # non collide con i file fratelli per backend quando Configuralize li
 # unisce in un namespace globale.
@@ -32,6 +29,6 @@ postgres:
     violations: void_violations
     settings: void_settings
 
-# Marcatori di schema — vedi il commento di intestazione in config.yml.
+# Marcatori di schema: vedi il commento di intestazione in config.yml.
 config-flavor: V2
 config-version: 1

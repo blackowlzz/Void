@@ -1,7 +1,6 @@
-# ===========================================================================
 #  Redis backend ayarları.
 #
-#  Redis öncelikle bir bellek içi store'dur — geçmişi buraya
+#  Redis öncelikle bir bellek içi store'dur: geçmişi buraya
 #  yönlendiriyorsan sunucuda AOF kalıcılığının açık olduğundan emin ol,
 #  aksi halde geçmiş yeniden başlatmada kaybolur. Çalışma zamanında
 #  Jedis gerekir; Jedis yoksa backend kendini devre dışı bırakır ve
@@ -10,8 +9,6 @@
 #  Birincil geçmiş hedefi olarak tavsiye edilmez. Yalnızca elinde Redis
 #  bulunan ve "şimdilik çalışan bir şey" arayan operatörler için
 #  düşünülmüştür.
-# ===========================================================================
-
 # Tüm anahtarlar `redis:` altında yer alır; böylece Configuralize tümünü
 # tek bir global ad alanında birleştirdiğinde bu dosyanın anahtar uzayı
 # kardeş backend dosyalarıyla çakışmaz.
@@ -50,6 +47,6 @@ redis:
     violations: void_violations
     settings: void_settings
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

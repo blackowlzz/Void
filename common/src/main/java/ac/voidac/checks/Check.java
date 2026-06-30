@@ -104,7 +104,11 @@ public class Check extends VoidProcessor implements AbstractCheck {
 
         player.punishmentManager.handleViolation(this);
         lastViolationTime = System.currentTimeMillis();
+        double oldVl = violations;
         violations++;
+        if (player.diagnosticLogger != null) {
+            player.diagnosticLogger.recordFlag(checkName, oldVl, violations, verbose);
+        }
         player.punishmentManager.handleAutoPunish(this);
         return true;
     }

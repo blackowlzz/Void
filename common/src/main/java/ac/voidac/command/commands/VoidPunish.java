@@ -3,8 +3,8 @@ package ac.voidac.command.commands;
 import ac.voidac.VoidAPI;
 import ac.voidac.command.BuildableCommand;
 import ac.voidac.manager.punishment.PunishmentDatabase;
-import ac.voidac.platform.api.command.PlayerSelector;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
+import ac.voidac.platform.api.player.OfflinePlatformPlayer;
 import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.platform.api.sender.Sender;
 import ac.voidac.utils.anticheat.MessageUtil;
@@ -23,6 +23,7 @@ import java.util.UUID;
  * Bans the target with a formatted reason from config.
  * Duration falls back to punishments.manual-punish.duration when omitted.
  * Uses the configured custom-ban-command when prefer-custom-ban is true.
+ * Works for both online and offline players.
  */
 public class VoidPunish implements BuildableCommand {
 
@@ -32,7 +33,7 @@ public class VoidPunish implements BuildableCommand {
                 commandManager.commandBuilder("void", "voidac")
                         .literal("punish")
                         .permission("void.punish")
-                        .required("target", adapter.singlePlayerSelectorParser())
+                        .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
                         .handler(ctx -> handlePunish(ctx, null))
         );
 
@@ -40,7 +41,7 @@ public class VoidPunish implements BuildableCommand {
                 commandManager.commandBuilder("void", "voidac")
                         .literal("punish")
                         .permission("void.punish")
-                        .required("target", adapter.singlePlayerSelectorParser())
+                        .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
                         .required("duration", StringParser.stringParser())
                         .handler(ctx -> handlePunish(ctx, ctx.get("duration")))
         );
@@ -48,23 +49,23 @@ public class VoidPunish implements BuildableCommand {
 
     private void handlePunish(@NotNull CommandContext<Sender> context, @Nullable String durationArg) {
         Sender sender = context.sender();
-        PlayerSelector target = context.get("target");
-        PlatformPlayer platformPlayer = target.getSinglePlayer().getPlatformPlayer();
+        String name = context.get("player");
 
-        // Resolve the target purely from the platform player — exactly like /void banwave does.
-        // We deliberately do NOT look the player up in PlayerDataManager: that lookup goes
-        // UUID -> PacketEvents channel -> User, which fails on offline-mode / hybrid servers
-        // (the offline UUID isn't indexed by PacketEvents) and also returns null for exempt
-        // players. The ban only needs the player's name + UUID, both of which we already have.
-        if (platformPlayer == null || platformPlayer.isExternalPlayer()) {
-            sender.sendMessage(MessageUtil.getParsedComponent(sender, "player-not-this-server",
-                    "%prefix% &cThat player is not on this server."));
+        // Try online first: if the player is on this server, kick + ban.
+        // Fall through to offline path for players who are not currently connected.
+        PlatformPlayer online = VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromName(name);
+        if (online != null && !online.isExternalPlayer()) {
+            punishOnline(sender, online, durationArg);
             return;
         }
 
-        String duration  = resolveDuration(durationArg);
+        // Player is offline, ban without kicking.
+        OfflinePlatformPlayer offline = VoidAPI.INSTANCE.getPlatformPlayerFactory().getOfflineFromName(name);
+        punishOffline(sender, offline, durationArg);
+    }
 
-        // Reserve the ban ID before building the kick reason so it can appear on the disconnect screen
+    private void punishOnline(Sender sender, PlatformPlayer platformPlayer, @Nullable String durationArg) {
+        String duration  = resolveDuration(durationArg);
         String banId     = VoidAPI.INSTANCE.getPunishmentDatabase().reserveBanId();
         String dateStr   = PunishmentDatabase.DATE_FORMAT_DISPLAY.format(Instant.now());
 
@@ -84,23 +85,45 @@ public class VoidPunish implements BuildableCommand {
         VoidAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(
                 VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> {
-                    dispatchBan(playerUuid, playerName, kickReason, banReason, duration, banId);
+                    dispatchBan(playerUuid, playerName, kickReason, banReason, duration, banId, false);
                     VoidAPI.INSTANCE.getPunishmentDatabase().insertWithId(
-                            banId,
-                            playerUuid,
-                            playerName,
-                            "manual-punish",
-                            senderName,
-                            null,
-                            banReason,
-                            duration,
-                            null,
-                            null,
+                            banId, playerUuid, playerName, "manual-punish",
+                            senderName, null, banReason, duration, null, null,
                             System.currentTimeMillis()
                     );
                     sender.sendMessage(MessageUtil.miniMessage(
                             "&8[&5Void&8] &a✔ &f" + playerName
                                     + " &7has been banned."
+                                    + " &8(&7ID&8: &d" + banId
+                                    + " &8│ &7duration&8: &f" + duration + "&8)"));
+                }
+        );
+    }
+
+    private void punishOffline(Sender sender, OfflinePlatformPlayer player, @Nullable String durationArg) {
+        String duration   = resolveDuration(durationArg);
+        String banId      = VoidAPI.INSTANCE.getPunishmentDatabase().reserveBanId();
+        String dateStr    = PunishmentDatabase.DATE_FORMAT_DISPLAY.format(Instant.now());
+        String senderName = sender.getName();
+        String playerName = player.getName();
+        UUID   playerUuid = player.getUniqueId();
+
+        String kickReason = buildKickReason(playerName, senderName, duration, banId, dateStr);
+        String banReason  = toBanCommandLine(kickReason);
+
+        // Player is offline, no kick. Ban only.
+        VoidAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(
+                VoidAPI.INSTANCE.getVoidPlugin(),
+                () -> {
+                    dispatchBan(playerUuid, playerName, kickReason, banReason, duration, banId, true);
+                    VoidAPI.INSTANCE.getPunishmentDatabase().insertWithId(
+                            banId, playerUuid, playerName, "manual-punish",
+                            senderName, null, banReason, duration, null, null,
+                            System.currentTimeMillis()
+                    );
+                    sender.sendMessage(MessageUtil.miniMessage(
+                            "&8[&5Void&8] &a✔ &f" + playerName
+                                    + " &7has been banned &8(offline)."
                                     + " &8(&7ID&8: &d" + banId
                                     + " &8│ &7duration&8: &f" + duration + "&8)"));
                 }
@@ -128,7 +151,7 @@ public class VoidPunish implements BuildableCommand {
         return rich.replaceAll("[\\r\\n]+\\s*", " §8│ §r").replaceAll("\\s{2,}", " ").trim();
     }
 
-    private void dispatchBan(UUID uuid, String name, String kickReason, String banReason, String duration, String banId) {
+    private void dispatchBan(UUID uuid, String name, String kickReason, String banReason, String duration, String banId, boolean isOffline) {
         if (VoidAPI.INSTANCE.getConfigManager().isManualPunishPreferCustomBan()) {
             String cmd = VoidAPI.INSTANCE.getConfigManager().getManualPunishCustomBanCommand()
                     .replace("{player}",   name)
@@ -136,6 +159,11 @@ public class VoidPunish implements BuildableCommand {
                     .replace("{reason}",   banReason);
             VoidAPI.INSTANCE.getPlatformServer().dispatchCommand(
                     VoidAPI.INSTANCE.getPlatformServer().getConsoleSender(), cmd);
+            // For offline targets, also store in VoidBanManager: external ban commands
+            // may not reliably apply when the player is not currently connected.
+            if (isOffline) {
+                VoidAPI.INSTANCE.getVoidBanManager().ban(banId, uuid, name, kickReason, duration, System.currentTimeMillis());
+            }
         } else {
             VoidAPI.INSTANCE.getVoidBanManager().ban(banId, uuid, name, kickReason, duration, System.currentTimeMillis());
         }

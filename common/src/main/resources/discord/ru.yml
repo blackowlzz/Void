@@ -19,6 +19,6 @@ violation-content:
     - "**Пинг**: %ping%"
     - "**ТПС**: %tps%"
 
-# Маркеры схемы — см. шапку config.yml.
+# Маркеры схемы: см. шапку config.yml.
 config-flavor: V2
 config-version: 1

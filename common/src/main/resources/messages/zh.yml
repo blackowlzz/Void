@@ -74,7 +74,7 @@ help:
 # === /void history ===
 # 基于会话的历史界面。下方所有行均可自定义；每个键的占位符在注释中说明。
 # 会话和违规行的悬停文本由渲染器根据原始数据（verbose、检查统计）自动构建，
-# 无需模板 — 但你可以在任意行加 <hover:show_text:'...'> 叠加额外提示。
+# 无需模板: 但你可以在任意行加 <hover:show_text:'...'> 叠加额外提示。
 
 void-history-load-failure: "%prefix% &c历史子系统加载失败！请检查服务器控制台中的错误。"
 void-history-disabled: "%prefix% &c历史子系统已禁用！"
@@ -83,9 +83,9 @@ void-history-unknown-player: "%prefix% &c未知玩家：&f%player%"
 void-history-no-sessions: "%prefix% &7没有 &f%player% &7的会话历史。"
 void-history-session-not-found: "%prefix% &c未找到 &f%player% &c的第 &f%ordinal% &c次会话。"
 
-# 会话列表 — 可用占位符: %prefix% %player% %page% %max_pages%
+# 会话列表: 可用占位符: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# 单条会话摘要 — 可用占位符:
+# 单条会话摘要: 可用占位符:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
@@ -98,7 +98,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # 这样存在时读起来自然，缺失时也会消失。
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# 会话详情 — 可用占位符:
+# 会话详情: 可用占位符:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -107,15 +107,15 @@ void-history-detail-meta1: "  &8▸ &7版本 &f%void_version% &8│ &7服务器 
 void-history-detail-meta2: "  &8▸ &7客户端 &f%client_version% &8│ &7品牌 &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7次违规 &8(&d%unique_checks% &7种类&8)"
 void-history-detail-empty: "  &8▸ &7(无)"
-# 分组行（默认） — 可用占位符: %prefix% %offset% %checks_list%
+# 分组行（默认）: 可用占位符: %prefix% %offset% %checks_list%
 #   %checks_list% 是用 ", " 拼接 void-history-check-count 项构成的列表
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# 单条原始违规行（--detailed） — 可用占位符:
+# 单条原始违规行（--detailed）: 可用占位符:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# %checks_list% 中每个检查项的内部格式 — 可用占位符: %check_name% %count%
+# %checks_list% 中每个检查项的内部格式: 可用占位符: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# 模式标记 — 参见 config.yml 顶部的注释。
+# 模式标记: 参见 config.yml 顶部的注释。
 config-flavor: V2
 config-version: 1

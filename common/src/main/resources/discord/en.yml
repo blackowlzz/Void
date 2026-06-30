@@ -20,6 +20,6 @@ violation-content:
     - "**Ping**: %ping%"
     - "**TPS**: %tps%"
 
-# Schema markers — see header comment in config.yml.
+# Schema markers: see header comment in config.yml.
 config-flavor: V2
 config-version: 1

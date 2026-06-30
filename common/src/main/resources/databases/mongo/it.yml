@@ -1,10 +1,7 @@
-# ===========================================================================
 #  Impostazioni del backend MongoDB.
 #
 #  Richiede il driver MongoDB sincrono a runtime; se assente, il backend
 #  si disabilita e il routing ricade sul suo fallback.
-# ===========================================================================
-
 # Tutte le chiavi vivono sotto `mongo:` così il keyspace di questo file
 # non collide con i file fratelli per backend quando Configuralize li
 # unisce in un namespace globale.
@@ -19,7 +16,7 @@ mongo:
   database: "void"
 
   # Dimensione di bulkWrite() per handler. Il driver Mongo gestisce
-  # internamente i pool di connessioni — questo controlla il batching dei
+  # internamente i pool di connessioni: questo controlla il batching dei
   # commit, non il numero di connessioni.
   batch-flush-cap: 256
 
@@ -32,6 +29,6 @@ mongo:
     violations: void_violations
     settings: void_settings
 
-# Marcatori di schema — vedi il commento di intestazione in config.yml.
+# Marcatori di schema: vedi il commento di intestazione in config.yml.
 config-flavor: V2
 config-version: 1

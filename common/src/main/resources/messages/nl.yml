@@ -75,7 +75,7 @@ help:
 # Op sessies gebaseerde geschiedenis-UI. Alle regels hieronder zijn vrij
 # instelbaar; placeholders zijn per sleutel gedocumenteerd. Hover-tekst voor
 # sessie- en overtredingsregels wordt door de renderer opgebouwd uit de ruwe
-# data (verbose, check-uitsplitsing) en heeft geen template nodig — je kunt
+# data (verbose, check-uitsplitsing) en heeft geen template nodig: je kunt
 # echter <hover:show_text:'...'> aan elke regel toevoegen om extra tooltips
 # erbovenop te leggen.
 
@@ -86,9 +86,9 @@ void-history-unknown-player: "%prefix% &cOnbekende speler: &f%player%"
 void-history-no-sessions: "%prefix% &7Geen sessiegeschiedenis voor &f%player%&7."
 void-history-session-not-found: "%prefix% &cSessie &f%ordinal%&c niet gevonden voor &f%player%&c."
 
-# Sessielijst — geldige placeholders: %prefix% %player% %page% %max_pages%
+# Sessielijst: geldige placeholders: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Samenvattingsregel per sessie — geldige placeholders:
+# Samenvattingsregel per sessie: geldige placeholders:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
@@ -105,7 +105,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # wanneer leeg.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Sessiedetail — geldige placeholders:
+# Sessiedetail: geldige placeholders:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -114,15 +114,15 @@ void-history-detail-meta1: "  &8▸ &7Versie &f%void_version% &8│ &7Server &f%
 void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Merk &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7overtredingen &8(&d%unique_checks% &7uniek&8)"
 void-history-detail-empty: "  &8▸ &7(geen)"
-# Gegroepeerde regel (standaard) — geldige placeholders: %prefix% %offset% %checks_list%
+# Gegroepeerde regel (standaard): geldige placeholders: %prefix% %offset% %checks_list%
 #   %checks_list% wordt gebouwd door void-history-check-count-items te verbinden met ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# Enkele ruwe overtredingsregel (--detailed) — geldige placeholders:
+# Enkele ruwe overtredingsregel (--detailed): geldige placeholders:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# Intern formaat per check in %checks_list% — geldige placeholders: %check_name% %count%
+# Intern formaat per check in %checks_list%: geldige placeholders: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Schemamarkers — zie de header-comment in config.yml.
+# Schemamarkers: zie de header-comment in config.yml.
 config-flavor: V2
 config-version: 1

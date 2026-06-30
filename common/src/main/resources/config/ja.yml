@@ -1,7 +1,7 @@
-# Void 設定ファイル — https://github.com/blackowlzz/Void
-# Copyright 2025 MWHunter (DefineOutside), blackowlzz and contributors, GPLv3ライセンス.
+﻿# Void 設定ファイル: https://github.com/blackowlzz/Void
+# Copyright 2026 blackowlzz, MWHunter (DefineOutside) and contributors, GPLv3ライセンス.
 
-# ─── 一般設定 ─────────────────────────────────────────────────────────────────
+# 一般設定
 
 alerts:
     # 違反アラートをオンラインスタッフだけでなくコンソールにも送信する。
@@ -14,8 +14,44 @@ alerts:
 verbose:
     print-to-console: false
 
-check-for-updates: true
 experimental-checks: false
+
+# ViaVersionがインストールされたプロキシ経由で接続するプレイヤーは、
+# パケット変換の問題により誤検知が発生することがあります。
+# allow: trueに設定するとキックせず接続を許可します。
+# disable-setbacks: アラートを維持しつつ、これらのプレイヤーへのセットバックを無効化します。
+via-proxy:
+    allow: false
+    disable-setbacks: true
+
+# バージョン間予測オフセット減衰。
+#
+# ViaVersionが有効な場合（このサーバーまたはプロキシにインストール済み）、
+# サーバーと異なるバージョンのクライアントは物理計算式が微妙に異なります。
+# ViaVersionはパケットを忠実に変換しますが、この数値差を補正できないため、
+# 正当なプレイヤーでも一定の小さなオフセット（~0.001–0.003ブロック/tick）が発生します。
+#
+# viaversion-attenuationを有効にすると、バージョンが異なるプレイヤーの予測オフセットから
+# 0.005を差し引きます。実際のチートは0.01–1.0+のオフセットを生成します（許容値の2倍以上）。
+#
+# サーバーが単一バージョンのみで運用されており、クロスバージョンプレイヤーがいない場合のみ
+# 無効化してください。
+viaversion-attenuation: false
+
+# クロスバージョンプレイヤー向けのエリトラ専用予測オフセット減衰。
+#
+# エリトラ（グライド）の物理は通常の移動よりもMinecraftバージョン間で大きく異なります
+#: 空気抵抗、視線方向のスケーリング、ティックごとの速度蓄積がバージョン間で異なります。
+# ViaVersionが有効な場合、エリトラで滑空している正規プレイヤーは生予測オフセットが
+# 最大~0.032ブロック/ティックになることがあり、通常移動の~0.001–0.003を大きく上回ります。
+#
+# 有効にすると、Voidはグライド中またはグライド直後のクロスバージョンプレイヤーに
+# 追加で0.03の減衰を適用します（viaversion-attenuationに加えて）。
+# 実際のエリトラエクスプロイトは0.1以上のオフセットを生成するため、検出は機能し続けます。
+#
+# クロスバージョンプレイヤーがエリトラ使用中にSimulationの誤検知が発生する場合に有効化。
+# viaversion-attenuationが有効でない場合は効果がありません。
+viaversion-elytra-attenuation: false
 
 client-brand:
     # 無視するクライアントブランドの正規表現リスト（OPに通知しない）。
@@ -42,7 +78,7 @@ max-transaction-time: 60
 # /void debug アップロード用PastebinaAPIキー。空白でローカル保存。
 pastebin-api-key: ""
 
-# ─── チェック ─────────────────────────────────────────────────────────────────
+# チェック
 
 Simulation:
     setback-decay-multiplier: 0.999
@@ -76,6 +112,31 @@ Reach:
     threshold: 0.0005
     block-impossible-hits: true
     enable-post-packet: false
+
+AutoClickerA:
+    # Hard CPS cap. No human technique sustains above 30 CPS long-term.
+    # Raise only if you host drag-click tournaments; do not lower below 25.
+    max-cps: 30
+    # Minimum CPS before interval regularity analysis kicks in.
+    analysis-cps: 8
+    # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
+    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    min-cv: 0.05
+
+AutoClickerB:
+    # Minimum mean CPS across 1-second buckets before analysis runs.
+    analysis-cps: 8
+    # Minimum bucket-CV (std_dev/mean of per-second CPS). Randomized autoclickers: 0.04-0.08.
+    # Human butterfly/jitter even at peak CPS: typically 0.15+.
+    # 0.10 is the safe middle ground: catches bots, cannot false flag legitimate players.
+    min-bucket-cv: 0.10
+
+AutoClickerC:
+    # Vanilla clients send at most 1 attack per tick. Keep at 1.
+    max-attacks-per-tick: 1
+    # Consecutive ticks with too many attacks before flagging.
+    # 3 absorbs rare ViaVersion packet reordering without missing real violations.
+    min-consecutive-ticks: 3
 
 TimerA:
     setbackvl: 10
@@ -130,7 +191,7 @@ exploit:
             # EssentialsX: "ban {player} {reason}"
             custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── 処罰 ────────────────────────────────────────────────────────────────────
+# 処罰
 
 punishments:
 
@@ -165,9 +226,9 @@ punishments:
         prefer-custom-ban: false
         custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── BAN WAVE ────────────────────────────────────────────────────────────────
-# /void banwave add <player> [duration]  — キューに追加
-# /void banwave execute                  — 今すぐ全員BAN
+# BAN WAVE
+# /void banwave add <player> [duration] : キューに追加
+# /void banwave execute                 : 今すぐ全員BAN
 
 ban-wave:
     enabled: true
@@ -180,14 +241,14 @@ ban-wave:
         &7BAN WAVE: &d#{wave}
         &7BAN ID: &d{ban_id}
         &7期間: &f{duration}
-    broadcast: "&8[&5Void&8] &7BAN WAVE &d#{wave} &7実行完了 — &d{count} &7人のプレイヤーが削除されました。"
+    broadcast: "&8[&5Void&8] &7BAN WAVE &d#{wave} &7実行完了: &d{count} &7人のプレイヤーが削除されました。"
     prefer-custom-ban: false
     # コマンドテンプレート。プレースホルダー: {player}  {duration}  {reason}
     # LiteBans:    "litebans:tempban {player} {duration} {reason}"
     # AdvancedBan: "ban {player} {reason} -t {duration}"
     custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+# Storage ESP Decoys
 
 storage-esp-decoys:
     enabled: false
@@ -195,7 +256,7 @@ storage-esp-decoys:
     include-client-side-blocks: false
     auto-flag-threshold: 16
 
-# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+# Anti-Xray
 
 AntiXray:
     configure-paper: false
@@ -259,12 +320,12 @@ AntiXray:
         - coal_ore
         - deepslate_coal_ore
 
-# ─── 閾値オプティマイザー ─────────────────────────────────────────────────────
+# 閾値オプティマイザー
 
 threshold-optimizer:
     enabled: false
 
-# ─── 詳細設定 ─────────────────────────────────────────────────────────────────
+# 詳細設定
 
 packet-spam-threshold: 100
 debug-packet-cancel: false
@@ -285,5 +346,16 @@ reset-item-usage-on-item-use: true
 
 debug-pipeline-on-join: false
 
+
+# Diagnostic Logger
+# WARNING: Extremely high CPU and disk I/O cost. Never enable on a production server.
+# Enable only on a private test server to collect movement data for engine research.
+# Writes one structured log block per prediction tick per player to plugins/Void/diagnostic/.
+# Use the logs to distinguish false flags (lerp/slime/edge=Y) from real cheats (all N, offset >> threshold).
+
+diagnostic-logger:
+    enabled: false
+    # Async write queue depth. Entries are dropped (oldest first) when full.
+    queue-capacity: 4096
 config-flavor: V2
-config-version: 19
+config-version: 21

@@ -30,9 +30,19 @@ public class OffsetHandler extends Check implements PostPredictionCheck {
     }
 
     public void onPredictionComplete(final PredictionComplete predictionComplete) {
-        if (!predictionComplete.isChecked()) return;
-
         double offset = predictionComplete.getOffset();
+
+        if (player.diagnosticLogger != null) {
+            // Determine if this tick will flag before the actual flag logic runs,
+            // so the log entry and the flag appear in the same tick block.
+            boolean willFlag = predictionComplete.isChecked()
+                    && (offset >= threshold || offset >= immediateSetbackThreshold);
+            player.diagnosticLogger.recordTick(player, offset, willFlag,
+                    willFlag ? offset + " /gl " + (predictionComplete.getIdentifier()) : "",
+                    predictionComplete.isChecked());
+        }
+
+        if (!predictionComplete.isChecked()) return;
 
         if (COMPLETE_CHANNEL.fire(player, this, offset)) return;
 

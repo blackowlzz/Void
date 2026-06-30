@@ -19,6 +19,6 @@ violation-content:
     - "**Latence**: %ping%"
     - "**TPS**: %tps%"
 
-# Marqueurs de schéma — voir le commentaire d'en-tête dans config.yml.
+# Marqueurs de schéma: voir le commentaire d'en-tête dans config.yml.
 config-flavor: V2
 config-version: 1

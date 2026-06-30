@@ -17,6 +17,12 @@ public class Blackowlzz implements BuildableCommand {
     }
 
     private void handleBlackowlzz(CommandContext<Sender> context) {
-        context.sender().sendMessage(MessageUtil.miniMessage("&7the void is watching"));
+        context.sender().sendMessage(MessageUtil.miniMessage(
+            "<newline>" +
+            "&7This server uses &5VoidAC&7, want to use it on yours?<newline>" +
+            "<newline>" +
+            "  &a  Modrinth &8» &fhttps://modrinth.com/plugin/voidac<newline>" +
+            "  &b  Discord  &8» &fhttps://discord.gg/DRnhHrcseU<newline>"
+        ));
     }
 }

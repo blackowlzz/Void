@@ -1,11 +1,8 @@
-# ===========================================================================
 #  MySQL 后端设置
 #
 #  MySQL 支持多服务器部署（多个 Void 实例写入同一个中央数据库）。运行时
 #  需要 MySQL Connector/J 驱动；若驱动缺失，后端会在启动时自我禁用并打印
 #  清晰的错误日志，指向此后端的路由会回退到其他已配置的后端。
-# ===========================================================================
-
 # 所有键都在 `mysql:` 下，使本文件的 keyspace 不会在 Configuralize 把所有
 # yml 合并到同一个全局命名空间时与其他后端文件（sqlite:、postgres:、
 # mongo:、redis:）冲突。
@@ -19,7 +16,7 @@ mysql:
 
   # 在固定参数集
   # (useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true)
-  # 之后追加的额外 URL 参数。除非确有特殊需要，否则保持为空 — 默认值已
+  # 之后追加的额外 URL 参数。除非确有特殊需要，否则保持为空: 默认值已
   # 适合本地开发安装。
   extra-jdbc-params: ""
 
@@ -38,6 +35,6 @@ mysql:
     violations: void_violations
     settings: void_settings
 
-# 模式标记 — 参见 config.yml 顶部的注释。
+# 模式标记: 参见 config.yml 顶部的注释。
 config-flavor: V2
 config-version: 1

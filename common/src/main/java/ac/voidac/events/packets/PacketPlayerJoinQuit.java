@@ -5,6 +5,7 @@ import ac.voidac.manager.datastore.PlayerToggleStore;
 import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.anticheat.LogUtil;
+import ac.voidac.utils.anticheat.MessageUtil;
 import com.github.retrooper.packetevents.event.*;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
 import com.github.retrooper.packetevents.protocol.ConnectionState;
@@ -13,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 
 
@@ -80,6 +82,20 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
 
         VoidAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                 .onJoinFromUserLogin(platformPlayer, event.getUser(), System.currentTimeMillis());
+
+        if (platformPlayer.hasPermission("void.verbose")) {
+            VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(
+                    VoidAPI.INSTANCE.getVoidPlugin(),
+                    () -> {
+                        if (!VoidAPI.INSTANCE.getAlertManager().hasVerboseEnabled(platformPlayer)) {
+                            platformPlayer.sendMessage(MessageUtil.miniMessage(
+                                    "%prefix% &7Verbose is off. Use &5/void verbose &7to see detailed violation logs."
+                            ));
+                        }
+                    },
+                    5L, TimeUnit.SECONDS
+            );
+        }
 
     }
 

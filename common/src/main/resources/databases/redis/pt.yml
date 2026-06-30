@@ -1,7 +1,6 @@
-# ===========================================================================
 #  Configurações do backend Redis.
 #
-#  Redis é, antes de tudo, um store em memória — se for rotear histórico
+#  Redis é, antes de tudo, um store em memória: se for rotear histórico
 #  para cá, garanta que a persistência AOF está habilitada no servidor,
 #  ou o histórico some no restart. Requer Jedis em runtime; se faltar, o
 #  backend se desativa e o routing cai no seu fallback.
@@ -9,8 +8,6 @@
 #  Não recomendado como destino principal de histórico. Pensado para
 #  operadores que só têm Redis disponível e precisam de algo
 #  funcionando.
-# ===========================================================================
-
 # Todas as chaves vivem sob `redis:` para que o keyspace deste arquivo
 # não colida com arquivos irmãos por backend quando Configuralize os
 # funde num namespace global.
@@ -48,6 +45,6 @@ redis:
     violations: void_violations
     settings: void_settings
 
-# Marcadores de esquema — ver o comentário do cabeçalho em config.yml.
+# Marcadores de esquema: ver o comentário do cabeçalho em config.yml.
 config-flavor: V2
 config-version: 1

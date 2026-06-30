@@ -3,8 +3,8 @@ package ac.voidac.command.commands;
 import ac.voidac.VoidAPI;
 import ac.voidac.command.BuildableCommand;
 import ac.voidac.manager.BanWaveManager;
-import ac.voidac.platform.api.command.PlayerSelector;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
+import ac.voidac.platform.api.player.OfflinePlatformPlayer;
 import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.platform.api.sender.Sender;
 import ac.voidac.utils.anticheat.MessageUtil;
@@ -41,14 +41,14 @@ public class VoidBanWave implements BuildableCommand {
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("add")
                 .permission("void.banwave")
-                .required("target", adapter.singlePlayerSelectorParser())
+                .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
                 .handler(ctx -> handleAdd(ctx, null)));
 
         // /void banwave add <player> <duration>
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("add")
                 .permission("void.banwave")
-                .required("target", adapter.singlePlayerSelectorParser())
+                .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
                 .required("duration", StringParser.stringParser())
                 .handler(ctx -> handleAdd(ctx, ctx.get("duration"))));
 
@@ -110,30 +110,38 @@ public class VoidBanWave implements BuildableCommand {
 
     private void handleAdd(@NotNull CommandContext<Sender> context, @Nullable String durationArg) {
         Sender sender = context.sender();
-        PlayerSelector target = context.get("target");
-        PlatformPlayer pp = target.getSinglePlayer().getPlatformPlayer();
+        String name = context.get("player");
 
-        if (pp == null || pp.isExternalPlayer()) {
-            sender.sendMessage(MessageUtil.getParsedComponent(sender, "player-not-this-server",
-                    "%prefix% &cThat player is not on this server."));
-            return;
+        // Resolve the target: online player first, then offline fallback.
+        PlatformPlayer online = VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromName(name);
+        final UUID uuid;
+        final String playerName;
+
+        if (online != null && !online.isExternalPlayer()) {
+            uuid = online.getUniqueId();
+            playerName = online.getName();
+        } else {
+            OfflinePlatformPlayer offline = VoidAPI.INSTANCE.getPlatformPlayerFactory().getOfflineFromName(name);
+            uuid = offline.getUniqueId();
+            playerName = offline.getName();
         }
 
         String duration = (durationArg != null && !durationArg.isBlank()) ? durationArg.trim() : null;
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
-        boolean added = bwm.addToQueue(pp.getUniqueId(), pp.getName(), "manual", sender.getName(), duration);
+        boolean added = bwm.addToQueue(uuid, playerName, "manual", sender.getName(), duration);
+        boolean isOffline = online == null || online.isExternalPlayer();
 
         if (added) {
-            String durDisplay = duration != null ? duration : "config default (" + VoidAPI.INSTANCE.getBanWaveManager() + ")";
-            if (duration == null) durDisplay = "config default";
+            String durDisplay = duration != null ? duration : "config default";
             sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &a✔ &f" + pp.getName()
+                    PREFIX + " &a✔ &f" + playerName
+                            + (isOffline ? " &8(offline)" : "")
                             + " &7added to wave &d#" + (bwm.getWaveNumber() + 1)
                             + " &8(&7duration&8: &f" + durDisplay
                             + " &8│ &7total&8: &f" + bwm.getQueueSize() + "&8)."));
         } else {
             sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &e⚠ &f" + pp.getName() + " &7is already in the ban wave queue."));
+                    PREFIX + " &e⚠ &f" + playerName + " &7is already in the ban wave queue."));
         }
     }
 

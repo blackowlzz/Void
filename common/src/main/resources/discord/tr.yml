@@ -19,6 +19,6 @@ violation-content:
     - "**Gecikme**: %ping%"
     - "**TPS**: %tps%"
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

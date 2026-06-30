@@ -40,7 +40,8 @@ public class SetbackBlocker extends Check implements PacketCheck {
             }
 
             // The player is sleeping, should be safe to block position packets
-            if (player.isInBed && new Vector3d(player.x, player.y, player.z).distanceSquared(player.bedPosition) > 1) {
+            if (player.isInBed && player.bedPosition != null
+                    && new Vector3d(player.x, player.y, player.z).distanceSquared(player.bedPosition) > 1) {
                 event.setCancelled(true);
             }
 

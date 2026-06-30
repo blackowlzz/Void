@@ -21,10 +21,14 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
@@ -42,10 +46,42 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
     private static final Predicate<String> HTTPS_URL_REGEX = Pattern.compile("^https://[^/\\s]+/\\S+$").asMatchPredicate();
     private static final Duration timeout = Duration.ofMillis(CommonVoidArguments.URL_TIMEOUT.value());
     private static final HttpClient client = HttpClient.newBuilder().connectTimeout(timeout).build();
+    private static final int MAX_QUEUE_SIZE = 50;
     private static final ConcurrentLinkedDeque<Pair<HttpRequest, CompletableFuture<Boolean>>> requests = new ConcurrentLinkedDeque<>();
     private static final AtomicBoolean taskStarted = new AtomicBoolean();
     private static final AtomicBoolean sending = new AtomicBoolean();
     private static long rateLimitedUntil;
+
+    private static final String LOGO_FILENAME = "void_logo.png";
+    private static final String LOGO_ATTACHMENT_REF = "attachment://" + LOGO_FILENAME;
+    private static final String MULTIPART_BOUNDARY = "VoidACWebhook" + Long.toHexString(System.nanoTime());
+    private static final byte[] LOGO_BYTES;
+
+    // Pre-computed static multipart byte sequences, computed once and reused on every webhook post
+    private static final byte[] MULTIPART_PART_JSON_HEADERS;
+    private static final byte[] MULTIPART_PART_IMAGE_HEADERS;
+    private static final byte[] MULTIPART_CRLF;
+    private static final byte[] MULTIPART_CLOSE;
+
+    static {
+        byte[] bytes = null;
+        try (InputStream in = DiscordManager.class.getResourceAsStream("/assets/voidac/" + LOGO_FILENAME)) {
+            if (in != null) bytes = in.readAllBytes();
+        } catch (IOException ignored) {}
+        LOGO_BYTES = bytes;
+
+        String nl = "\r\n";
+        String dash = "--";
+        MULTIPART_CRLF = nl.getBytes(StandardCharsets.UTF_8);
+        MULTIPART_PART_JSON_HEADERS = (dash + MULTIPART_BOUNDARY + nl
+                + "Content-Disposition: form-data; name=\"payload_json\"" + nl
+                + "Content-Type: application/json" + nl + nl).getBytes(StandardCharsets.UTF_8);
+        MULTIPART_PART_IMAGE_HEADERS = (dash + MULTIPART_BOUNDARY + nl
+                + "Content-Disposition: form-data; name=\"files[0]\"; filename=\"" + LOGO_FILENAME + "\"" + nl
+                + "Content-Type: image/png" + nl + nl).getBytes(StandardCharsets.UTF_8);
+        MULTIPART_CLOSE = (dash + MULTIPART_BOUNDARY + dash + nl).getBytes(StandardCharsets.UTF_8);
+    }
+
     private URI url;
     private int embedColor;
     private CompiledDiscordTemplate compiledContent;
@@ -53,6 +89,7 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
     private String embedTitle = "";
     private boolean includeTimestamp;
     private boolean includeVerbose;
+    private boolean useInternalImage;
     private @Nullable String embedImageUrl;
     private @Nullable String embedThumbnailUrl;
     private @Nullable String embedFooterUrl;
@@ -61,12 +98,12 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
     private static final Pattern URL_PATTERN = Pattern.compile("^https?://(?:www\\.)?[-a-z0-9@:%._+~#=]{1,256}\\.[a-z0-9()]{1,6}\\b[-a-z0-9()@:%_+.~#?&/=]*$", Pattern.CASE_INSENSITIVE);
 
     private static String validatedConfigURL(String configPath, String defaultURL) {
-        String url = VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse("embed-image-url", defaultURL);
+        String url = VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse(configPath, defaultURL);
         if (url == null || url.isBlank()) return null;
         if (URL_PATTERN.matcher(url).matches()) {
             return url;
         } else {
-            LogUtil.warn("Invalid embed url for config path " + configPath + ": " + configPath);
+            LogUtil.warn("Invalid embed url for config path " + configPath + ": " + url);
             return defaultURL;
         }
     }
@@ -117,7 +154,14 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
             // mainly for just for allowing more customization
             embedImageUrl = validatedConfigURL("embed-image-url", null);
             embedThumbnailUrl = validatedConfigURL("embed-thumbnail-url", "https://crafthead.net/helm/%uuid%");
-            embedFooterUrl = validatedConfigURL("embed-footer-url", "https://void.ac/images/void.png");
+            embedFooterUrl = validatedConfigURL("embed-footer-url", null);
+            // When no image URL is configured, use the bundled logo as the large embed image
+            if (embedImageUrl == null && LOGO_BYTES != null) {
+                embedImageUrl = LOGO_ATTACHMENT_REF;
+                useInternalImage = true;
+            } else {
+                useInternalImage = false;
+            }
             embedFooterText = config.getStringElse("embed-footer-text", "Void v%void_version%");
             embedTitle = config.getStringElse("embed-title", "**Void Signal**");
 
@@ -159,7 +203,7 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
             return;
         }
 
-        // Per-alert overlay — avoids polluting the global static map
+        // Per-alert overlay to avoid polluting the global static map
         Map<String, String> statics = new HashMap<>(VoidAPI.INSTANCE.getExternalAPI().getStaticReplacements());
         statics.put("%check%", checkName);
         statics.put("%violations%", Integer.toString(violations));
@@ -184,21 +228,47 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
             embed.addFields(new EmbedField("Verbose", CompiledDiscordTemplate.escapeMarkdown(verbose), true));
         }
 
-        sendWebhookMessage(new WebhookMessage().addEmbeds(embed));
+        WebhookMessage message = new WebhookMessage().addEmbeds(embed);
+        if (useInternalImage && LOGO_BYTES != null) {
+            sendWebhookMessageInternal(message, LOGO_BYTES);
+        } else {
+            sendWebhookMessage(message);
+        }
     }
 
     public CompletableFuture<Boolean> sendWebhookMessage(WebhookMessage message) {
+        return sendWebhookMessageInternal(message, null);
+    }
+
+    private CompletableFuture<Boolean> sendWebhookMessageInternal(WebhookMessage message, byte[] attachment) {
         if (isDisabled()) return CompletableFuture.completedFuture(false);
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(url)
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(message.toJson().toString()))
-                .timeout(timeout)
-                .build();
+        String json = message.toJson().toString();
+        HttpRequest request;
+        if (attachment != null) {
+            request = HttpRequest.newBuilder()
+                    .uri(url)
+                    .header("Content-Type", "multipart/form-data; boundary=" + MULTIPART_BOUNDARY)
+                    .POST(HttpRequest.BodyPublishers.ofByteArray(buildMultipart(json, attachment)))
+                    .timeout(timeout)
+                    .build();
+        } else {
+            request = HttpRequest.newBuilder()
+                    .uri(url)
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .timeout(timeout)
+                    .build();
+        }
 
         CompletableFuture<Boolean> future = new CompletableFuture<>();
 
+        // Drop the oldest queued alert if the queue is full (e.g. during a long rate-limit window)
+        // so the deque cannot grow without bound. Recent alerts are more useful than stale ones.
+        while (requests.size() >= MAX_QUEUE_SIZE) {
+            Pair<HttpRequest, CompletableFuture<Boolean>> dropped = requests.pollFirst();
+            if (dropped != null) dropped.second().complete(false);
+        }
         requests.add(new Pair<>(request, future));
 
         if (!taskStarted.getAndSet(true)) {
@@ -207,6 +277,24 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
         }
 
         return future;
+    }
+
+    private static byte[] buildMultipart(String json, byte[] file) {
+        byte[] jsonBytes = json.getBytes(StandardCharsets.UTF_8);
+        ByteArrayOutputStream out = new ByteArrayOutputStream(
+                MULTIPART_PART_JSON_HEADERS.length + jsonBytes.length + MULTIPART_CRLF.length
+                + MULTIPART_PART_IMAGE_HEADERS.length + file.length + MULTIPART_CRLF.length
+                + MULTIPART_CLOSE.length);
+        try {
+            out.write(MULTIPART_PART_JSON_HEADERS);
+            out.write(jsonBytes);
+            out.write(MULTIPART_CRLF);
+            out.write(MULTIPART_PART_IMAGE_HEADERS);
+            out.write(file);
+            out.write(MULTIPART_CRLF);
+            out.write(MULTIPART_CLOSE);
+        } catch (IOException ignored) {}
+        return out.toByteArray();
     }
 
     public boolean isDisabled() {

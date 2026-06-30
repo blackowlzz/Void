@@ -463,8 +463,12 @@ public class CheckManagerListener extends PacketListenerAbstract {
                 // reverse to handle the unaccepted possibility first
                 Collections.reverse(rotations);
 
+                float yaw = flying.getLocation().getYaw();
+                float pitch = flying.getLocation().getPitch();
                 for (RotationData data : rotations) {
-                    if (data.getYaw() == flying.getLocation().getYaw() && data.getPitch() == flying.getLocation().getPitch() && data.getTransaction() == player.getLastTransactionReceived()) {
+                    if (data.getTransaction() == player.getLastTransactionReceived()
+                            && (data.isRelativeYaw() || data.getYaw() == yaw)
+                            && (data.isRelativePitch() || data.getPitch() == pitch)) {
                         player.packetStateData.lastPacketWasTeleport = true;
                         data.accept(); // we could be wrong (especially in vehicles), don't remove this
                         break;

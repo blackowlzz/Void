@@ -133,7 +133,7 @@ public class BanWaveManager {
             player.sendMessage(broadcast);
         }
 
-        LogUtil.info("[BanWave] Wave #" + waveStr + " executed — " + toBan.size() + " players banned.");
+        LogUtil.info("[BanWave] Wave #" + waveStr + " executed: " + toBan.size() + " players banned.");
         return toBan.size();
     }
 
@@ -200,7 +200,8 @@ public class BanWaveManager {
         String banReason = toBanCommandLine(kickReason);
 
         VoidPlayer voidPlayer = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(entry.uuid());
-        if (voidPlayer != null && voidPlayer.platformPlayer != null) {
+        boolean isOffline = (voidPlayer == null || voidPlayer.platformPlayer == null);
+        if (!isOffline) {
             final PlatformPlayer pp = voidPlayer.platformPlayer;
             VoidAPI.INSTANCE.getScheduler().getEntityScheduler().execute(
                     pp, VoidAPI.INSTANCE.getVoidPlugin(),
@@ -214,6 +215,11 @@ public class BanWaveManager {
                     .replace("{duration}", effectiveDuration)
                     .replace("{reason}",   banReason);
             dispatchCommand(cmd);
+            // For offline targets, also store in VoidBanManager: external ban commands
+            // (e.g. litebans:tempban) may not reliably apply when the player is offline.
+            if (isOffline) {
+                VoidAPI.INSTANCE.getVoidBanManager().ban(banId, entry.uuid(), entry.name(), kickReason, effectiveDuration, System.currentTimeMillis());
+            }
         } else {
             VoidAPI.INSTANCE.getVoidBanManager().ban(banId, entry.uuid(), entry.name(), kickReason, effectiveDuration, System.currentTimeMillis());
         }

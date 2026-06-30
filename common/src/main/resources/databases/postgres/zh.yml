@@ -1,11 +1,8 @@
-# ===========================================================================
 #  Postgres 后端设置
 #
 #  Postgres 支持多服务器部署（多个 Void 实例写入同一个中央数据库）。
 #  运行时需要 Postgres JDBC 驱动；若驱动缺失，后端会在启动时自我禁用，
 #  指向此后端的路由会回退到其他已配置的后端。
-# ===========================================================================
-
 # 所有键都在 `postgres:` 下，使本文件的 keyspace 不会在 Configuralize 把
 # 所有 yml 合并到同一个全局命名空间时与其他后端文件冲突。
 postgres:
@@ -29,6 +26,6 @@ postgres:
     violations: void_violations
     settings: void_settings
 
-# 模式标记 — 参见 config.yml 顶部的注释。
+# 模式标记: 参见 config.yml 顶部的注释。
 config-flavor: V2
 config-version: 1

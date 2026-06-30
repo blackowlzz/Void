@@ -1,15 +1,4 @@
-# ===========================================================================
-#  Postgres backend settings.
-#
-#  Postgres supports multi-server deployments (several Void instances
-#  writing into one central DB). Requires the Postgres JDBC driver at
-#  runtime; if the driver is missing the backend disables itself at
-#  startup and routing that targeted this backend falls back.
-# ===========================================================================
-
-# Every key lives under `postgres:` so this file's keyspace doesn't collide
-# with sibling per-backend files when Configuralize merges them all into
-# one global namespace.
+# Postgres backend. Supports multi-server setups sharing one database.
 postgres:
   host: "localhost"
   port: 5432
@@ -17,13 +6,12 @@ postgres:
   user: "postgres"
   password: ""
 
-  # Extra URL parameters appended after `?`. Leave empty unless you know
-  # you need something specific.
+  # Extra JDBC URL params. Leave empty unless you need something specific.
   extra-jdbc-params: ""
 
   batch-flush-cap: 256
 
-  # Table-name overrides. Default names below.
+  # Table name overrides. Useful when sharing one Postgres database across multiple Void instances.
   tables:
     meta: void_meta
     checks: void_checks
@@ -32,6 +20,6 @@ postgres:
     violations: void_violations
     settings: void_settings
 
-# Schema markers — see header comment in config.yml.
+# Schema markers: see header comment in config.yml.
 config-flavor: V2
 config-version: 1

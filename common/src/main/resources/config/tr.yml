@@ -1,7 +1,7 @@
-# Void yapılandırması — https://github.com/blackowlzz/Void
-# Copyright 2025 MWHunter (DefineOutside), blackowlzz ve katkıda bulunanlar, GPLv3 lisansı.
+﻿# Void yapılandırması: https://github.com/blackowlzz/Void
+# Copyright 2026 blackowlzz, MWHunter (DefineOutside) ve katkıda bulunanlar, GPLv3 lisansı.
 
-# ─── Genel ───────────────────────────────────────────────────────────────────
+# Genel
 
 alerts:
     # İhlal uyarılarını çevrimiçi personele ek olarak konsola da gönder.
@@ -14,8 +14,46 @@ alerts:
 verbose:
     print-to-console: false
 
-check-for-updates: true
 experimental-checks: false
+
+# ViaVersion kurulu bir proxy üzerinden bağlanan oyuncular, yanlış bayrak
+# tetikleyebilecek paket çeviri sorunlarına neden olabilir.
+# allow: kicklemek yerine giriş izni vermek için true yapın.
+# disable-setbacks: alertleri aktif tutar ancak bu oyuncular için setbackleri devre dışı bırakır.
+via-proxy:
+    allow: false
+    disable-setbacks: true
+
+# Sürümler arası tahmin ofseti zayıflatma.
+#
+# ViaVersion etkin olduğunda: bu sunucuya veya bir proxy'e kurulduğunda: farklı
+# Minecraft sürümündeki istemciler biraz farklı fizik formülleri kullanır.
+# ViaVersion paketleri doğru çevirir ancak bu sayısal farkları telafi edemez; bu durum
+# tamamen meşru oyuncularda bile küçük sistematik ofsetlere (~0.001–0.003 blok/tick) yol açar.
+#
+# viaversion-attenuation etkinken Void, farklı sürümdeki oyuncuların ham tahmin
+# ofsetinden 0.005 çıkarır. Speed hack ve fly hack yazılımları 0.01–1.0+ ofset üretir
+# (toleransın en az 2 katı), bu nedenle tespit etkilenmez.
+#
+# Yalnızca tek sürüm kullanan ve cross-version oyuncu barındırmayan sunucularda
+# devre dışı bırakın.
+viaversion-attenuation: false
+
+# Cross-version oyuncular icin elytra'ya ozgu tahmin ofseti azaltmasi.
+#
+# Elytra (suzulme) fizigi, Minecraft surumleri arasinda normal hareketten daha belirgin
+# sekilde farklilasiyor - aerodinamik surukleme, bakis yonu olceklendirmesi ve tik basina
+# hiz birikimi surumler arasinda farklidir. ViaVersion aktifken, elytra ile suzulen mesru
+# bir oyuncu ~0.032 blok/tike kadar ham ofsetler uretebilir; bu, normal hareketteki
+# ~0.001-0.003 in cok uzerindedir.
+#
+# Etkinlestirildiginde, Void suzulme sirasinda veya inis sonrasinda cross-version oyunculara
+# 0.03 ek azaltma uygular (viaversion-attenuation'a ek olarak). Gercek elytra aciklari
+# 0.1+ ofseti uretir (ek toleransin 3x'i), tespit tamamen aktif kalir.
+#
+# Cross-version oyuncularda elytra kullanirken Simulation yanlis alarmlari goruyorsaniz
+# etkinlestirin. viaversion-attenuation etkin degilse etkisi yoktur.
+viaversion-elytra-attenuation: false
 
 client-brand:
     # Sessizce yok sayılacak istemci marka regex listesi.
@@ -42,7 +80,7 @@ max-transaction-time: 60
 # /void debug yüklemeleri için Pastebin API anahtarı. Boş = yerel kayıt.
 pastebin-api-key: ""
 
-# ─── Kontroller ──────────────────────────────────────────────────────────────
+# Kontroller
 
 Simulation:
     setback-decay-multiplier: 0.999
@@ -76,6 +114,31 @@ Reach:
     threshold: 0.0005
     block-impossible-hits: true
     enable-post-packet: false
+
+AutoClickerA:
+    # Hard CPS cap. No human technique sustains above 30 CPS long-term.
+    # Raise only if you host drag-click tournaments; do not lower below 25.
+    max-cps: 30
+    # Minimum CPS before interval regularity analysis kicks in.
+    analysis-cps: 8
+    # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
+    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    min-cv: 0.05
+
+AutoClickerB:
+    # Minimum mean CPS across 1-second buckets before analysis runs.
+    analysis-cps: 8
+    # Minimum bucket-CV (std_dev/mean of per-second CPS). Randomized autoclickers: 0.04-0.08.
+    # Human butterfly/jitter even at peak CPS: typically 0.15+.
+    # 0.10 is the safe middle ground: catches bots, cannot false flag legitimate players.
+    min-bucket-cv: 0.10
+
+AutoClickerC:
+    # Vanilla clients send at most 1 attack per tick. Keep at 1.
+    max-attacks-per-tick: 1
+    # Consecutive ticks with too many attacks before flagging.
+    # 3 absorbs rare ViaVersion packet reordering without missing real violations.
+    min-consecutive-ticks: 3
 
 TimerA:
     setbackvl: 10
@@ -130,7 +193,7 @@ exploit:
             # EssentialsX: "ban {player} {reason}"
             custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Cezalar ─────────────────────────────────────────────────────────────────
+# Cezalar
 
 punishments:
 
@@ -165,9 +228,9 @@ punishments:
         prefer-custom-ban: false
         custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Ban Dalgası ─────────────────────────────────────────────────────────────
-# /void banwave add <player> [duration]  — kuyruğa ekle
-# /void banwave execute                  — herkesi şimdi yasakla
+# Ban Dalgası
+# /void banwave add <player> [duration] : kuyruğa ekle
+# /void banwave execute                 : herkesi şimdi yasakla
 
 ban-wave:
     enabled: true
@@ -180,14 +243,14 @@ ban-wave:
         &7Ban Dalgası: &d#{wave}
         &7Ban ID: &d{ban_id}
         &7Süre: &f{duration}
-    broadcast: "&8[&5Void&8] &7Ban Dalgası &d#{wave} &7gerçekleştirildi — &d{count} &7oyuncu kaldırıldı."
+    broadcast: "&8[&5Void&8] &7Ban Dalgası &d#{wave} &7gerçekleştirildi: &d{count} &7oyuncu kaldırıldı."
     prefer-custom-ban: false
     # Komut şablonu. Yer tutucular: {player}  {duration}  {reason}
     # LiteBans:    "litebans:tempban {player} {duration} {reason}"
     # AdvancedBan: "ban {player} {reason} -t {duration}"
     custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+# Storage ESP Decoys
 
 storage-esp-decoys:
     enabled: false
@@ -195,7 +258,7 @@ storage-esp-decoys:
     include-client-side-blocks: false
     auto-flag-threshold: 16
 
-# ─── Anti-Xray ───────────────────────────────────────────────────────────────
+# Anti-Xray
 
 AntiXray:
     configure-paper: false
@@ -259,12 +322,12 @@ AntiXray:
         - coal_ore
         - deepslate_coal_ore
 
-# ─── Eşik Optimizörü ─────────────────────────────────────────────────────────
+# Eşik Optimizörü
 
 threshold-optimizer:
     enabled: false
 
-# ─── Gelişmiş ────────────────────────────────────────────────────────────────
+# Gelişmiş
 
 packet-spam-threshold: 100
 debug-packet-cancel: false
@@ -285,5 +348,16 @@ reset-item-usage-on-item-use: true
 
 debug-pipeline-on-join: false
 
+
+# Diagnostic Logger
+# WARNING: Extremely high CPU and disk I/O cost. Never enable on a production server.
+# Enable only on a private test server to collect movement data for engine research.
+# Writes one structured log block per prediction tick per player to plugins/Void/diagnostic/.
+# Use the logs to distinguish false flags (lerp/slime/edge=Y) from real cheats (all N, offset >> threshold).
+
+diagnostic-logger:
+    enabled: false
+    # Async write queue depth. Entries are dropped (oldest first) when full.
+    queue-capacity: 4096
 config-flavor: V2
-config-version: 19
+config-version: 21

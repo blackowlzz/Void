@@ -1,7 +1,7 @@
-# Void 配置文件 — https://github.com/blackowlzz/Void
-# Copyright 2025 MWHunter (DefineOutside), blackowlzz 及贡献者，GPLv3 许可证。
+﻿# Void 配置文件: https://github.com/blackowlzz/Void
+# Copyright 2026 blackowlzz, MWHunter (DefineOutside) 及贡献者，GPLv3 许可证。
 
-# ─── 常规设置 ─────────────────────────────────────────────────────────────────
+# 常规设置
 
 alerts:
     # 除了向在线管理员发送违规警告外，也同时输出至控制台。
@@ -14,8 +14,39 @@ alerts:
 verbose:
     print-to-console: false
 
-check-for-updates: true
 experimental-checks: false
+
+# 通过安装了ViaVersion的代理服务器连接的玩家可能导致数据包转换问题，触发误报。
+# allow: 设为true以允许进入而非踢出。
+# disable-setbacks: 保持警报活跃但对这些玩家禁用setback，避免影响合法玩家。
+via-proxy:
+    allow: false
+    disable-setbacks: true
+
+# 跨版本预测偏移衰减。
+#
+# 当ViaVersion处于活跃状态（安装在此服务器或代理上），使用不同Minecraft版本的客户端
+# 内部使用略有不同的物理公式。ViaVersion忠实地转换数据包，但无法补偿这些数值差异，
+# 导致即使是完全合法的玩家也会产生微小但持续的偏移（约0.001–0.003方块/tick）。
+#
+# 启用viaversion-attenuation后，Void将为版本与服务器不同的玩家的原始预测偏移减去0.005。
+# 真正的作弊软件会产生0.01–1.0+的偏移（至少是容差的2倍），因此检测不受影响。
+#
+# 仅在服务器运行单一版本且没有跨版本玩家，且希望使用最严格检测阈值时才禁用。
+viaversion-attenuation: false
+
+# 跨版本玩家的鞘翅专用预测偏移衰减。
+#
+# 鞘翅（滑翔）物理在Minecraft版本之间的差异比普通移动更为显著:空气阻力、视线方向
+# 缩放以及每刻速度累积在版本之间均有所不同。启用ViaVersion时，合法使用鞘翅滑翔的玩家
+# 可能产生高达~0.032方块/刻的原始预测偏移，远高于正常移动的~0.001–0.003。
+#
+# 启用后，Void会在跨版本玩家滑翔或刚落地时额外施加0.03的衰减（在viaversion-attenuation
+# 基础上叠加）。真实的鞘翅漏洞会产生0.1以上的偏移（额外容限的3倍），检测完全有效。
+#
+# 如果在使用鞘翅的跨版本玩家上看到Simulation误报，请启用此选项。
+# 若viaversion-attenuation未启用则无效果。
+viaversion-elytra-attenuation: false
 
 client-brand:
     # 静默忽略的客户端品牌正则表达式列表（不向OP广播）。
@@ -42,7 +73,7 @@ max-transaction-time: 60
 # /void debug 上传用 Pastebin API 密钥。留空则保存至本地。
 pastebin-api-key: ""
 
-# ─── 检测项目 ─────────────────────────────────────────────────────────────────
+# 检测项目
 
 Simulation:
     setback-decay-multiplier: 0.999
@@ -76,6 +107,31 @@ Reach:
     threshold: 0.0005
     block-impossible-hits: true
     enable-post-packet: false
+
+AutoClickerA:
+    # Hard CPS cap. No human technique sustains above 30 CPS long-term.
+    # Raise only if you host drag-click tournaments; do not lower below 25.
+    max-cps: 30
+    # Minimum CPS before interval regularity analysis kicks in.
+    analysis-cps: 8
+    # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
+    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    min-cv: 0.05
+
+AutoClickerB:
+    # Minimum mean CPS across 1-second buckets before analysis runs.
+    analysis-cps: 8
+    # Minimum bucket-CV (std_dev/mean of per-second CPS). Randomized autoclickers: 0.04-0.08.
+    # Human butterfly/jitter even at peak CPS: typically 0.15+.
+    # 0.10 is the safe middle ground: catches bots, cannot false flag legitimate players.
+    min-bucket-cv: 0.10
+
+AutoClickerC:
+    # Vanilla clients send at most 1 attack per tick. Keep at 1.
+    max-attacks-per-tick: 1
+    # Consecutive ticks with too many attacks before flagging.
+    # 3 absorbs rare ViaVersion packet reordering without missing real violations.
+    min-consecutive-ticks: 3
 
 TimerA:
     setbackvl: 10
@@ -130,7 +186,7 @@ exploit:
             # EssentialsX: "ban {player} {reason}"
             custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── 处罚系统 ─────────────────────────────────────────────────────────────────
+# 处罚系统
 
 punishments:
 
@@ -165,9 +221,9 @@ punishments:
         prefer-custom-ban: false
         custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── 封禁浪潮 ─────────────────────────────────────────────────────────────────
-# /void banwave add <player> [duration]  — 加入队列
-# /void banwave execute                  — 立即封禁所有人
+# 封禁浪潮
+# /void banwave add <player> [duration] : 加入队列
+# /void banwave execute                 : 立即封禁所有人
 
 ban-wave:
     enabled: true
@@ -180,14 +236,14 @@ ban-wave:
         &7封禁浪潮: &d#{wave}
         &7封禁 ID: &d{ban_id}
         &7时长: &f{duration}
-    broadcast: "&8[&5Void&8] &7封禁浪潮 &d#{wave} &7已执行 — &d{count} &7名玩家已被移除。"
+    broadcast: "&8[&5Void&8] &7封禁浪潮 &d#{wave} &7已执行: &d{count} &7名玩家已被移除。"
     prefer-custom-ban: false
     # 命令模板。占位符：{player}  {duration}  {reason}
     # LiteBans:    "litebans:tempban {player} {duration} {reason}"
     # AdvancedBan: "ban {player} {reason} -t {duration}"
     custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
-# ─── Storage ESP Decoys ───────────────────────────────────────────────────────
+# Storage ESP Decoys
 
 storage-esp-decoys:
     enabled: false
@@ -195,7 +251,7 @@ storage-esp-decoys:
     include-client-side-blocks: false
     auto-flag-threshold: 16
 
-# ─── 反矿透 ──────────────────────────────────────────────────────────────────
+# 反矿透
 
 AntiXray:
     configure-paper: false
@@ -259,12 +315,12 @@ AntiXray:
         - coal_ore
         - deepslate_coal_ore
 
-# ─── 阈值优化器 ───────────────────────────────────────────────────────────────
+# 阈值优化器
 
 threshold-optimizer:
     enabled: false
 
-# ─── 高级设置 ─────────────────────────────────────────────────────────────────
+# 高级设置
 
 packet-spam-threshold: 100
 debug-packet-cancel: false
@@ -285,5 +341,16 @@ reset-item-usage-on-item-use: true
 
 debug-pipeline-on-join: false
 
+
+# Diagnostic Logger
+# WARNING: Extremely high CPU and disk I/O cost. Never enable on a production server.
+# Enable only on a private test server to collect movement data for engine research.
+# Writes one structured log block per prediction tick per player to plugins/Void/diagnostic/.
+# Use the logs to distinguish false flags (lerp/slime/edge=Y) from real cheats (all N, offset >> threshold).
+
+diagnostic-logger:
+    enabled: false
+    # Async write queue depth. Entries are dropped (oldest first) when full.
+    queue-capacity: 4096
 config-flavor: V2
-config-version: 19
+config-version: 21

@@ -35,6 +35,7 @@ import ac.voidac.platform.api.manager.PlatformPluginManager;
 import ac.voidac.platform.api.player.PlatformPlayerFactory;
 import ac.voidac.platform.api.scheduler.PlatformScheduler;
 import ac.voidac.platform.api.sender.SenderFactory;
+import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.PlayerDataManager;
 import ac.voidac.utils.common.arguments.CommonVoidArguments;
 import ac.voidac.utils.reflection.ReflectionUtils;
@@ -115,7 +116,21 @@ public final class VoidAPI {
 
     public void start() {
         checkInitialized();
+        printStartupBanner();
         initManager.start();
+    }
+
+    private static void printStartupBanner() {
+        LogUtil.console("&d____   ____    .__    .___ _____  _________   ");
+        LogUtil.console("&d\\   \\ /   /___ |__| __| _//  _  \\ \\_   ___ \\  ");
+        LogUtil.console("&d \\   Y   /  _ \\|  |/ __ |/  /_\\  \\/    \\  \\/  ");
+        LogUtil.console("&d  \\     (  <_> )  / /_/ /    |    \\     \\____  ");
+        LogUtil.console("&d   \\___/ \\____/|__\\____ \\____|__  /\\______  /  ");
+        LogUtil.console("&d                        \\/       \\/        \\/   ");
+        LogUtil.console(" ");
+        LogUtil.console("&a  Modrinth: &fhttps://modrinth.com/plugin/voidac");
+        LogUtil.console("&b  Discord:  &fhttps://discord.gg/DRnhHrcseU");
+        LogUtil.console(" ");
     }
 
     public void stop() {

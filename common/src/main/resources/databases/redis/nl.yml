@@ -1,7 +1,6 @@
-# ===========================================================================
 #  Redis-backendinstellingen.
 #
-#  Redis is in de eerste plaats een in-memory store — als je hier
+#  Redis is in de eerste plaats een in-memory store: als je hier
 #  geschiedenis naartoe routet, zorg dan dat AOF-persistentie op de
 #  server aan staat, anders verdwijnt de geschiedenis bij een herstart.
 #  Vereist Jedis in runtime; als Jedis ontbreekt schakelt het backend
@@ -10,8 +9,6 @@
 #  Niet aanbevolen als primair geschiedenisdoel. Bedoeld voor operators
 #  die alleen Redis tot hun beschikking hebben en iets nodig hebben dat
 #  werkt.
-# ===========================================================================
-
 # Alle sleutels staan onder `redis:` zodat de keyspace van dit bestand
 # niet botst met zustertbestanden per backend wanneer Configuralize ze
 # samenvoegt in één globale namespace.
@@ -51,6 +48,6 @@ redis:
     violations: void_violations
     settings: void_settings
 
-# Schemamarkers — zie de header-comment in config.yml.
+# Schemamarkers: zie de header-comment in config.yml.
 config-flavor: V2
 config-version: 1

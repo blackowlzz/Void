@@ -24,7 +24,7 @@ public class VoidBanManager {
 
     /**
      * Records a ban.  The kick reason should already be fully formatted (color codes translated,
-     * all placeholders resolved) — it is shown verbatim on the disconnect screen.
+     * all placeholders resolved; it is shown verbatim on the disconnect screen.
      */
     public void ban(String banId, UUID uuid, String playerName, String kickReason, String durationStr, long timestamp) {
         long expiresAt = parseExpiry(durationStr);
@@ -52,6 +52,19 @@ public class VoidBanManager {
         ActiveBanRecord record = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanQuery(uuid);
         if (record != null && record.isExpired()) {
             VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(uuid);
+            return null;
+        }
+        return record;
+    }
+
+    /**
+     * Returns the active ban for {@code playerName} (case-insensitive), or {@code null}.
+     * Use as a fallback when UUID-based lookup fails (e.g., proxy/offline-mode UUID mismatch).
+     */
+    public @Nullable ActiveBanRecord getActiveBanByName(String name) {
+        ActiveBanRecord record = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanQueryByName(name);
+        if (record != null && record.isExpired()) {
+            VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(record.uuid());
             return null;
         }
         return record;

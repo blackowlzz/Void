@@ -1,10 +1,7 @@
-# ===========================================================================
 #  Configurações do backend SQLite.
 #
 #  SQLite é apenas para servidor único. Em setups em rede, troque o routing
 #  em database.yml para um backend que fale com um banco compartilhado.
-# ===========================================================================
-
 # Todas as chaves vivem sob `sqlite:` para que o keyspace deste arquivo não
 # colida com arquivos irmãos por backend (mysql:, postgres:, mongo:,
 # redis:) quando Configuralize os funde em um namespace global.
@@ -15,7 +12,7 @@ sqlite:
   # este é um arquivo novo, nunca um ALTER sobre o legado.
   path: "data/history.v1.db"
 
-  # O modo WAL permite leitores concorrentes ao lado do writer — essencial
+  # O modo WAL permite leitores concorrentes ao lado do writer: essencial
   # para um plugin que lê /void history enquanto grava violações.
   journal-mode: WAL
 
@@ -40,6 +37,6 @@ sqlite:
   # mais altos trocam latência por throughput sob bursts sustentados.
   batch-flush-cap: 256
 
-# Marcadores de esquema — ver o comentário do cabeçalho em config.yml.
+# Marcadores de esquema: ver o comentário do cabeçalho em config.yml.
 config-flavor: V2
 config-version: 1

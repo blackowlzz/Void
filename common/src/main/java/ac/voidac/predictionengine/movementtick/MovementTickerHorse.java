@@ -13,7 +13,7 @@ public class MovementTickerHorse extends MovementTickerLivingVehicle {
         super(player);
 
         PacketEntityHorse horsePacket = (PacketEntityHorse) player.compensatedEntities.self.getRiding();
-        if (!horsePacket.hasSaddle()) return;
+        if (horsePacket == null || !horsePacket.hasSaddle()) return;
 
         player.speed = (float) horsePacket.getAttributeValue(Attributes.MOVEMENT_SPEED) + getExtraSpeed();
 

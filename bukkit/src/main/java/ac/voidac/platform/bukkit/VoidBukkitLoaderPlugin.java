@@ -40,7 +40,6 @@ import ac.voidac.platform.bukkit.sender.BukkitSenderFactory;
 import ac.voidac.platform.bukkit.utils.placeholder.PlaceholderAPIExpansion;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.lazy.LazyHolder;
-import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.PacketEventsAPI;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import lombok.Getter;

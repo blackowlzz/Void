@@ -1,12 +1,9 @@
-# ===========================================================================
 #  Postgres backend ayarları.
 #
 #  Postgres çoklu sunuculu kurulumları destekler (birden çok Void
 #  instance'ı tek bir merkezi DB'ye yazar). Çalışma zamanında Postgres
 #  JDBC sürücüsünü gerektirir; sürücü yoksa backend başlangıçta kendini
 #  devre dışı bırakır ve buraya yönlenen routing fallback'ine düşer.
-# ===========================================================================
-
 # Tüm anahtarlar `postgres:` altında yer alır; böylece Configuralize
 # tümünü tek bir global ad alanında birleştirdiğinde bu dosyanın anahtar
 # uzayı kardeş backend dosyalarıyla çakışmaz.
@@ -32,6 +29,6 @@ postgres:
     violations: void_violations
     settings: void_settings
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

@@ -3,7 +3,6 @@ package ac.voidac.manager;
 import ac.voidac.VoidAPI;
 import ac.voidac.api.AbstractCheck;
 import ac.voidac.api.config.ConfigManager;
-import ac.voidac.manager.BanWaveManager;
 import ac.voidac.api.config.ConfigReloadable;
 import ac.voidac.api.event.events.CommandExecuteEvent;
 import ac.voidac.checks.Check;
@@ -14,8 +13,8 @@ import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
 import ac.voidac.manager.punishment.PunishmentDatabase;
 import java.time.Instant;
+import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import lombok.RequiredArgsConstructor;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -108,7 +107,7 @@ public class PunishmentManager implements ConfigReloadable {
     }
 
     private String replaceAlertPlaceholders(String original, int vl, Check check, String verbose) {
-        return MessageUtil.replacePlaceholders(player, original
+        String result = MessageUtil.replacePlaceholders(player, original
                 .replace("[alert]", alertString)
                 .replace("[proxy]", proxyAlertString)
                 .replace("%check_name%", check.getDisplayName())
@@ -116,6 +115,10 @@ public class PunishmentManager implements ConfigReloadable {
                 .replace("%vl%", Integer.toString(vl))
                 .replace("%description%", check.getDescription())
         ).replace("%verbose%", MiniMessage.miniMessage().escapeTags(verbose));
+        if (player.connectedThroughViaProxy) {
+            result += " &8[&eviaproxy&8]";
+        }
+        return result;
     }
 
     public boolean handleAlert(VoidPlayer player, String verbose, Check check) {
@@ -240,7 +243,8 @@ public class PunishmentManager implements ConfigReloadable {
     private void logAutoPunishToDb(Check check, long vl, String reason, String action, String duration, String banId) {
         String flags = buildFlagsSummary();
         String effectiveDuration = "ban".equals(action) ? duration : "kick";
-        VoidAPI.INSTANCE.getPunishmentDatabase().insert(
+        VoidAPI.INSTANCE.getPunishmentDatabase().insertWithId(
+                banId,
                 player.uuid,
                 player.getName(),
                 "auto-punish",
@@ -354,8 +358,14 @@ public class PunishmentManager implements ConfigReloadable {
                 long currentTime = System.currentTimeMillis();
 
                 group.violations.put(currentTime, check);
-                // Remove violations older than the defined time in the config
-                group.violations.long2ObjectEntrySet().removeIf(time -> currentTime - time.getLongKey() > group.removeViolationsAfter);
+                // Remove expired entries from the front. LinkedOpenHashMap preserves insertion order,
+                // and we always insert with non-decreasing timestamps, so expired entries are always first.
+                long cutoff = currentTime - group.removeViolationsAfter;
+                var it = group.violations.long2ObjectEntrySet().iterator();
+                while (it.hasNext()) {
+                    if (it.next().getLongKey() < cutoff) it.remove();
+                    else break;
+                }
             }
         }
     }
@@ -373,7 +383,7 @@ public class PunishmentManager implements ConfigReloadable {
 class PunishGroup {
     public final List<AbstractCheck> checks;
     public final List<ParsedCommand> commands;
-    public final Long2ObjectMap<Check> violations = new Long2ObjectOpenHashMap<>();
+    public final Long2ObjectMap<Check> violations = new Long2ObjectLinkedOpenHashMap<>();
     public final int removeViolationsAfter; // time to remove violations after in milliseconds
 }
 

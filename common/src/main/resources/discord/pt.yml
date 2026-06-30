@@ -19,6 +19,6 @@ violation-content:
     - "**Ping**: %ping%"
     - "**TPS**: %tps%"
 
-# Marcadores de esquema — ver o comentário do cabeçalho em config.yml.
+# Marcadores de esquema: ver o comentário do cabeçalho em config.yml.
 config-flavor: V2
 config-version: 1

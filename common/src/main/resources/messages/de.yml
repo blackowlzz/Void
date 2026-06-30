@@ -74,7 +74,7 @@ help:
 # Sitzungsbasierte Verlaufs-UI. Alle Zeilen unten sind frei konfigurierbar;
 # Platzhalter sind pro Schlüssel dokumentiert. Hover-Texte für Sitzungs- und
 # Verstoßzeilen werden vom Renderer aus den Rohdaten gebaut (verbose,
-# Check-Aufschlüsselung) und brauchen keine Vorlage — du kannst aber jeder
+# Check-Aufschlüsselung) und brauchen keine Vorlage: du kannst aber jeder
 # Zeile <hover:show_text:'...'> hinzufügen, um zusätzliche Tooltips zu legen.
 
 void-history-load-failure: "%prefix% &cDas Verlaufs-Subsystem konnte nicht geladen werden! Überprüfe die Serverkonsole auf Fehler."
@@ -84,9 +84,9 @@ void-history-unknown-player: "%prefix% &cUnbekannter Spieler: &f%player%"
 void-history-no-sessions: "%prefix% &7Keine Sitzungs-Historie für &f%player%&7."
 void-history-session-not-found: "%prefix% &cSitzung &f%ordinal%&c für &f%player%&c nicht gefunden."
 
-# Sitzungsliste — gültige Platzhalter: %prefix% %player% %page% %max_pages%
+# Sitzungsliste: gültige Platzhalter: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Einzelne Sitzungszeile — gültige Platzhalter:
+# Einzelne Sitzungszeile: gültige Platzhalter:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
@@ -102,7 +102,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # der Marker beim Vorhandensein natürlich liest und beim Fehlen verschwindet.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Sitzungsdetails — gültige Platzhalter:
+# Sitzungsdetails: gültige Platzhalter:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -111,15 +111,15 @@ void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f
 void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Marke &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7Verstöße &8(&d%unique_checks% &7verschiedene&8)"
 void-history-detail-empty: "  &8▸ &7(keine)"
-# Gruppenzeile (Standard) — gültige Platzhalter: %prefix% %offset% %checks_list%
+# Gruppenzeile (Standard): gültige Platzhalter: %prefix% %offset% %checks_list%
 #   %checks_list% wird gebaut aus void-history-check-count-Einträgen, getrennt mit ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# Einzelner Verstoß (--detailed) — gültige Platzhalter:
+# Einzelner Verstoß (--detailed): gültige Platzhalter:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# Inneres Format für jeden Check in einer Gruppen-%checks_list% — gültige Platzhalter: %check_name% %count%
+# Inneres Format für jeden Check in einer Gruppen-%checks_list%: gültige Platzhalter: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Schema-Marker — siehe Kopf-Kommentar in config.yml.
+# Schema-Marker: siehe Kopf-Kommentar in config.yml.
 config-flavor: V2
 config-version: 1

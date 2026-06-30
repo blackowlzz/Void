@@ -24,6 +24,7 @@ import ac.voidac.predictionengine.UncertaintyHandler;
 import ac.voidac.manager.AttackCooldownHandler;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
+import ac.voidac.utils.diagnostic.DiagnosticLogger;
 import ac.voidac.utils.anticheat.update.BlockBreak;
 import ac.voidac.utils.change.PlayerBlockHistory;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
@@ -46,6 +47,7 @@ import ac.voidac.utils.nmsutil.GetBoundingBox;
 import ac.voidac.utils.nmsutil.Materials;
 import ac.voidac.utils.viaversion.ViaVersionUtil;
 import com.github.retrooper.packetevents.PacketEvents;
+import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 import com.github.retrooper.packetevents.event.PacketSendEvent;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
@@ -140,6 +142,8 @@ public class VoidPlayer implements VoidUser {
     public Vector3dm actualMovement = new Vector3dm();
     public Vector3dm stuckSpeedMultiplier = new Vector3dm(1, 1, 1);
     public final UncertaintyHandler uncertaintyHandler;
+    // Null unless diagnostic-logger.enabled=true in config
+    public @Nullable DiagnosticLogger diagnosticLogger;
     public double gravity;
     public float friction;
     public double speed;
@@ -267,6 +271,17 @@ public class VoidPlayer implements VoidUser {
     // end config
     public boolean noModifyPacketPermission = false;
     public boolean noSetbackPermission = false;
+    public boolean connectedThroughViaProxy = false;
+
+    /** True if this player's packets are being translated by ViaVersion — either on a proxy
+     *  (connectedThroughViaProxy) or because ViaVersion is installed on this server and the
+     *  client version differs from the server version. */
+    public boolean isVersionTranslated() {
+        return connectedThroughViaProxy ||
+               (ViaVersionUtil.isAvailable &&
+                getClientVersion().getProtocolVersion() != PacketEvents.getAPI().getServerManager().getVersion().getProtocolVersion());
+    }
+
     // This variable is for support with test servers that want to be able to disable void
     // Void disabler 2022 still working!
     public boolean disableVoid = false;
@@ -279,6 +294,7 @@ public class VoidPlayer implements VoidUser {
     public boolean lastJumping;
     public EntityFluidInteraction fluidInteraction = new EntityFluidInteraction(FluidTag.WATER, FluidTag.LAVA);
     public boolean canFloatWhileRidden = false;
+    public boolean isInNetherPortal = false;
 
     public VoidPlayer(@NotNull User user) {
         this.user = user;
@@ -301,6 +317,13 @@ public class VoidPlayer implements VoidUser {
 
         uncertaintyHandler = new UncertaintyHandler(this); // must be after checkmanager
         pointThreeEstimator = new PointThreeEstimator(this);
+
+        ConfigManager diagConfig = VoidAPI.INSTANCE.getConfigManager().getConfig();
+        if (diagConfig.getBooleanElse("diagnostic-logger.enabled", false)) {
+            int queueCap = diagConfig.getIntElse("diagnostic-logger.queue-capacity", 4096);
+            diagnosticLogger = new DiagnosticLogger(
+                    VoidAPI.INSTANCE.getVoidPlugin().getDataFolder(), this, queueCap);
+        }
 
         if (getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
             final float scale = (float) compensatedEntities.self.getAttributeValue(Attributes.SCALE);
@@ -836,6 +859,12 @@ public class VoidPlayer implements VoidUser {
 
     public boolean isInWaterOrRain() {
         return compensatedWorld.isRaining || Collisions.hasMaterial(this, boundingBox.copy().expand(0.1f), (block) -> Materials.isWater(CompensatedWorld.blockVersion, block.first()));
+    }
+
+    public void updateNetherPortalState() {
+        // Expand over the full movement this tick so a fast run-through is still detected
+        SimpleCollisionBox movementThisTick = GetBoundingBox.getCollisionBoxForPlayer(this, x, y, z).expandToCoordinate(lastX - x, lastY - y, lastZ - z);
+        isInNetherPortal = Collisions.hasMaterial(this, movementThisTick, data -> data.first().getType() == StateTypes.NETHER_PORTAL);
     }
 
     @Contract(pure = true)

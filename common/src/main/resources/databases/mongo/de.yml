@@ -1,10 +1,7 @@
-# ===========================================================================
 #  MongoDB-Backend-Einstellungen.
 #
 #  Benötigt zur Laufzeit den synchronen MongoDB-Treiber; fehlt er,
 #  deaktiviert sich das Backend und das Routing fällt zurück.
-# ===========================================================================
-
 # Alle Schlüssel liegen unter `mongo:`, damit der Keyspace dieser Datei
 # nicht mit Geschwister-Backend-Dateien kollidiert, wenn Configuralize alle
 # in einen globalen Namespace merged.
@@ -31,6 +28,6 @@ mongo:
     violations: void_violations
     settings: void_settings
 
-# Schema-Marker — siehe Kopf-Kommentar in config.yml.
+# Schema-Marker: siehe Kopf-Kommentar in config.yml.
 config-flavor: V2
 config-version: 1

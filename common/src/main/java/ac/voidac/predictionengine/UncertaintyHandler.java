@@ -1,5 +1,6 @@
 package ac.voidac.predictionengine;
 
+import ac.voidac.VoidAPI;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.LastInstance;
@@ -32,7 +33,7 @@ public class UncertaintyHandler {
     // Meaning no matter what, just trust the player's onGround status
     public boolean isStepMovement;
     // What directions could slime block pistons be pushing the player from
-    public HashSet<BlockFace> slimePistonBounces;
+    public final HashSet<BlockFace> slimePistonBounces = new HashSet<>();
     // Handles general uncertainty such as entity pushing and the 1.14+ X Z collision bug where X momentum is maintained
     public double xNegativeUncertainty = 0;
     public double xPositiveUncertainty = 0;
@@ -131,7 +132,7 @@ public class UncertaintyHandler {
         isSteppingNearBubbleColumn = false;
         isSteppingNearScaffolding = false;
 
-        slimePistonBounces = new HashSet<>();
+        slimePistonBounces.clear();
         tickFireworksBox();
     }
 
@@ -320,6 +321,24 @@ public class UncertaintyHandler {
         if (player.compensatedEntities.self.getRiding() instanceof PacketEntityRideable vehicle) {
             if (vehicle.currentBoostTime < vehicle.boostTimeMax + 20)
                 offset -= 0.01;
+        }
+
+        // Cross-version connections (ViaProxy or ViaVersion backend with mismatched client) produce
+        // systematic small offsets (~0.001–0.003) caused by version-specific physics differences
+        // that ViaVersion cannot fully compensate. 0.005 covers the observed noise floor without
+        // affecting legitimate detection (real speed hacks produce offsets >> 0.01).
+        if (player.isVersionTranslated() &&
+                VoidAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("viaversion-attenuation", false)) {
+            offset -= 0.005;
+        }
+
+        // Elytra physics diverge more significantly across versions (aerodynamic drag, look-direction
+        // scaling, and per-tick velocity compounding all differ). An extra 0.03 covers the observed
+        // ~0.032 raw noise floor during gliding. Real elytra exploits produce offsets >> 0.1.
+        if (player.isVersionTranslated() &&
+                VoidAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("viaversion-elytra-attenuation", false) &&
+                (player.isGliding || player.wasGliding)) {
+            offset -= 0.03;
         }
 
         return Math.max(0, offset);

@@ -7,6 +7,16 @@ VoidAC is a **prediction-based anticheat** that simulates every possible player 
 It is a fork of [GrimAC](https://github.com/GrimAnticheat/Grim) and is **completely free and open source** under the GNU GPL v3.
 
 ---
+
+## Direct Download on Modrinth!
+
+Dont want to build anything? Just download Void from Modrinth!.
+
+[![Modrinth](https://img.shields.io/badge/Download-Modrinth-green)](https://modrinth.com/plugin/voidac)
+
+---
+
+
 ## Discord / Support
 
 Join the community for support, false positive reports, and updates.

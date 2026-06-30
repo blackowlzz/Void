@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Datastore de Void
 #
 #  Route les catégories du DataStore (violation / session / player-identity /
@@ -9,10 +8,8 @@
 #  Au premier démarrage, si le store legacy (violations.sqlite) est présent,
 #  il est migré automatiquement vers le nouveau store. Mettez migration.skip
 #  à true si vous préférez migrer manuellement plus tard.
-# ===========================================================================
-
 # Toutes les clés du datastore vivent sous ce wrapper de plus haut niveau
-# pour que le keyspace soit naturellement isolé — Configuralize fusionne
+# pour que le keyspace soit naturellement isolé: Configuralize fusionne
 # chaque yml en un keyspace global au runtime, et une organisation plate
 # entrerait en collision avec des clés racine identiques dans config.yml /
 # discord.yml (`enabled`, `history`, etc.).
@@ -27,7 +24,7 @@ database:
   # fichier `databases/<id>.yml` correspondant (créé automatiquement à partir
   # des défauts intégrés au premier démarrage) et un BackendProvider
   # enregistré au runtime. `none` désactive complètement la persistance
-  # pour cette catégorie. Mélanger les backends est permis — p. ex.
+  # pour cette catégorie. Mélanger les backends est permis: p. ex.
   # violations dans un SQL en réseau et blobs dans un object store.
   routing:
     violation: sqlite
@@ -37,7 +34,7 @@ database:
     blob: none
 
   session:
-    # Utilisé uniquement à la migration — le reader V0 legacy n'a pas de
+    # Utilisé uniquement à la migration: le reader V0 legacy n'a pas de
     # signaux join/quit, donc SessionReconstructor regroupe les violations
     # en sessions quand des flags consécutifs tombent dans cet écart. Les
     # sessions en direct sont bornées par la connexion, pas par cette valeur.
@@ -86,7 +83,7 @@ database:
     max-duration-ms: 0        # 0 = pas de timeout
 
   name-resolution:
-    # L'ordre compte — le premier résultat non vide gagne.
+    # L'ordre compte: le premier résultat non vide gagne.
     # local-cache lit la catégorie PlayerIdentity.
     # offline-mode-uuid dérive UUID.nameUUIDFromBytes (serveurs offline uniquement).
     chain: [local-cache, offline-mode-uuid]
@@ -100,6 +97,6 @@ database:
   # sans danger en cours d'opération.
   server-name: "Prison"
 
-# Marqueurs de schéma — voir le commentaire d'en-tête dans config.yml.
+# Marqueurs de schéma: voir le commentaire d'en-tête dans config.yml.
 config-flavor: V2
 config-version: 1

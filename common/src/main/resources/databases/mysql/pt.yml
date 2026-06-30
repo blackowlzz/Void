@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Configurações do backend MySQL.
 #
 #  MySQL suporta deploys multi-servidor (várias instâncias do Void
@@ -6,8 +5,6 @@
 #  runtime; se ele faltar, o backend se desativa no startup, loga um erro
 #  claro e o routing que apontava para ele cai no que estiver configurado
 #  como fallback.
-# ===========================================================================
-
 # Todas as chaves vivem sob `mysql:` para que o keyspace deste arquivo não
 # colida com arquivos irmãos por backend (sqlite:, postgres:, mongo:,
 # redis:) quando Configuralize os funde num namespace global.
@@ -21,7 +18,7 @@ mysql:
 
   # Parâmetros de URL extras anexados após o conjunto fixo
   # (useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true).
-  # Deixe vazio salvo se precisar de algo específico — os defaults batem
+  # Deixe vazio salvo se precisar de algo específico: os defaults batem
   # com o que uma instalação local de dev quer.
   extra-jdbc-params: ""
 
@@ -43,6 +40,6 @@ mysql:
     violations: void_violations
     settings: void_settings
 
-# Marcadores de esquema — ver o comentário do cabeçalho em config.yml.
+# Marcadores de esquema: ver o comentário do cabeçalho em config.yml.
 config-flavor: V2
 config-version: 1

@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Postgres-backendinstellingen.
 #
 #  Postgres ondersteunt multi-server-deployments (meerdere Void-instances
@@ -6,8 +5,6 @@
 #  programma in runtime; als de driver ontbreekt, schakelt het backend
 #  zichzelf uit bij het starten en valt routing dat hierheen wees terug op
 #  zijn fallback.
-# ===========================================================================
-
 # Alle sleutels staan onder `postgres:` zodat de keyspace van dit bestand
 # niet botst met zustertbestanden per backend wanneer Configuralize ze
 # samenvoegt in één globale namespace.
@@ -33,6 +30,6 @@ postgres:
     violations: void_violations
     settings: void_settings
 
-# Schemamarkers — zie de header-comment in config.yml.
+# Schemamarkers: zie de header-comment in config.yml.
 config-flavor: V2
 config-version: 1

@@ -67,7 +67,7 @@ help:
 # UI cronologia basata sulle sessioni. Tutte le righe sotto sono pienamente
 # configurabili; i placeholder sono documentati per ciascuna chiave. Il testo
 # in hover delle righe di sessione e violazione è costruito dal renderer dai
-# dati grezzi (verbose, ripartizione check) e non richiede un template — ma
+# dati grezzi (verbose, ripartizione check) e non richiede un template: ma
 # puoi aggiungere <hover:show_text:'...'> a qualsiasi riga per sovrapporre
 # tooltip aggiuntivi.
 
@@ -78,9 +78,9 @@ void-history-unknown-player: "%prefix% &cGiocatore sconosciuto: &f%player%"
 void-history-no-sessions: "%prefix% &7Nessuna cronologia di sessioni per &f%player%&7."
 void-history-session-not-found: "%prefix% &cSessione &f%ordinal%&c non trovata per &f%player%&c."
 
-# Lista sessioni — placeholder validi: %prefix% %player% %page% %max_pages%
+# Lista sessioni: placeholder validi: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Riga di riepilogo singola sessione — placeholder validi:
+# Riga di riepilogo singola sessione: placeholder validi:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
@@ -97,7 +97,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # pulito quando vuoto.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Dettaglio sessione — placeholder validi:
+# Dettaglio sessione: placeholder validi:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -106,15 +106,15 @@ void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f
 void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Brand &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7violazioni &8(&d%unique_checks% &7uniche&8)"
 void-history-detail-empty: "  &8▸ &7(nessuna)"
-# Riga raggruppata (predefinito) — placeholder validi: %prefix% %offset% %checks_list%
+# Riga raggruppata (predefinito): placeholder validi: %prefix% %offset% %checks_list%
 #   %checks_list% è costruita unendo voci void-history-check-count con ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# Riga di violazione singola (--detailed) — placeholder validi:
+# Riga di violazione singola (--detailed): placeholder validi:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# Formato interno per ogni check in %checks_list% — placeholder validi: %check_name% %count%
+# Formato interno per ogni check in %checks_list%: placeholder validi: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Marcatori di schema — vedi il commento di intestazione in config.yml.
+# Marcatori di schema: vedi il commento di intestazione in config.yml.
 config-flavor: V2
 config-version: 1

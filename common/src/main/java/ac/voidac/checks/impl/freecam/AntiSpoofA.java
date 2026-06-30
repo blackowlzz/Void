@@ -1,6 +1,5 @@
 package ac.voidac.checks.impl.freecam;
 
-import ac.voidac.VoidAPI;
 import ac.voidac.api.config.ConfigManager;
 import ac.voidac.checks.Check;
 import ac.voidac.checks.CheckData;

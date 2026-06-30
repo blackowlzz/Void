@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Void datastore
 #
 #  DataStore kategorilerini (violation / session / player-identity / setting /
@@ -9,10 +8,8 @@
 #  İlk başlatmada, eski legacy depo (violations.sqlite) varsa otomatik olarak
 #  yeni depoya taşınır. Daha sonra elle taşımayı tercih ediyorsan
 #  migration.skip değerini true yap.
-# ===========================================================================
-
 # Tüm datastore anahtarları bu üst düzey wrapper altında yer alır; böylece
-# anahtar uzayı doğal olarak ad alanlanmış olur — Configuralize çalışma
+# anahtar uzayı doğal olarak ad alanlanmış olur: Configuralize çalışma
 # zamanında her yml'i tek bir global keyspace'e birleştirir, düz bir yerleşim
 # burada config.yml / discord.yml içindeki aynı isimli üst seviye
 # anahtarlarla (`enabled`, `history` vb.) çakışırdı.
@@ -27,7 +24,7 @@ database:
   # `databases/<id>.yml` dosyası (ilk başlatmada paketlenmiş varsayılanlardan
   # otomatik oluşturulur) ve çalışma zamanında kayıtlı bir BackendProvider
   # gerekir. `none` o kategori için kalıcılığı tamamen kapatır. Backend
-  # karışımı yapılabilir — örn. ihlaller ağdaki bir SQL deposunda, blob'lar
+  # karışımı yapılabilir: örn. ihlaller ağdaki bir SQL deposunda, blob'lar
   # bir nesne deposunda.
   routing:
     violation: sqlite
@@ -37,14 +34,14 @@ database:
     blob: none
 
   session:
-    # Yalnızca taşıma sırasında kullanılır — legacy V0 reader'ın join/quit
+    # Yalnızca taşıma sırasında kullanılır: legacy V0 reader'ın join/quit
     # sinyali olmadığından SessionReconstructor, art arda gelen flag'ler bu
     # boşluk içine düştüğünde onları aynı oturumda gruplar. Canlı oturumlar
     # bağlantıyla sınırlanır, bu değerle değil.
     gap-ms: 600000
     scope-per-server: true
     # Bağlı bir oyuncu heartbeat'ının oturum satırını ne sıklıkla upsert
-    # ettiği — last_activity_epoch_ms güncel kalsın diye. Sunucu çökmesi
+    # ettiği: last_activity_epoch_ms güncel kalsın diye. Sunucu çökmesi
     # durumunda görünen oturum süresine üst sınır koyar (düzgün
     # bağlantı kopuşları her zaman closed_at değerini set eder). Maliyet:
     # online oyuncu başına aralıkta yaklaşık bir satır UPSERT. 0 devre
@@ -87,7 +84,7 @@ database:
     max-duration-ms: 0        # 0 = zaman aşımı yok
 
   name-resolution:
-    # Sıra önemli — boş olmayan ilk sonuç kazanır.
+    # Sıra önemli: boş olmayan ilk sonuç kazanır.
     # local-cache PlayerIdentity kategorisini okur.
     # offline-mode-uuid UUID.nameUUIDFromBytes türetir (yalnızca offline sunucular).
     chain: [local-cache, offline-mode-uuid]
@@ -101,6 +98,6 @@ database:
   # sırasında değiştirmek güvenlidir.
   server-name: "Prison"
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

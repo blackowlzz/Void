@@ -5,7 +5,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.sql.*;
-import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public final class PunishmentDatabase {
             applyPragmas();
             createTable();
             nextId = readMaxId() + 1;
-            LogUtil.info("[PunishmentDB] Initialized — " + (nextId - 1) + " existing records.");
+            LogUtil.info("[PunishmentDB] Initialized: " + (nextId - 1) + " existing records.");
         } catch (Exception e) {
             LogUtil.error("[PunishmentDB] Failed to initialize punishments.db", e);
         }
@@ -206,8 +205,11 @@ public final class PunishmentDatabase {
     }
 
     private long readMaxId() throws SQLException {
+        // Use the max numeric suffix of ban_id ("VOID-000042" -> 42) rather than COUNT(*),
+        // so deleting records can never cause the counter to produce a duplicate ban_id.
         try (Statement s = connection.createStatement();
-             ResultSet rs = s.executeQuery("SELECT COUNT(*) FROM " + TABLE)) {
+             ResultSet rs = s.executeQuery(
+                     "SELECT COALESCE(MAX(CAST(SUBSTR(ban_id, 6) AS INTEGER)), 0) FROM " + TABLE)) {
             return rs.next() ? rs.getLong(1) : 0;
         }
     }
@@ -233,7 +235,7 @@ public final class PunishmentDatabase {
             s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_punishments_name ON "
                     + TABLE + "(LOWER(player_name))");
 
-            // Active ban table — used by VoidBanManager for native timed-ban enforcement
+            // Active ban table, used by VoidBanManager for native timed-ban enforcement
             s.executeUpdate("CREATE TABLE IF NOT EXISTS void_active_bans ("
                     + "uuid        TEXT PRIMARY KEY,"
                     + "player_name TEXT NOT NULL,"
@@ -316,6 +318,29 @@ public final class PunishmentDatabase {
             }
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to query active ban for " + uuid, e);
+            return null;
+        }
+    }
+
+    public synchronized @Nullable ActiveBanRecord activeBanQueryByName(String name) {
+        if (connection == null) return null;
+        String sql = "SELECT uuid, player_name, reason, expires_at, ban_id, timestamp"
+                + " FROM void_active_bans WHERE LOWER(player_name) = LOWER(?) LIMIT 1";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, name);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) return null;
+                return new ActiveBanRecord(
+                        rs.getString("ban_id"),
+                        UUID.fromString(rs.getString("uuid")),
+                        rs.getString("player_name"),
+                        rs.getString("reason"),
+                        rs.getLong("expires_at"),
+                        rs.getLong("timestamp")
+                );
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Failed to query active ban by name for " + name, e);
             return null;
         }
     }

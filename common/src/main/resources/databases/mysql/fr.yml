@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Paramètres du backend MySQL.
 #
 #  MySQL supporte les déploiements multi-serveurs (plusieurs instances Void
@@ -6,8 +5,6 @@
 #  runtime ; s'il manque, le backend se désactive au démarrage, logue une
 #  erreur claire, et le routing qui le visait retombe sur ce qui est
 #  configuré par ailleurs.
-# ===========================================================================
-
 # Toutes les clés vivent sous `mysql:` pour que le keyspace de ce fichier
 # n'entre pas en collision avec les fichiers de backends voisins (sqlite:,
 # postgres:, mongo:, redis:) quand Configuralize les fusionne dans un
@@ -22,7 +19,7 @@ mysql:
 
   # Paramètres d'URL supplémentaires ajoutés après le jeu fixe
   # (useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true).
-  # Laissez vide sauf besoin spécifique — les défauts conviennent à une
+  # Laissez vide sauf besoin spécifique: les défauts conviennent à une
   # install locale de dev.
   extra-jdbc-params: ""
 
@@ -44,6 +41,6 @@ mysql:
     violations: void_violations
     settings: void_settings
 
-# Marqueurs de schéma — voir le commentaire d'en-tête dans config.yml.
+# Marqueurs de schéma: voir le commentaire d'en-tête dans config.yml.
 config-flavor: V2
 config-version: 1

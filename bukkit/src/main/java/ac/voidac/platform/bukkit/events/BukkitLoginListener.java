@@ -21,6 +21,11 @@ public class BukkitLoginListener implements Listener {
     public void onPreLogin(AsyncPlayerPreLoginEvent event) {
         UUID uuid = event.getUniqueId();
         ActiveBanRecord ban = VoidAPI.INSTANCE.getVoidBanManager().getActiveBan(uuid);
+        if (ban == null) {
+            // Fallback: covers offline-mode/proxy UUID mismatches where the UUID stored
+            // at ban-time differs from the UUID the server sees at login.
+            ban = VoidAPI.INSTANCE.getVoidBanManager().getActiveBanByName(event.getName());
+        }
         if (ban == null) return;
         event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, ban.reason());
     }

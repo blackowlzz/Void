@@ -1,43 +1,25 @@
-# ===========================================================================
-#  Redis backend settings.
-#
-#  Redis is primarily an in-memory store — ensure AOF persistence is
-#  enabled on the server if you route history to it, or the history will
-#  disappear on restart. Requires Jedis at runtime; if Jedis is missing
-#  the backend disables itself and routing falls back.
-#
-#  Not recommended as a primary history target. Offered for operators
-#  who only have Redis available and need something working in a pinch.
-# ===========================================================================
-
-# Every key lives under `redis:` so this file's keyspace doesn't collide
-# with sibling per-backend files when Configuralize merges them all into
-# one global namespace.
+# Redis backend. Not recommended for history; enable AOF persistence on the server if you use it.
 redis:
   host: "localhost"
   port: 6379
 
-  # Logical database index (0-15 by default).
+  # Logical database index (0-15).
   database: 0
 
-  # Optional ACL credentials. Leave empty for no-auth Redis.
+  # ACL credentials. Leave empty for no-auth Redis.
   user: ""
   password: ""
 
-  # Prepended to every key this backend writes. Useful when sharing a Redis
-  # instance with other apps. Leave empty for no prefix.
+  # Prefix added to every key Void writes. Useful when sharing a Redis instance with other apps.
   key-prefix: ""
 
   timeout-ms: 2000
   batch-flush-cap: 256
 
-  # When true, log a startup warning if this backend is routing
-  # violation/session history. Set false to silence after you've confirmed
-  # persistence is configured.
+  # Log a warning on startup when violation/session history is routed here. Disable once confirmed.
   warn-on-history: true
 
-  # Key-namespace overrides. Interpreted as key-prefix segments (Redis has
-  # no native tables). Default names below.
+  # Key namespace overrides.
   tables:
     meta: void_meta
     checks: void_checks
@@ -46,6 +28,6 @@ redis:
     violations: void_violations
     settings: void_settings
 
-# Schema markers — see header comment in config.yml.
+# Schema markers: see header comment in config.yml.
 config-flavor: V2
 config-version: 1

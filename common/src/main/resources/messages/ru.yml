@@ -75,7 +75,7 @@ help:
 # UI истории на основе сессий. Все строки ниже полностью настраиваются;
 # плейсхолдеры задокументированы у каждого ключа. Текст hover для строк
 # сессий и нарушений собирает рендерер из сырых данных (verbose, разбивка
-# по чекам), шаблон для него не нужен — но в любую строку можно добавить
+# по чекам), шаблон для него не нужен: но в любую строку можно добавить
 # <hover:show_text:'...'> и наложить дополнительный тултип.
 
 void-history-load-failure: "%prefix% &cНе удалось загрузить подсистему истории! Проверьте консоль сервера на наличие ошибок."
@@ -85,16 +85,16 @@ void-history-unknown-player: "%prefix% &cНеизвестный игрок: &f%p
 void-history-no-sessions: "%prefix% &7Нет истории сессий для &f%player%&7."
 void-history-session-not-found: "%prefix% &cСессия &f%ordinal%&c не найдена для &f%player%&c."
 
-# Список сессий — допустимые плейсхолдеры: %prefix% %player% %page% %max_pages%
+# Список сессий: допустимые плейсхолдеры: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Сводная строка одной сессии — допустимые плейсхолдеры:
+# Сводная строка одной сессии: допустимые плейсхолдеры:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
 # %crashed_marker% разворачивается в void-history-crashed-marker для сессий,
 # чьё соединение оборвалось без штатного закрытия (краш сервера, kill -9,
 # RST канала, не вызвавший UserDisconnectEvent). Для активных или штатно
-# закрытых сессий — пустая строка.
+# закрытых сессий: пустая строка.
 void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # Встроенный маркер, подставляемый в %crashed_marker% для сессий с
@@ -104,7 +104,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # исчезает.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Детали сессии — допустимые плейсхолдеры:
+# Детали сессии: допустимые плейсхолдеры:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -113,15 +113,15 @@ void-history-detail-meta1: "  &8▸ &7Версия &f%void_version% &8│ &7Се
 void-history-detail-meta2: "  &8▸ &7Клиент &f%client_version% &8│ &7Бренд &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7нарушений &8(&d%unique_checks% &7уникальных&8)"
 void-history-detail-empty: "  &8▸ &7(нет)"
-# Сгруппированная строка (по умолчанию) — допустимые плейсхолдеры: %prefix% %offset% %checks_list%
+# Сгруппированная строка (по умолчанию): допустимые плейсхолдеры: %prefix% %offset% %checks_list%
 #   %checks_list% строится склейкой записей void-history-check-count через ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# Одиночная строка нарушения (--detailed) — допустимые плейсхолдеры:
+# Одиночная строка нарушения (--detailed): допустимые плейсхолдеры:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# Внутренний формат каждой записи в %checks_list% — допустимые плейсхолдеры: %check_name% %count%
+# Внутренний формат каждой записи в %checks_list%: допустимые плейсхолдеры: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Маркеры схемы — см. шапку config.yml.
+# Маркеры схемы: см. шапку config.yml.
 config-flavor: V2
 config-version: 1

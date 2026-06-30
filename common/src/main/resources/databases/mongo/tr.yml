@@ -1,10 +1,7 @@
-# ===========================================================================
 #  MongoDB backend ayarları.
 #
 #  Çalışma zamanında senkron MongoDB sürücüsünü gerektirir; sürücü yoksa
 #  backend kendini devre dışı bırakır ve routing fallback'ine düşer.
-# ===========================================================================
-
 # Tüm anahtarlar `mongo:` altında yer alır; böylece Configuralize tümünü
 # tek bir global ad alanında birleştirdiğinde bu dosyanın anahtar uzayı
 # kardeş backend dosyalarıyla çakışmaz.
@@ -18,7 +15,7 @@ mongo:
   database: "void"
 
   # Handler başına bulkWrite() boyutu. Mongo sürücüsü bağlantıları
-  # dahili olarak havuzlar — bu commit batching'i kontrol eder, bağlantı
+  # dahili olarak havuzlar: bu commit batching'i kontrol eder, bağlantı
   # sayısını değil.
   batch-flush-cap: 256
 
@@ -31,6 +28,6 @@ mongo:
     violations: void_violations
     settings: void_settings
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

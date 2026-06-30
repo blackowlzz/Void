@@ -1,10 +1,7 @@
-# ===========================================================================
 #  Impostazioni del backend SQLite.
 #
 #  SQLite è solo per single-server. Per setup in rete commuta il routing in
 #  database.yml verso un backend che parla con un database condiviso.
-# ===========================================================================
-
 # Tutte le chiavi vivono sotto `sqlite:` così il keyspace di questo file
 # non collide con i file fratelli per backend (mysql:, postgres:, mongo:,
 # redis:) quando Configuralize li unisce in un namespace globale.
@@ -15,7 +12,7 @@ sqlite:
   # è un file nuovo, mai un ALTER sul legacy.
   path: "data/history.v1.db"
 
-  # Il modo WAL consente lettori concorrenti accanto al writer — essenziale
+  # Il modo WAL consente lettori concorrenti accanto al writer: essenziale
   # per un plugin che legge /void history mentre scrive violazioni.
   journal-mode: WAL
 
@@ -40,6 +37,6 @@ sqlite:
   # Valori più alti scambiano latenza per throughput sotto burst sostenuti.
   batch-flush-cap: 256
 
-# Marcatori di schema — vedi il commento di intestazione in config.yml.
+# Marcatori di schema: vedi il commento di intestazione in config.yml.
 config-flavor: V2
 config-version: 1

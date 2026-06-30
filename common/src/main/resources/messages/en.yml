@@ -71,12 +71,7 @@ help:
     - "  &5/void banwave             &8│ &7Manage the ban wave queue"
     - "  &5/void punishments &8<query> &8│ &7Look up punishment records"
 
-# === /void history ===
-# Session-based history UI. All lines below are fully configurable; placeholders
-# documented at each key. Hover-text on session and violation lines is built by
-# the renderer from the raw data (verbose, check breakdowns) and doesn't need a
-# template — but you can add <hover:show_text:'...'> to any line below to layer
-# additional tooltips on top.
+# /void history
 
 void-history-load-failure: "%prefix% &cThe archive failed to load. Check the console for errors."
 void-history-disabled: "%prefix% &cThe archive is disabled."
@@ -85,42 +80,28 @@ void-history-unknown-player: "%prefix% &cUnknown player: &f%player%"
 void-history-no-sessions: "%prefix% &7No sessions for &f%player%&7."
 void-history-session-not-found: "%prefix% &cSession &f%ordinal%&c not found for &f%player%&c."
 
-# Session list — valid placeholders: %prefix% %player% %page% %max_pages%
+# Placeholders: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Single session summary line — valid placeholders:
-#   %prefix% %player% %ordinal% %void_version% %server_name%
-#   %client_version% %client_brand% %duration% %timeago%
-#   %violations% %unique_checks% %crashed_marker%
-# %crashed_marker% expands to void-history-crashed-marker for sessions
-# whose connection went away without a graceful close (server crash,
-# kill -9, channel RST that didn't fire UserDisconnectEvent). Empty
-# string for ongoing or gracefully-closed sessions.
+# Placeholders: %prefix% %player% %ordinal% %void_version% %server_name% %client_version% %client_brand% %duration% %timeago% %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% expands to void-history-crashed-marker on ungraceful disconnects, empty otherwise.
 void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
-# Inline marker substituted into %crashed_marker% on session lines whose
-# closed_at == last_activity (i.e. stamped by the next-boot crash sweep
-# rather than the disconnect path). Includes a leading space so the
-# marker reads naturally when present and disappears when empty.
+# Substituted into %crashed_marker% on sessions that ended without a graceful disconnect.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Session detail — valid placeholders:
-#   %prefix% %player% %ordinal% %void_version% %server_name%
-#   %client_version% %client_brand% %duration% %timeago%
-#   %violations% %unique_checks% %bucket_size%
+# Placeholders: %prefix% %player% %ordinal% %void_version% %server_name% %client_version% %client_brand% %duration% %timeago% %violations% %unique_checks% %bucket_size%
 void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
 void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
 void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Brand &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7violations &8(&d%unique_checks% &7unique&8)"
 void-history-detail-empty: "  &8▸ &7(none)"
-# A grouped row (default) — valid placeholders: %prefix% %offset% %checks_list%
-#   %checks_list% is built by joining void-history-check-count entries with ", "
+# Placeholders: %prefix% %offset% %checks_list% — %checks_list% joins void-history-check-count entries with ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# A single raw violation row (--detailed) — valid placeholders:
-#   %prefix% %offset% %check% %vl% %verbose%
+# Placeholders: %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# Inner format for each check in a group's %checks_list% — valid placeholders: %check_name% %count%
+# Placeholders: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Schema markers — see header comment in config.yml.
+# Schema markers: see header comment in config.yml.
 config-flavor: V2
 config-version: 1

@@ -194,5 +194,10 @@ tasks {
         manifest {
             attributes["paperweight-mappings-namespace"] = "mojang"
         }
+        doFirst {
+            destinationDirectory.get().asFile
+                .listFiles { f -> f.extension == "jar" }
+                ?.forEach { it.delete() }
+        }
     }
 }

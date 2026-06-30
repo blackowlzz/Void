@@ -73,9 +73,17 @@ public final class VoidConfigSpecs {
      *
      * <p>v18 → v19: adds the {@code ban-wave} section for deferred, batch ban execution.
      * No value migration needed — new keys auto-lift from the bundled default.
+     *
+     * <p>v19 → v20: adds the {@code via-proxy} section and {@code viaversion-attenuation}
+     * flag (cross-version prediction offset attenuation). No value migration needed — new
+     * keys auto-lift from the bundled default.
+     *
+     * <p>v20 → v21: adds {@code viaversion-elytra-attenuation} flag (extra offset attenuation
+     * for cross-version players during elytra gliding). No value migration needed — new key
+     * auto-lifts from the bundled default.
      */
     public static @NotNull ConfigUpdater.Spec mainConfig() {
-          return ConfigUpdater.Spec.builder("/config/", 19, ConfigUpdater.ConfigFlavor.V2)
+          return ConfigUpdater.Spec.builder("/config/", 21, ConfigUpdater.ConfigFlavor.V2)
                 .migration(10, ctx -> {
                     String typeRaw = ctx.input().getString("history.database.type");
                     String type = typeRaw == null ? null : typeRaw.trim().toUpperCase(Locale.ROOT);

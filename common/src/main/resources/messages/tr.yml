@@ -85,9 +85,9 @@ void-history-unknown-player: "%prefix% &cBilinmeyen oyuncu: &f%player%"
 void-history-no-sessions: "%prefix% &7&f%player% &7için oturum geçmişi yok."
 void-history-session-not-found: "%prefix% &c&f%player% &ciçin &f%ordinal% &cnumaralı oturum bulunamadı."
 
-# Oturum listesi — geçerli placeholder'lar: %prefix% %player% %page% %max_pages%
+# Oturum listesi: geçerli placeholder'lar: %prefix% %player% %page% %max_pages%
 void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
-# Tek oturum özeti satırı — geçerli placeholder'lar:
+# Tek oturum özeti satırı: geçerli placeholder'lar:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
@@ -103,7 +103,7 @@ void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violatio
 # okunsun, yokken temiz kaybolsun diye başında bir boşluk içerir.
 void-history-crashed-marker: " &8(&ccrashed&8)"
 
-# Oturum detayı — geçerli placeholder'lar:
+# Oturum detayı: geçerli placeholder'lar:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
@@ -112,15 +112,15 @@ void-history-detail-meta1: "  &8▸ &7Versiyon &f%void_version% &8│ &7Sunucu &
 void-history-detail-meta2: "  &8▸ &7İstemci &f%client_version% &8│ &7Marka &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7ihlal &8(&d%unique_checks% &7benzersiz&8)"
 void-history-detail-empty: "  &8▸ &7(yok)"
-# Gruplanmış satır (varsayılan) — geçerli placeholder'lar: %prefix% %offset% %checks_list%
+# Gruplanmış satır (varsayılan): geçerli placeholder'lar: %prefix% %offset% %checks_list%
 #   %checks_list%, void-history-check-count girdileri ", " ile birleştirilerek oluşur
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
-# Tek ham ihlal satırı (--detailed) — geçerli placeholder'lar:
+# Tek ham ihlal satırı (--detailed): geçerli placeholder'lar:
 #   %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
-# %checks_list% içinde her kontrol için iç biçim — geçerli placeholder'lar: %check_name% %count%
+# %checks_list% içinde her kontrol için iç biçim: geçerli placeholder'lar: %check_name% %count%
 void-history-check-count: "&f%check_name%&7 x&d%count%"
 
-# Şema işaretçileri — bkz. config.yml'deki başlık yorumu.
+# Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
 config-version: 1

@@ -7,6 +7,7 @@ import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vector3dm;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.JumpPower;
+import com.github.retrooper.packetevents.protocol.attribute.Attributes;
 import com.github.retrooper.packetevents.protocol.item.ItemStack;
 import com.github.retrooper.packetevents.protocol.item.type.ItemTypes;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
@@ -27,7 +28,14 @@ public class PredictionEngineNormal extends PredictionEngine {
             // Reset fall distance with levitation
             player.fallDistance = 0;
         } else if (player.hasGravity) {
-            adjustedY -= player.gravity;
+            // Re-evaluate slow falling here rather than using cached player.gravity,
+            // so that a player hitting their head (actualMovement.Y > 0) while under
+            // Slow Falling still gets reduced gravity on the next tick.
+            double gravity = player.compensatedEntities.self.getAttributeValue(Attributes.GRAVITY);
+            if (vector.getY() <= 0 && player.compensatedEntities.getSlowFallingAmplifier().isPresent()) {
+                gravity = player.getClientVersion().isOlderThan(ClientVersion.V_1_20_5) ? 0.01 : Math.min(gravity, 0.01);
+            }
+            adjustedY -= gravity;
         }
 
         vector.setX(vector.getX() * player.friction);

@@ -358,7 +358,12 @@ public class MovementCheckRunner extends Check implements PositionCheck {
         // Sprinting status itself does not desync, only the attribute as mojang forgot that the server
         // can change the attribute
         if (!player.inVehicle()) {
-            player.speed += player.compensatedEntities.hasSprintingAttributeEnabled ? player.speed * 0.3f : 0;
+            // Multiplying by 1.3 or 1.3f results in precision loss, you must use a double intermediary
+            double movementSpeed = player.speed;
+            if (player.compensatedEntities.hasSprintingAttributeEnabled) {
+                movementSpeed += movementSpeed * 0.3F;
+            }
+            player.speed = (float) movementSpeed;
         }
 
         boolean clientClaimsRiptide = player.packetStateData.tryingToRiptide;
@@ -579,6 +584,8 @@ public class MovementCheckRunner extends Check implements PositionCheck {
         player.checkManager.onPredictionFinish(new PredictionComplete(offset, update, wasChecked));
 
         player.wasLastPredictionCompleteChecked = wasChecked;
+
+        player.updateNetherPortalState();
 
         // Patch sprint jumping with elytra exploit
         if (player.platformPlayer != null && player.isGliding && player.predictedVelocity.isJump() && player.isSprinting && !allowSprintJumpingWithElytra) {

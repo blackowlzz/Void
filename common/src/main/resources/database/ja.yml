@@ -1,4 +1,3 @@
-# ===========================================================================
 #  Void データストア
 #
 #  DataStore のカテゴリ（violation / session / player-identity / setting /
@@ -9,8 +8,6 @@
 #  初回起動時、既存のレガシーストア（violations.sqlite）があれば自動的に
 #  新ストアへ移行します。後で手動で移行したい場合は migration.skip を
 #  true に設定してください。
-# ===========================================================================
-
 # データストアのすべてのキーは、この最上位ラッパーの下に置かれます。
 # Configuralize は実行時にすべての yml を 1 つのグローバル keyspace に
 # 統合するため、フラットな配置にすると config.yml / discord.yml の同名
@@ -84,7 +81,7 @@ database:
     max-duration-ms: 0        # 0 = タイムアウトなし
 
   name-resolution:
-    # 順序が重要 — 最初に空でない結果を返したものが採用されます。
+    # 順序が重要: 最初に空でない結果を返したものが採用されます。
     # local-cache は PlayerIdentity カテゴリを読みます。
     # offline-mode-uuid は UUID.nameUUIDFromBytes を導出します（オフライン
     # サーバー専用）。
@@ -98,6 +95,6 @@ database:
   # のセッションヘッダー行に表示されます。運用中の変更も安全です。
   server-name: "Prison"
 
-# スキーマ用マーカー — config.yml のヘッダーコメントを参照。
+# スキーマ用マーカー: config.yml のヘッダーコメントを参照。
 config-flavor: V2
 config-version: 1

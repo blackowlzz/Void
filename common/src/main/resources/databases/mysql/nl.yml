@@ -1,4 +1,3 @@
-# ===========================================================================
 #  MySQL-backendinstellingen.
 #
 #  MySQL ondersteunt multi-server-deployments (meerdere Void-instances die
@@ -6,8 +5,6 @@
 #  programma in runtime; als de driver ontbreekt, schakelt het backend
 #  zichzelf uit bij het starten, logt een duidelijke fout, en routing dat
 #  hierheen wees valt terug op wat er verder geconfigureerd staat.
-# ===========================================================================
-
 # Alle sleutels staan onder `mysql:` zodat de keyspace van dit bestand
 # niet botst met zustertbestanden per backend (sqlite:, postgres:, mongo:,
 # redis:) wanneer Configuralize ze samenvoegt in één globale namespace.
@@ -21,13 +18,13 @@ mysql:
 
   # Extra URL-parameters die na de vaste set worden toegevoegd
   # (useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true).
-  # Laat leeg tenzij je iets specifieks nodig hebt — de defaults passen
+  # Laat leeg tenzij je iets specifieks nodig hebt: de defaults passen
   # bij een lokale dev-installatie.
   extra-jdbc-params: ""
 
   # Per-handler batch-flush-cap. Elke ringhandler verzamelt events in een
   # PreparedStatement-batch en commit op endOfBatch OF wanneer de batch
-  # deze cap bereikt — wat het eerst gebeurt. Hogere waarden ruilen
+  # deze cap bereikt: wat het eerst gebeurt. Hogere waarden ruilen
   # latency in voor doorvoer onder aanhoudende bursts.
   batch-flush-cap: 256
 
@@ -43,6 +40,6 @@ mysql:
     violations: void_violations
     settings: void_settings
 
-# Schemamarkers — zie de header-comment in config.yml.
+# Schemamarkers: zie de header-comment in config.yml.
 config-flavor: V2
 config-version: 1

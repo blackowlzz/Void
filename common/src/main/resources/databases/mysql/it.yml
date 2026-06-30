@@ -1,12 +1,9 @@
-# ===========================================================================
 #  Impostazioni del backend MySQL.
 #
 #  MySQL supporta deployment multi-server (più istanze Void che scrivono
 #  in un DB centrale). Richiede il driver MySQL Connector/J a runtime; se
 #  manca, il backend si disabilita all'avvio, logga un errore chiaro, e il
 #  routing che puntava qui ricade su ciò che è configurato altrove.
-# ===========================================================================
-
 # Tutte le chiavi vivono sotto `mysql:` così il keyspace di questo file
 # non collide con i file fratelli per backend (sqlite:, postgres:, mongo:,
 # redis:) quando Configuralize li unisce in un namespace globale.
@@ -20,7 +17,7 @@ mysql:
 
   # Parametri URL extra appesi dopo il set fisso
   # (useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true).
-  # Lascia vuoto se non hai bisogno di qualcosa di specifico — i default
+  # Lascia vuoto se non hai bisogno di qualcosa di specifico: i default
   # sono quelli giusti per un'installazione locale di sviluppo.
   extra-jdbc-params: ""
 
@@ -42,6 +39,6 @@ mysql:
     violations: void_violations
     settings: void_settings
 
-# Marcatori di schema — vedi il commento di intestazione in config.yml.
+# Marcatori di schema: vedi il commento di intestazione in config.yml.
 config-flavor: V2
 config-version: 1
