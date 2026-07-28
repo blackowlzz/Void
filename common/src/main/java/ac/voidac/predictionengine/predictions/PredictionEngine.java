@@ -5,7 +5,7 @@ import ac.voidac.predictionengine.SneakingEstimator;
 import ac.voidac.predictionengine.movementtick.MovementTickerPlayer;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.KnownInput;
-import ac.voidac.utils.data.Pair;
+import ac.voidac.utils.data.Triple;
 import ac.voidac.utils.data.VectorData;
 import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vec2;
@@ -150,15 +150,15 @@ public class PredictionEngine {
         }
 
         // Finally, this was not 0.03 or small movements, so we can attempt to predict it.
-        doPredictions(player, possibleVelocities, speed);
+        Vector3dm beforeCollisionMovement = doPredictions(player, possibleVelocities, speed);
 
         // Client velocity - before collision and carried into the next tick
         // Predicted velocity - after collision and not carried into the next tick
-        new MovementTickerPlayer(player).move(player.clientVelocity.clone(), player.predictedVelocity.vector);
+        new MovementTickerPlayer(player).move(beforeCollisionMovement, player.predictedVelocity.vector);
         endOfTick(player, player.gravity);
     }
 
-    private void doPredictions(VoidPlayer player, List<VectorData> possibleVelocities, float speed) {
+    private Vector3dm doPredictions(VoidPlayer player, List<VectorData> possibleVelocities, float speed) {
         // Computers are actually really fast at sorting, I don't see sorting as a problem
         possibleVelocities.sort((a, b) -> sortVectorData(a, b, player));
 
@@ -168,6 +168,7 @@ public class PredictionEngine {
 
         VectorData bestCollisionVel = null;
         Vector3dm beforeCollisionMovement = null;
+        Vector3dm realBeforeCollisionMovement = null;
         Vector3dm originalClientVel = player.clientVelocity.clone();
 
         SimpleCollisionBox originalBB = player.boundingBox;
@@ -196,8 +197,9 @@ public class PredictionEngine {
             }
 
             // Returns pair of primary push movement, and then outputvel
-            Pair<Vector3dm, Vector3dm> output = doSeekingWallCollisions(player, primaryPushMovement, originalClientVel, clientVelAfterInput);
+            Triple<Vector3dm, Vector3dm, Vector3dm> output = doSeekingWallCollisions(player, primaryPushMovement, originalClientVel, clientVelAfterInput);
             primaryPushMovement = output.first();
+            Vector3dm realPrimaryPushMovement = output.third();
             Vector3dm outputVel = clampMovementToHardBorder(player, output.second());
 
             double resultAccuracy = outputVel.distanceSquared(player.actualMovement);
@@ -246,6 +248,7 @@ public class PredictionEngine {
                 bestCollisionVel = clientVelAfterInput.returnNewModified(outputVel, VectorData.VectorType.BestVelPicked);
                 bestCollisionVel.preUncertainty = clientVelAfterInput;
                 beforeCollisionMovement = primaryPushMovement;
+                realBeforeCollisionMovement = realPrimaryPushMovement;
 
                 // We basically want to avoid falsing ground spoof, try to find a vector that works
                 if (player.wouldCollisionResultFlagGroundSpoof(primaryPushMovement.getY(), bestCollisionVel.vector.getY()))
@@ -261,8 +264,9 @@ public class PredictionEngine {
         }
 
         assert beforeCollisionMovement != null;
+        assert realBeforeCollisionMovement != null;
 
-        player.clientVelocity = beforeCollisionMovement.clone();
+        player.clientVelocity = realBeforeCollisionMovement.clone();
         player.predictedVelocity = bestCollisionVel; // Set predicted vel to get the vector types later in the move method
         player.boundingBox = originalBB;
 
@@ -270,9 +274,11 @@ public class PredictionEngine {
         if (player.predictedVelocity.isZeroPointZeroThree()) {
             player.skippedTickInActualMovement = true;
         }
+
+        return beforeCollisionMovement;
     }
 
-    private Pair<Vector3dm, Vector3dm> doSeekingWallCollisions(VoidPlayer player, Vector3dm primaryPushMovement, Vector3dm originalClientVel, VectorData clientVelAfterInput) {
+    private Triple<Vector3dm, Vector3dm, Vector3dm> doSeekingWallCollisions(VoidPlayer player, Vector3dm primaryPushMovement, Vector3dm originalClientVel, VectorData clientVelAfterInput) {
         boolean vehicleKB = player.inVehicle() && clientVelAfterInput.isKnockback() && clientVelAfterInput.vector.getY() == 0;
         // Extra collision epsilon required for vehicles to be accurate
         double xAdditional = Math.signum(primaryPushMovement.getX()) * SimpleCollisionBox.COLLISION_EPSILON;
@@ -286,26 +292,26 @@ public class PredictionEngine {
         double testX = primaryPushMovement.getX() + xAdditional;
         double testY = primaryPushMovement.getY() + yAdditional;
         double testZ = primaryPushMovement.getZ() + zAdditional;
-        primaryPushMovement = new Vector3dm(testX, testY, testZ);
+        Vector3dm testPrimaryPushMovement = new Vector3dm(testX, testY, testZ);
 
-        Vector3dm outputVel = Collisions.collide(player, primaryPushMovement.getX(), primaryPushMovement.getY(), primaryPushMovement.getZ(), originalClientVel.getY(), clientVelAfterInput);
+        Vector3dm outputVel = Collisions.collide(player, testPrimaryPushMovement.getX(), testPrimaryPushMovement.getY(), testPrimaryPushMovement.getZ(), originalClientVel.getY(), clientVelAfterInput);
 
         if (testX == outputVel.getX()) { // the player didn't have X collision, don't ruin offset by collision epsilon
-            primaryPushMovement.setX(primaryPushMovement.getX() - xAdditional);
+            testPrimaryPushMovement.setX(testPrimaryPushMovement.getX() - xAdditional);
             outputVel.setX(outputVel.getX() - xAdditional);
         }
 
         if (testY == outputVel.getY()) { // the player didn't have Y collision, don't ruin offset by collision epsilon
-            primaryPushMovement.setY(primaryPushMovement.getY() - yAdditional);
+            testPrimaryPushMovement.setY(testPrimaryPushMovement.getY() - yAdditional);
             outputVel.setY(outputVel.getY() - yAdditional);
         }
 
         if (testZ == outputVel.getZ()) { // the player didn't have Z collision, don't ruin offset by collision epsilon
-            primaryPushMovement.setZ(primaryPushMovement.getZ() - zAdditional);
+            testPrimaryPushMovement.setZ(testPrimaryPushMovement.getZ() - zAdditional);
             outputVel.setZ(outputVel.getZ() - zAdditional);
         }
 
-        return new Pair<>(primaryPushMovement, outputVel);
+        return new Triple<>(testPrimaryPushMovement, outputVel, primaryPushMovement);
     }
 
     // 0.03 has some quite bad interactions with velocity + explosions (one extremely stupid line of code... thanks mojang)

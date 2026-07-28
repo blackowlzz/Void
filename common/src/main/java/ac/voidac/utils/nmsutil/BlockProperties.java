@@ -1,6 +1,10 @@
 package ac.voidac.utils.nmsutil;
 
 import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.collisions.CollisionData;
+import ac.voidac.utils.collisions.datatypes.CollisionBox;
+import ac.voidac.utils.collisions.datatypes.ComplexCollisionBox;
+import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.MainSupportingBlockData;
 import ac.voidac.utils.data.packetentity.PacketEntity;
 import ac.voidac.utils.data.packetentity.PacketEntityHorse;
@@ -213,5 +217,23 @@ public class BlockProperties {
     private static float getModernVelocityMultiplier(VoidPlayer player, float blockSpeedFactor) {
         if (player.getClientVersion().isOlderThan(ClientVersion.V_1_21)) return blockSpeedFactor;
         return (float) VoidMath.lerp((float) player.compensatedEntities.self.getAttributeValue(Attributes.MOVEMENT_EFFICIENCY), blockSpeedFactor, 1.0F);
+    }
+
+    public static double getBlockCollisionHeight(VoidPlayer player, WrappedBlockState block) {
+        StateType type = block.getType();
+        if (type.isAir()) {
+            return 0D;
+        }
+
+        CollisionBox movementCollisionBox = CollisionData.getData(type).getMovementCollisionBox(player, player.getClientVersion(), block);
+        SimpleCollisionBox[] movementCollisionBoxes = new SimpleCollisionBox[ComplexCollisionBox.DEFAULT_MAX_COLLISION_BOX_SIZE];
+        int size = movementCollisionBox.downCast(movementCollisionBoxes);
+
+        double height = 0D;
+        for (int i = 0; i < size; i++) {
+            height = Math.max(height, movementCollisionBoxes[i].maxY);
+        }
+
+        return height;
     }
 }

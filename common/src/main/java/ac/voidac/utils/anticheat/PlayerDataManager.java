@@ -3,6 +3,8 @@ package ac.voidac.utils.anticheat;
 import ac.voidac.VoidAPI;
 import ac.voidac.api.event.events.VoidJoinEvent;
 import ac.voidac.api.event.events.VoidQuitEvent;
+import ac.voidac.platform.api.player.PlatformPlayer;
+import ac.voidac.platform.api.player.PlatformPlayerCache;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.reflection.GeyserUtil;
 import com.github.retrooper.packetevents.PacketEvents;
@@ -127,9 +129,10 @@ public class PlayerDataManager {
         if (uuid == null)
             return; // folia doesn't like null getPlayer()
 
-        VoidAPI.INSTANCE.getAlertManager().handlePlayerQuit(
-                VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromUUID(uuid)
-        );
+        PlatformPlayer quittingPlayer = PlatformPlayerCache.getInstance().getPlayer(uuid);
+        if (quittingPlayer != null) {
+            VoidAPI.INSTANCE.getAlertManager().handlePlayerQuit(quittingPlayer);
+        }
 
         VoidAPI.INSTANCE.getSpectateManager().onQuit(uuid);
 

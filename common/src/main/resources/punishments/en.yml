@@ -84,8 +84,8 @@ Punishments:
       - "5:3 [proxy]"
   Freecam:
     remove-violations-after: 300
-    checks:
-      - "Freecam"
+    # Disabled by default. Add "Freecam" below to enable FreecamA/FreecamB.
+    checks: []
     commands:
       - "1:1 [alert]"
       - "1:1 [log]"

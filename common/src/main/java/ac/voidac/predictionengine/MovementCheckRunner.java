@@ -33,6 +33,7 @@ import ac.voidac.utils.enums.Pose;
 import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vector3dm;
 import ac.voidac.utils.math.VectorUtils;
+import ac.voidac.utils.nmsutil.BlockProperties;
 import ac.voidac.utils.nmsutil.BoundingBoxSize;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.GetBoundingBox;
@@ -382,9 +383,16 @@ public class MovementCheckRunner extends Check implements PositionCheck {
                 .expand(player.getMovementThreshold())
                 .offset(0.0, player.getClientVersion().isOlderThan(ClientVersion.V_1_15) ? -1.0 : -0.2, 0.0);
         Collisions.forEachCollisionBox(player, steppingOnBB, (data, pos) -> {
-            if (data.getType() == StateTypes.SLIME_BLOCK && Math.abs((pos.getY() + 1D) - player.lastY) <= player.getMovementThreshold() && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8)) {
-                player.uncertaintyHandler.isSteppingOnSlime = true;
-                player.uncertaintyHandler.isSteppingOnBouncyBlock = true;
+            if (data.getType() == StateTypes.SLIME_BLOCK && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8)) {
+                double blockHeight = 1D;
+                double blockAboveHeight = BlockProperties.getBlockCollisionHeight(player, player.compensatedWorld.getBlock(pos.getX(), pos.getY() + 1, pos.getZ()));
+                if (blockAboveHeight > 0D && blockAboveHeight < 1D) {
+                    blockHeight += blockAboveHeight;
+                }
+                if (Math.abs((pos.getY() + blockHeight) - player.lastY) <= player.getMovementThreshold()) {
+                    player.uncertaintyHandler.isSteppingOnSlime = true;
+                    player.uncertaintyHandler.isSteppingOnBouncyBlock = true;
+                }
             }
             if (data.getType() == StateTypes.HONEY_BLOCK) {
                 if (player.getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_14)

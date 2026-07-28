@@ -312,8 +312,8 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
             if (!freecamPattern.matcher(configString).find()) {
                 String freecamBlock = "\n  Freecam:\n" +
                         "    remove-violations-after: 300\n" +
-                        "    checks:\n" +
-                        "      - \"Freecam\"\n" +
+                        "    # Disabled by default. Add \"Freecam\" below to enable FreecamA/FreecamB.\n" +
+                        "    checks: []\n" +
                         "    commands:\n" +
                         "      - \"1:1 [alert]\"\n" +
                         "      - \"1:1 [log]\"\n" +

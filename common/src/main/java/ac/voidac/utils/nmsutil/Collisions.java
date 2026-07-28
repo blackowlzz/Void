@@ -14,6 +14,7 @@ import ac.voidac.utils.collisions.datatypes.CollisionBox;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.Pair;
 import ac.voidac.utils.data.VectorData;
+import ac.voidac.utils.data.packetentity.PacketEntity;
 import ac.voidac.utils.data.tags.SyncedTags;
 import ac.voidac.utils.latency.CompensatedWorld;
 import ac.voidac.utils.math.Location;
@@ -468,7 +469,13 @@ public final class Collisions {
     }
 
     public static void onInsideBlock(VoidPlayer player, StateType blockType, WrappedBlockState block, int blockX, int blockY, int blockZ, boolean magic) {
-        if (blockType == StateTypes.COBWEB) {
+        // Cobwebs and sweet berry bushes only slow down living entities: a player riding a boat/minecart
+        // through one should not have their vehicle's movement slowed (this was previously causing false
+        // reads on depth strider/vehicle speed when a boat clipped a cobweb or berry bush hitbox).
+        PacketEntity riding = player.compensatedEntities.self.getRiding();
+        boolean stuckEntityIsLiving = riding == null || riding.isLivingEntity;
+
+        if (stuckEntityIsLiving && blockType == StateTypes.COBWEB) {
             if (player.compensatedEntities.hasPotionEffect(PotionTypes.WEAVING)) {
                 player.stuckSpeedMultiplier = new Vector3dm(0.5, 0.25, 0.5);
             } else {
@@ -476,7 +483,7 @@ public final class Collisions {
             }
         }
 
-        if (blockType == StateTypes.SWEET_BERRY_BUSH
+        if (stuckEntityIsLiving && blockType == StateTypes.SWEET_BERRY_BUSH
                 && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
             player.stuckSpeedMultiplier = new Vector3dm(0.8f, 0.75, 0.8f);
         }
@@ -650,17 +657,20 @@ public final class Collisions {
         if (CheckIfChunksLoaded.areChunksUnloadedAt(player, blockPos.getBlockX(), blockPos.getBlockY(), blockPos.getBlockZ(), blockPos2.getBlockX(), blockPos2.getBlockY(), blockPos2.getBlockZ()))
             return false;
 
+        PacketEntity riding = player.compensatedEntities.self.getRiding();
+        boolean stuckEntityIsLiving = riding == null || riding.isLivingEntity;
+
         for (int i = blockPos.getBlockX(); i <= blockPos2.getBlockX(); ++i) {
             for (int j = blockPos.getBlockY(); j <= blockPos2.getBlockY(); ++j) {
                 for (int k = blockPos.getBlockZ(); k <= blockPos2.getBlockZ(); ++k) {
                     WrappedBlockState block = player.compensatedWorld.getBlock(i, j, k);
                     StateType blockType = block.getType();
 
-                    if (blockType == StateTypes.COBWEB) {
+                    if (stuckEntityIsLiving && blockType == StateTypes.COBWEB) {
                         return true;
                     }
 
-                    if (blockType == StateTypes.SWEET_BERRY_BUSH && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
+                    if (stuckEntityIsLiving && blockType == StateTypes.SWEET_BERRY_BUSH && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
                         return true;
                     }
 
