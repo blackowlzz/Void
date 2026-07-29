@@ -19,6 +19,7 @@ viaversion = "5.7.1"
 # --- General Java Utilities ---
 fastutil = "8.5.15"
 hikaricp = "7.0.2"
+slf4j = "2.0.17"
 jetbrains-annotations = "24.1.0"
 netty = "4.1.85.Final"
 snakeyaml = "2.2"
@@ -64,6 +65,11 @@ viaversion = { group = "com.viaversion", name = "viaversion", version.ref = "via
 # --- General Java Utilities ---
 fastutil = { group = "it.unimi.dsi", name = "fastutil", version.ref = "fastutil"}
 hikaricp = { group = "com.zaxxer", name = "HikariCP", version.ref = "hikaricp" }
+# SLF4J -> java.util.logging provider. HikariCP, Jedis and PacketEvents all log through
+# SLF4J; without a provider on the shaded (relocated) API they fall back to a no-op logger
+# and print a "No SLF4J providers were found" warning. JUL is what Bukkit's plugin logger
+# uses, so their messages land in the server console.
+slf4j-jdk14 = { group = "org.slf4j", name = "slf4j-jdk14", version.ref = "slf4j" }
 jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations" }
 netty = { group = "io.netty", name = "netty-all", version.ref = "netty" }
 snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }

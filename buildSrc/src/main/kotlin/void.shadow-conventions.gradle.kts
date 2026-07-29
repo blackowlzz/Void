@@ -8,6 +8,9 @@ plugins {
 tasks.named<ShadowJar>("shadowJar") {
     minimize {
         exclude(dependency("net.kyori:adventure-text-serializer-gson:.*"))
+        // Found via ServiceLoader, so minimize sees no references and would strip it,
+        // leaving the relocated SLF4J API with no provider.
+        exclude(dependency("org.slf4j:slf4j-jdk14:.*"))
     }
     archiveFileName = "${rootProject.name}-${project.name}-${rootProject.version}.jar"
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

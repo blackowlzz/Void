@@ -52,6 +52,10 @@ dependencies {
     implementation(libs.cloud.paper)
     implementation(libs.adventure.platform.bukkit)
 
+    // Service-loaded, so nothing references it at compile time; see the minimize exclusion
+    // in void.shadow-conventions.
+    runtimeOnly(libs.slf4j.jdk14)
+
     implementation(project(":common"))
     shadow(project(":common"))
 }
