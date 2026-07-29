@@ -11,6 +11,7 @@ import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vec2;
 import ac.voidac.utils.math.Vector3dm;
 import ac.voidac.utils.math.VectorUtils;
+import ac.voidac.utils.nmsutil.BlockProperties;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.GetBoundingBox;
 import ac.voidac.utils.nmsutil.JumpPower;
@@ -66,7 +67,7 @@ public class PredictionEngine {
         inputVector = new Vector3dm((float) inputVector.getX(), (float) inputVector.getY(), (float) inputVector.getZ());
 
         if (inputVector.lengthSquared() > 1) {
-            double d0 = Math.sqrt(inputVector.getX() * inputVector.getX() + inputVector.getY() * inputVector.getY() + inputVector.getZ() * inputVector.getZ());
+            double d0 = VectorUtils.getVanillaLength(player.getClientVersion(), inputVector);
             inputVector = new Vector3dm(inputVector.getX() / d0, inputVector.getY() / d0, inputVector.getZ() / d0);
         }
 
@@ -385,7 +386,7 @@ public class PredictionEngine {
                 if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_13)) {
                     Vector3dm vec3 = player.baseTickWaterPushing.clone();
                     if (Math.abs(vectorData.vector.getX()) < 0.003 && Math.abs(vectorData.vector.getZ()) < 0.003 && player.baseTickWaterPushing.length() < 0.0045000000000000005D) {
-                        vec3 = vec3.normalize().multiply(0.0045000000000000005);
+                        vec3 = VectorUtils.normalize(player, vec3).multiply(0.0045000000000000005);
                     }
 
                     vectorData.vector = vectorData.vector.add(vec3);
@@ -756,7 +757,8 @@ public class PredictionEngine {
         // Handle missing a tick with friction in vehicles
         // TODO: Attempt to fix mojang's netcode here
         if (player.uncertaintyHandler.lastVehicleSwitch.hasOccurredSince(1)) {
-            double trueFriction = player.lastOnGround ? player.friction * 0.91 : 0.91;
+            float airDrag = BlockProperties.getModifiedAirDrag(0.91F, player);
+            double trueFriction = player.lastOnGround ? player.friction * airDrag : airDrag;
             if (player.wasTouchingLava) trueFriction = 0.5;
             if (player.wasTouchingWater) trueFriction = 0.96;
 

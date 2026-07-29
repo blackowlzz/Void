@@ -30,7 +30,6 @@ import com.github.retrooper.packetevents.protocol.player.GameMode;
 import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
 import com.github.retrooper.packetevents.protocol.world.states.defaulttags.BlockTags;
 import com.github.retrooper.packetevents.protocol.world.states.type.StateType;
-import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 import com.github.retrooper.packetevents.util.Vector3d;
 import com.viaversion.viaversion.api.Via;
 import lombok.RequiredArgsConstructor;
@@ -117,22 +116,22 @@ public class MovementTicker {
             boolean zAxis = !VoidMath.equal(inputVel.getZ(), collide.getZ());
 
             if (xAxis) {
-                player.clientVelocity.setX(0);
+                player.clientVelocity.setX(BlockProperties.getVelocityAfterHorizontalCollision(player, player.clientVelocity.getX()));
             }
 
             if (zAxis) {
-                player.clientVelocity.setZ(0);
+                player.clientVelocity.setZ(BlockProperties.getVelocityAfterHorizontalCollision(player, player.clientVelocity.getZ()));
             }
 
             player.horizontalCollision = xAxis || zAxis;
             player.softHorizontalCollision = player.horizontalCollision && isHorizontalCollisionSoft(collide);
         } else {
             if (inputVel.getX() != collide.getX()) {
-                player.clientVelocity.setX(0);
+                player.clientVelocity.setX(BlockProperties.getVelocityAfterHorizontalCollision(player, player.clientVelocity.getX()));
             }
 
             if (inputVel.getZ() != collide.getZ()) {
-                player.clientVelocity.setZ(0);
+                player.clientVelocity.setZ(BlockProperties.getVelocityAfterHorizontalCollision(player, player.clientVelocity.getZ()));
             }
 
             player.horizontalCollision = inputVel.getX() != collide.getX() || inputVel.getZ() != collide.getZ();
@@ -198,28 +197,13 @@ public class MovementTicker {
 
         // Hack with 1.14+ poses issue
         if (inputVel.getY() != collide.getY()) {
-            // If the client supports slime blocks
-            // And the block is a slime block
-            // Or the block is honey and was replaced by viaversion
-            if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8)
-                    && (onBlock == StateTypes.SLIME_BLOCK || (onBlock == StateTypes.HONEY_BLOCK && player.getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_14_4)))) {
-                if (player.isSneaking) { // Slime blocks use shifting instead of sneaking
-                    player.clientVelocity.setY(0);
-                } else {
-                    if (player.clientVelocity.getY() < 0.0) {
-                        player.clientVelocity.setY(-player.clientVelocity.getY() *
-                                (riding != null && !riding.isLivingEntity ? 0.8 : 1.0));
-                    }
-                }
-            } else if (BlockTags.BEDS.contains(onBlock) && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12)) {
-                if (player.isSneaking) { // Bed blocks use shifting instead of sneaking
-                    player.clientVelocity.setY(0);
-                } else {
-                    if (player.clientVelocity.getY() < 0.0) {
-                        player.clientVelocity.setY(-player.clientVelocity.getY() * 0.6600000262260437 *
-                                (riding != null && !riding.isLivingEntity ? 0.8 : 1.0));
-                    }
-                }
+            // Slime, honey and beds all bounce; 26.2 also lets an entity attribute add bounce
+            // on any block that doesn't explicitly suppress it.
+            float blockRestitution = BlockProperties.getBlockBounceRestitution(onBlock, player);
+            boolean suppressesBounce = player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_2)
+                    && BlockTags.SUPPRESSES_BOUNCE.contains(onBlock);
+            if (blockRestitution > 0.0F || !suppressesBounce && BlockProperties.getEntityBounciness(player) > 0.0F) {
+                applyBlockBounce(blockRestitution, collide, riding);
             } else {
                 player.clientVelocity.setY(0);
             }
@@ -392,6 +376,32 @@ public class MovementTicker {
     public void doNormalMove(float blockFriction) {
     }
 
+    private void applyBlockBounce(float blockRestitution, Vector3dm movement, PacketEntity riding) {
+        if (player.isSneaking) { // Shifting cancels the bounce
+            player.clientVelocity.setY(0);
+            return;
+        }
+
+        double currentY = player.clientVelocity.getY();
+        if (currentY >= 0.0) {
+            return;
+        }
+
+        double restitution = blockRestitution;
+        if (riding != null && !riding.isLivingEntity) {
+            restitution *= 0.8F;
+        }
+
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
+            player.clientVelocity.setY(-currentY * restitution);
+            return;
+        }
+
+        restitution = Math.max(restitution, BlockProperties.getEntityBounciness(player));
+        player.clientVelocity.setY(BlockProperties.getVelocityAfterVerticalCollision(
+                player, currentY, movement.getY(), restitution));
+    }
+
     public void livingEntityTravel() {
         double playerGravity = !player.inVehicle()
                 ? player.compensatedEntities.self.getAttributeValue(Attributes.GRAVITY)
@@ -471,7 +481,9 @@ public class MovementTicker {
             } else if (player.isGliding) {
                 if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_5) && Collisions.onClimbable(player, player.lastX, player.lastY, player.lastZ)) {
                     float blockFriction = BlockProperties.getFriction(player, player.mainSupportingBlockData, new Vector3d(player.lastX, player.lastY, player.lastZ));
-                    player.friction = player.lastOnGround ? blockFriction * 0.91f : 0.91f;
+                    player.friction = player.lastOnGround
+                        ? BlockProperties.getModifiedFriction(blockFriction, player) * BlockProperties.getModifiedAirDrag(0.91F, player)
+                        : BlockProperties.getModifiedAirDrag(0.91F, player);
 
                     doNormalMove(blockFriction);
 
@@ -488,7 +500,9 @@ public class MovementTicker {
                 }
             } else {
                 float blockFriction = BlockProperties.getFriction(player, player.mainSupportingBlockData, new Vector3d(player.lastX, player.lastY, player.lastZ));
-                player.friction = player.lastOnGround ? blockFriction * 0.91f : 0.91f;
+                player.friction = player.lastOnGround
+                        ? BlockProperties.getModifiedFriction(blockFriction, player) * BlockProperties.getModifiedAirDrag(0.91F, player)
+                        : BlockProperties.getModifiedAirDrag(0.91F, player);
 
                 doNormalMove(blockFriction);
             }

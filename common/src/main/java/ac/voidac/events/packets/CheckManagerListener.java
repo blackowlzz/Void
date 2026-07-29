@@ -657,8 +657,13 @@ public class CheckManagerListener extends PacketListenerAbstract {
     private static boolean isMojangStupid(VoidPlayer player, PacketReceiveEvent event, WrapperPlayClientPlayerFlying flying) {
         // Teleports are not stupidity packets.
         if (player.packetStateData.lastPacketWasTeleport) return false;
-        // Mojang has become less stupid!
-        if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21)) return false;
+        // Duplicate packets were added in 1.17 and removed in 1.21. Without the lower bound,
+        // a pre-1.17 player in a vehicle fell through the "|| inVehicle()" branch below and had
+        // their real position overwritten by the last known one, on a mechanic their client
+        // does not even have.
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_1_17)
+                // Mojang has become less stupid!
+                || player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21)) return false;
 
         final Location location = flying.getLocation();
         final double threshold = player.getMovementThreshold();

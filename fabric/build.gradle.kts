@@ -34,7 +34,7 @@ dependencies {
 
 // The configurations below will only apply to :fabric and its submodules, not its siblings or the root project
 allprojects {
-    apply(plugin = "fabric-loom")
+    apply(plugin = "net.fabricmc.fabric-loom-remap")
     apply(plugin = "void.base-conventions")
     apply(plugin = "maven-publish")
 

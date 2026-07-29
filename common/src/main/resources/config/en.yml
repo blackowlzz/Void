@@ -198,8 +198,26 @@ punishments:
 
     auto-punish:
         enabled: false
-        # Total violation flags across all checks before Void acts.
-        threshold: 10
+        # Violations a SINGLE check must reach before Void acts (not the sum of all checks).
+        # Used for any check without an override in the thresholds section below.
+        threshold: 100
+        # Per-check overrides, by check name.
+        # Checks do not flag at the same rate, so they must not share one threshold.
+        # Simulation in particular collects violations on completely legitimate players
+        # (lag, edge cases, tick skips), which is why its alert threshold is 100 in
+        # punishments.yml. Banning off a handful of Simulation flags will remove legit players.
+        # Raise a value if you see false bans; never lower one below its alert threshold.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         # kick or ban
         action: ban
         # Duration: "7d", "30d", "24h", "permanent"

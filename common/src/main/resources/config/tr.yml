@@ -199,7 +199,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Void harekete gecmeden once TEK BIR kontrolun ulasmasi gereken ihlal sayisi (tum kontrollerin toplami degil).
+        # Asagidaki thresholds bolumunde gecersiz kilinmayan her kontrol icin kullanilir.
+        threshold: 100
+        # Kontrol adina gore, kontrol basina gecersiz kilmalar.
+        # Kontroller ayni siklikta isaretlemez, bu yuzden tek bir esigi paylasamazlar.
+        # Ozellikle Simulation, tamamen durust oyuncularda da ihlal biriktirir
+        # (lag, sinir durumlar, atlanan tickler). Birkac Simulation flagi sonrasi ban
+        # durust oyunculari siler. Yanlis banlarda degeri artirin; asla dusurmeyin.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

@@ -1,6 +1,7 @@
 package ac.voidac.utils.common.arguments;
 
 import ac.voidac.platform.api.Platform;
+import ac.voidac.utils.anticheat.LogUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.management.ManagementFactory;
@@ -150,10 +151,8 @@ public record SystemArgumentFactory(Map<String, String> arguments,
         return arguments;
     }
 
-    //TODO: add back logging once LogUtil has been refactored
-
     private static void exception(String message, Exception e) {
-        //LogUtil.exception(message, e);
+        LogUtil.error(message, e);
     }
 
     private static void warn(String message) {

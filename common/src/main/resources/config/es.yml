@@ -202,7 +202,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Violaciones que UN SOLO check debe alcanzar antes de que Void actue (no la suma de todos).
+        # Se usa para cualquier check sin anulacion en la seccion thresholds de abajo.
+        threshold: 100
+        # Anulaciones por check, por nombre de check.
+        # Los checks no marcan al mismo ritmo, asi que no pueden compartir un solo umbral.
+        # Simulation en particular acumula violaciones en jugadores totalmente legitimos
+        # (lag, casos limite, ticks perdidos). Banear tras unos pocos flags de Simulation
+        # eliminara jugadores legitimos. Sube el valor si ves baneos falsos; nunca lo bajes.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

@@ -194,7 +194,9 @@ public class PunishmentManager implements ConfigReloadable {
         }
 
         long currentViolations = (long) Math.floor(check.violations);
-        long threshold = Math.max(1, VoidAPI.INSTANCE.getConfigManager().getAutoPunishThreshold());
+        // Per-check threshold: violations from Simulation and from Reach are not
+        // remotely the same currency, so they can't share one number.
+        long threshold = Math.max(1, VoidAPI.INSTANCE.getConfigManager().getAutoPunishThresholdFor(check.getConfigName()));
         if (currentViolations < threshold) {
             return;
         }

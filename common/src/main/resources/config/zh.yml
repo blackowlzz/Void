@@ -192,7 +192,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Void 采取行动前，「单个」检测必须达到的违规数（不是所有检测的总和）。
+        # 用于下方 thresholds 部分中没有单独设置的所有检测。
+        threshold: 100
+        # 按检测名称设置的单独覆盖值。
+        # 各检测的触发频率差异很大，因此不能共用同一个阈值。
+        # 尤其是 Simulation，在完全正常的玩家身上也会累积违规
+        # （延迟、边界情况、跳过的 tick）。仅凭少量 Simulation 标记就封禁
+        # 会误封正常玩家。出现误封请调高数值；切勿调低。
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

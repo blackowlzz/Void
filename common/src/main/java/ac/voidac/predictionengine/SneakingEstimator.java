@@ -6,6 +6,7 @@ import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.anticheat.update.PredictionComplete;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.VectorData;
+import ac.voidac.utils.nmsutil.BlockProperties;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -48,7 +49,8 @@ public class SneakingEstimator extends Check implements PostPredictionCheck {
     public void onPredictionComplete(final PredictionComplete predictionComplete) {
         if (!predictionComplete.isChecked()) return;
 
-        double trueFriction = player.lastOnGround ? player.friction * 0.91 : 0.91;
+        float airDrag = BlockProperties.getModifiedAirDrag(0.91F, player);
+        double trueFriction = player.lastOnGround ? player.friction * airDrag : airDrag;
         if (player.wasTouchingLava) trueFriction = 0.5;
         if (player.wasTouchingWater) trueFriction = 0.96;
         if (player.isGliding) trueFriction = 0.99;

@@ -71,6 +71,13 @@ public class PredictionEngineWater extends PredictionEngine {
 
     @Override
     public void addJumpsToPossibilities(VoidPlayer player, Set<VectorData> existingVelocities) {
+        // On 1.21.2+ we know the real inputs, so don't offer swim-up vectors the player never asked for.
+        // A bogus candidate that happens to fit this tick leaves clientVelocity wrong for the next one.
+        // PredictionEngineNormal already does this; water was left out.
+        if (player.supportsEndTick() && !player.packetStateData.knownInput.jump()) {
+            return;
+        }
+
         for (VectorData vector : new HashSet<>(existingVelocities)) {
             if (player.couldSkipTick && vector.isZeroPointZeroThree()) {
                 double extraVelFromVertTickSkipUpwards = VoidMath.clamp(player.actualMovement.getY(), vector.vector.clone().getY(), vector.vector.clone().getY() + 0.05f);

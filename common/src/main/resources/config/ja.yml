@@ -197,7 +197,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Voidが動作する前に「単一の」チェックが到達すべき違反数（全チェックの合計ではありません）。
+        # 下の thresholds セクションに設定がないチェックに使用されます。
+        threshold: 100
+        # チェックごとの上書き設定（チェック名で指定）。
+        # チェックごとに検知頻度が異なるため、1つのしきい値を共有してはいけません。
+        # 特に Simulation は完全に正当なプレイヤーでも違反が蓄積します
+        # （ラグ、境界ケース、ティックスキップ）。少数の Simulation フラグでBANすると
+        # 正当なプレイヤーが処罰されます。誤BANが出たら値を上げてください。決して下げないこと。
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

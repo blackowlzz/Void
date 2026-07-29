@@ -202,7 +202,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Violations qu'UN SEUL check doit atteindre avant que Void agisse (pas la somme de tous).
+        # Utilise pour tout check sans surcharge dans la section thresholds ci-dessous.
+        threshold: 100
+        # Surcharges par check, par nom de check.
+        # Les checks ne flaguent pas au meme rythme, ils ne peuvent pas partager un seul seuil.
+        # Simulation en particulier accumule des violations sur des joueurs parfaitement legitimes
+        # (lag, cas limites, ticks manques). Bannir apres quelques flags Simulation
+        # supprimera des joueurs legitimes. Augmentez en cas de faux bans ; ne baissez jamais.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

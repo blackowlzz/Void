@@ -4,6 +4,7 @@ import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.collisions.CollisionData;
 import ac.voidac.utils.collisions.blocks.DoorHandler;
 import ac.voidac.utils.math.Vector3dm;
+import ac.voidac.utils.math.VectorUtils;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import com.github.retrooper.packetevents.protocol.world.BlockFace;
 import com.github.retrooper.packetevents.protocol.world.states.WrappedBlockState;
@@ -15,7 +16,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class FluidTypeFlowing {
     public static Vector3dm getFlow(VoidPlayer player, int originalX, int originalY, int originalZ) {
-        float fluidLevel = (float) Math.min(player.compensatedWorld.getFluidLevelAt(originalX, originalY, originalZ), 8 / 9D);
+        float fluidLevel = Math.min(player.compensatedWorld.getFluidLevelAt(originalX, originalY, originalZ), 8 / 9f);
         ClientVersion version = player.getClientVersion();
 
         if (fluidLevel == 0) return new Vector3dm();
@@ -27,7 +28,7 @@ public class FluidTypeFlowing {
             int modifiedZ = originalZ + enumdirection.getModZ();
 
             if (affectsFlow(player, originalX, originalY, originalZ, modifiedX, originalY, modifiedZ)) {
-                float f = (float) Math.min(player.compensatedWorld.getFluidLevelAt(modifiedX, originalY, modifiedZ), 8 / 9D);
+                float f = Math.min(player.compensatedWorld.getFluidLevelAt(modifiedX, originalY, modifiedZ), 8 / 9f);
                 float f1 = 0.0F;
                 if (f == 0.0F) {
                     StateType mat = player.compensatedWorld.getBlockType(modifiedX, originalY, modifiedZ);
@@ -37,7 +38,7 @@ public class FluidTypeFlowing {
                     // Use method call to support 1.13-1.15 clients and banner oddity
                     if (Materials.isSolidBlockingBlacklist(mat, version)) {
                         if (affectsFlow(player, originalX, originalY, originalZ, modifiedX, originalY - 1, modifiedZ)) {
-                            f = (float) Math.min(player.compensatedWorld.getFluidLevelAt(modifiedX, originalY - 1, modifiedZ), 8 / 9D);
+                            f = Math.min(player.compensatedWorld.getFluidLevelAt(modifiedX, originalY - 1, modifiedZ), 8 / 9f);
                             if (f > 0.0F) {
                                 f1 = fluidLevel - (f - 0.8888889F);
                             }
@@ -63,12 +64,12 @@ public class FluidTypeFlowing {
         if ((state.getType() == StateTypes.WATER || state.getType() == StateTypes.LAVA) && state.getLevel() >= 8) {
             for (BlockFace enumdirection : new BlockFace[]{BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST}) {
                 if (isSolidFace(player, originalX, originalY, originalZ, enumdirection) || isSolidFace(player, originalX, originalY + 1, originalZ, enumdirection)) {
-                    vec3d = normalizeVectorWithoutNaN(vec3d).add(0.0D, -6.0D, 0.0D);
+                    vec3d = VectorUtils.normalize(player, vec3d).add(0.0D, -6.0D, 0.0D);
                     break;
                 }
             }
         }
-        return normalizeVectorWithoutNaN(vec3d);
+        return VectorUtils.normalize(player, vec3d);
     }
 
     private static boolean affectsFlow(VoidPlayer player, int originalX, int originalY, int originalZ, int x2, int y2, int z2) {
@@ -150,11 +151,6 @@ public class FluidTypeFlowing {
             // Explicitly a full block, therefore it has a full face
             return (CollisionData.getData(type).getMovementCollisionBox(player, player.getClientVersion(), data, x, y, z).isFullBlock());
         }
-    }
-
-    private static Vector3dm normalizeVectorWithoutNaN(Vector3dm vector) {
-        double var0 = vector.length();
-        return var0 < 1.0E-4 ? new Vector3dm() : vector.multiply(1 / var0);
     }
 
     public static boolean isEmpty(VoidPlayer player, int x, int y, int z) {

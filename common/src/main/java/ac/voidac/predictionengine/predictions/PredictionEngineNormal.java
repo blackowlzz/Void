@@ -5,6 +5,7 @@ import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.VectorData;
 import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vector3dm;
+import ac.voidac.utils.nmsutil.BlockProperties;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.JumpPower;
 import com.github.retrooper.packetevents.protocol.attribute.Attributes;
@@ -39,7 +40,7 @@ public class PredictionEngineNormal extends PredictionEngine {
         }
 
         vector.setX(vector.getX() * player.friction);
-        vector.setY(adjustedY * 0.98F);
+        vector.setY(adjustedY * BlockProperties.getModifiedAirDrag(0.98F, player));
         vector.setZ(vector.getZ() * player.friction);
     }
 

@@ -201,7 +201,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Violations die EEN ENKELE check moet bereiken voordat Void ingrijpt (niet de som van alle checks).
+        # Gebruikt voor elke check zonder override in de thresholds-sectie hieronder.
+        threshold: 100
+        # Overrides per check, op checknaam.
+        # Checks flaggen niet even vaak en mogen dus niet een drempel delen.
+        # Vooral Simulation verzamelt violations bij volkomen legitieme spelers
+        # (lag, randgevallen, overgeslagen ticks). Bannen na een handvol Simulation-flags
+        # verwijdert legitieme spelers. Verhoog bij valse bans; verlaag nooit.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

@@ -218,8 +218,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        # Gesamte Flags bevor Void handelt.
-        threshold: 10
+        # Violations, die EIN EINZELNER Check erreichen muss, bevor Void handelt (nicht die Summe aller Checks).
+        # Gilt fuer jeden Check ohne Eintrag im Abschnitt thresholds unten.
+        threshold: 100
+        # Ueberschreibungen pro Check, nach Check-Name.
+        # Checks flaggen unterschiedlich haeufig und duerfen sich daher keinen Wert teilen.
+        # Besonders Simulation sammelt Violations auch bei voellig legitimen Spielern
+        # (Lag, Grenzfaelle, uebersprungene Ticks). Ein Bann nach wenigen Simulation-Flags
+        # trifft echte Spieler. Wert erhoehen bei Falschbanns, nie unter den Alert-Wert senken.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         # kick oder ban
         action: ban
         # Dauer: "7d", "30d", "24h", "permanent"

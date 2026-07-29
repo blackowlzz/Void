@@ -202,7 +202,25 @@ punishments:
 
     auto-punish:
         enabled: false
-        threshold: 10
+        # Violari pe care UN SINGUR check trebuie sa le atinga inainte ca Void sa actioneze (nu suma tuturor).
+        # Folosit pentru orice check fara suprascriere in sectiunea thresholds de mai jos.
+        threshold: 100
+        # Suprascrieri per check, dupa numele checkului.
+        # Checkurile nu semnaleaza in acelasi ritm, deci nu pot imparti un singur prag.
+        # Simulation in special acumuleaza violari la jucatori complet legitimi
+        # (lag, cazuri limita, ticks pierdute). Banarea dupa cateva flaguri Simulation
+        # va elimina jucatori legitimi. Creste valoarea la banuri false; nu o cobori niciodata.
+        thresholds:
+            Simulation: 200
+            GroundSpoof: 150
+            NoFall: 150
+            Timer: 100
+            Knockback: 80
+            Explosion: 80
+            NoSlow: 80
+            Post: 80
+            Reach: 25
+            Hitboxes: 25
         action: ban
         duration: "7d"
         reason: |

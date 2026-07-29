@@ -478,7 +478,7 @@ public class MovementCheckRunner extends Check implements PositionCheck {
             player.predictedVelocity = new VectorData(player.actualMovement, VectorData.VectorType.Spectator);
             player.clientVelocity = player.actualMovement.clone();
             player.gravity = 0;
-            player.friction = 0.91f;
+            player.friction = BlockProperties.getModifiedAirDrag(0.91f, player);
             PredictionEngineNormal.staticVectorEndOfTick(player, player.clientVelocity);
         } else if (riding == null) {
             wasChecked = true;

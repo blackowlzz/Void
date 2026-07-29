@@ -9,6 +9,7 @@ import ac.voidac.utils.data.VectorData;
 import ac.voidac.utils.data.VelocityData;
 import ac.voidac.utils.data.tags.SyncedTags;
 import ac.voidac.utils.math.Vector3dm;
+import ac.voidac.utils.nmsutil.BlockProperties;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.FluidTypeFlowing;
 import ac.voidac.utils.nmsutil.GetBoundingBox;
@@ -477,13 +478,15 @@ public class PointThreeEstimator {
         final OptionalInt levitation = player.compensatedEntities.getPotionLevelForPlayer(PotionTypes.LEVITATION);
         if (levitation.isPresent()) {
             // This supports both positive and negative levitation
-            y += (0.05 * (levitation.getAsInt() + 1) - y * 0.2);
+            // The 0.2 scales the whole difference, not just y: a misplaced paren here made this
+            // estimator disagree with staticVectorEndOfTick by 0.04 per tick under levitation.
+            y += (0.05 * (levitation.getAsInt() + 1) - y) * 0.2;
         } else if (player.hasGravity) {
             // Simulate gravity
             y -= player.gravity;
         }
 
         // Simulate end of tick friction
-        return y * 0.98;
+        return y * BlockProperties.getModifiedAirDrag(0.98F, player);
     }
 }

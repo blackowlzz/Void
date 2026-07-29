@@ -1,5 +1,7 @@
 package ac.voidac.utils.common.arguments;
 
+import ac.voidac.utils.anticheat.LogUtil;
+
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -14,8 +16,7 @@ public record SystemArgument<T>(String key, Class<T> clazz, T value, boolean set
         try {
             return value == null ? otherwise : mapper.apply(value);
         } catch (Exception e) {
-            //TODO: add back logging once LogUtil has been refactored
-            //LogUtil.exception("Failed to map value for argument " + key, e);
+            LogUtil.error("Failed to map value for argument " + key, e);
         }
         return otherwise;
     }
