@@ -480,6 +480,12 @@ public class MovementCheckRunner extends Check implements PositionCheck {
             player.gravity = 0;
             player.friction = BlockProperties.getModifiedAirDrag(0.91f, player);
             PredictionEngineNormal.staticVectorEndOfTick(player, player.clientVelocity);
+            // The bounding box is normally advanced by MovementTicker#move and updatePlayerPose,
+            // and this branch runs neither, so it would stay frozen wherever the player last was
+            // checked. The first tick after flight ends then collides against that stale box,
+            // misses the floor the player actually landed on, and reports the whole descent as
+            // offset.
+            player.boundingBox = GetBoundingBox.getCollisionBoxForPlayer(player, player.x, player.y, player.z);
         } else if (riding == null) {
             wasChecked = true;
 
