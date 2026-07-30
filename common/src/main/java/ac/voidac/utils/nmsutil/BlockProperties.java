@@ -42,6 +42,11 @@ public class BlockProperties {
                 return movementSpeed * (acceleration / (friction * friction * friction));
             }
 
+            // 26.2 skips the friction division entirely on low-friction ground
+            if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_2) && blockFriction <= 0.6F) {
+                return movementSpeed;
+            }
+
             return movementSpeed * (0.21600002f / (blockFriction * blockFriction * blockFriction));
         }
 
@@ -241,27 +246,39 @@ public class BlockProperties {
     // can change them per entity. Every method here returns the vanilla constant for
     // older clients, which makes them no-ops below 26.2.
 
-    // DISABLED: these read the 26.2 attributes FRICTION_MODIFIER, AIR_DRAG_MODIFIER and
-    // BOUNCINESS, but PacketEntitySelf never registers them, so getAttributeValue throws for
-    // any 26.2 client and kills the whole movement prediction for that packet. Re-enabling
-    // these requires tracking the attributes first; until then they return vanilla values,
-    // which is what every client below 26.2 uses anyway.
+    // These read attributes registered in PacketEntity#initAttributes, so they are always
+    // present in the map and the lookup cannot throw. Below 26.2 requiredVersion pins them to
+    // their defaults (1.0 / 0.0 / 1.0), which makes each of these return the vanilla value.
     public static float getModifiedFriction(float friction, VoidPlayer player) {
-        return friction;
+        PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
+        return VoidMath.clamp(1.0F - (1.0F - friction) * (float) entity.getAttributeValue(Attributes.FRICTION_MODIFIER), 0.0F, 1.0F);
     }
 
     public static float getModifiedAirDrag(float drag, VoidPlayer player) {
-        return drag;
+        PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
+        return VoidMath.clamp(1.0F - (1.0F - drag) * (float) entity.getAttributeValue(Attributes.AIR_DRAG_MODIFIER), 0.0F, 1.0F);
     }
 
     public static float getEntityBounciness(VoidPlayer player) {
-        return 0.0F;
+        PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
+        // Shifting cancels the bounce, same as it always did for slime
+        if (entity == player.compensatedEntities.self && player.isSneaking) {
+            return 0.0F;
+        }
+
+        if (!entity.isLivingEntity) {
+            return 0.0F;
+        }
+
+        return (float) entity.getAttributeValue(Attributes.BOUNCINESS);
     }
 
     public static double getVelocityAfterHorizontalCollision(VoidPlayer player, double velocity) {
-        // Bounciness is disabled, so this is always a full stop, exactly as before 26.2 support.
-        // Returning a literal 0 rather than -velocity * 0, which would yield -0.0.
-        return 0.0;
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
+            return 0.0;
+        }
+
+        return -velocity * getEntityBounciness(player);
     }
 
     public static double getVelocityAfterVerticalCollision(VoidPlayer player, double velocity, double movementY) {
