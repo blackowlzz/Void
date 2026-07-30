@@ -392,14 +392,9 @@ public class MovementTicker {
             restitution *= 0.8F;
         }
 
-        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
-            player.clientVelocity.setY(-currentY * restitution);
-            return;
-        }
-
-        restitution = Math.max(restitution, BlockProperties.getEntityBounciness(player));
-        player.clientVelocity.setY(BlockProperties.getVelocityAfterVerticalCollision(
-                player, currentY, movement.getY(), restitution));
+        // The 26.2 restitution path is disabled along with the attributes it depends on;
+        // see BlockProperties#getEntityBounciness.
+        player.clientVelocity.setY(-currentY * restitution);
     }
 
     public void livingEntityTravel() {
