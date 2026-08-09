@@ -30,12 +30,12 @@ via-proxy:
 # Wenn ViaVersion aktiv ist: auf diesem Server oder einem Proxy installiert:
 # verwenden Clients mit einer anderen Minecraft-Version leicht abweichende Physikformeln.
 # ViaVersion übersetzt Pakete korrekt, kann diese numerischen Unterschiede jedoch nicht
-# ausgleichen, was zu kleinen systematischen Offsets (~0.001–0.003 Blöcke/Tick) führt,
+# ausgleichen, was zu kleinen systematischen Offsets (~0.001-0.003 Blöcke/Tick) führt,
 # selbst bei vollständig legitimen Spielern.
 #
 # Mit aktiviertem viaversion-attenuation zieht Void 0.005 vom Roh-Vorhersage-Offset
 # für Spieler mit einer abweichenden Version ab. Speed- und Fly-Hacks erzeugen Offsets
-# von 0.01–1.0+ (mindestens 2× die Toleranz), die Erkennung bleibt unberührt.
+# von 0.01-1.0+ (mindestens 2× die Toleranz), die Erkennung bleibt unberührt.
 #
 # Deaktiviere nur, wenn dein Server eine einzige Version ohne Cross-Version-Spieler
 # betreibt und du die strengste mögliche Erkennungsschwelle nutzen möchtest.
@@ -67,7 +67,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # Forge 1.18.2–1.19.3 trennen; diese Versionen enthalten eingebaute Reach-Hacks.
+    # Forge 1.18.2-1.19.3 trennen; diese Versionen enthalten eingebaute Reach-Hacks.
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -133,7 +133,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:
@@ -191,7 +192,7 @@ exploit:
     allow-sprint-jumping-when-using-elytra: true
     # Spieler resynchronisieren, wenn er auf Geisterblöcken baut.
     allow-building-on-ghostblocks: true
-    # Prüfabstand für Geisterblöcke. Gültiger Bereich: 2–4.
+    # Prüfabstand für Geisterblöcke. Gültiger Bereich: 2-4.
     distance-to-check-if-ghostblocks: 2
 
     auto-totem:
@@ -399,7 +400,7 @@ disable-pong-cancelling: false
 # Deaktiviert den Standard-Block-Resync-Handler.
 disable-default-resync-handler: false
 
-# Doppelte Bewegungspakete von 1.17–1.20.5-Clients auf 1.8-Servern abbrechen.
+# Doppelte Bewegungspakete von 1.17-1.20.5-Clients auf 1.8-Servern abbrechen.
 cancel-duplicate-packet: true
 ignore-duplicate-packet-rotation: false
 

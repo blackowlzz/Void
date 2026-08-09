@@ -29,10 +29,10 @@ via-proxy:
 # ViaVersionが有効な場合（このサーバーまたはプロキシにインストール済み）、
 # サーバーと異なるバージョンのクライアントは物理計算式が微妙に異なります。
 # ViaVersionはパケットを忠実に変換しますが、この数値差を補正できないため、
-# 正当なプレイヤーでも一定の小さなオフセット（~0.001–0.003ブロック/tick）が発生します。
+# 正当なプレイヤーでも一定の小さなオフセット（~0.001-0.003ブロック/tick）が発生します。
 #
 # viaversion-attenuationを有効にすると、バージョンが異なるプレイヤーの予測オフセットから
-# 0.005を差し引きます。実際のチートは0.01–1.0+のオフセットを生成します（許容値の2倍以上）。
+# 0.005を差し引きます。実際のチートは0.01-1.0+のオフセットを生成します（許容値の2倍以上）。
 #
 # サーバーが単一バージョンのみで運用されており、クロスバージョンプレイヤーがいない場合のみ
 # 無効化してください。
@@ -43,7 +43,7 @@ viaversion-attenuation: false
 # エリトラ（グライド）の物理は通常の移動よりもMinecraftバージョン間で大きく異なります
 #: 空気抵抗、視線方向のスケーリング、ティックごとの速度蓄積がバージョン間で異なります。
 # ViaVersionが有効な場合、エリトラで滑空している正規プレイヤーは生予測オフセットが
-# 最大~0.032ブロック/ティックになることがあり、通常移動の~0.001–0.003を大きく上回ります。
+# 最大~0.032ブロック/ティックになることがあり、通常移動の~0.001-0.003を大きく上回ります。
 #
 # 有効にすると、Voidはグライド中またはグライド直後のクロスバージョンプレイヤーに
 # 追加で0.03の減衰を適用します（viaversion-attenuationに加えて）。
@@ -62,7 +62,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # 内蔵リーチハックを持つForge 1.18.2–1.19.3クライアントを切断する。
+    # 内蔵リーチハックを持つForge 1.18.2-1.19.3クライアントを切断する。
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -120,7 +120,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:

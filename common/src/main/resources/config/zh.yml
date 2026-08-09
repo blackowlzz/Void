@@ -27,10 +27,10 @@ via-proxy:
 #
 # 当ViaVersion处于活跃状态（安装在此服务器或代理上），使用不同Minecraft版本的客户端
 # 内部使用略有不同的物理公式。ViaVersion忠实地转换数据包，但无法补偿这些数值差异，
-# 导致即使是完全合法的玩家也会产生微小但持续的偏移（约0.001–0.003方块/tick）。
+# 导致即使是完全合法的玩家也会产生微小但持续的偏移（约0.001-0.003方块/tick）。
 #
 # 启用viaversion-attenuation后，Void将为版本与服务器不同的玩家的原始预测偏移减去0.005。
-# 真正的作弊软件会产生0.01–1.0+的偏移（至少是容差的2倍），因此检测不受影响。
+# 真正的作弊软件会产生0.01-1.0+的偏移（至少是容差的2倍），因此检测不受影响。
 #
 # 仅在服务器运行单一版本且没有跨版本玩家，且希望使用最严格检测阈值时才禁用。
 viaversion-attenuation: false
@@ -39,7 +39,7 @@ viaversion-attenuation: false
 #
 # 鞘翅（滑翔）物理在Minecraft版本之间的差异比普通移动更为显著:空气阻力、视线方向
 # 缩放以及每刻速度累积在版本之间均有所不同。启用ViaVersion时，合法使用鞘翅滑翔的玩家
-# 可能产生高达~0.032方块/刻的原始预测偏移，远高于正常移动的~0.001–0.003。
+# 可能产生高达~0.032方块/刻的原始预测偏移，远高于正常移动的~0.001-0.003。
 #
 # 启用后，Void会在跨版本玩家滑翔或刚落地时额外施加0.03的衰减（在viaversion-attenuation
 # 基础上叠加）。真实的鞘翅漏洞会产生0.1以上的偏移（额外容限的3倍），检测完全有效。
@@ -57,7 +57,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # 断开含有内置 Reach 漏洞的 Forge 1.18.2–1.19.3 客户端。
+    # 断开含有内置 Reach 漏洞的 Forge 1.18.2-1.19.3 客户端。
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -115,7 +115,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:

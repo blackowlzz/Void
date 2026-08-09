@@ -324,7 +324,7 @@ public class UncertaintyHandler {
         }
 
         // Cross-version connections (ViaProxy or ViaVersion backend with mismatched client) produce
-        // systematic small offsets (~0.001–0.003) caused by version-specific physics differences
+        // systematic small offsets (~0.001-0.003) caused by version-specific physics differences
         // that ViaVersion cannot fully compensate. 0.005 covers the observed noise floor without
         // affecting legitimate detection (real speed hacks produce offsets >> 0.01).
         if (player.isVersionTranslated() &&

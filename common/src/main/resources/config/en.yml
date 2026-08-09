@@ -43,7 +43,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # Disconnect Forge 1.18.2–1.19.3 clients; those versions include built-in reach hacks.
+    # Disconnect Forge 1.18.2-1.19.3 clients; those versions include built-in reach hacks.
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -111,7 +111,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:
@@ -170,7 +171,7 @@ exploit:
     allow-sprint-jumping-when-using-elytra: true
     # Resync the player when they place blocks on ghost blocks.
     allow-building-on-ghostblocks: true
-    # Distance to scan for ghost blocks. Valid range: 2–4.
+    # Distance to scan for ghost blocks. Valid range: 2-4.
     distance-to-check-if-ghostblocks: 2
 
     auto-totem:
@@ -291,7 +292,7 @@ storage-esp-decoys:
     # Send fake storage blocks (chests, barrels, shulker boxes) to confuse ESP clients.
     # Players with the void.storageesp permission bypass decoys.
     enabled: false
-    # Fake blocks injected per chunk. 10–20 recommended.
+    # Fake blocks injected per chunk. 10-20 recommended.
     decoys-per-chunk: 20
     # Also include client-side-only blocks (e.g. ender chests) in the pool.
     include-client-side-blocks: false
@@ -397,7 +398,7 @@ disable-pong-cancelling: false
 # Enable if you use plugins that create packet-based fake blocks (e.g. holograms, mini-games).
 disable-default-resync-handler: false
 
-# Cancel duplicate movement packets sent by 1.17–1.20.5 clients on 1.8 servers.
+# Cancel duplicate movement packets sent by 1.17-1.20.5 clients on 1.8 servers.
 cancel-duplicate-packet: true
 ignore-duplicate-packet-rotation: false
 

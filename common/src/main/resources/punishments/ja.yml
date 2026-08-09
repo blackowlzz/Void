@@ -1,4 +1,4 @@
-# %check_name% – チェックの名前
+# %check_name% - チェックの名前
 # %description% - チェックの説明
 # %vl% - 違反回数
 # %verbose% - 追加情報

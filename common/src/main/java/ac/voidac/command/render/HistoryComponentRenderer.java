@@ -232,7 +232,7 @@ public final class HistoryComponentRenderer {
         long bucketEnd = bucketStart + d.bucketSizeMs();
         Component header = Component.text()
                 .append(Component.text("Violations in ", NamedTextColor.AQUA))
-                .append(Component.text(formatDuration(bucketStart) + "–" + formatDuration(bucketEnd),
+                .append(Component.text(formatDuration(bucketStart) + "-" + formatDuration(bucketEnd),
                         NamedTextColor.WHITE))
                 .append(Component.text(":", NamedTextColor.AQUA))
                 .build();

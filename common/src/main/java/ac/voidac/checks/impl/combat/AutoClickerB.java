@@ -14,23 +14,16 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientIn
 import java.util.ArrayDeque;
 
 /**
- * Detects autoclickers by measuring the consistency of per-second CPS averages
- * over a rolling window.
+ * Same idea as A but a level up: variance of per-second click counts instead of
+ * per-click intervals. Meant for the randomised clickers that jitter every click
+ * and still hold the same average second after second.
  *
- * AutoClickerA catches fixed-interval autoclickers via per-click CV.
- * This check catches *randomized* autoclickers: tools that add per-click jitter
- * to evade simple CV checks but still produce a remarkably flat CPS average
- * across multiple seconds (they cannot fake the human tendency to vary rate
- * across different combat moments).
+ * Wants 10 seconds of continuous clicking before it opens its mouth, so in
+ * practice it only ever sees long fights. That is the tradeoff for not tripping
+ * over the tick quantisation that makes A twitchy.
  *
- * Metric: Coefficient of Variation of per-second click buckets.
- *   Human (any technique): bucket CV typically 0.20–0.60 (rate varies second-to-second)
- *   Randomized autoclicker: bucket CV typically 0.04–0.12 (flat average rate)
- *
- * Research reference: CPS-count studies + motor control literature (PMC5992087).
- *
- * @see AutoClickerA for per-click interval regularity detection
- * @see AutoClickerC for multi-attack-per-tick detection
+ * @see AutoClickerA
+ * @see AutoClickerC
  */
 @CheckData(
         name = "AutoClickerB",

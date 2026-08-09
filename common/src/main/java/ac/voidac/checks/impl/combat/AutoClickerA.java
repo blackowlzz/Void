@@ -14,23 +14,17 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientIn
 import java.util.ArrayDeque;
 
 /**
- * Detects autoclickers via inter-click interval regularity (Coefficient of
- * Variation = std_dev / mean of consecutive click intervals).
+ * Flags clicks that land too evenly spaced, by coefficient of variation over the
+ * last two seconds of intervals. Machines keep a rhythm, hands don't.
  *
- * Research-based thresholds (motor control literature + community data):
- *   Human jitter/butterfly:  CV ≈ 0.08–0.20  (natural motor variance)
- *   Basic fixed autoclicker: CV ≈ 0.00–0.02  (machine precision)
- *   Randomized autoclicker:  CV ≈ 0.05–0.12  (caught better by AutoClickerB)
+ * Treat min-cv with respect. The client only sends attacks on tick boundaries,
+ * so every interval we ever see is already a multiple of 50ms, and at rates that
+ * divide neatly into 20/s a perfectly normal player bunches up and looks flat.
+ * This has produced real false flags at 7 cps on servers running a lower
+ * analysis-cps than ours. Lower the threshold, don't raise it.
  *
- * This check uses min-cv = 0.05 (5%) by default, below all documented
- * human clicking techniques so false flags are essentially impossible.
- *
- * Hard CPS cap (max-cps = 30) targets what no jitter/butterfly clicker can
- * sustain: drag clicking goes far above 30 but produces burst-gap structures
- * that naturally inflate CV, preventing false flags here.
- *
- * @see AutoClickerB for randomized-autoclicker detection via bucket CPS variance
- * @see AutoClickerC for multi-attack-per-tick detection
+ * @see AutoClickerB
+ * @see AutoClickerC
  */
 @CheckData(
         name = "AutoClickerA",
@@ -62,9 +56,9 @@ public class AutoClickerA extends Check implements PostPredictionCheck {
     public void onReload(ConfigManager config) {
         // 30 CPS: above sustained jitter/butterfly ceiling (~18/28 CPS), below drag clicking territory
         maxCps = config.getIntElse(getConfigName() + ".max-cps", 30);
-        // Start analysis at 8 CPS most autoclickers aim for 10–15 CPS to look "normal"
+        // Start analysis at 8 CPS most autoclickers aim for 10-15 CPS to look "normal"
         analysisCps = config.getIntElse(getConfigName() + ".analysis-cps", 8);
-        // 0.05 (5%) is below every documented human clicking technique; autoclickers are 0.00–0.02
+        // 0.05 is already generous. See the note up top before touching it.
         minCv = config.getDoubleElse(getConfigName() + ".min-cv", 0.05);
     }
 
@@ -113,14 +107,7 @@ public class AutoClickerA extends Check implements PostPredictionCheck {
         reward();
     }
 
-    /**
-     * Returns the Coefficient of Variation (std_dev / mean) of the
-     * inter-click intervals within the current analysis window,
-     * or -1 if there are not enough data points.
-     *
-     * Human clicking: CV typically > 0.20 even at high CPS.
-     * Autoclickers:   CV typically < 0.06 (near-zero jitter).
-     */
+    /** std_dev / mean of the intervals in the window, or -1 when there isn't enough to go on. */
     private double computeCV() {
         if (clickTimes.size() < 2) return -1;
 

@@ -29,10 +29,10 @@ via-proxy:
 # ViaVersion etkin olduğunda: bu sunucuya veya bir proxy'e kurulduğunda: farklı
 # Minecraft sürümündeki istemciler biraz farklı fizik formülleri kullanır.
 # ViaVersion paketleri doğru çevirir ancak bu sayısal farkları telafi edemez; bu durum
-# tamamen meşru oyuncularda bile küçük sistematik ofsetlere (~0.001–0.003 blok/tick) yol açar.
+# tamamen meşru oyuncularda bile küçük sistematik ofsetlere (~0.001-0.003 blok/tick) yol açar.
 #
 # viaversion-attenuation etkinken Void, farklı sürümdeki oyuncuların ham tahmin
-# ofsetinden 0.005 çıkarır. Speed hack ve fly hack yazılımları 0.01–1.0+ ofset üretir
+# ofsetinden 0.005 çıkarır. Speed hack ve fly hack yazılımları 0.01-1.0+ ofset üretir
 # (toleransın en az 2 katı), bu nedenle tespit etkilenmez.
 #
 # Yalnızca tek sürüm kullanan ve cross-version oyuncu barındırmayan sunucularda
@@ -64,7 +64,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # Yerleşik reach hack içeren Forge 1.18.2–1.19.3 istemcilerini kes.
+    # Yerleşik reach hack içeren Forge 1.18.2-1.19.3 istemcilerini kes.
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -122,7 +122,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:

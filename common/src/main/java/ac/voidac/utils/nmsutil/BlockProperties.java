@@ -241,7 +241,6 @@ public class BlockProperties {
         return (float) VoidMath.lerp((float) player.compensatedEntities.self.getAttributeValue(Attributes.MOVEMENT_EFFICIENCY), blockSpeedFactor, 1.0F);
     }
 
-    // ── 26.2 attribute-driven physics ───────────────────────────────────────────
     // 26.2 turned friction, air drag and bounciness into entity attributes, so plugins
     // can change them per entity. Every method here returns the vanilla constant for
     // older clients, which makes them no-ops below 26.2.

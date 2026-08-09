@@ -31,12 +31,12 @@ via-proxy:
 # Quando ViaVersion è attivo: installato su questo server o su un proxy: i client
 # su una versione Minecraft diversa usano formule fisiche leggermente differenti.
 # ViaVersion traduce i pacchetti fedelmente ma non può compensare queste differenze
-# numeriche, causando piccoli offset sistematici (~0.001–0.003 blocchi/tick) anche
+# numeriche, causando piccoli offset sistematici (~0.001-0.003 blocchi/tick) anche
 # per giocatori completamente legittimi.
 #
 # Con viaversion-attenuation abilitato, Void sottrae 0.005 dall'offset grezzo di
 # predizione per i giocatori la cui versione differisce da quella del server.
-# Speed hack e fly hack producono offset di 0.01–1.0+ (almeno 2× la tolleranza),
+# Speed hack e fly hack producono offset di 0.01-1.0+ (almeno 2× la tolleranza),
 # quindi il rilevamento rimane intatto.
 #
 # Disabilita solo se il tuo server usa una sola versione Minecraft senza giocatori
@@ -69,7 +69,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # Disconnette i client Forge 1.18.2–1.19.3 che includono reach hack integrati.
+    # Disconnette i client Forge 1.18.2-1.19.3 che includono reach hack integrati.
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -135,7 +135,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:
@@ -193,7 +194,7 @@ exploit:
     allow-sprint-jumping-when-using-elytra: true
     # Risincronizza il giocatore quando piazza blocchi su ghost block.
     allow-building-on-ghostblocks: true
-    # Distanza di controllo per i ghost block. Range valido: 2–4.
+    # Distanza di controllo per i ghost block. Range valido: 2-4.
     distance-to-check-if-ghostblocks: 2
 
     auto-totem:
@@ -312,7 +313,7 @@ storage-esp-decoys:
     # Invia blocchi di storage falsi (casse, botti, shulker) per confondere i client ESP.
     # I giocatori con il permesso void.storageesp bypassano i decoy.
     enabled: false
-    # Blocchi falsi iniettati per chunk. Consigliati 10–20.
+    # Blocchi falsi iniettati per chunk. Consigliati 10-20.
     decoys-per-chunk: 20
     include-client-side-blocks: false
     # Interazioni con un decoy prima del flag automatico. -1 per disabilitare.
@@ -416,7 +417,7 @@ disable-pong-cancelling: false
 # Abilitare se usi plugin che creano blocchi falsi via pacchetti.
 disable-default-resync-handler: false
 
-# Cancella i pacchetti di movimento duplicati dei client 1.17–1.20.5 su server 1.8.
+# Cancella i pacchetti di movimento duplicati dei client 1.17-1.20.5 su server 1.8.
 cancel-duplicate-packet: true
 ignore-duplicate-packet-rotation: false
 

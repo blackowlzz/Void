@@ -14,7 +14,7 @@ redis:
   host: "localhost"
   port: 6379
 
-  # Logischer Datenbank-Index (standardmäßig 0–15).
+  # Logischer Datenbank-Index (standardmäßig 0-15).
   database: 0
 
   # Optionale ACL-Anmeldedaten. Leer lassen für ein Redis ohne Auth.

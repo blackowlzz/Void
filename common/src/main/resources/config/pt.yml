@@ -30,12 +30,12 @@ via-proxy:
 # Quando o ViaVersion está ativo: instalado neste servidor ou em um proxy:
 # clientes com uma versão Minecraft diferente usam fórmulas físicas ligeiramente
 # diferentes. O ViaVersion traduz pacotes fielmente mas não pode compensar essas
-# diferenças numéricas, causando pequenos offsets sistemáticos (~0.001–0.003 blocos/tick)
+# diferenças numéricas, causando pequenos offsets sistemáticos (~0.001-0.003 blocos/tick)
 # mesmo em jogadores completamente legítimos.
 #
 # Com viaversion-attenuation ativado, o Void subtrai 0.005 do offset bruto de predição
 # para jogadores cuja versão difere do servidor. Speed hacks e fly hacks produzem
-# offsets de 0.01–1.0+ (pelo menos 2× a tolerância), a detecção não é afetada.
+# offsets de 0.01-1.0+ (pelo menos 2× a tolerância), a detecção não é afetada.
 #
 # Desative apenas se seu servidor usa uma única versão sem jogadores cross-version
 # e deseja o limiar de detecção mais restrito possível.
@@ -66,7 +66,7 @@ client-brand:
         - "^lunarclient:v\\d+\\.\\d+\\.\\d+-\\d{4},(?:fabric|forge)$"
         - "^Feather Fabric$"
         - "^labymod$"
-    # Desconectar clientes Forge 1.18.2–1.19.3 que incluem reach hacks integrados.
+    # Desconectar clientes Forge 1.18.2-1.19.3 que incluem reach hacks integrados.
     disconnect-blacklisted-forge-versions: true
 
 spectators:
@@ -124,7 +124,8 @@ AutoClickerA:
     # Minimum CPS before interval regularity analysis kicks in.
     analysis-cps: 8
     # Minimum interval Coefficient of Variation. Autoclickers: 0.00-0.02. Humans: 0.08+.
-    # 0.05 is well below every documented human technique; false flags are essentially impossible.
+    # Keep this low. Clicks only ever land on tick boundaries, so an honest player
+    # already looks flatter than they really are, and raising it bans them.
     min-cv: 0.05
 
 AutoClickerB:
