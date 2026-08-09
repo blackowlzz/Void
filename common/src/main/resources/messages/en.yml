@@ -5,6 +5,9 @@ alerts-enabled: "%prefix% &7Alerts &aenabled&7."
 alerts-disabled: "%prefix% &7Alerts &cdisabled&7."
 verbose-enabled: "%prefix% &7Verbose &aenabled&7."
 verbose-disabled: "%prefix% &7Verbose &cdisabled&7."
+# Sent 5s after join to anyone with void.verbose.enable-on-join, if verbose is off.
+# That permission no longer switches verbose on, it only asks for this reminder.
+verbose-join-reminder: "%prefix% &7Verbose is &coff&7, you are only seeing flags that actually fired. &5/void verbose &7adds the near misses."
 brands-enabled: "%prefix% &7Brand tracking &aenabled&7."
 brands-disabled: "%prefix% &7Brand tracking &cdisabled&7."
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"

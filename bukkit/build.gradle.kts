@@ -170,7 +170,7 @@ bukkit {
 
         register("void.verbose.enable-on-join") {
             description =
-                "Enable verbose alerts on join"
+                "Get reminded on join that verbose is off (it no longer turns it on)"
             default = Permission.Default.FALSE
         }
 

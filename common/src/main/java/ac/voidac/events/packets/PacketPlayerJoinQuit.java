@@ -58,15 +58,18 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
 
         PlayerToggleStore toggles = VoidAPI.INSTANCE.getDataStoreLifecycle().playerToggleStore();
         applyToggle(platformPlayer, toggles, PlayerToggleStore.KEY_ALERTS,
-                "void.alerts", "void.alerts.enable-on-join", "void.alerts.enable-on-join.silent",
+                "void.alerts", "void.alerts.enable-on-join", "void.alerts.enable-on-join.silent", true,
                 (p, silent) -> VoidAPI.INSTANCE.getAlertManager().toggleAlerts(p, silent),
                 (p, value) -> VoidAPI.INSTANCE.getAlertManager().setAlertsEnabled(p, value, true));
+        // Verbose never comes on by itself. It is a firehose and staff who have not
+        // asked for it just get their chat buried, so the permission only earns them
+        // the nag below. An explicit /void verbose still sticks across reconnects.
         applyToggle(platformPlayer, toggles, PlayerToggleStore.KEY_VERBOSE,
-                "void.verbose", "void.verbose.enable-on-join", "void.verbose.enable-on-join.silent",
+                "void.verbose", "void.verbose.enable-on-join", "void.verbose.enable-on-join.silent", false,
                 (p, silent) -> VoidAPI.INSTANCE.getAlertManager().toggleVerbose(p, silent),
                 (p, value) -> VoidAPI.INSTANCE.getAlertManager().setVerboseEnabled(p, value, true));
         applyToggle(platformPlayer, toggles, PlayerToggleStore.KEY_BRANDS,
-                "void.brand", "void.brand.enable-on-join", "void.brand.enable-on-join.silent",
+                "void.brand", "void.brand.enable-on-join", "void.brand.enable-on-join.silent", true,
                 (p, silent) -> VoidAPI.INSTANCE.getAlertManager().toggleBrands(p, silent),
                 (p, value) -> VoidAPI.INSTANCE.getAlertManager().setBrandsEnabled(p, value, true));
 
@@ -83,15 +86,18 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
         VoidAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                 .onJoinFromUserLogin(platformPlayer, event.getUser(), System.currentTimeMillis());
 
-        if (platformPlayer.hasPermission("void.verbose")) {
+        // enable-on-join used to switch verbose on. Now it just buys you this,
+        // five seconds in so it doesn't get lost in the join spam.
+        if (platformPlayer.hasPermission("void.verbose.enable-on-join")) {
             VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(
                     VoidAPI.INSTANCE.getVoidPlugin(),
                     () -> {
-                        if (!VoidAPI.INSTANCE.getAlertManager().hasVerboseEnabled(platformPlayer)) {
-                            platformPlayer.sendMessage(MessageUtil.miniMessage(
-                                    "%prefix% &7Verbose is off. Use &5/void verbose &7to see detailed violation logs."
-                            ));
-                        }
+                        if (VoidAPI.INSTANCE.getAlertManager().hasVerboseEnabled(platformPlayer)) return;
+                        platformPlayer.sendMessage(MessageUtil.miniMessage(
+                                VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse(
+                                        "verbose-join-reminder",
+                                        "%prefix% &7Verbose is &coff&7, you are only seeing flags that actually fired. "
+                                                + "&5/void verbose &7adds the near misses.")));
                     },
                     5L, TimeUnit.SECONDS
             );
@@ -113,9 +119,12 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
      * @param permTogglePath  permission required to USE the toggle at all
      * @param permEnableOnJoin permission whose default is "on at login"
      * @param permSilentJoin  permission that suppresses the toggle message
+     * @param mayAutoEnable   false pins the permission-default to off no matter
+     *                        who holds enable-on-join, for toggles too noisy to
+     *                        switch on behind someone's back
      * @param toggle          legacy fallback path (with on/off flip behaviour)
-     * @param applySilent     applies a known boolean value silently — used
-     *                        when persisted state dictates a specific value
+     * @param applySilent     applies a known boolean value silently, used when
+     *                        persisted state dictates a specific value
      */
     private static void applyToggle(@NotNull PlatformPlayer platformPlayer,
                                     @NotNull PlayerToggleStore toggles,
@@ -123,6 +132,7 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
                                     @NotNull String permTogglePath,
                                     @NotNull String permEnableOnJoin,
                                     @NotNull String permSilentJoin,
+                                    boolean mayAutoEnable,
                                     @NotNull BiConsumer<PlatformPlayer, Boolean> toggle,
                                     @NotNull BiConsumer<PlatformPlayer, Boolean> applySilent) {
         if (!platformPlayer.hasPermission(permTogglePath)) return;
@@ -143,7 +153,7 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
         // prefetch hasn't completed). Fall back to the permission-default
         // policy and persist the choice so it sticks. NOOP store treats both
         // applyPermissionDefault calls as silent no-ops.
-        boolean enableOnJoin = platformPlayer.hasPermission(permEnableOnJoin);
+        boolean enableOnJoin = mayAutoEnable && platformPlayer.hasPermission(permEnableOnJoin);
         boolean silent = platformPlayer.hasPermission(permSilentJoin);
         if (enableOnJoin) {
             toggle.accept(platformPlayer, silent);
