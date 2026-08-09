@@ -1,0 +1,9 @@
+{
+  "id": "voidbridge",
+  "name": "VoidBridge",
+  "version": "${version}",
+  "description": "Shares Void anticheat alerts and bans across a proxy network.",
+  "url": "https://void.ac/",
+  "authors": ["Void"],
+  "main": "ac.voidac.bridge.proxy.velocity.VoidBridgeVelocity"
+}

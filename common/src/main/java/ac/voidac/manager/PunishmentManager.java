@@ -158,7 +158,16 @@ public class PunishmentManager implements ConfigReloadable {
                                     VoidAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                                             .recordFlagFromCheck(player, check, vl, verboseWithoutGl);
                                 }
-                                case "[proxy]" -> ProxyAlertMessenger.sendPluginMessage(cmd);
+                                // same [proxy] line, but signed and with real fields attached.
+                                // falls back to the old BungeeCord forward if there's no bridge
+                                case "[proxy]" -> {
+                                    if (VoidAPI.INSTANCE.getBridgeClient().isEnabled()) {
+                                        VoidAPI.INSTANCE.getBridgeClient().sendAlert(
+                                                player.uuid, player.getName(), check.getCheckName(), vl, cmd);
+                                    } else {
+                                        ProxyAlertMessenger.sendPluginMessage(cmd);
+                                    }
+                                }
                                 case "[alert]" -> {
                                     sentDebug = true;
                                     Component message = MessageUtil.miniMessage(cmd);

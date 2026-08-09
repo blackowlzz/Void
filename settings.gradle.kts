@@ -63,6 +63,7 @@ if (gradle.startParameter.isBuildScan) {
 rootProject.name = "void"
 include("common")
 include("bukkit")
+include("bridge")
 include("fabric")
 include(":fabric:mc1161")
 include(":fabric:mc1171")

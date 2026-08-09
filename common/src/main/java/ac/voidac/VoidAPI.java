@@ -21,6 +21,7 @@ import ac.voidac.manager.ThresholdOptimizerManager;
 import ac.voidac.manager.TickManager;
 import ac.voidac.manager.VoidBanManager;
 import ac.voidac.manager.config.BaseConfigManager;
+import ac.voidac.bridge.BridgeClient;
 import ac.voidac.manager.punishment.PunishmentDatabase;
 import ac.voidac.manager.datastore.DataStoreLifecycle;
 import ac.voidac.manager.init.Initable;
@@ -56,6 +57,7 @@ public final class VoidAPI {
     private final BanWaveManager banWaveManager;
     private final PunishmentDatabase punishmentDatabase;
     private final VoidBanManager voidBanManager;
+    private final BridgeClient bridgeClient;
     private final ThresholdOptimizerManager thresholdOptimizer;
     private final PlayerDataManager playerDataManager;
     private final TickManager tickManager;
@@ -77,6 +79,7 @@ public final class VoidAPI {
         this.banWaveManager = new BanWaveManager();
         this.punishmentDatabase = new PunishmentDatabase();
         this.voidBanManager = new VoidBanManager();
+        this.bridgeClient = new BridgeClient();
         this.thresholdOptimizer = new ThresholdOptimizerManager();
         this.playerDataManager = new PlayerDataManager();
         this.tickManager = new TickManager();

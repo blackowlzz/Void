@@ -1,0 +1,69 @@
+# void-bridge: shares Void's alerts and bans across a proxy network.
+#
+# This one goes on the PROXY. Setup is two steps:
+#   1. copy the secret below into plugins/Void/bridge.yml on every backend
+#   2. set enabled: true and a server-name there
+#
+# Backends open a connection to this plugin and keep it open, so a ban or an
+# unban reaches an empty or idle server straight away. The proxy holds the real
+# ban list and refuses the login itself, and a server that was down gets the
+# whole list the moment it reconnects.
+
+# Shared secret, generated for you on first run. Must match on every backend.
+#
+# This is what stops a stranger who finds the port from banning your whole
+# playerbase: every frame is signed HMAC-SHA256 with a timestamp and a one-shot
+# nonce, so it can't be forged and it can't be replayed. Treat it like a
+# password. If you ever need a new one, delete this file and restart.
+secret: "CHANGE-ME"
+
+# Port the backends connect to. Nothing else should be on it.
+port: 25599
+
+# Which address to listen on.
+#   127.0.0.1 = proxy and backends on the same machine (safest)
+#   0.0.0.0   = backends on other machines
+# On 0.0.0.0, firewall this port so only your own servers can reach it. The
+# secret protects you either way, but there is no reason to be reachable.
+bind: "0.0.0.0"
+
+# Which backends share with which.
+#
+# Leave it empty and the whole network is one group: everyone sees every alert
+# and enforces every ban. Use groups when you want separation, like PvP bans not
+# reaching creative.
+#
+# A server should only appear in one group, first match wins.
+groups: {}
+#groups:
+#  survival:
+#    servers:
+#      - lobby
+#      - survival
+#      - kitpvp
+#    share-alerts: true
+#    share-bans: true
+#
+#  creative:
+#    servers:
+#      - creative
+#    # staff there see their own alerts, but a ban on creative stays on creative
+#    share-alerts: true
+#    share-bans: false
+
+# What happens to a backend not named in any group above.
+#   true  = treat it as part of one implicit network-wide group
+#   false = it neither sends nor receives anything
+# Ignored while groups is empty, since then it's all one group anyway.
+link-unlisted-servers: true
+
+# Refuse the login outright when a ban covers every backend, so the player gets
+# a proper ban screen instead of a confusing failed connect.
+#
+# Bans scoped to one group are always enforced per server instead: they simply
+# aren't let into that group's servers.
+enforce-at-login: true
+
+# Stuck in front of the ban reason on the disconnect screen. Supports & codes.
+# The reason itself arrives already formatted by whoever issued it.
+ban-screen-prefix: ""

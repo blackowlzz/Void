@@ -1,10 +1,13 @@
 package ac.voidac.manager;
 
 import ac.voidac.VoidAPI;
+import ac.voidac.bridge.protocol.payload.BanPayload;
 import ac.voidac.manager.punishment.ActiveBanRecord;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
+import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,11 +32,19 @@ public class VoidBanManager {
     public void ban(String banId, UUID uuid, String playerName, String kickReason, String durationStr, long timestamp) {
         long expiresAt = parseExpiry(durationStr);
         VoidAPI.INSTANCE.getPunishmentDatabase().activeBanInsert(banId, uuid, playerName, kickReason, expiresAt, timestamp);
+        VoidAPI.INSTANCE.getBridgeClient().sendBan(banId, uuid, playerName, kickReason, expiresAt, timestamp);
     }
 
     /** Removes a ban by UUID.  Returns {@code true} if a ban was found and removed. */
     public boolean unban(UUID uuid) {
-        return VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(uuid);
+        ActiveBanRecord existing = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanQuery(uuid);
+        boolean removed = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(uuid);
+        if (removed) {
+            String name = existing != null ? existing.playerName() : uuid.toString();
+            String banId = existing != null ? existing.banId() : "";
+            VoidAPI.INSTANCE.getBridgeClient().sendUnban(uuid, name, banId);
+        }
+        return removed;
     }
 
     /**
@@ -41,7 +52,62 @@ public class VoidBanManager {
      * Returns the UUID that was unbanned, or {@code null} if no entry was found.
      */
     public @Nullable UUID unbanByName(String name) {
-        return VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemoveByName(name);
+        ActiveBanRecord existing = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanQueryByName(name);
+        UUID removed = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemoveByName(name);
+        if (removed != null) {
+            VoidAPI.INSTANCE.getBridgeClient().sendUnban(removed, name, existing != null ? existing.banId() : "");
+        }
+        return removed;
+    }
+
+    // applies what another server decided. never calls back into the bridge,
+    // which is the whole reason bans don't bounce around the network forever
+
+    /**
+     * Applies a ban that came over the bridge.
+     * True means it's new, so the caller knows whether to bother kicking anyone.
+     * Idempotent by ban id: the same ban shows up twice, once live and once in the next SYNC.
+     */
+    public boolean applyRemoteBan(@NotNull BanPayload ban) {
+        // table is keyed by UUID so a name-only ban can't live here.
+        // the proxy still refuses the login by name, which is what counts
+        if (ban.uuid() == null) return false;
+
+        ActiveBanRecord existing = VoidAPI.INSTANCE.getPunishmentDatabase().activeBanQuery(ban.uuid());
+        if (existing != null && existing.banId().equals(ban.banId()) && !existing.isExpired()) {
+            return false;
+        }
+
+        VoidAPI.INSTANCE.getPunishmentDatabase().activeBanInsert(
+                ban.banId(), ban.uuid(), ban.playerName(), ban.kickReason(), ban.expiresAt(), ban.issuedAt());
+        return true;
+    }
+
+    /** Lifts a ban that another server lifted.  Tries UUID first, then name. */
+    public void applyRemoteUnban(@Nullable UUID uuid, @NotNull String playerName) {
+        if (uuid != null && VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(uuid)) return;
+        VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemoveByName(playerName);
+    }
+
+    /**
+     * Drops local bans the proxy no longer knows about.
+     *
+     * Without this a backend can stay stricter than the network: unban someone
+     * while this server happens to be empty and the UNBAN has nobody to travel
+     * on, so our copy sticks around and we keep refusing a player the proxy is
+     * perfectly happy with. The proxy's list is the truth, so a sync is a
+     * reconciliation and not just a merge.
+     *
+     * @param liveBanIds ban ids the proxy says still apply here
+     * @return how many stale bans were dropped
+     */
+    public int reconcileWithProxy(@NotNull Set<String> liveBanIds) {
+        int dropped = 0;
+        for (ActiveBanRecord record : VoidAPI.INSTANCE.getPunishmentDatabase().activeBanAll()) {
+            if (liveBanIds.contains(record.banId())) continue;
+            if (VoidAPI.INSTANCE.getPunishmentDatabase().activeBanRemove(record.uuid())) dropped++;
+        }
+        return dropped;
     }
 
     /**

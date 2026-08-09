@@ -162,6 +162,15 @@ public final class VoidConfigSpecs {
      * existing database.yml on disk; the legacy lift happens on the
      * config.yml side via cross-file writes (see {@link #mainConfig}).
      */
+    /**
+     * The proxy bridge config (top-level {@code bridge:} wrapper).
+     * New file in 2.6.4, so there is nothing on disk to migrate from.
+     */
+    public static @NotNull ConfigUpdater.Spec bridge() {
+        return ConfigUpdater.Spec.builder("/bridge/", 1, ConfigUpdater.ConfigFlavor.V2)
+                .build();
+    }
+
     public static @NotNull ConfigUpdater.Spec database() {
         return ConfigUpdater.Spec.builder("/database/", 1, ConfigUpdater.ConfigFlavor.V2)
                 .build();

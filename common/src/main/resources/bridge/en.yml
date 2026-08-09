@@ -1,0 +1,57 @@
+# Void Bridge: shares alerts and bans across a proxy network.
+#
+# Needs the void-bridge plugin on your Velocity or BungeeCord proxy. Put the
+# secret it generated into this file, flip enabled, give the server a name, done.
+#
+# This server keeps a connection open to the proxy, so a ban or an unban lands
+# here even when nobody is playing, and if this server is down it gets the whole
+# list back the moment it reconnects.
+bridge:
+
+  # Off by default. Nothing is sent or accepted until you flip this.
+  enabled: false
+
+  # This server's name on the network, shown as the origin on forwarded alerts.
+  # Use the same id you gave it in the proxy's server list (lobby, kitpvp, ...).
+  server-name: "unknown"
+
+  # Where the proxy is. The default is right when the proxy runs on this machine.
+  proxy-host: "127.0.0.1"
+  proxy-port: 25599
+
+  # Copy this from plugins/voidbridge/config.yml on your proxy, which generated
+  # one for you on its first run. Must match exactly, on every linked server.
+  #
+  # It is what stops a stranger who finds the port from banning your whole
+  # playerbase, so treat it like a password. Void refuses to enable the bridge
+  # while this is CHANGE-ME or empty.
+  secret: "CHANGE-ME"
+
+  alerts:
+    # Forward this server's alerts to the network. Driven by the [proxy] line in
+    # punishments.yml, which already exists in every punishment group.
+    send: true
+
+    # Show alerts other servers forwarded to your staff.
+    receive: true
+
+  bans:
+    # Announce bans issued here so the whole network enforces them.
+    send: true
+
+    # Accept bans issued elsewhere.
+    receive: true
+
+    # Kick a matching player who is already on this server when a remote ban
+    # arrives. Off means they finish the session and only get stopped next login.
+    kick-on-remote-ban: true
+
+    # Treat the proxy's list as the truth, so a sync also DROPS local bans the
+    # proxy no longer has.
+    #
+    # You want this on. It is what keeps this server from staying stricter than
+    # the network after an unban it missed while it was down.
+    #
+    # Turn it off only if this server issues bans that must survive even when
+    # the proxy has never heard of them.
+    proxy-authoritative: true

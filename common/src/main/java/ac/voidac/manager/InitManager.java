@@ -53,6 +53,7 @@ public class InitManager {
                 .add(VoidAPI.INSTANCE.getAlertManager())
                 .add(VoidAPI.INSTANCE.getDiscordManager())
                 .add(VoidAPI.INSTANCE.getSpectateManager())
+                .add(VoidAPI.INSTANCE.getBridgeClient())
                 .add(VoidAPI.INSTANCE.getDataStoreLifecycle())
                 .add(new JavaVersion())
                 .add(new ViaVersion())

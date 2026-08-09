@@ -207,6 +207,7 @@ public class VoidExternalAPI implements VoidAbstractAPI, ConfigReloadObserver, S
         VoidAPI.INSTANCE.getDiscordManager().reload();
         VoidAPI.INSTANCE.getSpectateManager().reload();
         VoidAPI.INSTANCE.getBanWaveManager().reload(configManager);
+        VoidAPI.INSTANCE.getBridgeClient().reload(configManager);
         // First-load guard: load() calls reload() before start() runs, so this fires once with started=false before the datastore exists. Subsequent /void reload calls see started=true and proceed (including disabled→enabled flips — DataStoreLifecycle.reload() re-evaluates builder.enabled() each time).
         if (!started) return;
         // Hot-reload picks up backend swaps + routing + connection-pool edits without a server restart. Drains in-flight writes for shutdown-drain-timeout-ms then drops; brief mid-reload unavailability is the tradeoff.

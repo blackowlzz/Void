@@ -1,0 +1,5 @@
+name: VoidBridge
+main: ac.voidac.bridge.proxy.bungee.VoidBridgeBungee
+version: ${version}
+author: Void
+description: Shares Void anticheat alerts and bans across a proxy network.

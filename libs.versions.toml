@@ -23,6 +23,8 @@ slf4j = "2.0.17"
 jetbrains-annotations = "24.1.0"
 netty = "4.1.85.Final"
 snakeyaml = "2.2"
+velocity = "3.4.0"
+bungeecord = "1.21-R0.4"
 disruptor = "3.4.4"
 mongodb-driver-sync = "5.2.0"
 jedis = "5.1.0"
@@ -73,6 +75,8 @@ slf4j-jdk14 = { group = "org.slf4j", name = "slf4j-jdk14", version.ref = "slf4j"
 jetbrains-annotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations" }
 netty = { group = "io.netty", name = "netty-all", version.ref = "netty" }
 snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
+velocity-api = { group = "com.velocitypowered", name = "velocity-api", version.ref = "velocity" }
+bungeecord-api = { group = "net.md-5", name = "bungeecord-api", version.ref = "bungeecord" }
 disruptor = { group = "com.lmax", name = "disruptor", version.ref = "disruptor" }
 mongodb-driver-sync = { group = "org.mongodb", name = "mongodb-driver-sync", version.ref = "mongodb-driver-sync" }
 jedis = { group = "redis.clients", name = "jedis", version.ref = "jedis" }

@@ -48,6 +48,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         batch.put(getConfigFile("discord.yml"), VoidConfigSpecs.discord());
         batch.put(getConfigFile("messages.yml"), VoidConfigSpecs.messages());
         batch.put(getConfigFile("database.yml"), VoidConfigSpecs.database());
+        batch.put(getConfigFile("bridge.yml"), VoidConfigSpecs.bridge());
         for (String id : BACKEND_IDS) {
             batch.put(getConfigFile("databases/" + id + ".yml"), VoidConfigSpecs.backend(id));
         }
@@ -76,6 +77,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
             // they don't collide with config.yml / discord.yml / each other
             // when Configuralize merges everything into one keyspace.
             config.addSource(VoidAPI.class, "database", getConfigFile("database.yml"));
+            config.addSource(VoidAPI.class, "bridge", getConfigFile("bridge.yml"));
             for (String id : BACKEND_IDS) {
                 config.addSource(VoidAPI.class, "databases/" + id, getConfigFile("databases/" + id + ".yml"));
             }

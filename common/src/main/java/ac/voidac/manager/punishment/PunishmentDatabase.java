@@ -345,6 +345,29 @@ public final class PunishmentDatabase {
         }
     }
 
+    /** Every live ban, used by the bridge to reconcile against the proxy's list. */
+    public synchronized java.util.List<ActiveBanRecord> activeBanAll() {
+        java.util.List<ActiveBanRecord> out = new java.util.ArrayList<>();
+        if (connection == null) return out;
+        try (PreparedStatement ps = connection.prepareStatement(
+                "SELECT uuid, player_name, reason, expires_at, ban_id, timestamp FROM void_active_bans");
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                out.add(new ActiveBanRecord(
+                        rs.getString("ban_id"),
+                        UUID.fromString(rs.getString("uuid")),
+                        rs.getString("player_name"),
+                        rs.getString("reason"),
+                        rs.getLong("expires_at"),
+                        rs.getLong("timestamp")
+                ));
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Failed to list active bans", e);
+        }
+        return out;
+    }
+
     public synchronized void activeBanCleanExpired() {
         if (connection == null) return;
         try (PreparedStatement ps = connection.prepareStatement(
