@@ -14,7 +14,7 @@ import versioning.VersionUtil
 
 BuildConfig.init(project)
 
-val baseVersion = "2.6.2"
+val baseVersion = "2.6.4"
 group = "ac.voidac"
 version = VersionUtil.computeVersion(baseVersion)
 description = "Libre simulation anticheat designed for 26.1 with 1.8–26.1 support, powered by PacketEvents 2.0."
