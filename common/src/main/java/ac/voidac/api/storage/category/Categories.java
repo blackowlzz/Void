@@ -53,7 +53,7 @@ public final class Categories {
     /**
      * Blob category. Declared on the surface for shape-consistency with the
      * other categories, but no producer currently publishes to it and the
-     * event factory refuses to construct slots — a future recorder feature
+     * event factory refuses to construct slots, a future recorder feature
      * will hook it up.
      */
     public static final Category<BlobRef> BLOB = new Builtin<>(

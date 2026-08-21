@@ -83,7 +83,7 @@ bukkit {
         "floodgate",
         "FastLogin",
         "PlaceholderAPI",
-        // Driver holder mods — softdepend so each backend's driver class
+        // Driver holder mods: softdepend so each backend's driver class
         // resolves through the linked classloader.
         "sqlite-jdbc",
         "mysql-jdbc",
@@ -93,6 +93,12 @@ bukkit {
     )
 
     permissions {
+        register("void.advert") {
+            description = "Show the VoidAC info message"
+            // on for everyone until a server explicitly negates it
+            default = Permission.Default.TRUE
+        }
+
         register("void.alerts") {
             description = "Receive alerts for violations"
             default = Permission.Default.OP

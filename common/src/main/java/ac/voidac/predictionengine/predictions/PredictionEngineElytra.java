@@ -72,7 +72,9 @@ public class PredictionEngineElytra extends PredictionEngine {
                     if (applyStuckSpeed != 0) elytraResult.multiply(player.stuckSpeedMultiplier);
                     elytraResult.multiply(0.99F, 0.98F, 0.99F);
                     VectorData modified = data.returnNewModified(elytraResult, VectorData.VectorType.InputResult);
-                    modified.input = new Vector3dm(0, 0, 0);
+                    // leave input null. faking a zero here told MovementTicker the
+                    // collision was never soft, which is how gliding into a wall
+                    // ended up looking like a sprint violation
                     results.add(modified);
                 }
             }

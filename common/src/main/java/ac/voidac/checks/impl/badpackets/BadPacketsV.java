@@ -4,6 +4,7 @@ import ac.voidac.checks.Check;
 import ac.voidac.checks.CheckData;
 import ac.voidac.checks.type.PacketCheck;
 import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.math.VoidMath;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
@@ -25,8 +26,10 @@ public class BadPacketsV extends Check implements PacketCheck {
                 int positionAtLeastEveryNTicks = player.getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_8) ? 20 : 19;
 
                 if (noReminderTicks < positionAtLeastEveryNTicks && !player.uncertaintyHandler.lastTeleportTicks.hasOccurredSince(1)) {
-                    final double deltaSq = new WrapperPlayClientPlayerFlying(event).getLocation().getPosition()
-                            .distanceSquared(new Vector3d(player.lastX, player.lastY, player.lastZ));
+                    final Vector3d position = new WrapperPlayClientPlayerFlying(event).getLocation().getPosition();
+                    final double deltaSq = VoidMath.square(player.lastX - position.x)
+                            + VoidMath.square(player.lastY - position.y)
+                            + VoidMath.square(player.lastZ - position.z);
                     if (deltaSq <= player.getMovementThreshold() * player.getMovementThreshold()) {
                         flagAndAlert("delta=" + Math.sqrt(deltaSq));
                     }

@@ -18,7 +18,7 @@ public interface PlayerToggleStore {
 
     /**
      * Keys persisted under {@link SettingScope#PLAYER}, keyed by
-     * {@link UUID#toString()} as the scope key. Stable strings — don't rename
+     * {@link UUID#toString()} as the scope key. Stable strings, don't rename
      * without a migration.
      */
     String KEY_ALERTS = "alerts";
@@ -43,7 +43,7 @@ public interface PlayerToggleStore {
      * Apply a permission-default value to the slot. No-op if anything else has
      * already settled the slot. Persists the chosen value when applied (one-shot
      * at login, no risk of spam) so subsequent logins see this as the persisted
-     * choice — turning the permission into a one-time onboarding policy rather
+     * choice: turning the permission into a one-time onboarding policy rather
      * than a recurring override.
      */
     void applyPermissionDefault(@NotNull UUID uuid, @NotNull String key, boolean value);

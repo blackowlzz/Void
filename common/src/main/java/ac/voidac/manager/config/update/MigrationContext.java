@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * <p>Cross-file ordering rule: writes pushed via {@code otherFile(...).put()}
  * land at the END, after every file's own migrations have been applied. The
- * recipient file's migrations DO NOT see queued cross-file writes — design a
+ * recipient file's migrations DO NOT see queued cross-file writes, design a
  * "move config.yml's X to discord.yml's Y" migration as a single transform
  * on config.yml that reads its own input and writes both sides.
  */

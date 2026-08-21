@@ -29,7 +29,7 @@ import java.util.logging.Logger;
  * that dispatches to the backend's {@link StorageEventHandler}.
  * <p>
  * Per-category rings (rather than one ring per backend) keep the SPI ready for
- * Phase 3+ extension-declared categories — the consumer shape does not need to
+ * Phase 3+ extension-declared categories: the consumer shape does not need to
  * grow a {@code switch (category)} as new categories come online.
  */
 @ApiStatus.Internal
@@ -71,7 +71,7 @@ public final class RingRegistry {
      * population. Drops and accounts on full ring; never blocks.
      * <p>
      * Uses Disruptor's {@code EventTranslatorOneArg} form to pass the configurer
-     * through without capturing any local state — the translator instance is a
+     * through without capturing any local state, the translator instance is a
      * stateless JIT-cacheable singleton.
      */
     public <E> boolean submit(@NotNull Category<E> cat, @NotNull java.util.function.Consumer<E> configurer) {

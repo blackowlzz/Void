@@ -94,14 +94,14 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
                 VoidAPI.INSTANCE.getConfigManager().getConfig());
 
         if (!builder.enabled()) {
-            logger.info("[void-datastore] disabled in database.yml — skipping storage init");
+            logger.info("[void-datastore] disabled in database.yml, skipping storage init");
             this.enabled = false;
             return;
         }
         try {
             this.config = builder.build();
         } catch (RuntimeException e) {
-            logger.log(Level.SEVERE, "[void-datastore] database.yml rejected — storage disabled", e);
+            logger.log(Level.SEVERE, "[void-datastore] database.yml rejected, storage disabled", e);
             this.enabled = false;
             return;
         }
@@ -110,9 +110,14 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
             buildAndStart(dataFolder);
             this.loaded = true;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "[void-datastore] failed to initialise storage — falling back to disabled", e);
+            logger.log(Level.SEVERE, "[void-datastore] failed to initialise storage, falling back to disabled", e);
             this.enabled = false;
-            try { teardown(); } catch (Exception ignore) {}
+            // if the teardown of a half-built store also fails, that's worth knowing
+            try {
+                teardown();
+            } catch (Exception teardownFailed) {
+                logger.log(Level.FINE, "[void-datastore] teardown after a failed start also failed", teardownFailed);
+            }
         }
     }
 
@@ -127,7 +132,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
         Map<Category<?>, Backend> routing = new LinkedHashMap<>();
         for (Map.Entry<Category<?>, String> r : config.routing().entrySet()) {
             Backend b = backendsById.get(r.getValue());
-            if (b == null) continue; // routing target was "none" or an unknown id — skip this category
+            if (b == null) continue; // routing target was "none" or an unknown id, skip this category
             routing.put(r.getKey(), b);
         }
 
@@ -173,7 +178,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
                 dataStore, playerIdentityService, checkRegistry, sessionTracker);
         this.playerToggleStore = new PlayerToggleStoreImpl(dataStore, logger);
 
-        // Crash sweep — mark every session whose closed_at is still null as
+        // Crash sweep: mark every session whose closed_at is still null as
         // crashed by stamping closed_at = last_activity. SessionTracker has
         // no in-memory state at this point (we're pre-first-join), so any
         // open row is by definition orphaned. Per-backend implementations
@@ -190,7 +195,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
             } catch (Exception e) {
                 logger.log(Level.WARNING,
                         "[void-datastore] markCrashedSessions failed on backend '"
-                                + b.id() + "' — sessions may show as ongoing forever", e);
+                                + b.id() + "', sessions may show as ongoing forever", e);
             }
         }
     }
@@ -226,7 +231,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
     private void maybeMigrateLegacy(Path dataFolder, SqliteBackend sqliteBackend) {
         // SqliteBackend is the only backend that currently understands the
         // legacy V0 layout. When routing doesn't include SQLite, there's no
-        // place to migrate into — skip.
+        // place to migrate into: skip.
         if (sqliteBackend == null) return;
         if (config.migration().skip()) {
             logger.info("[void-datastore] migration.skip=true; leaving legacy v0 un-migrated");
@@ -235,7 +240,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
         V0Sources.V0Source source = V0Sources.detect(
                 dataFolder,
                 VoidAPI.INSTANCE.getConfigManager().getConfig());
-        // No legacy store on disk — fresh install or migration already done.
+        // No legacy store on disk, fresh install or migration already done.
         if (source == null) {
             logger.info("[void-datastore] no legacy v0 store detected; nothing to migrate");
             return;
@@ -276,13 +281,13 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
      *
      * <p>Operators can swap the backend (e.g. SQLite → MySQL after a
      * {@code /void history migrate}) without bouncing the server. Brief
-     * unavailability between the drain and the new backend's init —
+     * unavailability between the drain and the new backend's init,
      * writes during that window get dropped on the floor; the user
      * accepts that tradeoff.
      *
      * <p>Stale references held by callers (e.g. a check that cached
      * {@link LiveWriteHooks} in a local variable mid-event) keep working
-     * against the old, closed dataStore — those writes drop too. New
+     * against the old, closed dataStore, those writes drop too. New
      * lookups via {@link #liveWriteHooks()} resolve to the new instance.
      */
     public synchronized void reload() {
@@ -292,7 +297,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
     }
 
     /**
-     * Idempotent teardown — drains writers, closes backends, nulls every
+     * Idempotent teardown: drains writers, closes backends, nulls every
      * service field. Used by both {@link #stop()} and {@link #reload()}.
      * Doesn't touch {@code enabled}; {@link #start()} re-evaluates that
      * from the freshly-loaded ConfigManager.
@@ -300,7 +305,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
     private void teardown() {
         // violationSink drains in-flight writes; dataStore drains per-category
         // rings and closes each backend. Both null-guarded because a failure
-        // during buildAndStart can tear down mid-initialisation — start()'s
+        // during buildAndStart can tear down mid-initialisation, start()'s
         // catch calls teardown() before any of these fields were assigned.
         if (playerToggleStore != null) playerToggleStore.shutdown();
         if (violationSink != null) violationSink.shutDown();
@@ -334,7 +339,7 @@ public final class DataStoreLifecycle implements StartableInitable, StoppableIni
     /**
      * The live-writes facade used by {@code PunishmentManager} and
      * {@code PacketPlayerJoinQuit}. Returns {@link LiveWriteHooks#NOOP} when
-     * the datastore is disabled or its init failed — callers don't null-check.
+     * the datastore is disabled or its init failed, callers don't null-check.
      */
     public @NotNull LiveWriteHooks liveWriteHooks() { return loaded ? liveWriteHooks : LiveWriteHooks.NOOP; }
 

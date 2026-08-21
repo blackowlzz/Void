@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * the correct channel type without a cast at the call site.
  *
  * <p>External code should prefer subscribing via
- * {@code bus.get(SomeEvent.class).onSomething(...)} — the legacy
+ * {@code bus.get(SomeEvent.class).onSomething(...)}, the legacy
  * {@link EventBus#post(VoidEvent)} / class-keyed {@code subscribe} methods
  * remain for source compatibility with pre-1.3 callers and internally route
  * through the same {@code EventChannel}.
@@ -61,7 +61,7 @@ public abstract class VoidEvent<CHANNEL extends EventChannel<?, ?>> {
     }
 
     /**
-     * Root-level event handler. Fires for every concrete event channel —
+     * Root-level event handler. Fires for every concrete event channel,
      * intended for debug / metrics consumers that want to count, categorise,
      * or observe cancellation state across all events without caring about
      * specific fields.
@@ -69,11 +69,11 @@ public abstract class VoidEvent<CHANNEL extends EventChannel<?, ?>> {
      * <p>For cancellable events {@code currentlyCancelled} is the threaded
      * state at the point this handler runs; for non-cancellable events it's
      * always {@code false}. Return type is {@code void} because root-level
-     * observers shouldn't affect cancellation — bridges thread the cancelled
+     * observers shouldn't affect cancellation: bridges thread the cancelled
      * state through priority-ordered dispatch unchanged.
      *
      * <p>Plugins that need positional fields for a specific event family
-     * should subscribe at a narrower level — {@code VoidCheckEvent.Handler}
+     * should subscribe at a narrower level, {@code VoidCheckEvent.Handler}
      * for cancellable check events, or the concrete event's own
      * {@code on…(...)} for full field access.
      */
@@ -100,7 +100,7 @@ public abstract class VoidEvent<CHANNEL extends EventChannel<?, ?>> {
             subscribeAbstract(handler, priority, ignoreCancelled, plugin);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onAnyEvent(@NotNull Object pluginContext, @NotNull Handler handler) {
             subscribeAbstractResolving(pluginContext, handler, 0, false);

@@ -38,7 +38,7 @@ public final class Queries {
     /**
      * Prefix-only lookup for tab completion. Callers pass the already-lowercased
      * prefix and a cap on returned rows; backends sort by {@code last_seen DESC}
-     * so the most recently seen matches land first. Prefix must be non-empty —
+     * so the most recently seen matches land first. Prefix must be non-empty,
      * empty-prefix enumeration policy belongs to the caller.
      */
     public static ListPlayersByNamePrefix listPlayersByNamePrefix(String lowerPrefix, int limit) {

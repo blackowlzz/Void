@@ -32,7 +32,7 @@ import java.util.Set;
 
 @UtilityClass
 public class BlockBreakSpeed {
-    // temporary hardcode to workaround PE bug https://github.com/retrooper/packetevents/issues/1217; see https://github.com/VoidAnticheat/Void/issues/2117
+    // temporary hardcode to workaround PE bug https://github.com/retrooper/packetevents/issues/1217
     private static final Set<StateType> HARVESTABLE_TYPES_1_21_4 = Sets.newHashSet(
             StateTypes.BELL,
             StateTypes.LANTERN,
@@ -54,7 +54,7 @@ public class BlockBreakSpeed {
             StateTypes.ENDER_CHEST
     );
 
-    // another temporary hardcode for the same reasons as above; see https://github.com/VoidAnticheat/Void/issues/2574
+    // another temporary hardcode for the same reasons as above
     private static final Set<StateType> HARVESTABLE_TYPES_1_21 = Sets.newHashSet(
             StateTypes.VAULT
     );
@@ -108,9 +108,9 @@ public class BlockBreakSpeed {
         final float speedMultiplier = getSpeedMultiplierFromToolData(player, tool, toolSpeedData);
 
         final boolean canHarvest = !block.isRequiresCorrectTool() || toolSpeedData.isCorrectToolForDrop
-                // temporary hardcode to workaround PE bug https://github.com/retrooper/packetevents/issues/1217; see https://github.com/VoidAnticheat/Void/issues/2091
+                // temporary hardcode to workaround PE bug https://github.com/retrooper/packetevents/issues/1217
                 || player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_4) && HARVESTABLE_TYPES_1_21_4.contains(block)
-                // same reason as above; see https://github.com/VoidAnticheat/Void/issues/2574
+                // same reason as above
                 || player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21) && HARVESTABLE_TYPES_1_21.contains(block);
 
         float damage = speedMultiplier / blockHardness;

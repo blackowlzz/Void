@@ -55,3 +55,7 @@ bridge:
     # Turn it off only if this server issues bans that must survive even when
     # the proxy has never heard of them.
     proxy-authoritative: true
+
+# Schema markers: see header comment in config.yml.
+config-flavor: V2
+config-version: 1

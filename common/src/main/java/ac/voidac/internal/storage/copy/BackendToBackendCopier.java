@@ -27,9 +27,9 @@ import java.util.function.LongConsumer;
  * Scans by player UUID: identity rows in the source define the set of players
  * to walk, then for each player we page sessions and (per session) page
  * violations. This matches the only {@code Query} shape the public read API
- * currently supports — there's no free-form "all rows" query.
+ * currently supports: there's no free-form "all rows" query.
  * <p>
- * Not idempotent against a partially-populated destination — if you aborted
+ * Not idempotent against a partially-populated destination, if you aborted
  * halfway and re-run, rows previously copied reappear (sessions are upserts
  * keyed by sessionId so they dedup; violations get new autoincrement IDs per
  * insert and will duplicate). The caller is expected to start with an empty
@@ -64,7 +64,7 @@ public final class BackendToBackendCopier {
         // Enumerate source players. The read API doesn't expose "list all identities"
         // today; we derive the player set from sessions (one per player-scoped
         // session listing) as a reasonable proxy. Sessions without an identity row
-        // are still copied; identity rows without sessions won't migrate — an
+        // are still copied; identity rows without sessions won't migrate, an
         // accepted limitation documented in the copier's javadoc.
         Set<UUID> players = collectPlayersBySessionWalk();
 
@@ -137,7 +137,7 @@ public final class BackendToBackendCopier {
      * exposes a {@code knownPlayerUuids()} helper.
      * <p>
      * The underlying assumption is that PLAYER_IDENTITY is the source of truth
-     * for "who to copy" — {@code PlayerIdentityService.observe} writes a row
+     * for "who to copy": {@code PlayerIdentityService.observe} writes a row
      * on join, so any active player shows up here. A backend that doesn't
      * guarantee that would need a different enumeration strategy bolted on
      * here or a new public query shape.
@@ -171,7 +171,7 @@ public final class BackendToBackendCopier {
      * Idempotent drop of the source backend's data after a successful copy.
      * SQLite gets a DELETE sweep on the v1 tables (copier's implicit
      * contract is "after --delete, the source is empty for v1"). Other
-     * backends throw — MySQL/Postgres implementations can override when they
+     * backends throw: MySQL/Postgres implementations can override when they
      * land.
      */
     public void dropSource() throws BackendException {

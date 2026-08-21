@@ -10,8 +10,8 @@ import java.util.UUID;
  * Immutable read-side DTO for one session.
  * <p>
  * {@code clientVersion} is a PacketEvents protocol version number (the same int
- * {@code ClientVersion#getProtocolVersion()} returns). Storing a PVN — not a
- * display string — keeps the API stable across display-name drift and lets
+ * {@code ClientVersion#getProtocolVersion()} returns). Storing a PVN, not a
+ * display string: keeps the API stable across display-name drift and lets
  * renderers hand the int to PE for formatting. {@code -1} means unresolved.
  * <p>
  * {@code closedAtEpochMs} is null while the session is alive. Set by the

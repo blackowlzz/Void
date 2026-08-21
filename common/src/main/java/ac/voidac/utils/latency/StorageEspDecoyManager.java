@@ -355,7 +355,7 @@ public final class StorageEspDecoyManager {
             return false;
         }
 
-        // Beyond raycast range — not worth the packet overhead.
+        // Beyond raycast range, not worth the packet overhead.
         if (distanceSquared > VoidMath.square(RAYCAST_RADIUS)) {
             return false;
         }
@@ -367,7 +367,7 @@ public final class StorageEspDecoyManager {
         //     (border faces read as air and were mis-judged), or
         //   - the world changed afterwards (a player mined toward it, or mined the
         //     decoy block itself), leaving a fake shulker floating in the open.
-        // A decoy only deceives ESP — never a legit player — when its own block is
+        // A decoy only deceives ESP, never a legit player, when its own block is
         // solid/opaque AND all six faces are backed by real solid/opaque blocks.
         // Anything less is visible by line-of-sight, so we hide it (show the real block).
         if (!isSolidAndOpaque(px, py, pz) || !isSurroundedBySolidOpaqueBlocks(px, py, pz)) {

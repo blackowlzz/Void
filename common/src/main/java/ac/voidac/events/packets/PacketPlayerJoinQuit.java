@@ -141,7 +141,7 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
         Boolean persisted = toggles.current(uuid, key);
 
         if (persisted != null) {
-            // Prefetch already settled — apply silently so reconnects don't
+            // Prefetch already settled: apply silently so reconnects don't
             // print the toggle message every time. enable-on-join.silent is
             // ignored on this path; persisted state already represents the
             // staff member's last explicit choice.
@@ -159,7 +159,7 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
             toggle.accept(platformPlayer, silent);
             toggles.applyPermissionDefault(uuid, key, true);
         } else {
-            // Persist the negative decision too — without this, an admin who
+            // Persist the negative decision too, without this, an admin who
             // grants enable-on-join later would silently flip the toggle on
             // for staff who'd already implicitly chosen "off" on prior joins.
             toggles.applyPermissionDefault(uuid, key, false);

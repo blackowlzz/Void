@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.Map;
 
 /**
- * Postgres 14+ schema for the Postgres backend. Born at the v5 baseline — see
+ * Postgres 14+ schema for the Postgres backend. Born at the v5 baseline, see
  * {@code MysqlSchema} for the same rationale; there are no pre-v5 Postgres
  * databases to migrate from.
  */

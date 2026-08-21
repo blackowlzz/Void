@@ -15,7 +15,7 @@ import java.util.concurrent.CompletionStage;
  * on offline-mode servers; online-mode deployments keep this link out of the chain.
  * <p>
  * By design this link cannot resolve uuid → name (there's no reverse of nameUUIDFromBytes
- * without a dictionary of candidate names) — it returns empty on {@code resolveByUuid}.
+ * without a dictionary of candidate names), it returns empty on {@code resolveByUuid}.
  */
 @ApiStatus.Internal
 public final class OfflineModeUuidLink implements NameResolverLink {

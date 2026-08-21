@@ -14,13 +14,13 @@ import java.util.Map;
 /**
  * MySQL-family schema for the MySQL backend. New backends are born at the
  * {@link #CURRENT_VERSION} baseline (the shape SQLite reached at v5) rather
- * than replaying each migration — there are no pre-v5 MySQL databases to
+ * than replaying each migration: there are no pre-v5 MySQL databases to
  * upgrade from, so the linear applyVN pattern used by SQLite is overkill
  * for the v0 → v5 range. Per-version forward migrations land here.
  * <p>
  * Baseline DDL and per-version migrations may be delegated to the
  * {@link MysqlDialect} the {@link MysqlBackend} probed at init when the
- * change is flavor-specific — currently {@code applyBaseline} (formerly
+ * change is flavor-specific: currently {@code applyBaseline} (formerly
  * different between MySQL functional indexes and MariaDB STORED gen cols;
  * unified at v8 onto the gen col shape) and {@code migrateV7ToV8} (the
  * MySQL-side ALTER that brings v7 deployments onto the v8 shape; no-op on
@@ -36,7 +36,7 @@ public final class MysqlSchema {
     public static void ensureInitialized(Connection c, String voidCoreVersion, TableNames t, MysqlDialect dialect) throws SQLException {
         try (Statement s = c.createStatement()) {
             // MySQL check-constraint names are schema-global (not table-scoped),
-            // so the name must be unique per meta table in the DB — otherwise two
+            // so the name must be unique per meta table in the DB, otherwise two
             // datastores sharing one MySQL instance collide. Scope the name by
             // interpolating the (already-unique) meta table name.
             s.executeUpdate("CREATE TABLE IF NOT EXISTS " + t.meta() + " ("
@@ -71,7 +71,7 @@ public final class MysqlSchema {
                     + "; refusing to downgrade. Roll Void forward.");
         }
 
-        // Forward migrations — additive only.
+        // Forward migrations: additive only.
         if (existing < 6) migrateV5ToV6(c, t);
         if (existing < 7) migrateV6ToV7(c, t);
         if (existing < 8) migrateV7ToV8(c, t, dialect);
@@ -113,7 +113,7 @@ public final class MysqlSchema {
             return -1;
         } catch (SQLException e) {
             String msg = e.getMessage() == null ? "" : e.getMessage();
-            // MySQL "Table 'foo.bar' doesn't exist" — error code 1146
+            // MySQL "Table 'foo.bar' doesn't exist", error code 1146
             if (msg.contains("doesn't exist") || e.getErrorCode() == 1146) return -1;
             throw e;
         }
@@ -122,8 +122,8 @@ public final class MysqlSchema {
     /**
      * v7 → v8: unify the players table on {@code current_name_lower} as a
      * STORED generated column with a plain B-tree index. v7 had a flavor
-     * split — MySQL used a functional index, MariaDB used the gen col
-     * shape — but MySQL's optimiser refused to use the functional index
+     * split: MySQL used a functional index, MariaDB used the gen col
+     * shape, but MySQL's optimiser refused to use the functional index
      * for prefix LIKE patterns, leaving {@code listPlayersByNamePrefix}
      * on MySQL as an O(table-size) full scan. Delegated to the dialect
      * because only the MySQL path needs ALTER work; on MariaDB this is

@@ -23,7 +23,7 @@ public interface DataStore {
      * Allocation-free hot-path write. The caller receives a pre-allocated mutable
      * event slot from the ring and populates its fields inside {@code configurer};
      * the ring publishes the slot as soon as the configurer returns. Do not retain
-     * a reference to the event past the configurer's return — the slot is recycled
+     * a reference to the event past the configurer's return, the slot is recycled
      * for the next publisher.
      * <p>
      * On a full ring the record is dropped and counted; producers never block.

@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class VoidTeleportEvent extends VoidEvent<VoidTeleportEvent.Channel> {
     private VoidTeleportEvent() {
-        // Never instantiated — exists only as a Class key for bus.get(VoidTeleportEvent.class).
+        // Never instantiated: exists only as a Class key for bus.get(VoidTeleportEvent.class).
     }
 
     @FunctionalInterface
@@ -39,7 +39,7 @@ public final class VoidTeleportEvent extends VoidEvent<VoidTeleportEvent.Channel
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onTeleport(@NotNull Object pluginContext, @NotNull Handler handler) {
             onTeleport(resolvePlugin(pluginContext), handler);
@@ -64,7 +64,7 @@ public final class VoidTeleportEvent extends VoidEvent<VoidTeleportEvent.Channel
 
         @Override
         protected boolean dispatchTypedFromLegacy(@NotNull VoidTeleportEvent event, @NotNull Handler handler, boolean cancelled) {
-            // Unreachable — VoidTeleportEvent has no public constructor, so no caller can post() one.
+            // Unreachable: VoidTeleportEvent has no public constructor, so no caller can post() one.
             throw new UnsupportedOperationException("VoidTeleportEvent has no legacy representation");
         }
 

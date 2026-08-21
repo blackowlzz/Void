@@ -7,7 +7,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Fired when Void sends a player-in-vehicle setback — the
+ * Fired when Void sends a player-in-vehicle setback, the
  * {@code ServerVehicleMove} packet branch of {@link VoidSetbackEvent}.
  *
  * <p>Unlike {@link VoidPlayerSetbackEvent}, vehicle-move packets carry no
@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class VoidVehicleSetbackEvent extends VoidSetbackEvent<VoidVehicleSetbackEvent.Channel> {
     private VoidVehicleSetbackEvent() {
-        // Never instantiated — exists only as a Class key for bus.get(VoidVehicleSetbackEvent.class).
+        // Never instantiated: exists only as a Class key for bus.get(VoidVehicleSetbackEvent.class).
     }
 
     @FunctionalInterface
@@ -43,7 +43,7 @@ public final class VoidVehicleSetbackEvent extends VoidSetbackEvent<VoidVehicleS
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onVehicleSetback(@NotNull Object pluginContext, @NotNull Handler handler) {
             onVehicleSetback(resolvePlugin(pluginContext), handler);
@@ -69,11 +69,11 @@ public final class VoidVehicleSetbackEvent extends VoidSetbackEvent<VoidVehicleS
 
         @Override
         protected boolean dispatchTypedFromLegacy(@NotNull VoidVehicleSetbackEvent event, @NotNull Handler handler, boolean cancelled) {
-            // Unreachable — no public constructor, so no caller can post() one.
+            // Unreachable: no public constructor, so no caller can post() one.
             throw new UnsupportedOperationException("VoidVehicleSetbackEvent has no legacy representation");
         }
 
-        /** Bridge from {@link VoidSetbackEvent.Handler} — used by the abstract channel when a setback-level subscriber registers. */
+        /** Bridge from {@link VoidSetbackEvent.Handler}, used by the abstract channel when a setback-level subscriber registers. */
         @ApiStatus.Internal
         public static @NotNull Handler bridgeFromSetback(@NotNull VoidSetbackEvent.Handler abstractHandler) {
             return (user, x, y, z, ts) -> abstractHandler.onAnySetback(user, ts);

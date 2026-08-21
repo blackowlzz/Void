@@ -67,7 +67,7 @@ public final class SqliteSchema {
                     + "; refusing to downgrade. Roll Void forward.");
         }
 
-        // Forward migrations — additive only; each step is idempotent and
+        // Forward migrations: additive only; each step is idempotent and
         // gated on its target version.
         if (existing < 2) migrateV1ToV2(c, t);
         if (existing < 3) migrateV2ToV3(c, t);
@@ -84,7 +84,7 @@ public final class SqliteSchema {
 
     /**
      * v1 → v2: add {@code closed_at} to the sessions table. Set when a
-     * session ends — gracefully on disconnect, or set on the next startup's
+     * session ends: gracefully on disconnect, or set on the next startup's
      * crash sweep using {@code last_activity} as the best estimate. Null
      * means "the session is alive on the live tracker".
      */

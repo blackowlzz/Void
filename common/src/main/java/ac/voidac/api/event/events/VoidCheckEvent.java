@@ -18,7 +18,7 @@ public abstract class VoidCheckEvent<CHANNEL extends EventChannel<?, ?>>
     protected AbstractCheck check;
     private boolean cancelled;
 
-    /** Pool constructor — fields populated via {@link #init(VoidUser, AbstractCheck)}. */
+    /** Pool constructor: fields populated via {@link #init(VoidUser, AbstractCheck)}. */
     protected VoidCheckEvent() {
         super(true); // Async
     }
@@ -70,7 +70,7 @@ public abstract class VoidCheckEvent<CHANNEL extends EventChannel<?, ?>>
      * {@code VoidCheckEvent} subtype (FlagEvent, CompletePredictionEvent,
      * CommandExecuteEvent, and any addon subtypes that opt into bridging).
      *
-     * <p>Returns the new cancelled state — the value is threaded back into
+     * <p>Returns the new cancelled state, the value is threaded back into
      * the priority-ordered dispatch loop of whichever concrete subtype
      * fired, so a high-priority abstract subscriber can cancel and
      * lower-priority direct subscribers to the concrete event see the
@@ -99,7 +99,7 @@ public abstract class VoidCheckEvent<CHANNEL extends EventChannel<?, ?>>
             subscribeAbstract(handler, priority, ignoreCancelled, plugin);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onCheck(@NotNull Object pluginContext, @NotNull Handler handler) {
             subscribeAbstractResolving(pluginContext, handler, 0, false);

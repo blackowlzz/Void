@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class VoidJoinEvent extends VoidEvent<VoidJoinEvent.Channel> implements VoidUserEvent {
     private VoidUser user;
 
-    /** Pool constructor — fields populated via {@link #init}. */
+    /** Pool constructor: fields populated via {@link #init}. */
     public VoidJoinEvent() {
         super(true); // Async
     }
@@ -51,7 +51,7 @@ public class VoidJoinEvent extends VoidEvent<VoidJoinEvent.Channel> implements V
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onJoin(@NotNull Object pluginContext, @NotNull Handler handler) {
             onJoin(resolvePlugin(pluginContext), handler);

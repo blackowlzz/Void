@@ -58,7 +58,7 @@ import java.util.regex.PatternSyntaxException;
  *       → session detail, violation page P.
  * </pre>
  * The {@code session} literal leaves the slot after {@code <target>} open for
- * future top-level subcommands (e.g. {@code violations}, {@code summary}) —
+ * future top-level subcommands (e.g. {@code violations}, {@code summary}),
  * adding one is a matter of registering another sibling builder with its own
  * literal. Cloud will disambiguate on the literal token without ambiguity.
  * <p>
@@ -67,14 +67,14 @@ import java.util.regex.PatternSyntaxException;
  * (full verbose always on hover). {@code --name <regex>}, {@code --match
  * <regex>} and {@code --grep <regex>} narrow the displayed violations
  * (display name, verbose text, or either) and apply to both list and detail
- * views — combining flags ANDs them.
+ * views: combining flags ANDs them.
  * <p>
  * Autocompletion on {@code <session>} and {@code <page>} is constrained to the
  * actual valid range for the player in context (computed via
  * {@code countSessions} / violations count), so tab-complete never offers
  * numbers that'd error out.
  * <p>
- * Runs synchronously on the command thread — keeps RCON callers from losing
+ * Runs synchronously on the command thread, keeps RCON callers from losing
  * the reply channel mid-command.
  */
 public class VoidHistory implements BuildableCommand {
@@ -113,7 +113,7 @@ public class VoidHistory implements BuildableCommand {
         // Detail (default violation page). The `session` literal lives at the
         // same tree slot as `page` above; Cloud picks the branch by exact
         // match. The session-ordinal arg is a String parser so it can accept
-        // the "latest" / "last" / "l" aliases alongside plain integers — the
+        // the "latest" / "last" / "l" aliases alongside plain integers, the
         // handler resolves them via resolveSessionOrdinal().
         commandManager.command(
                 applyFilterFlags(commandManager,
@@ -151,7 +151,7 @@ public class VoidHistory implements BuildableCommand {
     /**
      * Attach the three regex-filter flags ({@code --name}, {@code --match},
      * {@code --grep}) to a command builder. Shared across all four branches
-     * — declarative cloud builders need the flags repeated per branch, but
+     *: declarative cloud builders need the flags repeated per branch, but
      * the bodies are identical, so we centralise.
      */
     private static Command.Builder<Sender> applyFilterFlags(
@@ -236,7 +236,7 @@ public class VoidHistory implements BuildableCommand {
      * when the operator supplied an invalid regex. Handlers compare the
      * return value against this with {@code ==} to distinguish "no filter"
      * (null) from "user error already messaged" (this sentinel) before
-     * dispatching to {@code runWithPrelude} — saves a separate boolean
+     * dispatching to {@code runWithPrelude}: saves a separate boolean
      * field on each handler.
      */
     private static final Predicate<ViolationEntry> FILTER_ERROR = v -> false;
@@ -245,14 +245,14 @@ public class VoidHistory implements BuildableCommand {
      * Build a {@link ViolationEntry} predicate from the three filter flags.
      *
      * <ul>
-     *   <li>{@code --name <regex>} — matches the violation's display name.</li>
-     *   <li>{@code --match <regex>} — matches the verbose string. Rows with
+     *   <li>{@code --name <regex>}: matches the violation's display name.</li>
+     *   <li>{@code --match <regex>}: matches the verbose string. Rows with
      *       {@code null} verbose drop when this flag is set.</li>
-     *   <li>{@code --grep <regex>} — grep-style: matches if EITHER display
+     *   <li>{@code --grep <regex>}: grep-style: matches if EITHER display
      *       name OR verbose hits.</li>
      * </ul>
      *
-     * <p>Combining flags ANDs them — each flag is an independent narrowing
+     * <p>Combining flags ANDs them: each flag is an independent narrowing
      * step. All three use {@link Pattern#CASE_INSENSITIVE} so the operator
      * doesn't have to think about casing.
      *
@@ -313,8 +313,8 @@ public class VoidHistory implements BuildableCommand {
     }
 
     /**
-     * Translates the {@code session} argument — either a positive integer, the
-     * literal "latest" / "last" / "l", or {@code null}-ish — into a global session
+     * Translates the {@code session} argument, either a positive integer, the
+     * literal "latest" / "last" / "l", or {@code null}-ish, into a global session
      * ordinal. Returns {@code null} when the target has no sessions or the input
      * is unparseable.
      */
@@ -363,7 +363,7 @@ public class VoidHistory implements BuildableCommand {
             // getOfflineFromName returns null when the platform doesn't know
             // the name (never logged in, typo). getUniqueId() comes back null
             // on some platforms when the offline player exists only as a
-            // name-cache miss — treat both as "unknown player".
+            // name-cache miss: treat both as "unknown player".
             if (targetPlayer == null || targetPlayer.getUniqueId() == null) {
                 sender.sendMessage(message("void-history-unknown-player",
                         "%prefix% &cUnknown player: &f%player%", Map.of("player", target)));
@@ -393,7 +393,7 @@ public class VoidHistory implements BuildableCommand {
                 .toCompletableFuture().get(10, TimeUnit.SECONDS);
 
         // Filter active: keep only sessions with at least one matching
-        // violation. Costs N+1 detail fetches per visible page — acceptable
+        // violation. Costs N+1 detail fetches per visible page, acceptable
         // at the page-size limit. Unfiltered path keeps the original single
         // listSessions query.
         if (filter != null) result = filterSessionsByDetail(history, uuid, result, filter);
@@ -415,7 +415,7 @@ public class VoidHistory implements BuildableCommand {
                 if (d == null) continue;
                 if (d.violations().stream().anyMatch(filter)) kept.add(s);
             } catch (Exception ignored) {
-                // Skip sessions whose detail fetch fails — under-show beats
+                // Skip sessions whose detail fetch fails, under-show beats
                 // blocking the whole page on one slow row.
             }
         }
@@ -522,7 +522,7 @@ public class VoidHistory implements BuildableCommand {
                     }
                 }
             } catch (Exception e) {
-                // Datastore unavailable or timed out — online-only fallback already populated.
+                // Datastore unavailable or timed out, online-only fallback already populated.
             }
             return out;
         });

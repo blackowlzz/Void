@@ -6,7 +6,7 @@ import org.jetbrains.annotations.ApiStatus;
 /**
  * Hot-path write consumer for a single {@link Category}. Mirrors the shape
  * of an LMAX Disruptor {@code EventHandler} without exposing {@code com.lmax.*}
- * types on the public surface — the internal storage module adapts between
+ * types on the public surface, the internal storage module adapts between
  * this interface and the shaded Disruptor types so backends can target a
  * stable contract even when packaging relocates Disruptor to dodge Log4j's
  * bundled copy.
@@ -22,12 +22,12 @@ public interface StorageEventHandler<E> {
 
     /**
      * Invoked for each published event in sequence. The event instance is owned by
-     * the ring — do not retain references past the call; copy fields you need.
+     * the ring: do not retain references past the call; copy fields you need.
      *
      * @param event      the mutable event slot for this sequence
      * @param sequence   ring sequence number (monotonic, used for diagnostics)
      * @param endOfBatch {@code true} when the ring has no further events
-     *                   currently available — signal to commit pending work
+     *                   currently available: signal to commit pending work
      */
     void onEvent(E event, long sequence, boolean endOfBatch) throws BackendException;
 }

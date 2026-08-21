@@ -7,10 +7,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Void's event bus.
  *
- * <h2>Recommended use — channel-based subscribe and fire</h2>
+ * <h2>Recommended use: channel-based subscribe and fire</h2>
  * {@link #get(Class) bus.get(EventClass.class)} returns the event's typed
  * {@link EventChannel}. Subscribe through the channel's fluent {@code onX(...)}
- * methods and fire (internally) through its {@code fire(...)} method — dispatch
+ * methods and fire (internally) through its {@code fire(...)} method, dispatch
  * is zero-allocation on the hot path and invokes handlers in priority order.
  *
  * <pre>{@code
@@ -31,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
  * The class-keyed {@code subscribe(...)}, {@code post(...)}, and reflective
  * {@code registerAnnotatedListeners(...)} methods are preserved for source
  * compatibility with pre-1.3 callers. Internally they route through the same
- * {@link EventChannel}s as the typed API — a {@code post(legacyEvent)} reaches
+ * {@link EventChannel}s as the typed API, a {@code post(legacyEvent)} reaches
  * both legacy-registered listeners AND typed handlers (via the channel's
  * unpack path).
  */
@@ -125,7 +125,7 @@ public interface EventBus {
     void unregisterStaticListeners(@NotNull VoidPlugin plugin, @NotNull Class<?> clazz);
 
     /**
-     * Unregisters every subscriber — typed OR legacy — bound to the given
+     * Unregisters every subscriber: typed OR legacy, bound to the given
      * plugin context. Called automatically by VoidAC on plugin disable; plugin
      * authors shouldn't normally need this.
      */
@@ -154,14 +154,14 @@ public interface EventBus {
      * Posts a {@link VoidEvent} through the bus. Invokes both legacy-registered
      * listeners (via {@link VoidEventListener#handle(VoidEvent)}) and typed
      * handlers (by unpacking the event's fields into the Handler's positional
-     * params) in ascending priority order — lower-priority subscribers fire
+     * params) in ascending priority order, lower-priority subscribers fire
      * first, higher-priority subscribers get the final say on cancellation.
      * This is the Bukkit / Paper convention and a direction flip relative to
      * pre-1.3 Void, which sorted highest-first. Callers that set explicit
      * priority numbers should re-evaluate them when moving from 1.2.x to 1.3+.
      *
      * @deprecated Internal Void firings should use the channel's typed
-     * {@code fire(...)} directly — it avoids the caller-side event instance
+     * {@code fire(...)} directly, it avoids the caller-side event instance
      * allocation. This method is retained for source compatibility with
      * 1.2.4.0 callers that build event instances themselves.
      */
@@ -170,7 +170,7 @@ public interface EventBus {
     void post(@NotNull VoidEvent<?> event);
 
     /**
-     * @deprecated Prefer {@code bus.get(EventClass.class).onX(...)} — it
+     * @deprecated Prefer {@code bus.get(EventClass.class).onX(...)}, it
      * subscribes a typed handler directly, avoiding the per-dispatch pooled
      * event instance and the class-keyed lookup on every {@code post(...)}.
      */

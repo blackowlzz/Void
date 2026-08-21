@@ -41,7 +41,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         // Use the multi-file API so cross-file migrations (e.g. config.yml
         // v9 → v10 lifting history.database.* into database.yml + the
         // matching databases/<id>.yml) can target sibling files via
-        // ctx.otherFile(...). punishments.yml is intentionally absent —
+        // ctx.otherFile(...). punishments.yml is intentionally absent,
         // open-ended user-defined data, no schema versioning.
         Map<File, ConfigUpdater.Spec> batch = new LinkedHashMap<>();
         batch.put(getConfigFile("config.yml"), VoidConfigSpecs.mainConfig());
@@ -59,7 +59,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         try {
             updater.updateAll(batch, langCode);
         } catch (Exception e) {
-            LogUtil.warn("ConfigUpdater batch failed — loading on-disk files as-is: " + e);
+            LogUtil.warn("ConfigUpdater batch failed, loading on-disk files as-is: " + e);
         }
     }
 
@@ -102,7 +102,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
             // Save bundled defaults BEFORE the updater runs so any cross-file
             // migration (e.g. config.yml v9 → v10 lifting history.database.*
             // into database.yml + databases/<id>.yml) can target files that
-            // exist on disk. saveAllDefaults(false) is non-overwriting — the
+            // exist on disk. saveAllDefaults(false) is non-overwriting, the
             // operator's existing files keep their current content.
             config.saveAllDefaults(false);
         } catch (IOException e) {

@@ -8,26 +8,26 @@ import ac.voidac.api.plugin.VoidPlugin;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Fired when Void executes a setback against a player — the semantic
+ * Fired when Void executes a setback against a player, the semantic
  * anticheat action, independent of the specific packet type used.
  *
  * <p>Dispatches through two concrete subtypes:
  * <ul>
- *   <li>{@link VoidPlayerSetbackEvent} — player-on-foot setback, sent as a
+ *   <li>{@link VoidPlayerSetbackEvent}: player-on-foot setback, sent as a
  *       {@code ServerPlayerPositionAndLook} / teleport packet.</li>
- *   <li>{@link VoidVehicleSetbackEvent} — player-in-vehicle setback, sent as
+ *   <li>{@link VoidVehicleSetbackEvent}: player-in-vehicle setback, sent as
  *       a {@code ServerVehicleMove} packet.</li>
  * </ul>
  *
  * <p>Abstract-level subscribers receive a bridged dispatch for every fire
- * of either concrete child — the hot path goes through the child's channel
+ * of either concrete child: the hot path goes through the child's channel
  * with no extra indirection. Observational, not cancellable.
  *
  * <p>Fires on the Netty thread associated with the user.
  */
 public abstract class VoidSetbackEvent<CHANNEL extends EventChannel<?, ?>> extends VoidEvent<CHANNEL> {
     protected VoidSetbackEvent() {
-        super(true); // Async — setbacks are sent from the netty thread
+        super(true); // Async: setbacks are sent from the netty thread
     }
 
     /**
@@ -59,7 +59,7 @@ public abstract class VoidSetbackEvent<CHANNEL extends EventChannel<?, ?>> exten
             subscribeAbstract(handler, priority, false, plugin);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onAnySetback(@NotNull Object pluginContext, @NotNull Handler handler) {
             subscribeAbstractResolving(pluginContext, handler, 0, false);

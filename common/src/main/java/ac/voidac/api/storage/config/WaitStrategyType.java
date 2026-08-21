@@ -5,7 +5,7 @@ import org.jetbrains.annotations.ApiStatus;
 /**
  * Ring-buffer wait strategy. Read by the host at config-load time and mapped
  * by the internal storage module to the equivalent Disruptor wait strategy
- * of the same name — this enum exists so the public config surface carries
+ * of the same name: this enum exists so the public config surface carries
  * no {@code com.lmax.*} types.
  * <p>
  * {@link #BLOCKING} is the default: a condition-variable wait that minimises

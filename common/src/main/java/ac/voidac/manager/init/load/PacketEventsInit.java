@@ -26,7 +26,9 @@ public class PacketEventsInit implements LoadableInitable {
         LogUtil.info("Loading PacketEvents...");
         PacketEvents.setAPI(packetEventsAPI);
         PacketEvents.getAPI().getSettings()
-                .fullStackTrace(true)
+                // a bad packet id from a crasher would otherwise dump 30 lines of netty
+                // stack per attempt. the kick still happens, see kickOnPacketException
+                .fullStackTrace(false)
                 .kickOnPacketException(true)
                 .preViaInjection(true)
                 .checkForUpdates(false)

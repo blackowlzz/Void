@@ -8,6 +8,7 @@ verbose-disabled: "%prefix% &7Verbose &cdesactivado&7."
 brands-enabled: "%prefix% &7Monitoreo de marcas &aactivado&7."
 brands-disabled: "%prefix% &7Monitoreo de marcas &cdesactivado&7."
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
 console-specify-target: "%prefix% &c¡Debes especificar a alguien siendo la consola!"
 reloading: "%prefix% &7Recargando..."
 reloaded: "%prefix% &7Configuración &arecargada&7."
@@ -125,4 +126,4 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Marcadores de esquema: ver el comentario de cabecera en config.yml.
 config-flavor: V2
-config-version: 1
+config-version: 2

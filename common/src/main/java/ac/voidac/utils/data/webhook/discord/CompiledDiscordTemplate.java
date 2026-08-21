@@ -116,7 +116,7 @@ public record CompiledDiscordTemplate(Segment[] segments) {
                 if (val != null) {
                     sb.append(escape(val, p.mode, backtickReplacement));
                 } else {
-                    sb.append(p.key); // truly unresolved — leave raw
+                    sb.append(p.key); // truly unresolved: leave raw
                 }
             }
         }
@@ -135,7 +135,7 @@ public record CompiledDiscordTemplate(Segment[] segments) {
      * This method treats input as <b>raw data</b>, not pre-formatted markdown.
      * A literal backslash in a player name is data and must render as a visible backslash.
      * This means "already escaped" input like {@code \*} correctly becomes {@code \\*}
-     * (rendering as {@code \*}), which is the intended behavior — identical to SQL parameterization.
+     * (rendering as {@code \*}), which is the intended behavior, identical to SQL parameterization.
      * <p>
      * All escaped characters ({@code \X}) render identically to their unescaped form ({@code X})
      * in Discord's CommonMark variant, so escaping is invisible to end users.
@@ -146,7 +146,7 @@ public record CompiledDiscordTemplate(Segment[] segments) {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             switch (c) {
-                // Backslash MUST be first — prevents our own escape backslashes
+                // Backslash MUST be first: prevents our own escape backslashes
                 // from being re-escaped if the input already contains backslashes.
                 case '\\' -> sb.append("\\\\");
                 // Inline code spans (`text`)
@@ -170,7 +170,7 @@ public record CompiledDiscordTemplate(Segment[] segments) {
                 // embed suppression (<url>)
                 case '<' -> sb.append("\\<");
                 // Headers (#, ##, ###), block quotes (>, >>>).
-                // Always escaped — \# and \> render identically to # and >.
+                // Always escaped: \# and \> render identically to # and >.
                 case '#' -> sb.append("\\#");
                 case '>' -> sb.append("\\>");
                 // Unordered lists (- item) and subtext (-# text)

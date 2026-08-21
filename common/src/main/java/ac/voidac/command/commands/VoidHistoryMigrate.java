@@ -26,7 +26,7 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 /**
- * {@code /void history migrate [--delete]} — on-demand v0 → v1 migration outside
+ * {@code /void history migrate [--delete]}, on-demand v0 → v1 migration outside
  * the startup path. Detects the legacy source by reading
  * {@code history.database.type / host / port / database / username / password}
  * from {@code config.yml} (the same keys the pre-cutover plugin wrote), builds
@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * <p>
  * {@code --delete} (off by default) drops the v0 {@code void_history_*} tables
  * after state flips to {@code COMPLETE}. Operator-requested destructive action;
- * no confirmation prompt — the flag itself is the confirmation.
+ * no confirmation prompt: the flag itself is the confirmation.
  * <p>
  * Runs synchronously on the command thread so RCON callers get the full output
  * before the reply channel closes. Migration against a large v0 can take
@@ -77,7 +77,7 @@ public class VoidHistoryMigrate implements BuildableCommand {
                 VoidAPI.INSTANCE.getVoidPlugin().getDataFolder().toPath(),
                 VoidAPI.INSTANCE.getConfigManager().getConfig());
         if (source == null) {
-            logBoth(sender, Component.text("No legacy source detected — nothing to migrate.", NamedTextColor.YELLOW));
+            logBoth(sender, Component.text("No legacy source detected, nothing to migrate.", NamedTextColor.YELLOW));
             return;
         }
 
@@ -110,14 +110,14 @@ public class VoidHistoryMigrate implements BuildableCommand {
         V0Reader reader =
                 new V0Reader(
                         source.jdbcUrl(), source.username(), source.password());
-        // Legacy migration only targets SQLite today — V0Reader understands
+        // Legacy migration only targets SQLite today, V0Reader understands
         // the old void_history_* schema and writes through SqliteBackend's
         // bulk-import path. /void history copy is the general-purpose
         // cross-backend hammer once more targets exist.
         SqliteBackend v1 = lifecycle.sqliteBackendForCommands();
         if (v1 == null) {
             throw new BackendException(
-                    "no SQLite backend in routing — the archive needs SQLite as its target; "
+                    "no SQLite backend in routing, the archive needs SQLite as its target; "
                             + "switch a category to sqlite in database.yml or use /void history copy instead");
         }
         CheckRegistry registry = lifecycle.checkRegistryForCommands();
@@ -135,7 +135,7 @@ public class VoidHistoryMigrate implements BuildableCommand {
     }
 
     private void dropLegacy(V0Sources.V0Source source, Sender sender) {
-        logBoth(sender, Component.text("--delete requested — erasing legacy v0 tables…", NamedTextColor.YELLOW));
+        logBoth(sender, Component.text("--delete requested, erasing legacy v0 tables…", NamedTextColor.YELLOW));
         String[] tables = {
                 "void_history_violations",
                 "void_history_check_names",

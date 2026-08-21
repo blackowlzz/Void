@@ -31,7 +31,7 @@ import java.util.Objects;
  * config.yml / discord.yml / each other.
  *
  * <p>Per-backend settings are read via a {@link PrefixedSource} that
- * automatically applies the backend-id prefix — providers see ungranged
+ * automatically applies the backend-id prefix, providers see ungranged
  * key names ({@code "host"}, {@code "port"}) and never need to know what
  * file they live in.
  */
@@ -89,7 +89,7 @@ public final class DataStoreConfigBuilder {
         Map<Category<?>, String> out = new LinkedHashMap<>();
         for (Map.Entry<String, Object> e : raw.entrySet()) {
             Category<?> cat = categoryFor(e.getKey());
-            if (cat == null) continue; // unknown category id in yaml — ignore, warn elsewhere if needed
+            if (cat == null) continue; // unknown category id in yaml, ignore, warn elsewhere if needed
             out.put(cat, Objects.toString(e.getValue(), "none"));
         }
         return out;
@@ -139,7 +139,7 @@ public final class DataStoreConfigBuilder {
         Map<Category<?>, RetentionRule> out = new LinkedHashMap<>();
         for (Map.Entry<String, Object> e : raw.entrySet()) {
             Category<?> cat = categoryFor(e.getKey());
-            if (cat == null) continue; // unknown category id in yaml — nothing to retain under it
+            if (cat == null) continue; // unknown category id in yaml, nothing to retain under it
             String base = NS + "retention." + e.getKey() + ".";
             boolean enabled = config.getBooleanElse(base + "enabled", false);
             long days = config.getLongElse(base + "max-age-days", 0L);

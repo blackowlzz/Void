@@ -59,7 +59,7 @@ public class PacketPluginMessage extends PacketListenerAbstract {
             return;
         }
 
-        // Player is allowed through — mark them and optionally disable setbacks to reduce false positives
+        // Player is allowed through: mark them and optionally disable setbacks to reduce false positives
         VoidPlayer voidPlayer = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(user);
         if (voidPlayer != null) {
             voidPlayer.connectedThroughViaProxy = true;

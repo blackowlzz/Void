@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class CompletePredictionEvent extends VoidCheckEvent<CompletePredictionEvent.Channel> {
     private double offset;
 
-    /** Pool constructor — fields populated via {@link #init}. */
+    /** Pool constructor: fields populated via {@link #init}. */
     public CompletePredictionEvent() {
         super();
     }
@@ -31,7 +31,7 @@ public class CompletePredictionEvent extends VoidCheckEvent<CompletePredictionEv
     }
 
     /**
-     * Typed prediction-complete handler. Returns the new cancelled state — see
+     * Typed prediction-complete handler. Returns the new cancelled state, see
      * {@link FlagEvent.Handler} for the cancellation contract.
      */
     @FunctionalInterface
@@ -60,7 +60,7 @@ public class CompletePredictionEvent extends VoidCheckEvent<CompletePredictionEv
             subscribe(handler, priority, ignoreCancelled, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onCompletePrediction(@NotNull Object pluginContext, @NotNull Handler handler) {
             onCompletePrediction(resolvePlugin(pluginContext), handler);

@@ -45,7 +45,7 @@ public class VoidPunishments implements BuildableCommand {
         String query = context.<String>get("query").trim();
         PunishmentDatabase db = VoidAPI.INSTANCE.getPunishmentDatabase();
 
-        // Direct ban-ID lookup — no DB query on the main thread needed
+        // Direct ban-ID lookup: no DB query on the main thread needed
         if (query.toUpperCase().startsWith("VOID-")) {
             PunishmentRecord record = db.queryByBanId(query);
             if (record == null) {
@@ -59,7 +59,7 @@ public class VoidPunishments implements BuildableCommand {
             return;
         }
 
-        // IGN lookup — run async to avoid blocking the main thread on DB I/O
+        // IGN lookup: run async to avoid blocking the main thread on DB I/O
         VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runNow(
                 VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> {

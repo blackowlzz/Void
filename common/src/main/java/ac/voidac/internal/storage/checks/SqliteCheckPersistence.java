@@ -27,7 +27,7 @@ public final class SqliteCheckPersistence implements CheckRegistry.CheckPersiste
 
     /**
      * @param jdbcUrl JDBC URL for the backing SQLite database.
-     * @param checksTable Name of the {@code checks} table — read from the
+     * @param checksTable Name of the {@code checks} table, read from the
      *                    SQLite backend's {@link TableNames} so overrides
      *                    stay consistent with the backend's schema.
      */

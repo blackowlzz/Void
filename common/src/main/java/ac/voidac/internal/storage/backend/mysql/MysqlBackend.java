@@ -42,7 +42,7 @@ import java.util.UUID;
 
 /**
  * MySQL-family backend. Same ring/handler model as the SQLite reference
- * backend — each category's {@link StorageEventHandler} owns a dedicated write
+ * backend: each category's {@link StorageEventHandler} owns a dedicated write
  * connection in {@code autoCommit=false}, reads open a fresh connection per
  * call. No connection pool is bundled; operators who need one can front the
  * JDBC URL with a server-side proxy (ProxySQL) or drop in HikariCP alongside
@@ -71,7 +71,7 @@ public final class MysqlBackend implements Backend {
     private final String insertViolations;
     // Populated in init() once the dialect is selected from the live engine.
     // The handlers and direct-write paths read these via final-field-after-init
-    // semantics — init() runs before eventHandlerFor() / writeXxx() is invoked.
+    // semantics: init() runs before eventHandlerFor() / writeXxx() is invoked.
     private String upsertSessions;
     private String upsertIdentities;
     private String upsertSettings;
@@ -86,7 +86,7 @@ public final class MysqlBackend implements Backend {
     public MysqlBackend(MysqlBackendConfig config) {
         this.config = config;
         TableNames t = config.tableNames();
-        // Flavor-agnostic — plain INSERT, no ON DUPLICATE KEY clause.
+        // Flavor-agnostic: plain INSERT, no ON DUPLICATE KEY clause.
         this.insertViolations =
                 "INSERT INTO " + t.violations() + "(session_id, player_uuid, check_id, vl, occurred_at, verbose, verbose_format) "
                         + "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -121,12 +121,12 @@ public final class MysqlBackend implements Backend {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException cnf) {
-            throw new BackendException("mysql-connector-j not on the classpath — either shade it into the plugin jar or drop it into server/plugins", cnf);
+            throw new BackendException("mysql-connector-j not on the classpath, either shade it into the plugin jar or drop it into server/plugins", cnf);
         }
         // If minecraft-mysql-jdbc holder is on the classloader graph (Void
         // softdepends on it), route through its child-first classloader.
         // Unlike SQLite, MySQL doesn't have a sharply-different feature gap
-        // between bundled and current connector-j — operators install the
+        // between bundled and current connector-j, operators install the
         // holder when they specifically want its version (typically on
         // Fabric/NeoForge or to upgrade past a stale fork's bundled driver).
         this.holderConnectMethod = pickHolderIfInstalled(ctx.logger());
@@ -150,7 +150,7 @@ public final class MysqlBackend implements Backend {
     /**
      * Probe {@code SELECT VERSION()} and pick the matching dialect. MariaDB
      * 10.6+ goes through {@link MariaDbDialect}; everything else routes through
-     * {@link MysqlEightDialect}. MariaDB older than 10.6 is rejected — the
+     * {@link MysqlEightDialect}. MariaDB older than 10.6 is rejected, the
      * STORED-generated-column DDL needs 10.2.1+ at the absolute minimum, and
      * 10.6 is the oldest LTS still in upstream support.
      * <p>
@@ -166,12 +166,12 @@ public final class MysqlBackend implements Backend {
         }
         boolean mariaDb = version.contains("MariaDB");
         if (!mariaDb) {
-            log.info("[void-datastore] MySQL engine " + version + " — using MySQL 8 dialect");
+            log.info("[void-datastore] MySQL engine " + version + ", using MySQL 8 dialect");
             return new MysqlEightDialect();
         }
         // MariaDB version strings:
-        //   "10.11.16-MariaDB-ubu2204"           — modern
-        //   "5.5.5-10.11.16-MariaDB-…"           — legacy compat prefix the
+        //   "10.11.16-MariaDB-ubu2204"          , modern
+        //   "5.5.5-10.11.16-MariaDB-…"          , legacy compat prefix the
         //                                          server prepends to fool old
         //                                          MySQL client libs (see
         //                                          MDEV-9788). Strip it.
@@ -185,7 +185,7 @@ public final class MysqlBackend implements Backend {
                     + "(STORED generated columns require 10.2.1, 10.6 is the oldest LTS still in upstream support). "
                     + "Upgrade MariaDB or point Void at a different storage backend.");
         }
-        log.info("[void-datastore] MariaDB engine " + version + " — using MariaDB dialect");
+        log.info("[void-datastore] MariaDB engine " + version + ", using MariaDB dialect");
         return new MariaDbDialect();
     }
 

@@ -8,6 +8,7 @@ verbose-disabled: "%prefix% &7详细模式 &c已禁用&7。"
 brands-enabled: "%prefix% &7品牌追踪 &a已开启&7。"
 brands-disabled: "%prefix% &7品牌追踪 &c已禁用&7。"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
 console-specify-target: "%prefix% &c您必须指定一个目标作为控制台!"
 reloading: "%prefix% &7重载中..."
 reloaded: "%prefix% &7配置 &a重载完毕&7。"
@@ -118,4 +119,4 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # 模式标记: 参见 config.yml 顶部的注释。
 config-flavor: V2
-config-version: 1
+config-version: 2

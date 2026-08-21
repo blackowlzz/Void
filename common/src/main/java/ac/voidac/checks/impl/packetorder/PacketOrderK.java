@@ -21,7 +21,8 @@ public class PacketOrderK extends Check implements PostPredictionCheck {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
-        if (event.getPacketType() == PacketType.Play.Client.CLIENT_STATUS) {
+        if (event.getPacketType() == PacketType.Play.Client.CLIENT_STATUS
+                && player.packetOrderProcessor.isLegacyInventoryClient()) {
             if (new WrapperPlayClientClientStatus(event).getAction() == WrapperPlayClientClientStatus.Action.OPEN_INVENTORY_ACHIEVEMENT) {
                 if (player.packetOrderProcessor.isClickingInInventory() || player.packetOrderProcessor.isClosingInventory()) {
                     String verbose = "open, clicking=" + player.packetOrderProcessor.isClickingInInventory() + ", closing=" + player.packetOrderProcessor.isClosingInventory();

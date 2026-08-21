@@ -1,4 +1,3 @@
-// This file was designed and is an original check for Void
 // Copyright (C) 2021 DefineOutside
 // Modifications Copyright (C) 2026 blackowlzz
 //
@@ -32,6 +31,7 @@ import com.github.retrooper.packetevents.util.Vector3d;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import lombok.Getter;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -58,6 +58,10 @@ public class PacketEntity extends TypedPacketEntity {
     public boolean hasGravity = true;
     private ReachInterpolationData oldPacketLocation;
     private ReachInterpolationData newPacketLocation;
+    // rotation the running interpolation is aiming at, same as vanilla's
+    // InterpolationHandler. only used to spot a packet that repeats the current
+    // target, the hitbox itself does not care about rotation. xRot is yaw here
+    private float interpolationTargetXRot, interpolationTargetYRot;
     private Object2IntMap<PotionType> potionsMap = null;
     public boolean trackEntityEquipment = false;
     private EnumMap<EquipmentSlot, ItemStack> equipment = null;
@@ -139,7 +143,8 @@ public class PacketEntity extends TypedPacketEntity {
 
     // Set the old packet location to the new one
     // Set the new packet location to the updated packet location
-    public void onFirstTransaction(boolean relative, boolean hasPos, double relX, double relY, double relZ, VoidPlayer player) {
+    public void onFirstTransaction(boolean relative, boolean hasPos, double relX, double relY, double relZ,
+                                   @Nullable Float packetXRot, @Nullable Float packetYRot, VoidPlayer player) {
         if (hasPos) {
             if (relative) {
                 // This only matters for 1.9+ clients, but it won't hurt 1.8 clients either... align for imprecision
@@ -161,6 +166,28 @@ public class PacketEntity extends TypedPacketEntity {
                 }
             }
         }
+
+        // 1.21.9+ only restarts the lerp when the target actually changed, so a packet
+        // repeating the current target does nothing client side. Restart ours anyway and
+        // our copy trails the client forever, which shows up as reach and hitbox falses
+        // whenever a server resends the same position. Rotation only packets go through
+        // moveOrInterpolateTo, which defaults the missing position to the current target,
+        // so they land here too.
+        //
+        // 1.21.9 and up only. Below that the client really does restart every time, which
+        // is why the freeze modelling underneath is left exactly as it is: its version
+        // range stops where this starts.
+        if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_9)
+                && newPacketLocation.restatesTarget(trackedServerPosition.getPos(),
+                        packetXRot, packetYRot, interpolationTargetXRot, interpolationTargetYRot)) {
+            return;
+        }
+
+        if (packetXRot != null && packetYRot != null) {
+            this.interpolationTargetXRot = packetXRot;
+            this.interpolationTargetYRot = packetYRot;
+        }
+
         this.oldPacketLocation = newPacketLocation;
         // BUG FIX LOGIC for https://bugs.mojang.com/browse/MC-255263
         // 1. We MUST check !hasPos. If hasPos is true, we must let standard interpolation (4-arg) run.

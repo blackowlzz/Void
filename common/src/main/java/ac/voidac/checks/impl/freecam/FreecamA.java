@@ -51,7 +51,7 @@ public class FreecamA extends Check implements PacketCheck {
 
     // 30 seconds of zero movement before probing
     private static final long FREEZE_THRESHOLD_MS = 15_000;
-    // 1/32 block horizontal offset — imperceptible, won't clip into walls
+    // 1/32 block horizontal offset: imperceptible, won't clip into walls
     private static final double PROBE_OFFSET = 0.03125;
     // Timeout waiting for probe acceptance
     private static final long PROBE_TIMEOUT_MS = 5_000;
@@ -93,11 +93,11 @@ public class FreecamA extends Check implements PacketCheck {
                     state = State.VERIFYING;
                     verifyPacketsRemaining = VERIFY_PACKETS;
                 } else {
-                    // A different teleport was accepted (setback, etc.) — reset
+                    // A different teleport was accepted (setback, etc.), reset
                     resetAll();
                 }
             } else {
-                // Teleport while not probing — reset position tracking
+                // Teleport while not probing: reset position tracking
                 resetAll();
             }
             return;
@@ -136,7 +136,7 @@ public class FreecamA extends Check implements PacketCheck {
             return;
         }
 
-        // Player actually moved — reset
+        // Player actually moved: reset
         if (px != refX || py != refY || pz != refZ) {
             refX = px;
             refY = py;
@@ -146,7 +146,7 @@ public class FreecamA extends Check implements PacketCheck {
             return;
         }
 
-        // Position still frozen — check if we should probe
+        // Position still frozen: check if we should probe
         long frozenMs = now - positionFrozenSince;
         if (frozenMs >= FREEZE_THRESHOLD_MS && now - lastProbeTime >= PROBE_COOLDOWN_MS) {
             sendProbe(now);
@@ -203,7 +203,7 @@ public class FreecamA extends Check implements PacketCheck {
         boolean atProbe = Math.abs(px - probeX) < 0.001;
 
         if (atOriginal && !atProbe) {
-            // Position reverted to pre-probe coordinates — Freecam detected
+            // Position reverted to pre-probe coordinates, Freecam detected
             flagAndAlert("probe_reverted"
                     + " expected=" + String.format("%.4f", probeX)
                     + " got=" + String.format("%.4f", px));
@@ -217,7 +217,7 @@ public class FreecamA extends Check implements PacketCheck {
         }
 
         if (atProbe || verifyPacketsRemaining <= 0) {
-            // Position matches probe — legitimate AFK player
+            // Position matches probe: legitimate AFK player
             refX = px;
             refY = player.y;
             refZ = pz;

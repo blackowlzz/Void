@@ -31,7 +31,7 @@ public interface BackendProvider {
     /**
      * Materialise this provider's {@link BackendConfig} from a read-only
      * source of settings. The platform opens the source (from a per-backend
-     * file, an in-memory map, a database — the provider does not care) and
+     * file, an in-memory map, a database, the provider does not care) and
      * calls this method once per distinct backend id at startup.
      * <p>
      * Implementations should apply their own defaults via the default-valued

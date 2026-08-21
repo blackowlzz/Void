@@ -10,22 +10,22 @@ import java.sql.Statement;
  * Per-flavor SQL strings and DDL for the MySQL-family backend.
  * <p>
  * Both impls share identical baseline DDL ({@code current_name_lower} as a
- * STORED generated column with a plain B-tree index — used to be a flavor
+ * STORED generated column with a plain B-tree index, used to be a flavor
  * split via MySQL functional indexes vs MariaDB STORED gen cols, but MySQL's
  * functional-index path didn't actually use the index for prefix LIKE so the
  * shapes converged on the gen col). Both impls also share identical reads.
  * The only divergence left is the upsert syntax:
  * <ul>
- *   <li>{@link MysqlEightDialect} — MySQL 8.0+. Uses the aliased-row upsert
+ *   <li>{@link MysqlEightDialect}: MySQL 8.0+. Uses the aliased-row upsert
  *       ({@code INSERT … AS new ON DUPLICATE KEY UPDATE col = new.col}, MySQL
  *       8.0.19+) which avoids the deprecated {@code VALUES()} reference.</li>
- *   <li>{@link MariaDbDialect} — MariaDB 10.6+. MariaDB never adopted the
+ *   <li>{@link MariaDbDialect}: MariaDB 10.6+. MariaDB never adopted the
  *       MySQL 8.0.19 aliased-row form, so it uses the legacy
  *       {@code … ON DUPLICATE KEY UPDATE col = VALUES(col)} (deprecated in
  *       MySQL 8.0.20 but never deprecated in MariaDB).</li>
  * </ul>
  * The dialect is selected at {@link MysqlBackend#init} time by probing
- * {@code SELECT VERSION()} — same shape as the SQLite backend's
+ * {@code SELECT VERSION()}, same shape as the SQLite backend's
  * {@link ac.voidac.internal.storage.backend.sqlite.writers.UpserterFactory}
  * version-driven dialect split.
  */
@@ -35,7 +35,7 @@ public interface MysqlDialect {
     /**
      * Fresh-database baseline DDL. Creates checks, players, sessions,
      * violations, settings tables for a brand-new database. Identical
-     * across both flavors as of v8 — they share the gen col shape on
+     * across both flavors as of v8, they share the gen col shape on
      * the players table. The meta table is created independently in
      * {@link MysqlSchema}.
      */
@@ -55,7 +55,7 @@ public interface MysqlDialect {
         // bound). The plain B-tree index on current_name_lower carries both
         // exact lookups (WHERE current_name_lower = ?) and prefix range scans
         // (WHERE current_name_lower LIKE 'x%') on both MySQL 8.x and MariaDB
-        // 10.6+ — verified via EXPLAIN.
+        // 10.6+, verified via EXPLAIN.
         //
         // Used to be a MySQL-only functional index ((LOWER(current_name)))
         // here, but MySQL's optimiser refuses to use functional indexes for
@@ -131,13 +131,13 @@ public interface MysqlDialect {
 
     /**
      * v7 → v8 migration step. v7 was the last shape that had a flavor split
-     * on the players table — MySQL used a functional index on
+     * on the players table: MySQL used a functional index on
      * {@code LOWER(current_name)}, MariaDB used a STORED generated
      * {@code current_name_lower} column. v8 unifies on the MariaDB shape.
      * <p>
      * Default no-op: MariaDB v7 deployments already had the v8 column
      * layout (its dialect was always at this shape), so this hook only
-     * needs work for MySQL — see {@link MysqlEightDialect}'s override.
+     * needs work for MySQL: see {@link MysqlEightDialect}'s override.
      */
     default void migrateV7ToV8(Statement s, TableNames t) throws SQLException {
         // no-op

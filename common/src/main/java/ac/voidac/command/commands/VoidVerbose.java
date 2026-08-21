@@ -35,7 +35,7 @@ public class VoidVerbose implements BuildableCommand {
             PlayerToggleStore toggles = VoidAPI.INSTANCE.getDataStoreLifecycle().playerToggleStore();
             toggles.applyUserToggle(p.getUniqueId(), PlayerToggleStore.KEY_VERBOSE, newState);
             // setVerboseEnabled(true) cascades to setAlertsEnabled(true) in AlertManager
-            // — mirror that into the toggle store so the persisted alerts row tracks the
+            //: mirror that into the toggle store so the persisted alerts row tracks the
             // implied state, otherwise a verbose-on staff member would re-toggle alerts
             // off on next reconnect when persisted alerts is still false.
             if (newState) toggles.applyUserToggle(p.getUniqueId(), PlayerToggleStore.KEY_ALERTS, true);

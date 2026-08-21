@@ -51,7 +51,7 @@ import java.util.UUID;
  * commits never tread on each other's in-flight transactions. SQLite's
  * file-level locking serialises the actual writes; the per-handler isolation
  * just keeps transaction boundaries clean. Reads open a fresh connection per
- * call — WAL mode permits concurrent readers alongside the writers.
+ * call: WAL mode permits concurrent readers alongside the writers.
  * <p>
  * {@link #writeRecordsDirect(Category, List)} is a record-taking bulk-load
  * escape hatch for one-shot importers (e.g. {@code LegacyMigrator}) that want
@@ -197,7 +197,7 @@ public final class SqliteBackend implements Backend {
     }
 
     private static String bundledEngineVersion() {
-        // In-memory probe — doesn't touch the real DB file. Uses the bundled
+        // In-memory probe: doesn't touch the real DB file. Uses the bundled
         // driver via DriverManager regardless of holder presence.
         try (Connection c = DriverManager.getConnection("jdbc:sqlite::memory:");
              Statement s = c.createStatement();
@@ -209,7 +209,7 @@ public final class SqliteBackend implements Backend {
     }
 
     private static int compareVersionString(String a, String b) {
-        // Shared comparator with compareVersionTriple — reuses the same parser
+        // Shared comparator with compareVersionTriple: reuses the same parser
         // by walking both sides once.
         int[] av = parseTriple(a);
         int[] bv = parseTriple(b);
@@ -261,7 +261,7 @@ public final class SqliteBackend implements Backend {
             version = rs.getString(1);
         }
         boolean legacy = compareVersionTriple(version, 3, 24, 0) < 0;
-        log.info("[void-datastore] SQLite engine " + version + " — using "
+        log.info("[void-datastore] SQLite engine " + version + ", using "
                 + (legacy ? "legacy (pre-3.24, no UPSERT) dialect" : "modern dialect"));
         return legacy ? UpserterFactory.LEGACY : UpserterFactory.MODERN;
     }
@@ -735,7 +735,7 @@ public final class SqliteBackend implements Backend {
     private Page<PlayerIdentity> listPlayersByNamePrefix(Connection c, Queries.ListPlayersByNamePrefix q) throws SQLException {
         String prefix = q.lowerPrefix();
         if (prefix == null || prefix.isEmpty() || q.limit() <= 0) return Page.empty();
-        // Prefix match only — the index idx_<players>_name_lower is a B-tree
+        // Prefix match only: the index idx_<players>_name_lower is a B-tree
         // on current_name_lower so LIKE 'x%' stays sargable. Wildcards embedded
         // in the user-supplied prefix are escaped so '%' and '_' behave as
         // literals in the match.
@@ -1028,7 +1028,7 @@ public final class SqliteBackend implements Backend {
     /**
      * Copier-only hatch: shares the backend's write mutex so cross-cutting
      * bulk operations (delete-all, drop tables) don't race handler commits.
-     * Do not hold while the backend is serving live ring traffic — callers
+     * Do not hold while the backend is serving live ring traffic, callers
      * should quiesce rings first.
      */
     @ApiStatus.Internal

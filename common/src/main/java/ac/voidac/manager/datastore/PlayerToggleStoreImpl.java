@@ -32,10 +32,10 @@ import java.util.logging.Logger;
  * carrying the value and the {@link Source} that wrote it. State transitions are
  * a precedence-gated CAS loop:
  * <pre>
- *   USER_TOGGLED      30  — staff explicitly issued /void toggle. Stomps anything.
- *   PERSISTED         20  — prefetch returned a row. Wins over PERMISSION_DEFAULT.
- *   PERMISSION_DEFAULT 10 — onUserLogin's void.*.enable-on-join fallback.
- *   UNKNOWN            0  — initial state.
+ *   USER_TOGGLED      30 : staff explicitly issued /void toggle. Stomps anything.
+ *   PERSISTED         20 : prefetch returned a row. Wins over PERMISSION_DEFAULT.
+ *   PERMISSION_DEFAULT 10: onUserLogin's void.*.enable-on-join fallback.
+ *   UNKNOWN            0 : initial state.
  * </pre>
  *
  * <h2>Coalesced persists</h2>
@@ -177,7 +177,7 @@ public final class PlayerToggleStoreImpl implements PlayerToggleStore {
 
     /**
      * Schedule a coalesced flush. Single-flight: if a flush is already queued,
-     * don't queue another — the queued one will read the latest atomic values
+     * don't queue another: the queued one will read the latest atomic values
      * at fire time and pick up everything dirty.
      */
     private void scheduleFlush(ToggleSlot slot, UUID uuid) {

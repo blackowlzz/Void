@@ -184,13 +184,20 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 connection.setTcpNoDelay(true);
                 connection.setKeepAlive(true);
                 this.socket = connection;
-                backoff = RETRY_MIN_MS;
-                alreadyComplained = false;
-                LogUtil.info("Bridge connected to the proxy at " + proxyHost + ":" + proxyPort
-                        + " as '" + serverName + "'.");
 
                 sayHello(connection);
-                readUntilClosed(connection, forGeneration);
+                // An open socket proves nothing: point this at the Minecraft port
+                // and it opens just as happily. The proxy answers a HELLO it
+                // accepted with a SYNC, so a frame coming back is the real proof.
+                if (readUntilClosed(connection, forGeneration)) {
+                    backoff = RETRY_MIN_MS;
+                    alreadyComplained = false;
+                } else if (!alreadyComplained) {
+                    LogUtil.warn("Bridge reached " + proxyHost + ":" + proxyPort + " but the proxy hung up"
+                            + " without answering. Check that proxy-port is the bridge port rather than the"
+                            + " Minecraft one, and that the secret matches the proxy's.");
+                    alreadyComplained = true;
+                }
             } catch (Exception e) {
                 // one line the first time, then shut up. a proxy that's down for
                 // an hour shouldn't produce an hour of identical warnings
@@ -222,16 +229,25 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 active.encode(MessageType.HELLO, serverName, new HelloPayload(version).encode()));
     }
 
-    private void readUntilClosed(@NotNull Socket connection, int forGeneration) throws Exception {
+    /** @return whether the proxy ever answered, which is what tells a real link from an open port */
+    private boolean readUntilClosed(@NotNull Socket connection, int forGeneration) throws Exception {
         DataInputStream in = new DataInputStream(connection.getInputStream());
+        boolean answered = false;
+
         while (!shuttingDown && forGeneration == generation) {
             byte[] raw = FrameStream.read(in);
             if (raw == null) {
-                LogUtil.warn("Bridge lost the proxy connection, reconnecting.");
-                return;
+                if (answered) LogUtil.warn("Bridge lost the proxy connection, reconnecting.");
+                return answered;
+            }
+            if (!answered) {
+                answered = true;
+                LogUtil.info("Bridge connected to the proxy at " + proxyHost + ":" + proxyPort
+                        + " as '" + serverName + "'.");
             }
             handleIncoming(raw);
         }
+        return answered;
     }
 
     private void disconnect() {

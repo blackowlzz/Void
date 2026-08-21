@@ -63,7 +63,7 @@ public class SneakingEstimator extends Check implements PostPredictionCheck {
         for (VectorData data : possible) {
             // Don't let the player always get jumping bonus, for example
             if (data.isJump() == player.predictedVelocity.isJump() && data.isKnockback() == player.predictedVelocity.isKnockback() && data.isExplosion() == player.predictedVelocity.isExplosion()) {
-                // Compounding hidden velocity — dangerous but stable in testing
+                // Compounding hidden velocity: dangerous but stable in testing
                 if (player.uncertaintyHandler.lastStuckWest.hasOccurredSince(0) || player.uncertaintyHandler.lastStuckNorth.hasOccurredSince(0)) {
                     sneakingPotentialHiddenVelocity.minX = Math.min(sneakingPotentialHiddenVelocity.minX, data.vector.getX());
                     sneakingPotentialHiddenVelocity.minZ = Math.min(sneakingPotentialHiddenVelocity.minZ, data.vector.getZ());

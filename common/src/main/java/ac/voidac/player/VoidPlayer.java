@@ -50,6 +50,7 @@ import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 import com.github.retrooper.packetevents.event.PacketSendEvent;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
+import com.github.retrooper.packetevents.protocol.entity.EntityPositionData;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
 import com.github.retrooper.packetevents.protocol.ConnectionState;
 import com.github.retrooper.packetevents.protocol.attribute.Attributes;
@@ -96,6 +97,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 
 // Everything in this class should be sync'd to the anticheat thread.
@@ -112,7 +114,11 @@ public class VoidPlayer implements VoidUser {
     // The difference between keepalive and transactions is that keepalive is async while transactions are sync
     public final Queue<Pair<Short, Long>> transactionsSent = new ConcurrentLinkedQueue<>();
     public final Set<Short> didWeSendThatTrans = ConcurrentHashMap.newKeySet();
-    private final AtomicInteger transactionIDCounter = new AtomicInteger(0);
+    // Cheat clients fingerprint anticheats by the transaction ids they see: a constant
+    // step from a known starting point names the plugin outright. Random start, random
+    // step, per player. Stays negative and inside short range, which is all the rest of
+    // the code cares about, and ids are matched by equality so the gaps mean nothing.
+    private final AtomicInteger transactionIDCounter = new AtomicInteger(ThreadLocalRandom.current().nextInt(64, 2048));
     public final AtomicInteger lastTransactionSent = new AtomicInteger(0);
     public final AtomicInteger lastTransactionReceived = new AtomicInteger(0);
     // End transaction handling stuff
@@ -273,7 +279,7 @@ public class VoidPlayer implements VoidUser {
     public boolean noSetbackPermission = false;
     public boolean connectedThroughViaProxy = false;
 
-    /** True if this player's packets are being translated by ViaVersion — either on a proxy
+    /** True if this player's packets are being translated by ViaVersion, either on a proxy
      *  (connectedThroughViaProxy) or because ViaVersion is installed on this server and the
      *  client version differs from the server version. */
     public boolean isVersionTranslated() {
@@ -502,7 +508,7 @@ public class VoidPlayer implements VoidUser {
         }
 
         lastTransSent = System.currentTimeMillis();
-        short transactionID = (short) (-1 * (transactionIDCounter.getAndIncrement() & 0x7FFF));
+        short transactionID = (short) (-1 * (transactionIDCounter.getAndAdd(ThreadLocalRandom.current().nextInt(1, 3)) & 0x7FFF));
         try {
 
             PacketWrapper<?> packet;
@@ -531,7 +537,9 @@ public class VoidPlayer implements VoidUser {
     }
 
     public double getEyeHeight() {
-        return getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_9) ? pose.eyeHeight
+        // scale moves your eyes too, and forgetting it throws reach off
+        return getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_9)
+                ? compensatedEntities.self.getAttributeValue(Attributes.SCALE) * pose.eyeHeight
                 : isSneaking ? 1.54f : 1.62f;
     }
 
@@ -593,7 +601,7 @@ public class VoidPlayer implements VoidUser {
             updatePermissions();
         }
 
-        // Datastore session heartbeat — throttled internally to once per
+        // Datastore session heartbeat: throttled internally to once per
         // `database.session.heartbeat-interval-ms`, so this runs every tick
         // but only emits a row upsert every N seconds. Bounds how stale
         // last_activity_epoch_ms can be when the server crashes.
@@ -798,7 +806,15 @@ public class VoidPlayer implements VoidUser {
                 int ridingId = getRidingVehicleId();
                 TrackerData data = compensatedEntities.serverPositionsMap.get(ridingId);
                 if (data != null) {
-                    user.writePacket(new WrapperPlayServerEntityTeleport(ridingId, new Vector3d(data.getX(), data.getY(), data.getZ()), data.getXRot(), data.getYRot(), false));
+                    final Vector3d pos = new Vector3d(data.getX(), data.getY(), data.getZ());
+                    // EntityTeleport still exists on 1.21.2+ but means something else now,
+                    // using it here just makes the entity behave strangely
+                    if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_21_2)) {
+                        user.writePacket(new WrapperPlayServerEntityPositionSync(ridingId,
+                                new EntityPositionData(pos, new Vector3d(), data.getXRot(), data.getYRot()), false));
+                    } else {
+                        user.writePacket(new WrapperPlayServerEntityTeleport(ridingId, pos, data.getXRot(), data.getYRot(), false));
+                    }
                 }
             }
         });

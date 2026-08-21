@@ -10,7 +10,7 @@ import java.util.UUID;
  * Implementations own one or more {@link java.sql.PreparedStatement}s and
  * accumulate rows via JDBC batching. A modern impl backs this with one
  * INSERT ... ON CONFLICT DO UPDATE; a legacy impl with INSERT OR IGNORE
- * followed by UPDATE — same external semantics, picked once at init.
+ * followed by UPDATE: same external semantics, picked once at init.
  */
 @ApiStatus.Internal
 public interface SessionUpserter extends AutoCloseable {

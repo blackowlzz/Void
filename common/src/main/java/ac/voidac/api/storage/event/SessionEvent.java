@@ -25,7 +25,7 @@ import java.util.UUID;
  * {@code replayClips} is an internally mutable list held on the event. It is
  * cleared on {@link #reset()}; producers append via {@link #addReplayClip(ReplayClip)}
  * or {@link #replaceReplayClips(List)}. The current built-in SQLite backend
- * does not persist non-empty clip lists — a future recorder feature will.
+ * does not persist non-empty clip lists, a future recorder feature will.
  */
 @ApiStatus.Experimental
 public final class SessionEvent {

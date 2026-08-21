@@ -14,7 +14,7 @@ import java.util.Arrays;
  * typed {@code fire(...)} method taking the event's parameters directly.
  * Dispatch is zero-allocation on the hot path: the volatile subscriber array
  * is pre-sorted by ascending priority (lower fires first, higher gets the
- * final say on cancellation — Bukkit {@code EventPriority} convention), the
+ * final say on cancellation: Bukkit {@code EventPriority} convention), the
  * typed handler is invoked through a SAM interface without wrapping the call
  * in a {@code VoidEvent} object, and the legacy pooled-event pathway is
  * skipped entirely when no legacy subscriber is attached.
@@ -23,9 +23,9 @@ import java.util.Arrays;
  * A channel stores a single copy-on-write {@link Entry} array. Each entry is
  * either:
  * <ul>
- *   <li><b>typed</b> — holds an {@code H} handler. Dispatched by calling the
+ *   <li><b>typed</b>: holds an {@code H} handler. Dispatched by calling the
  *       handler directly with primitive/reference parameters.</li>
- *   <li><b>legacy</b> — holds a {@link VoidEventListener} bound to the event's
+ *   <li><b>legacy</b>: holds a {@link VoidEventListener} bound to the event's
  *       {@code VoidEvent} subclass. Dispatched by populating a per-thread
  *       pooled event instance and invoking the listener.</li>
  * </ul>
@@ -81,7 +81,7 @@ public abstract class EventChannel<E extends VoidEvent<?>, H> {
     /**
      * Returns {@code true} if any legacy subscriber is currently attached.
      * Dispatch uses this to decide whether to touch its pooled-event
-     * {@code ThreadLocal} — skipping it entirely when the answer is {@code false}.
+     * {@code ThreadLocal}: skipping it entirely when the answer is {@code false}.
      */
     public final boolean hasLegacy() {
         return legacyCount != 0;
@@ -94,7 +94,7 @@ public abstract class EventChannel<E extends VoidEvent<?>, H> {
 
     /**
      * Registers a typed handler. Intended as the building block for the
-     * subclass's fluent {@code on…(…)} methods — external callers should use
+     * subclass's fluent {@code on…(…)} methods, external callers should use
      * those, and plugin-lifecycle-bound subscribes should go through
      * {@link EventBus#get(Class)} + the on-method so the bus can clean up
      * automatically on plugin disable.
@@ -200,12 +200,12 @@ public abstract class EventChannel<E extends VoidEvent<?>, H> {
     /**
      * Internal: dispatches a legacy-style {@code VoidEvent} through this
      * channel's subscribers. Both legacy-registered listeners and typed
-     * handlers are invoked — typed handlers by unpacking the event's fields
+     * handlers are invoked: typed handlers by unpacking the event's fields
      * via {@link #dispatchTypedFromLegacy(VoidEvent, Object, boolean)}.
      *
      * <p>Only reachable through {@link EventBus#post(VoidEvent)}. Internal
      * Void firings should call the subclass's typed {@code fire(...)}
-     * directly — it has the same dispatch semantics without the caller-side
+     * directly: it has the same dispatch semantics without the caller-side
      * event instance allocation.
      */
     @ApiStatus.Internal
@@ -288,7 +288,7 @@ public abstract class EventChannel<E extends VoidEvent<?>, H> {
     /**
      * One registered subscriber. Either {@code handler} is set (typed entry)
      * or {@code legacyListener} + {@code legacyEventClass} are set (legacy
-     * entry) — never both. Entries are otherwise immutable after publication.
+     * entry), never both. Entries are otherwise immutable after publication.
      */
     public static final class Entry<H> {
         public final @Nullable H handler;

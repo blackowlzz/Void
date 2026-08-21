@@ -135,7 +135,7 @@ public final class PostgresBackend implements Backend {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException cnf) {
-            throw new BackendException("postgresql driver not on the classpath — either shade it into the plugin jar or drop it into server/plugins", cnf);
+            throw new BackendException("postgresql driver not on the classpath, either shade it into the plugin jar or drop it into server/plugins", cnf);
         }
         synchronized (writeMutex) {
             try {

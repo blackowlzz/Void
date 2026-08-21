@@ -23,7 +23,7 @@ public final class V0Sources {
                            @Nullable String password, String summary) {}
 
     /**
-     * Returns {@code null} when no usable legacy source is found — either the
+     * Returns {@code null} when no usable legacy source is found, either the
      * on-disk SQLite file is absent (fresh install, or migration already run)
      * or {@code history.database.type} is set to {@code noop}.
      */

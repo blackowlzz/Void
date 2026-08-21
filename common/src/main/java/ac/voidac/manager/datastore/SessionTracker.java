@@ -13,7 +13,7 @@ import java.util.UUID;
  * {@code lastActivityEpochMs}, so the backend always has a recent heartbeat
  * for {@code /void history}.
  *
- * <p>{@link #pollHeartbeat} is the periodic-bump entry point — called per
+ * <p>{@link #pollHeartbeat} is the periodic-bump entry point, called per
  * tick from {@code VoidPlayer.pollData}, throttled internally to emit at
  * most once per heartbeat interval.
  *
@@ -24,7 +24,7 @@ public interface SessionTracker {
 
     /**
      * Ensure the player has an open session and extend its activity to {@code now}.
-     * Returns the current sessionId — callers use it as the {@code sessionId} field
+     * Returns the current sessionId: callers use it as the {@code sessionId} field
      * on any downstream events submitted in the same logical activity tick.
      */
     @NotNull UUID observeActivity(@NotNull UUID playerUuid, long now, @NotNull ClientMeta meta);

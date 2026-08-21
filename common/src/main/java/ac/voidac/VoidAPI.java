@@ -120,6 +120,16 @@ public final class VoidAPI {
     public void start() {
         checkInitialized();
         printStartupBanner();
+
+        // if the config failed to load, we don't want to start the plugin because it will be in a broken state, tried it on my own skin and it was not fun, so we just log the error and stop the plugin from starting
+        if (externalAPI.isConfigLoadFailed()) {
+            LogUtil.error("Void is not starting: the configuration failed to load, see the error above.");
+            LogUtil.error("  Nobody is being checked until it is fixed.");
+            LogUtil.error("  Correct the file the parser named, or restore the .bak sitting next to it");
+            LogUtil.error("  in plugins/Void, then restart the server.");
+            return;
+        }
+
         initManager.start();
     }
 

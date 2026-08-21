@@ -11,16 +11,16 @@ import java.util.Locale;
  *
  * <ul>
  *   <li>a {@code config-flavor} marker (V2 / V3) that the updater rejects on
- *       a mismatch — a wrong-flavor file fails fast instead of silently
+ *       a mismatch: a wrong-flavor file fails fast instead of silently
  *       flat-merging into the wrong key set;</li>
  *   <li>a {@code config-version} integer bumped on every breaking shape
  *       change to the bundled default;</li>
  *   <li>an optional in-version {@link ConfigUpdater.Migration} chain that
  *       lifts values forward across each version step. Multiple steps
- *       stack — v3 → v8 runs each registered v4/v5/v6/v7/v8 migration.</li>
+ *       stack: v3 → v8 runs each registered v4/v5/v6/v7/v8 migration.</li>
  * </ul>
  *
- * <p>Resource paths name the directory ({@code "/database/"}) — the updater
+ * <p>Resource paths name the directory ({@code "/database/"}), the updater
  * picks the language-appropriate {@code en.yml} / {@code zh.yml} / … from
  * inside it at update time, falling back to {@code en.yml} when the active
  * locale isn't bundled. Same shape Configuralize uses for runtime loading.
@@ -31,7 +31,7 @@ import java.util.Locale;
  * recorded write ops via the line-mapped patcher so the bundled default's
  * comments survive the rewrite.
  *
- * <p>{@code punishments.yml} is intentionally absent — open-ended user-
+ * <p>{@code punishments.yml} is intentionally absent, open-ended user-
  * defined data (operator-authored punishment groups), no schema versioning.
  */
 public final class VoidConfigSpecs {
@@ -62,7 +62,7 @@ public final class VoidConfigSpecs {
     * placeholder under {@code storage-esp-decoys} while the module is off.
      *
      * <p>v15 → v16: adds the {@code AntiXray} section (Paper anti-xray
-     * configuration helper). No value migration needed — new keys auto-lift
+     * configuration helper). No value migration needed, new keys auto-lift
      * from the bundled default.
      *
      * <p>v16 → v17: expands {@code storage-esp-decoys} from a disabled
@@ -72,18 +72,22 @@ public final class VoidConfigSpecs {
      * raises default {@code max-block-height} to 320, and adds {@code update-radius}.
      *
      * <p>v18 → v19: adds the {@code ban-wave} section for deferred, batch ban execution.
-     * No value migration needed — new keys auto-lift from the bundled default.
+     * No value migration needed: new keys auto-lift from the bundled default.
      *
      * <p>v19 → v20: adds the {@code via-proxy} section and {@code viaversion-attenuation}
-     * flag (cross-version prediction offset attenuation). No value migration needed — new
+     * flag (cross-version prediction offset attenuation). No value migration needed, new
      * keys auto-lift from the bundled default.
      *
+     * <p>v21 → v22: adds {@code debug-packet-exceptions} flag (full stack trace for
+     * packets that fail to decode, off by default). No value migration needed, new key
+     * auto-lifts from the bundled default.
+     *
      * <p>v20 → v21: adds {@code viaversion-elytra-attenuation} flag (extra offset attenuation
-     * for cross-version players during elytra gliding). No value migration needed — new key
+     * for cross-version players during elytra gliding). No value migration needed, new key
      * auto-lifts from the bundled default.
      */
     public static @NotNull ConfigUpdater.Spec mainConfig() {
-          return ConfigUpdater.Spec.builder("/config/", 21, ConfigUpdater.ConfigFlavor.V2)
+          return ConfigUpdater.Spec.builder("/config/", 22, ConfigUpdater.ConfigFlavor.V2)
                 .migration(10, ctx -> {
                     String typeRaw = ctx.input().getString("history.database.type");
                     String type = typeRaw == null ? null : typeRaw.trim().toUpperCase(Locale.ROOT);
@@ -91,7 +95,7 @@ public final class VoidConfigSpecs {
                     if (backendId != null) {
                         // Route every relational category to the operator's
                         // chosen backend so the new layout matches the old
-                        // single-DB shape. blob is intentionally absent —
+                        // single-DB shape. blob is intentionally absent,
                         // none of the SQL backends declare support for it
                         // (would fail capability validation); leave it on
                         // whatever the bundled default routes blob to.
@@ -99,7 +103,7 @@ public final class VoidConfigSpecs {
                             ctx.otherFile("database.yml").put("database.routing." + cat, backendId);
                         }
                     }
-                    // Carry the rendering settings over — these moved out of
+                    // Carry the rendering settings over, these moved out of
                     // history: into database.* with the same names.
                     Integer entriesPerPage = ctx.input().getInt("history.entries-per-page");
                     if (entriesPerPage != null) {
@@ -152,13 +156,13 @@ public final class VoidConfigSpecs {
     }
 
     public static @NotNull ConfigUpdater.Spec messages() {
-        return ConfigUpdater.Spec.builder("/messages/", 1, ConfigUpdater.ConfigFlavor.V2)
+        return ConfigUpdater.Spec.builder("/messages/", 2, ConfigUpdater.ConfigFlavor.V2)
                 .build();
     }
 
     /**
      * The datastore router config (top-level {@code database:} wrapper).
-     * No own-file migrations — operators arriving from Void 2.x have no
+     * No own-file migrations: operators arriving from Void 2.x have no
      * existing database.yml on disk; the legacy lift happens on the
      * config.yml side via cross-file writes (see {@link #mainConfig}).
      */

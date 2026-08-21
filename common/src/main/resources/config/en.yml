@@ -385,6 +385,10 @@ threshold-optimizer:
 # Max illegal packet cancellations per second before kicking the player.
 packet-spam-threshold: 100
 debug-packet-cancel: false
+# Print the full stack trace when a packet fails to decode.
+# Off by default: a crasher sending malformed packet ids would otherwise flood
+# the console. The player is still kicked either way.
+debug-packet-exceptions: false
 
 # Max ping (ms) for non-flying players. -1 to disable.
 max-ping-out-of-flying: 1000
@@ -423,4 +427,4 @@ diagnostic-logger:
     queue-capacity: 4096
 
 config-flavor: V2
-config-version: 21
+config-version: 22

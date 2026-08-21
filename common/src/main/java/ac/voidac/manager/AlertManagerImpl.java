@@ -81,8 +81,8 @@ public final class AlertManagerImpl implements AlertManager, ConfigReloadable, S
         setConsoleAlertsEnabled(config.getBooleanElse("alerts.print-to-console", true), true);
         setConsoleVerboseEnabled(config.getBooleanElse("verbose.print-to-console", false), true);
 
-        AlertType.NORMAL.enableMessage = config.getStringElse("alerts-enabled", "%prefix% &7The void stirs — alerts are awake.");
-        AlertType.NORMAL.disableMessage = config.getStringElse("alerts-disabled", "%prefix% &7The void falls still — alerts are silent.");
+        AlertType.NORMAL.enableMessage = config.getStringElse("alerts-enabled", "%prefix% &7The void stirs, alerts are awake.");
+        AlertType.NORMAL.disableMessage = config.getStringElse("alerts-disabled", "%prefix% &7The void falls still, alerts are silent.");
         AlertType.VERBOSE.enableMessage = config.getStringElse("verbose-enabled", "%prefix% &7Deep sight awakened.");
         AlertType.VERBOSE.disableMessage = config.getStringElse("verbose-disabled", "%prefix% &7Deep sight dimmed.");
         AlertType.BRAND.enableMessage = config.getStringElse("brands-enabled", "%prefix% &7Client brands unveiled.");

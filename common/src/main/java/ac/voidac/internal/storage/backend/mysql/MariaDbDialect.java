@@ -9,7 +9,7 @@ import org.jetbrains.annotations.ApiStatus;
  * is the upsert syntax, which uses the legacy {@code VALUES()} reference
  * because MariaDB never adopted the MySQL 8.0.19 aliased-row form.
  * <p>
- * Inherits the no-op {@code migrateV7ToV8} from {@link MysqlDialect} —
+ * Inherits the no-op {@code migrateV7ToV8} from {@link MysqlDialect},
  * MariaDB v7 deployments already had the v8 column layout (its dialect was
  * always at the gen col shape), so no schema rewrite is needed; only the
  * meta table's schema_version row gets bumped.
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.ApiStatus;
  * Floor of 10.6: oldest MariaDB LTS still in upstream support, comfortably
  * above the {@code STORED} generated-column floor (10.2.1) and the enforced
  * {@code CHECK} floor (10.2.1) we depend on. 11.x and 12.x are supersets of
- * the same DDL — no further version splits needed.
+ * the same DDL: no further version splits needed.
  */
 @ApiStatus.Internal
 final class MariaDbDialect implements MysqlDialect {

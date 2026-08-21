@@ -39,7 +39,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * In-memory reference backend. Used by tests and as a sanity-bar for other
  * backend implementations; also a useful target for operators who want to run
  * a category without persistence (e.g. ephemeral setting state). Not durable
- * — contents are lost at process exit.
+ *: contents are lost at process exit.
  * <p>
  * {@link #eventHandlerFor(Category)} returns a thin handler per category that
  * materialises events into records and appends to the internal maps under a
@@ -153,7 +153,7 @@ public final class InMemoryBackend implements Backend {
     private void applySession(SessionEvent e) {
         synchronized (writeMutex) {
             SessionRecord prev = sessions.get(e.sessionId());
-            // Preserve already-set closed_at across heartbeat upserts —
+            // Preserve already-set closed_at across heartbeat upserts,
             // matches the SQL/Mongo/Redis NULL → set transition semantics.
             Long closedAt = e.closedAtEpochMs();
             if (prev != null && prev.closedAtEpochMs() != null) closedAt = prev.closedAtEpochMs();

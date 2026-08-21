@@ -63,14 +63,14 @@ public class ThresholdOptimizerManager {
         if (!running.compareAndSet(false, true)) return false;
         startedAt = System.currentTimeMillis();
         stoppedAt = 0L;
-        LogUtil.info("[Optimizer] Started — observing flags. Per-flag analysis is active, expect a small CPU overhead until stopped.");
+        LogUtil.info("[Optimizer] Started, observing flags. Per-flag analysis is active, expect a small CPU overhead until stopped.");
         return true;
     }
 
     public boolean stop() {
         if (!running.compareAndSet(true, false)) return false;
         stoppedAt = System.currentTimeMillis();
-        LogUtil.info("[Optimizer] Stopped — " + checkStats.size() + " checks observed. Run /void optimizer save to persist recommendations.");
+        LogUtil.info("[Optimizer] Stopped, " + checkStats.size() + " checks observed. Run /void optimizer save to persist recommendations.");
         return true;
     }
 
@@ -168,7 +168,7 @@ public class ThresholdOptimizerManager {
         dataFolder.mkdirs();
         File reportFile = new File(dataFolder, "threshold-optimizer-report.yml");
         try (BufferedWriter w = new BufferedWriter(new FileWriter(reportFile))) {
-            w.write("# Void Threshold Optimizer — recommendations\n");
+            w.write("# Void Threshold Optimizer: recommendations\n");
             w.write("# Generated: " + REPORT_DATE.format(Instant.now()) + " UTC\n");
             w.write("# Started:   " + (startedAt > 0 ? REPORT_DATE.format(Instant.ofEpochMilli(startedAt)) + " UTC" : "n/a") + "\n");
             w.write("# Stopped:   " + (stoppedAt > 0 ? REPORT_DATE.format(Instant.ofEpochMilli(stoppedAt)) + " UTC" : "n/a") + "\n");

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 /**
  * Builds dialect-appropriate upserters for a given connection. Selected once
- * at backend init from the live {@code sqlite_version()} — modern path uses
+ * at backend init from the live {@code sqlite_version()}, modern path uses
  * single-statement {@code ON CONFLICT DO UPDATE} (SQLite 3.24+), legacy path
  * uses two-step {@code INSERT OR IGNORE} + {@code UPDATE} for older engines.
  */

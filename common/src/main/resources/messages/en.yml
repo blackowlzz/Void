@@ -11,6 +11,7 @@ verbose-join-reminder: "%prefix% &7Verbose is &coff&7, you are only seeing flags
 brands-enabled: "%prefix% &7Brand tracking &aenabled&7."
 brands-disabled: "%prefix% &7Brand tracking &cdisabled&7."
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
 console-specify-target: "%prefix% &7The console must specify a target."
 reloading: "%prefix% &7Reloading..."
 reloaded: "%prefix% &7Configuration &areloaded&7."
@@ -98,7 +99,7 @@ void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f
 void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Brand &f%client_brand%"
 void-history-detail-violations-header: "  &8▸ &d%violations% &7violations &8(&d%unique_checks% &7unique&8)"
 void-history-detail-empty: "  &8▸ &7(none)"
-# Placeholders: %prefix% %offset% %checks_list% — %checks_list% joins void-history-check-count entries with ", "
+# Placeholders: %prefix% %offset% %checks_list%, %checks_list% joins void-history-check-count entries with ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
 # Placeholders: %prefix% %offset% %check% %vl% %verbose%
 void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
@@ -107,4 +108,4 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Schema markers: see header comment in config.yml.
 config-flavor: V2
-config-version: 1
+config-version: 2

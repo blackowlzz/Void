@@ -5,7 +5,7 @@ package ac.voidac.api.handler;
  * <p>
  * This interface allows platforms and advanced server implementations to control how block updates
  * are sent to players, particularly in environments that use custom, virtual, or protocol-based worlds
- * where the backend server (e.g., Bukkit, Fabric) does not accurately reflect the client view — or
+ * where the backend server (e.g., Bukkit, Fabric) does not accurately reflect the client view, or
  * is not directly accessible at all.
  *
  * <p>

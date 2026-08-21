@@ -90,8 +90,8 @@ public final class CheckRegistry {
      * body is a multi-map RMW (byStableKey + byId + byDisplay) plus a DB
      * write inside the collision-prefix path; making it lock-free needs an
      * outer retry wrapping a multi-step write with rollback semantics on
-     * the DB side. Cold path in practice — caller's local cache absorbs the
-     * hot path — so the lock cost is amortized to ~zero, but worth doing if
+     * the DB side. Cold path in practice, caller's local cache absorbs the
+     * hot path, so the lock cost is amortized to ~zero, but worth doing if
      * we ever need this on a hot path.
      */
     public synchronized int intern(String stableKey,
@@ -123,7 +123,7 @@ public final class CheckRegistry {
             if (collider != null) {
                 // A different stable_key already owns this display. Prefix the
                 // older row so the letter is free. The prefix reflects when
-                // the older row was introduced — e.g. V2-era rows become
+                // the older row was introduced, e.g. V2-era rows become
                 // "V2/BadPacketsB" when V3 introduces a different meaning at
                 // the same letter.
                 String prefix = collisionPrefixResolver.apply(collider);

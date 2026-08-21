@@ -106,13 +106,23 @@ public class CompensatedWorld implements PacketWorld {
     public void handlePredictionConfirmation(int prediction) {
         for (Iterator<Int2ObjectMap.Entry<List<Vector3i>>> it = serverIsCurrentlyProcessingThesePredictions.int2ObjectEntrySet().iterator(); it.hasNext(); ) {
             Map.Entry<Integer, List<Vector3i>> iter = it.next();
+            // no break on the first miss: the map isn't ordered, so anything
+            // sitting behind a higher id would never get applied and you'd be
+            // left staring at a block that isn't there
             if (iter.getKey() <= prediction) {
                 applyBlockChanges(iter.getValue());
                 it.remove();
-            } else {
-                break;
             }
         }
+    }
+
+    /** Wipe pending block state. A dimension change invalidates all of it. */
+    public void clearPredictions() {
+        originalServerBlocks.clear();
+        currentlyChangedBlocks = new LinkedList<>();
+        serverIsCurrentlyProcessingThesePredictions.clear();
+        unackedActions.clear();
+        isCurrentlyPredicting = false;
     }
 
     public void handleBlockBreakAck(Vector3i blockPos, int blockState, DiggingAction action, boolean accepted) {

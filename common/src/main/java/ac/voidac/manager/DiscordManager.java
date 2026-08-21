@@ -145,7 +145,7 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
                     LogUtil.error("Void webhook URL is not a valid HTTPS URL: " + webhook);
                     url = null;
                 } else {
-                    LogUtil.info("Webhook validation disabled — using custom Void endpoint: "
+                    LogUtil.info("Webhook validation disabled, using custom Void endpoint: "
                             + webhook.substring(0, Math.min(webhook.length(), 40)) + "...");
                     url = new URI(webhook);
                 }

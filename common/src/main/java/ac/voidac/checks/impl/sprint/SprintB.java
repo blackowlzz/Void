@@ -26,12 +26,10 @@ public class SprintB extends Check implements PostPredictionCheck {
                 return;
             }
 
-            // https://github.com/VoidAnticheat/Void/issues/1932
             if (version.isNewerThanOrEquals(ClientVersion.V_1_14) && player.wasFlying && player.lastPose == Pose.FALL_FLYING && !player.isGliding) {
                 return;
             }
 
-            // https://github.com/VoidAnticheat/Void/issues/1948
             if (version == ClientVersion.V_1_21_4 && (Collections.max(player.uncertaintyHandler.pistonX) != 0
                     || Collections.max(player.uncertaintyHandler.pistonY) != 0
                     || Collections.max(player.uncertaintyHandler.pistonZ) != 0)) {

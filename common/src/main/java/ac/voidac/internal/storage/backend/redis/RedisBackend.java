@@ -53,7 +53,7 @@ import java.util.logging.Logger;
  * Redis 6+ backend. Operational caveats first:
  * <ul>
  *   <li>Redis is <em>primarily an in-memory store</em>. Persistence relies on
- *       AOF/RDB — a misconfigured server will lose data. This backend is
+ *       AOF/RDB: a misconfigured server will lose data. This backend is
  *       offered for operators who only have Redis to work with and need a
  *       working history surface in a pinch, not as a primary production
  *       choice. The other backends (SQLite/MySQL/Postgres/Mongo) are a
@@ -118,7 +118,7 @@ public final class RedisBackend implements Backend {
         try {
             Class.forName("redis.clients.jedis.Jedis");
         } catch (ClassNotFoundException cnf) {
-            throw new BackendException("jedis not on the classpath — shade it into the plugin jar or drop it into server/plugins", cnf);
+            throw new BackendException("jedis not on the classpath, shade it into the plugin jar or drop it into server/plugins", cnf);
         }
         DefaultJedisClientConfig.Builder b = DefaultJedisClientConfig.builder()
                 .database(config.database())
@@ -140,7 +140,7 @@ public final class RedisBackend implements Backend {
                 logger.warning("[void-datastore] Redis backend '"
                         + config.keyPrefix() + config.tableNames().violations()
                         + "' is serving violation/session history. Redis is primarily an in-memory "
-                        + "store — ensure AOF persistence is enabled, or this history will "
+                        + "store: ensure AOF persistence is enabled, or this history will "
                         + "disappear on restart. Set " + ID + ".warn-on-history=false to silence.");
             }
         } catch (RuntimeException e) {
@@ -459,7 +459,7 @@ public final class RedisBackend implements Backend {
     private Page<PlayerIdentity> listPlayersByNamePrefix(Jedis j, Queries.ListPlayersByNamePrefix q) {
         String prefix = q.lowerPrefix();
         if (prefix == null || prefix.isEmpty() || q.limit() <= 0) return Page.empty();
-        // SCAN keyspace for <players>:by-name-lower:<prefix>* — Redis glob-escape
+        // SCAN keyspace for <players>:by-name-lower:<prefix>*: Redis glob-escape
         // the user-supplied chars so '*'/'?'/'[' in a name don't expand the match.
         String pattern = tableKey(config.tableNames().players()) + ":by-name-lower:" + globEscape(prefix) + "*";
         redis.clients.jedis.params.ScanParams sp = new redis.clients.jedis.params.ScanParams()
@@ -724,7 +724,7 @@ public final class RedisBackend implements Backend {
             do {
                 redis.clients.jedis.resps.ScanResult<String> res = j.scan(cursor, sp);
                 for (String key : res.getResult()) {
-                    // Skip the by-player ZSETs and meta keys — only direct
+                    // Skip the by-player ZSETs and meta keys, only direct
                     // session hashes have a numeric trailing segment.
                     if (key.contains(":by-player:") || key.contains(":seq:")) continue;
                     Map<String, String> h = j.hgetAll(key);

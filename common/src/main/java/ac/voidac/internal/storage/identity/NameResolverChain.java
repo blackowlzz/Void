@@ -38,7 +38,7 @@ public final class NameResolverChain implements NameResolver {
     @Override
     public CompletionStage<List<UUID>> allHistoricalUsersOfName(String name) {
         // The chain's links don't yet expose a "list every uuid that used this
-        // name" capability — the surface only returns "the currently-resolving
+        // name" capability: the surface only returns "the currently-resolving
         // uuid". Return the first hit as a singleton so the caller gets
         // consistent behaviour; extending this to a true history walk is a
         // follow-up that needs a new link contract.

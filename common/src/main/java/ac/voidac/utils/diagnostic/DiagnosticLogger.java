@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicLong;
+import com.github.retrooper.packetevents.protocol.potion.PotionType;
+import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
+import java.util.OptionalInt;
 
 /**
  * Per-player movement diagnostic recorder.
@@ -159,6 +162,16 @@ public final class DiagnosticLogger {
           .append("  lava=").append(flag(player.wasTouchingLava))
           .append('\n');
 
+        // speed and the effects feeding it. a beacon desyncing here is invisible
+        // in the offset alone, you need the number the engine actually used
+        sb.append("  SPEED   ")
+          .append("attr=").append(player.speed)
+          .append("  speed=").append(effectLevel(player, PotionTypes.SPEED))
+          .append("  slow=").append(effectLevel(player, PotionTypes.SLOWNESS))
+          .append("  jump=").append(effectLevel(player, PotionTypes.JUMP_BOOST))
+          .append("  levit=").append(effectLevel(player, PotionTypes.LEVITATION))
+          .append('\n');
+
         // ─── Uncertainty ───────────────────────────────────────────────────────────
         int entCount = u.collidingEntities.isEmpty() ? 0
                 : u.collidingEntities.get(u.collidingEntities.size() - 1);
@@ -265,5 +278,10 @@ public final class DiagnosticLogger {
 
     private static char flag(boolean b) {
         return b ? 'Y' : 'N';
+    }
+
+    private static String effectLevel(VoidPlayer player, PotionType effect) {
+        OptionalInt level = player.compensatedEntities.self.getPotionEffectLevel(effect);
+        return level.isPresent() ? String.valueOf(level.getAsInt()) : "-";
     }
 }

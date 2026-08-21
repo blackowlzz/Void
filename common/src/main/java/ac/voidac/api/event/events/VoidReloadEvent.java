@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class VoidReloadEvent extends VoidEvent<VoidReloadEvent.Channel> {
     private boolean success;
 
-    /** Pool constructor — fields populated via {@link #init}. */
+    /** Pool constructor: fields populated via {@link #init}. */
     public VoidReloadEvent() {
         super(true); // Async
     }
@@ -49,7 +49,7 @@ public class VoidReloadEvent extends VoidEvent<VoidReloadEvent.Channel> {
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onReload(@NotNull Object pluginContext, @NotNull Handler handler) {
             onReload(resolvePlugin(pluginContext), handler);

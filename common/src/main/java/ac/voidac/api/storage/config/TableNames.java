@@ -38,7 +38,7 @@ import org.jetbrains.annotations.NotNull;
  *                   display name, description, introduced_version,
  *                   introduced_at).
  * @param players    Player-identity records (UUID ↔ last-known name cache).
- * @param sessions   Session records (one per connected play session — joined,
+ * @param sessions   Session records (one per connected play session, joined,
  *                   played, disconnected).
  * @param violations Violation history rows (append-only time series).
  * @param settings   Per-scope key/value settings store (server-scoped and
@@ -61,7 +61,7 @@ public record TableNames(
     public static final String DEFAULT_VIOLATIONS = "void_violations";
     public static final String DEFAULT_SETTINGS = "void_settings";
 
-    /** Shared defaults — all six backends ship with these unless overridden. */
+    /** Shared defaults: all six backends ship with these unless overridden. */
     public static final TableNames DEFAULTS = new TableNames(
             DEFAULT_META,
             DEFAULT_CHECKS,

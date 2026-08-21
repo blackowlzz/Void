@@ -41,7 +41,7 @@ import java.util.logging.Logger;
  * Use {@link #updateAll(java.util.Map)} when migrations need to push values
  * between sibling files (e.g. config.yml → discord.yml). The single-file
  * {@link #update(File, Spec)} entry point disables {@code otherFile()}
- * writes — only reads remain valid.
+ * writes: only reads remain valid.
  *
  * <h2>What this preserves</h2>
  * The bundled default's structure + comments. User-edited comments in the
@@ -50,7 +50,7 @@ import java.util.logging.Logger;
  */
 public final class ConfigUpdater {
 
-    /** V2 vs V3 plugin lineage marker — fail-fast on flavor mismatch. */
+    /** V2 vs V3 plugin lineage marker, fail-fast on flavor mismatch. */
     public enum ConfigFlavor {
         V2, V3;
 
@@ -61,7 +61,7 @@ public final class ConfigUpdater {
         }
     }
 
-    /** A single migration step — runs when {@code oldVersion < toVersion}. */
+    /** A single migration step: runs when {@code oldVersion < toVersion}. */
     @FunctionalInterface
     public interface Migration {
         void apply(@NotNull MigrationContext ctx);
@@ -74,7 +74,7 @@ public final class ConfigUpdater {
          * ({@code <dir>/en.yml}, {@code <dir>/zh.yml}, …). Must end with
          * {@code /}. The updater resolves the active language at update
          * time and falls back to {@code en.yml} if the language file isn't
-         * bundled — same shape Configuralize uses for runtime loading.
+         * bundled: same shape Configuralize uses for runtime loading.
          */
         public final String resourceDirectory;
         public final int latestVersion;
@@ -147,7 +147,7 @@ public final class ConfigUpdater {
     /**
      * Single-file update. Migrations may read sibling files via
      * {@link MigrationContext#otherFile(String)} but writes to siblings are
-     * dropped with a warning — use {@link #updateAll(Map, String)} for
+     * dropped with a warning: use {@link #updateAll(Map, String)} for
      * cross-file write support.
      */
     public @NotNull Result update(@NotNull File configFile, @NotNull Spec spec) throws IOException {
@@ -177,7 +177,7 @@ public final class ConfigUpdater {
         // per-file update finishes, we flush these against the on-disk file
         // through a fresh ConfigPatcher pass (no migrations re-run).
         Map<String, List<WriteLog.Entry>> pendingCrossFile = new LinkedHashMap<>();
-        // For sibling-file READS — load each on-disk parsed view lazily.
+        // For sibling-file READS: load each on-disk parsed view lazily.
         Map<String, Map<String, Object>> siblingReadViews = new LinkedHashMap<>();
         Map<File, Result> results = new LinkedHashMap<>();
         // Map of bare filename -> File so otherFile() reads/writes can be
@@ -197,7 +197,7 @@ public final class ConfigUpdater {
             File sibling = filesByName.get(q.getKey());
             if (sibling == null || !sibling.exists()) {
                 logger.warning("[void-config-updater] queued cross-file write to '"
-                        + q.getKey() + "' has no resolvable file in this batch — dropping "
+                        + q.getKey() + "' has no resolvable file in this batch, dropping "
                         + q.getValue().size() + " op(s)");
                 continue;
             }
@@ -220,7 +220,7 @@ public final class ConfigUpdater {
                                          @NotNull Map<String, List<WriteLog.Entry>> pendingCrossFile)
             throws IOException {
         if (!configFile.exists()) {
-            // Fresh install — let the loader (Configuralize) copy the
+            // Fresh install: let the loader (Configuralize) copy the
             // bundled default in place from the resource. No-op here.
             return new Result(false, -1, spec.latestVersion, null);
         }
@@ -284,7 +284,7 @@ public final class ConfigUpdater {
             } catch (RuntimeException e) {
                 logger.log(Level.WARNING, "[void-config-updater] migration to v" + v
                         + " failed for " + configFile.getName()
-                        + " — partial state may have been applied", e);
+                        + ": partial state may have been applied", e);
             }
         }
 

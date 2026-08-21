@@ -67,7 +67,7 @@ import java.util.logging.Logger;
  * {@link org.bson.BsonBinary} with subtype 4 (UUID) for id-like fields and
  * subtype 0 (generic) for opaque byte-arrays. Violations use a monotonic
  * {@code id} long (auto-incremented via a counter doc in {@code meta}) instead
- * of ObjectId — keeps the cursor scheme identical to the SQL backends.
+ * of ObjectId: keeps the cursor scheme identical to the SQL backends.
  */
 @ApiStatus.Internal
 public final class MongoBackend implements Backend {
@@ -115,7 +115,7 @@ public final class MongoBackend implements Backend {
         try {
             Class.forName("com.mongodb.client.MongoClients");
         } catch (ClassNotFoundException cnf) {
-            throw new BackendException("mongodb-driver-sync not on the classpath — shade it into the plugin jar or drop it into server/plugins", cnf);
+            throw new BackendException("mongodb-driver-sync not on the classpath, shade it into the plugin jar or drop it into server/plugins", cnf);
         }
         try {
             this.client = MongoClients.create(config.connectionString());
@@ -202,8 +202,8 @@ public final class MongoBackend implements Backend {
 
     /**
      * Batches writes into {@link MongoCollection#bulkWrite} calls on endOfBatch
-     * or at the configured cap. No dedicated connection per handler — the Mongo
-     * driver pools internally — but we still batch to amortise round trips.
+     * or at the configured cap. No dedicated connection per handler, the Mongo
+     * driver pools internally, but we still batch to amortise round trips.
      */
     private abstract class BatchingHandler<E> implements StorageEventHandler<E> {
         final List<WriteModel<Document>> pending = new ArrayList<>();
@@ -293,7 +293,7 @@ public final class MongoBackend implements Backend {
         @Override protected String categoryId() { return "player-identity"; }
         @Override
         protected void append(PlayerIdentityEvent e) {
-            // Upsert with LEAST/GREATEST semantics on first_seen/last_seen —
+            // Upsert with LEAST/GREATEST semantics on first_seen/last_seen,
             // replaceOne wipes the whole doc, so do a find-then-merge.
             // Acceptable on the write path: driver pools connections, and the
             // identity stream is low-volume compared to violations.
@@ -416,7 +416,7 @@ public final class MongoBackend implements Backend {
     }
 
     private void bulkSessions(List<SessionRecord> rows) {
-        // Used by bulkImport (cross-backend copy / V0 migration) — operates
+        // Used by bulkImport (cross-backend copy / V0 migration), operates
         // on SessionRecord (immutable) rather than SessionEvent. closed_at
         // is taken straight from the record; this path doesn't need the
         // $ifNull preserve-on-heartbeat trick because each record is a

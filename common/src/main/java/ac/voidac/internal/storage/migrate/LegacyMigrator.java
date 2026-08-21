@@ -30,7 +30,7 @@ import java.util.logging.Logger;
  * Migrates the legacy {@code void_history_*} tables into the v1 schema. Reads
  * the old rows in ascending {@code (player_uuid, created_at, id)} order, feeds
  * them through {@link SessionReconstructor} to bucket by time-gap, and writes
- * v1 records synchronously via {@link Backend#bulkImport} — bypasses the ring
+ * v1 records synchronously via {@link Backend#bulkImport}, bypasses the ring
  * buffers because it runs at startup, before the server accepts players.
  * <p>
  * Target-agnostic: works with any {@link Backend} that implements
@@ -85,7 +85,7 @@ public final class LegacyMigrator {
     public Result run(LongConsumer progress) throws BackendException {
         long start = System.currentTimeMillis();
         if (!v0.isLegacyStorePresent()) {
-            logger.info("[void-datastore] no legacy v0 store found — nothing to migrate");
+            logger.info("[void-datastore] no legacy v0 store found, nothing to migrate");
             return new Result(0, 0, 0, false);
         }
 

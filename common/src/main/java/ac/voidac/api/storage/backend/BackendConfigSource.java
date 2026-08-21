@@ -9,8 +9,8 @@ import java.util.List;
  * Read-only view of a single backend's settings.
  * <p>
  * Platforms that host the DataStore (a Minecraft plugin, a test harness, a
- * standalone tool, …) open one source per backend id — from a YAML file, a
- * code-built map, a database, whatever — and hand it to
+ * standalone tool, …) open one source per backend id, from a YAML file, a
+ * code-built map, a database, whatever, and hand it to
  * {@link BackendProvider#readConfig(BackendConfigSource)} so each provider can
  * materialise its own {@link BackendConfig} without the platform needing to
  * know which keys the backend cares about.

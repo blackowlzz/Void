@@ -31,13 +31,13 @@ public interface LiveWriteHooks {
 
     /**
      * Brand packet arrived. Re-issues a session upsert with the now-known
-     * {@code clientBrand} field — the brand-channel plugin message can arrive
+     * {@code clientBrand} field: the brand-channel plugin message can arrive
      * after PlayerJoinEvent, so the initial onJoin upsert may have left
      * client_brand null.
      */
     void observeBrand(@NotNull UUID uuid, long now, @NotNull SessionTracker.ClientMeta meta);
 
-    /** Record a single flag with the full check object — pulls stable_key + description from the check. */
+    /** Record a single flag with the full check object, pulls stable_key + description from the check. */
     void recordFlag(
             @NotNull UUID playerUuid,
             @NotNull AbstractCheck check,
@@ -57,7 +57,7 @@ public interface LiveWriteHooks {
 
     /**
      * Convenience for {@code PunishmentManager.recordV1Flag}. Wraps the call
-     * in a try/catch so call sites don't need their own — datastore failures
+     * in a try/catch so call sites don't need their own, datastore failures
      * are warned once and swallowed (the legacy violation write already ran).
      */
     void recordFlagFromCheck(
@@ -88,7 +88,7 @@ public interface LiveWriteHooks {
     /**
      * No-op hooks returned by {@code DataStoreLifecycle.liveWriteHooks()}
      * when the v1 datastore is disabled or its init failed. Every method is
-     * empty — the convenience overloads' arg-building is skipped too.
+     * empty: the convenience overloads' arg-building is skipped too.
      */
     LiveWriteHooks NOOP = new LiveWriteHooks() {
         @Override public void onJoin(@NotNull UUID u, @Nullable String n, long t, @NotNull SessionTracker.ClientMeta m) {}

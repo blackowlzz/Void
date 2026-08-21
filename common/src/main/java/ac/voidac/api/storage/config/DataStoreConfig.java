@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Input contract for building a {@code DataStore}. Platform-agnostic — the
+ * Input contract for building a {@code DataStore}. Platform-agnostic, the
  * host assembles an instance from whatever config source it has (a YAML file,
  * an in-code builder, a database, …) and hands it to the storage wiring.
  * <p>

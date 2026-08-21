@@ -12,7 +12,7 @@ import java.util.UUID;
  * and the pre-aggregated {@code buckets} are both provided; renderers decide which
  * to show (e.g. summary vs. detailed mode).
  * <p>
- * {@code clientVersion} is a PacketEvents PVN or {@code -1} when unknown — see
+ * {@code clientVersion} is a PacketEvents PVN or {@code -1} when unknown, see
  * {@link SessionSummary} for the rationale.
  */
 @ApiStatus.Experimental

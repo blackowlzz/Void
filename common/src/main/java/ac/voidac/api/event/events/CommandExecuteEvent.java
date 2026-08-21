@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 public class CommandExecuteEvent extends VoidVerboseCheckEvent<CommandExecuteEvent.Channel> {
     private String command;
 
-    /** Pool constructor — fields populated via {@link #init}. */
+    /** Pool constructor: fields populated via {@link #init}. */
     public CommandExecuteEvent() {
         super();
     }
@@ -31,7 +31,7 @@ public class CommandExecuteEvent extends VoidVerboseCheckEvent<CommandExecuteEve
     }
 
     /**
-     * Typed command-execute handler. Returns the new cancelled state — see
+     * Typed command-execute handler. Returns the new cancelled state, see
      * {@link FlagEvent.Handler} for the cancellation contract.
      */
     @FunctionalInterface
@@ -60,7 +60,7 @@ public class CommandExecuteEvent extends VoidVerboseCheckEvent<CommandExecuteEve
             subscribe(handler, priority, ignoreCancelled, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onCommandExecute(@NotNull Object pluginContext, @NotNull Handler handler) {
             onCommandExecute(resolvePlugin(pluginContext), handler);

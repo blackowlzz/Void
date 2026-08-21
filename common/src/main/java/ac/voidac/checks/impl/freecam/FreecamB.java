@@ -14,7 +14,7 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPl
  * while the player remains responsive (transactions, keepalives, tick-end).
  *
  * Note on Meteor Client specifically: Meteor's Freecam does NOT suppress movement
- * packets. It is a pure rendering exploit — the player entity stays frozen at the
+ * packets. It is a pure rendering exploit, the player entity stays frozen at the
  * activation point (indistinguishable from AFK) while only the camera moves
  * client-side. Meteor accepts server teleports normally. This check does NOT
  * detect Meteor's Freecam. FreecamA (teleport probe) also does not detect it

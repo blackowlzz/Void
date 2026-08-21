@@ -110,7 +110,7 @@ public class BaseConfigManager {
     @Getter
     private String manualPunishCustomBanCommand;
 
-    // /void optimizer feature toggle — commands refuse to run when false
+    // /void optimizer feature toggle: commands refuse to run when false
     @Getter
     private boolean thresholdOptimizerEnabled;
 

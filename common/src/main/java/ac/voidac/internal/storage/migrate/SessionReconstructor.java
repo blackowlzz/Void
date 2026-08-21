@@ -123,7 +123,7 @@ public final class SessionReconstructor {
                 lookup.server(v.serverId()),
                 v.createdAtEpochMs(),
                 v.createdAtEpochMs(),
-                null, // closedAtEpochMs — legacy V0 rows have no end-of-session signal; leave open
+                null, // closedAtEpochMs: legacy V0 rows have no end-of-session signal; leave open
                 lookup.voidVersion(v.voidVersionId()),
                 lookup.clientBrand(v.clientBrandId()),
                 clientVersionPvn,

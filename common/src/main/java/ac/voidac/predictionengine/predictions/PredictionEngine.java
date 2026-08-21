@@ -371,7 +371,7 @@ public class PredictionEngine {
 
     public List<VectorData> applyInputsToVelocityPossibilities(VoidPlayer player, Set<VectorData> possibleVectors, float speed) {
         List<VectorData> returnVectors = new ArrayList<>();
-        loopVectors(player, possibleVectors, speed, returnVectors);
+        loopVectors(player, possibleVectors, speed, returnVectors, true);
         return returnVectors;
     }
 
@@ -800,7 +800,7 @@ public class PredictionEngine {
         player.lastWasClimbing = 0;
     }
 
-    private void loopVectors(VoidPlayer player, Set<VectorData> possibleVectors, float speed, List<VectorData> returnVectors) {
+    public void loopVectors(VoidPlayer player, Set<VectorData> possibleVectors, float speed, List<VectorData> returnVectors, boolean doStuckSpeed) {
         // Stop omni-sprint
         // Optimization - Also cuts down scenarios by 2/3
         // For some reason the player sprints while swimming no matter what
@@ -857,6 +857,12 @@ public class PredictionEngine {
                                         .add(getMovementResultFromInput(player, input, speed, player.yaw)),
                                         possibleLastTickOutput, VectorData.VectorType.InputResult);
                                 result.input = input;
+                                // elytra just wants the raw inputs. break, not continue:
+                                // this loop runs twice and would hand back the same vector twice
+                                if (!doStuckSpeed) {
+                                    returnVectors.add(result);
+                                    break;
+                                }
                                 if (applyStuckSpeed != 0) {
                                     result = result.returnNewModified(result.vector.clone().multiply(player.stuckSpeedMultiplier), VectorData.VectorType.StuckMultiplier);
                                 }

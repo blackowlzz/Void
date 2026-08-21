@@ -14,14 +14,14 @@ import java.util.function.Function;
 
 /**
  * Coordinator for subscribing to an <em>abstract</em> event type that has
- * multiple concrete subtypes — e.g. {@link ac.voidac.api.event.events.VoidCheckEvent}
+ * multiple concrete subtypes: e.g. {@link ac.voidac.api.event.events.VoidCheckEvent}
  * dispatches through {@code FlagEvent}, {@code CompletePredictionEvent}, and
  * {@code CommandExecuteEvent}.
  *
  * <p>The implementation uses the <b>bridge-listener</b> pattern: an
  * abstract subscribe installs one concrete-typed <i>bridge</i> entry into
  * every registered child channel. The hot path ({@code child.fire(...)})
- * iterates its entries as normal — bridges are indistinguishable from
+ * iterates its entries as normal, bridges are indistinguishable from
  * direct typed subscribers for sort order, priority, and cancellation. No
  * extra dispatch logic on fire.
  *
@@ -59,7 +59,7 @@ public abstract class AbstractEventChannel<E extends VoidEvent<?>, H> extends Ev
      * Register a concrete subtype with this abstract channel so any current
      * and future abstract subscribers receive bridged dispatches when the
      * concrete channel fires. Safe to call either before or after abstract
-     * subscribers are added — {@code registerSubtype} installs bridges for
+     * subscribers are added: {@code registerSubtype} installs bridges for
      * every subscriber already on the list.
      *
      * @param concreteType    the subtype's {@code Class}
@@ -81,7 +81,7 @@ public abstract class AbstractEventChannel<E extends VoidEvent<?>, H> extends Ev
     }
 
     /**
-     * Protected entry point used by subclass {@code on…(…)} methods — adds
+     * Protected entry point used by subclass {@code on…(…)} methods, adds
      * the handler to the abstract subscriber list and installs a bridge
      * entry on every currently-registered concrete child channel.
      */
@@ -123,7 +123,7 @@ public abstract class AbstractEventChannel<E extends VoidEvent<?>, H> extends Ev
     }
 
     /**
-     * Unreachable — an abstract channel holds no direct entries, so
+     * Unreachable: an abstract channel holds no direct entries, so
      * {@link EventChannel#dispatchLegacy(VoidEvent)} on it always iterates
      * an empty array. The legacy dispatch reaches subscribers via the
      * bridges installed in each concrete child channel.
@@ -131,7 +131,7 @@ public abstract class AbstractEventChannel<E extends VoidEvent<?>, H> extends Ev
     @Override
     protected final boolean dispatchTypedFromLegacy(@NotNull E event, @NotNull H handler, boolean cancelled) {
         throw new UnsupportedOperationException(
-                "AbstractEventChannel has no direct entries — bridges dispatch through concrete children");
+                "AbstractEventChannel has no direct entries, bridges dispatch through concrete children");
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})

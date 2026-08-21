@@ -18,6 +18,7 @@ import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerUpdateAttributes;
 
 import java.util.ArrayList;
+import org.jetbrains.annotations.Nullable;
 
 public class PacketEntitySelf extends PacketEntity {
 
@@ -44,7 +45,7 @@ public class PacketEntitySelf extends PacketEntity {
         }
 
         getAttribute(Attributes.SCALE).orElseThrow().withSetRewriter((oldValue, newValue) -> {
-            if (player.getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_20_5) || (newValue).equals(oldValue)) {
+            if (player.getClientVersion().isOlderThan(ClientVersion.V_1_20_5) || (newValue).equals(oldValue)) {
                 return oldValue;
             } else {
                 // Elytra, standing, sneaking (1.14)
@@ -164,7 +165,8 @@ public class PacketEntitySelf extends PacketEntity {
     }
 
     @Override
-    public void onFirstTransaction(boolean relative, boolean hasPos, double relX, double relY, double relZ, VoidPlayer player) {
+    public void onFirstTransaction(boolean relative, boolean hasPos, double relX, double relY, double relZ,
+                                   @Nullable Float packetXRot, @Nullable Float packetYRot, VoidPlayer player) {
         // Player ignores this
     }
 

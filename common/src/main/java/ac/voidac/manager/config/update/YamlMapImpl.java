@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * Default {@link YamlMap} implementation. Wraps a parsed YAML map (snakeyaml-
- * shaped — nested {@code Map<String, Object>}). All writes additionally
+ * shaped: nested {@code Map<String, Object>}). All writes additionally
  * accumulate in an external {@link WriteLog} so the updater can later replay
  * them through {@link ConfigPatcher} (preserving the bundled default's
  * comments).

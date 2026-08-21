@@ -4,6 +4,8 @@ import ac.voidac.events.packets.*;
 import ac.voidac.events.packets.worldreader.BasePacketWorldReader;
 import ac.voidac.events.packets.worldreader.PacketWorldReaderEight;
 import ac.voidac.events.packets.worldreader.PacketWorldReaderEighteen;
+import ac.voidac.VoidAPI;
+import ac.voidac.api.config.ConfigManager;
 import ac.voidac.utils.anticheat.LogUtil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
@@ -28,6 +30,8 @@ public class PacketManager implements StartableInitable {
         PacketEvents.getAPI().getEventManager().registerListener(new CheckManagerListener());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPlayerSteer());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketPluginMessage());
+        PacketEvents.getAPI().getEventManager().registerListener(new PacketAdvertCommand());
+        PacketEvents.getAPI().getEventManager().registerListener(new PacketMalformedNotifier());
 
         if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_13)) {
             PacketEvents.getAPI().getEventManager().registerListener(new PacketServerTags());
@@ -43,6 +47,12 @@ public class PacketManager implements StartableInitable {
 
         PacketEvents.getAPI().getEventManager().registerListener(new ProxyAlertMessenger());
         PacketEvents.getAPI().getEventManager().registerListener(new PacketHidePlayerInfo());
+
+        // config is not loaded yet when PacketEventsInit runs, so the opt-in lands here
+        ConfigManager config = VoidAPI.INSTANCE.getConfigManager().getConfig();
+        if (config != null && config.getBooleanElse("debug-packet-exceptions", false)) {
+            PacketEvents.getAPI().getSettings().fullStackTrace(true);
+        }
 
         PacketEvents.getAPI().init();
     }

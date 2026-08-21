@@ -37,7 +37,7 @@ import java.util.function.Predicate;
  * strings, description one-liners, grouped check breakdowns).
  * <p>
  * The {@code void-history-detail-entry} template accepts an optional
- * {@code %description%} variable — include it in your messages.yml when
+ * {@code %description%} variable: include it in your messages.yml when
  * you want the check's short description inlined in detailed-mode rows.
  * The default template omits it (to keep rows narrow); hover always
  * carries the description when the check has one declared.
@@ -93,7 +93,7 @@ public final class HistoryComponentRenderer {
         // Crashed-session marker: closed_at == last_activity means the
         // crash sweep stamped it (the disconnect path stamps closed_at =
         // now which is strictly later than the most recent heartbeat).
-        // Skip the marker for ongoing sessions — they don't have closed_at
+        // Skip the marker for ongoing sessions, they don't have closed_at
         // set yet so the comparison is irrelevant, and the "current"
         // duration tag already conveys that.
         String crashedMarker = (!ongoing && s.endedUnexpectedly())
@@ -114,7 +114,7 @@ public final class HistoryComponentRenderer {
                         Map.entry("unique_checks", Integer.toString(s.uniqueCheckCount())),
                         Map.entry("crashed_marker", crashedMarker),
                         Map.entry("timeago", formatDuration(elapsedNow))));
-        // Hover tooltip — click-hint plus raw session metadata that doesn't fit on the line.
+        // Hover tooltip: click-hint plus raw session metadata that doesn't fit on the line.
         Component tooltip = Component.text()
                 .append(Component.text("Trace ", NamedTextColor.AQUA))
                 .append(Component.text(s.sessionId().toString(), NamedTextColor.GRAY))
@@ -136,7 +136,7 @@ public final class HistoryComponentRenderer {
      * @param pageSize   violations-per-page; applies to raw rows in detailed mode
      *                   and to buckets in grouped mode.
      * @param isOngoing  {@code true} when this session is the player's currently
-     *                   active one — drives the "current" duration marker.
+     *                   active one: drives the "current" duration marker.
      */
     public static @NotNull List<Component> renderSessionDetail(
             @NotNull Sender sender,
@@ -151,7 +151,7 @@ public final class HistoryComponentRenderer {
         List<Component> out = new ArrayList<>();
         int perPage = Math.max(1, pageSize);
 
-        // Duration: ongoing sessions show just "current" — the %timeago% field
+        // Duration: ongoing sessions show just "current", the %timeago% field
         // already carries the elapsed time since start. Historical sessions show
         // the stored (lastActivity - started) span.
         long elapsedNow = Math.max(0, System.currentTimeMillis() - d.startedEpochMs());
@@ -244,10 +244,10 @@ public final class HistoryComponentRenderer {
                             NamedTextColor.DARK_GRAY))
                     .append(Component.text(v.displayName(), NamedTextColor.AQUA));
             if (!v.description().isBlank()) {
-                line = line.append(Component.text(" — " + v.description(), NamedTextColor.WHITE));
+                line = line.append(Component.text(", " + v.description(), NamedTextColor.WHITE));
             }
             if (verbose && v.verbose() != null && !v.verbose().isBlank()) {
-                line = line.append(Component.text(" — " + v.verbose(), NamedTextColor.GRAY));
+                line = line.append(Component.text(", " + v.verbose(), NamedTextColor.GRAY));
             }
             body = body.append(line);
         }
@@ -264,7 +264,7 @@ public final class HistoryComponentRenderer {
                         "offset", formatDuration(v.offsetFromSessionStartMs()),
                         "vl", Double.toString(v.vl()),
                         "verbose", verbose ? verboseText : ""));
-        // Hover carries the richer disambiguation — description on its own
+        // Hover carries the richer disambiguation, description on its own
         // line, then the raw verbose below. Shown regardless of the -v
         // flag, because operators scanning a dense list still want the
         // quick "what does this check mean" answer without re-running.
@@ -273,10 +273,10 @@ public final class HistoryComponentRenderer {
             var tooltip = Component.text()
                     .append(Component.text(v.displayName(), NamedTextColor.AQUA));
             if (hasDescription) {
-                tooltip.append(Component.text(" — " + v.description(), NamedTextColor.WHITE));
+                tooltip.append(Component.text(", " + v.description(), NamedTextColor.WHITE));
             }
             tooltip.append(Component.newline())
-                    .append(Component.text("@ " + formatDuration(v.offsetFromSessionStartMs()) + " — vl " + v.vl(),
+                    .append(Component.text("@ " + formatDuration(v.offsetFromSessionStartMs()) + ", vl " + v.vl(),
                             NamedTextColor.DARK_GRAY));
             if (!verboseText.isBlank()) {
                 tooltip.append(Component.newline())
@@ -295,7 +295,7 @@ public final class HistoryComponentRenderer {
      * size and session metadata stay as-is.
      *
      * <p>Used by {@code /void history --name <regex>} / {@code --match
-     * <regex>} / {@code --grep <regex>} flag handling — pre-filtering at
+     * <regex>} / {@code --grep <regex>} flag handling, pre-filtering at
      * the renderer keeps the rest of the rendering pipeline filter-agnostic.
      */
     public static @NotNull SessionDetail applyFilter(@NotNull SessionDetail d,
@@ -307,7 +307,7 @@ public final class HistoryComponentRenderer {
         // preserves first-seen check order so %checks_list% doesn't reshuffle
         // row-to-row. checkMeta caches the first ViolationEntry per
         // displayName so we can reconstruct CheckCount(checkId, stableKey,
-        // displayName, description, count) without a separate lookup —
+        // displayName, description, count) without a separate lookup,
         // every violation with the same displayName shares those fields.
         TreeMap<Long, Map<String, int[]>> agg = new TreeMap<>();
         Map<String, ViolationEntry> checkMeta = new LinkedHashMap<>();

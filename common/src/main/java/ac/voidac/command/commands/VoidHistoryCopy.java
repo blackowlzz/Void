@@ -19,7 +19,7 @@ import org.incendo.cloud.parser.standard.StringParser;
 import java.util.Map;
 
 /**
- * {@code /void history copy <src-backend-id> <dst-backend-id> [--delete]} —
+ * {@code /void history copy <src-backend-id> <dst-backend-id> [--delete]},
  * cross-backend copy of sessions + violations + player identities via
  * {@link BackendToBackendCopier}. The {@code --delete} flag wipes the source
  * after the copy completes.
@@ -34,7 +34,7 @@ import java.util.Map;
  * result before the reply channel closes. Sessions dedup via primary key;
  * violations get fresh autoincrement IDs per insert, so running the command
  * twice without {@code --delete} on the destination will duplicate violation
- * rows — see the copier's docstring for details.
+ * rows: see the copier's docstring for details.
  */
 public class VoidHistoryCopy implements BuildableCommand {
 
@@ -61,7 +61,7 @@ public class VoidHistoryCopy implements BuildableCommand {
         boolean delete = context.flags().hasFlag("delete");
 
         DataStoreLifecycle lifecycle = VoidAPI.INSTANCE.getDataStoreLifecycle();
-        // Disabled in database.yml, or start() failed — either way there's
+        // Disabled in database.yml, or start() failed, either way there's
         // no backend pool to copy between.
         if (!lifecycle.isLoaded()) {
             sender.sendMessage(MessageUtil.miniMessage("%prefix% &cThe archive is not awake."));
@@ -109,7 +109,7 @@ public class VoidHistoryCopy implements BuildableCommand {
                     .append(Component.text(result.elapsedMs() + "ms"))
                     .build());
             if (delete) {
-                logBoth(sender, Component.text("--delete requested — erasing source " + srcId + "…", NamedTextColor.YELLOW));
+                logBoth(sender, Component.text("--delete requested, erasing source " + srcId + "…", NamedTextColor.YELLOW));
                 copier.dropSource();
                 logBoth(sender, Component.text("Source " + srcId + " erased.", NamedTextColor.GREEN));
             }

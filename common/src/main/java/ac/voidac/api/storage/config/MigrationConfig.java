@@ -21,7 +21,7 @@ import org.jetbrains.annotations.ApiStatus;
  * {@code /void history} remains continuous across the upgrade. The migration
  * resumes from the last committed row if the server is restarted mid-run.
  * <p>
- * Once complete, the V0 file is left in place (read-only safety net — Void
+ * Once complete, the V0 file is left in place (read-only safety net, Void
  * never writes to it) and this config no longer has any effect until an
  * operator manually restores a fresh V0 file.
  *
@@ -30,7 +30,7 @@ import org.jetbrains.annotations.ApiStatus;
  *                       manually later via {@code /void history copy} or
  *                       similar, or never wants the old rows visible in V1.
  * @param maxDurationMs  Soft cap on how long the V0 → V1 pass may run before
- *                       pausing. {@code 0} means no cap — let it run to
+ *                       pausing. {@code 0} means no cap, let it run to
  *                       completion. Non-zero values park the run at the next
  *                       safe checkpoint and resume on the next boot; useful
  *                       for operators with large V0 databases who don't want

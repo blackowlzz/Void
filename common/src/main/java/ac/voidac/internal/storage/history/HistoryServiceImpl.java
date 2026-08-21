@@ -56,7 +56,7 @@ public final class HistoryServiceImpl implements HistoryService {
     public @NotNull CompletionStage<@NotNull Page<SessionSummary>> listSessions(
             @NotNull UUID player, @Nullable Cursor cursor, int pageSize) {
         int ps = pageSize > 0 ? pageSize : defaultPageSize;
-        // Session ordinals are GLOBAL chronological — Session 1 = the player's
+        // Session ordinals are GLOBAL chronological, Session 1 = the player's
         // very first session, Session K = their most recent. Needs countSessions
         // to know where this page's slice sits in the global ordering.
         return store.countSessionsByPlayer(player).thenCompose(total ->
@@ -138,7 +138,7 @@ public final class HistoryServiceImpl implements HistoryService {
     }
 
     /**
-     * Detail-by-ordinal using GLOBAL chronological ordering — Session 1 is the
+     * Detail-by-ordinal using GLOBAL chronological ordering, Session 1 is the
      * player's very first session, Session K is their most recent. Computes the
      * DESC-index from {@code total - ordinal} and fetches exactly the page
      * containing that session.

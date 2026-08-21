@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Write-path tunables, applied per category ring.
  * <p>
- * {@code queueCapacity} <strong>must be a positive power of two</strong> — a
+ * {@code queueCapacity} <strong>must be a positive power of two</strong>, a
  * ring-buffer requirement. The host's config loader should validate this at
  * load time with a helpful error; the record's canonical constructor also
  * enforces it as a last line of defence.

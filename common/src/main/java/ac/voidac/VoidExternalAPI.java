@@ -29,7 +29,7 @@ import java.util.function.Function;
 
 public class VoidExternalAPI implements VoidAbstractAPI, ConfigReloadObserver, StartableInitable {
 
-    // Holder class — VoidExternalAPI is constructed inside VoidAPI's ctor,
+    // Holder class: VoidExternalAPI is constructed inside VoidAPI's ctor,
     // so a plain static-final would see a null VoidAPI.INSTANCE. Holder
     // init runs on first fire, after VoidAPI is fully built.
     private static final class Channels {
@@ -132,9 +132,20 @@ public class VoidExternalAPI implements VoidAbstractAPI, ConfigReloadObserver, S
         return api.getBackendRegistry();
     }
 
+    // Set when the very first config load fails. A reload later on can fail all
+    // it likes, we keep running on the config we already had, but failing here
+    // means there is nothing to run on at all.
+    private boolean configLoadFailed;
+
+    public boolean isConfigLoadFailed() {
+        return configLoadFailed;
+    }
+
     // on load, load the config & register the service
     public void load() {
-        reload(configManagerFile);
+        // reload() would hand this to the scheduler once started is true, which
+        // it never is at this point, so the result comes back synchronously
+        configLoadFailed = !successfulReload(configManagerFile);
         api.getLoader().registerAPIService();
     }
 
@@ -208,7 +219,7 @@ public class VoidExternalAPI implements VoidAbstractAPI, ConfigReloadObserver, S
         VoidAPI.INSTANCE.getSpectateManager().reload();
         VoidAPI.INSTANCE.getBanWaveManager().reload(configManager);
         VoidAPI.INSTANCE.getBridgeClient().reload(configManager);
-        // First-load guard: load() calls reload() before start() runs, so this fires once with started=false before the datastore exists. Subsequent /void reload calls see started=true and proceed (including disabled→enabled flips — DataStoreLifecycle.reload() re-evaluates builder.enabled() each time).
+        // First-load guard: load() calls reload() before start() runs, so this fires once with started=false before the datastore exists. Subsequent /void reload calls see started=true and proceed (including disabled→enabled flips, DataStoreLifecycle.reload() re-evaluates builder.enabled() each time).
         if (!started) return;
         // Hot-reload picks up backend swaps + routing + connection-pool edits without a server restart. Drains in-flight writes for shutdown-drain-timeout-ms then drops; brief mid-reload unavailability is the tradeoff.
         if (VoidAPI.INSTANCE.getDataStoreLifecycle() != null) {

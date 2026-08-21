@@ -39,14 +39,14 @@ import java.util.concurrent.ConcurrentMap;
  * Channel-backed event bus implementation.
  *
  * <p>All Void built-in channels are registered explicitly at construction
- * time — no reflection, obfuscation-safe. Addons with their own events can
+ * time: no reflection, obfuscation-safe. Addons with their own events can
  * register via {@link #register(Class, EventChannel)}.
  *
  * <p>Legacy APIs ({@link #post(VoidEvent)}, class-keyed {@code subscribe},
  * reflective {@code registerAnnotatedListeners}) are retained for source
  * compatibility with 1.2.4.0 callers. All three route through the same
  * channel objects as {@link #get(Class)} + the channel's typed
- * {@code on…(…)} methods — a single post therefore reaches typed handlers
+ * {@code on…(…)} methods, a single post therefore reaches typed handlers
  * as well as legacy listeners via each channel's
  * {@link EventChannel#dispatchLegacy(VoidEvent)}.
  */
@@ -59,7 +59,7 @@ public class OptimizedEventBus implements EventBus {
      * Side map of reflective/class-keyed registrations keyed by identity of
      * (pluginContext, listenerInstanceOrClass). Used by
      * {@link #unregisterListeners(Object, Object)} and friends to find the
-     * specific entries to remove — Entry itself doesn't carry the originating
+     * specific entries to remove: Entry itself doesn't carry the originating
      * listener instance. Modifications are guarded by {@code this}.
      */
     private final Map<Object, Map<Object, List<Registration>>> instanceRegistrations = new IdentityHashMap<>();
@@ -67,7 +67,7 @@ public class OptimizedEventBus implements EventBus {
     @SuppressWarnings({"unchecked", "rawtypes"})
     public OptimizedEventBus(VoidExtensionManager extensionManager) {
         this.extensionManager = extensionManager;
-        // Built-in channels — direct compile-time references.
+        // Built-in channels: direct compile-time references.
         // Renaming any event's nested Channel breaks these lines immediately.
 
         // Concrete channels.
@@ -107,7 +107,7 @@ public class OptimizedEventBus implements EventBus {
 
         // Bridge wiring: every concrete subtype registers with every abstract
         // parent it can bridge to. Order matters only when abstract subscribes
-        // land before registerSubtype — in that case registerSubtype walks the
+        // land before registerSubtype: in that case registerSubtype walks the
         // subscriber list. We wire after installing both channels, so at
         // construction time the subscriber list is empty and the install is
         // just bookkeeping.
@@ -162,7 +162,7 @@ public class OptimizedEventBus implements EventBus {
         EventChannel<?, ?> ch = channels.get(eventClass);
         if (ch == null) {
             throw new IllegalArgumentException("No EventChannel registered for " + eventClass.getName()
-                    + " — addons must call EventBus.register(Class, Channel) before first use.");
+                    + ": addons must call EventBus.register(Class, Channel) before first use.");
         }
         return (C) ch;
     }
@@ -208,7 +208,7 @@ public class OptimizedEventBus implements EventBus {
             @SuppressWarnings("unchecked")
             Class<? extends VoidEvent<?>> eventClass = (Class<? extends VoidEvent<?>>) (Class<?>) paramType;
             EventChannel<?, ?> channel = channels.get(eventClass);
-            if (channel == null) continue; // no channel for this event — ignore silently (matches old behavior)
+            if (channel == null) continue; // no channel for this event, ignore silently (matches old behavior)
 
             try {
                 method.setAccessible(true);

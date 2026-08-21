@@ -13,7 +13,7 @@ import java.sql.Statement;
  * ({@code … AS new ON DUPLICATE KEY UPDATE col = new.col}) to avoid the
  * deprecated {@code VALUES()} reference.
  * <p>
- * The minimum effective MySQL version is 8.0.19 — pre-8.0.19 MySQL is older
+ * The minimum effective MySQL version is 8.0.19, pre-8.0.19 MySQL is older
  * than the connector-j we ship and effectively extinct in production, so the
  * version probe in {@link MysqlBackend} doesn't enforce that explicitly.
  */
@@ -61,7 +61,7 @@ final class MysqlEightDialect implements MysqlDialect {
      * v7 → v8 migration on MySQL: replace the functional-index shape with
      * the gen col shape so {@code listPlayersByNamePrefix} actually uses
      * an index. MySQL 8 doesn't support {@code ALGORITHM=INSTANT} or
-     * {@code INPLACE} for adding STORED generated columns — falls back to
+     * {@code INPLACE} for adding STORED generated columns, falls back to
      * {@code ALGORITHM=COPY}, which rewrites the table and blocks writes
      * for the duration. Acceptable on alpha-only v7 tables; for any
      * future post-GA migration, an external online tool

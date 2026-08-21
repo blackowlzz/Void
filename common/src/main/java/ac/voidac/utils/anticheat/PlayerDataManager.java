@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerDataManager {
 
-    // Holder — PlayerDataManager is constructed inside VoidAPI's ctor, so a
+    // Holder: PlayerDataManager is constructed inside VoidAPI's ctor, so a
     // plain static-final would see a null VoidAPI.INSTANCE. Holder init runs
     // on first fire, after VoidAPI is fully built.
     private static final class Channels {

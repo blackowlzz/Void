@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class VoidTransactionSendEvent extends VoidEvent<VoidTransactionSendEvent.Channel> {
     private VoidTransactionSendEvent() {
-        // Never instantiated — exists only as a Class key for bus.get(VoidTransactionSendEvent.class).
+        // Never instantiated: exists only as a Class key for bus.get(VoidTransactionSendEvent.class).
     }
 
     @FunctionalInterface
@@ -39,7 +39,7 @@ public final class VoidTransactionSendEvent extends VoidEvent<VoidTransactionSen
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onTransactionSend(@NotNull Object pluginContext, @NotNull Handler handler) {
             onTransactionSend(resolvePlugin(pluginContext), handler);

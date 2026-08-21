@@ -165,7 +165,7 @@ public class VoidBanWave implements BuildableCommand {
 
         if (bwm.getQueueSize() == 0) {
             sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &c✖ &7Queue is empty — nothing to execute."));
+                    PREFIX + " &c✖ &7Queue is empty, nothing to execute."));
             return;
         }
 

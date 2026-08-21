@@ -377,4 +377,4 @@ diagnostic-logger:
     # Async write queue depth. Entries are dropped (oldest first) when full.
     queue-capacity: 4096
 config-flavor: V2
-config-version: 21
+config-version: 22

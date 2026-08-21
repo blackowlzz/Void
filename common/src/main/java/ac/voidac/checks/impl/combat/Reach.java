@@ -1,4 +1,3 @@
-// This file was designed and is an original check for Void
 // Copyright (C) 2021 DefineOutside
 // Modifications Copyright (C) 2026 blackowlzz
 //
@@ -112,7 +111,7 @@ public class Reach extends Check implements PacketCheck {
             return;
         }
 
-        // Dead entities cause false flags (https://github.com/VoidAnticheat/Void/issues/546)
+        // Dead entities cause false flags
         if (entity.isDead) return;
 
         // TODO: Remove when in front of via

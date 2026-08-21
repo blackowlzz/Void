@@ -13,7 +13,7 @@ import java.util.concurrent.CompletionStage;
  * High-level history facade. Returns pure data records; callers on the
  * command / UI side format these into their own chat-component model.
  * <p>
- * The surface covers the two {@code /void history} use cases — list sessions
+ * The surface covers the two {@code /void history} use cases, list sessions
  * for a player, and show detail for one session. Rendering deliberately
  * lives outside this interface: there are no chat-library types here, so an
  * alternate UI (web, RCON, another command framework) can be built on the
@@ -25,8 +25,8 @@ public interface HistoryService {
     /**
      * Paged listing of a player's sessions, newest first. Each summary's
      * {@code sessionOrdinal} is the global chronological 1-based position of the
-     * session across the player's whole history — Session 1 is their very first
-     * ever, Session K is their most recent — see {@link SessionSummary}.
+     * session across the player's whole history, Session 1 is their very first
+     * ever, Session K is their most recent, see {@link SessionSummary}.
      */
     @NotNull CompletionStage<@NotNull Page<SessionSummary>> listSessions(
             @NotNull UUID player,
@@ -35,7 +35,7 @@ public interface HistoryService {
 
     /**
      * Detail view for one session. Returns {@code null} when the session does not
-     * exist <em>or</em> belongs to a different player — collapsing those two cases
+     * exist <em>or</em> belongs to a different player, collapsing those two cases
      * keeps the surface minimal; commands surface a single "not found" message.
      */
     @NotNull CompletionStage<@Nullable SessionDetail> getSessionDetail(

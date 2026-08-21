@@ -55,7 +55,7 @@ public interface Backend {
     @NotNull <E> StorageEventHandler<E> eventHandlerFor(@NotNull Category<E> cat) throws BackendException;
 
     /**
-     * Synchronous read. The {@code cat} argument is the routing key — the result
+     * Synchronous read. The {@code cat} argument is the routing key, the result
      * record type comes from {@code query}. Implementations should assert at
      * runtime that {@code query} targets a type consistent with
      * {@code cat.queryResultType()}.
@@ -71,12 +71,12 @@ public interface Backend {
      * {@link #eventHandlerFor} starts accepting live traffic. The two importers
      * that drive this today:
      * <ul>
-     *   <li><strong>V0 → V1 history migration</strong> — on first boot after
+     *   <li><strong>V0 → V1 history migration</strong>, on first boot after
      *       upgrading from a pre-v1 Void, rows from the legacy
      *       {@code violations.sqlite} are replayed into the routed backend for
      *       the violation category so {@code /void history} is continuous
      *       across the upgrade. See {@link ac.voidac.api.storage.config.MigrationConfig}.</li>
-     *   <li><strong>Cross-backend copy</strong> — {@code /void history copy}
+     *   <li><strong>Cross-backend copy</strong>: {@code /void history copy}
      *       moves an operator from one backend to another (e.g. SQLite to
      *       MySQL) without losing history.</li>
      * </ul>
@@ -84,7 +84,7 @@ public interface Backend {
      * Callers must pass records whose runtime type matches
      * {@code cat.queryResultType()}; implementations cast internally and throw
      * on mismatch. Synchronous, blocks until committed. Not intended for the
-     * hot path — live writes go through the ring.
+     * hot path: live writes go through the ring.
      * <p>
      * A backend that wants to be a migration target must implement this; the
      * default throws {@link UnsupportedOperationException} so read-only-ish
@@ -132,7 +132,7 @@ public interface Backend {
      *
      * <p>Called from {@code DataStoreLifecycle.start()} once, after backend
      * init but before {@link #eventHandlerFor} starts accepting live
-     * heartbeats — so the SessionTracker has no live in-memory state yet
+     * heartbeats, so the SessionTracker has no live in-memory state yet
      * and EVERY currently-open row is by definition orphaned.
      *
      * <p>Default returns {@code 0} so backends without a session table

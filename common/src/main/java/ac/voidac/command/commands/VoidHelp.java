@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class VoidHelp implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
-        // /void (no args) — show help panel
+        // /void (no args), show help panel
         commandManager.command(
                 commandManager.commandBuilder("void", "voidac")
                         .permission("void.help")

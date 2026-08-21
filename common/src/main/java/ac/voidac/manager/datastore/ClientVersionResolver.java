@@ -8,12 +8,12 @@ import java.util.Locale;
 /**
  * Maps legacy client-version release-name strings (e.g. {@code "1.21.1"}) to
  * PacketEvents protocol-version numbers. Lives in the plugin module because
- * PacketEvents is only on the classpath here — the migrator in the shared
+ * PacketEvents is only on the classpath here, the migrator in the shared
  * storage module accepts a generic {@code Function<String, Integer>} so it
  * stays PacketEvents-free and portable.
  * <p>
  * Returns {@code -1} when the string doesn't resolve to a known
- * {@link ClientVersion} — unknown / pre-1.8 / freshly-released / bogus.
+ * {@link ClientVersion}: unknown / pre-1.8 / freshly-released / bogus.
  */
 public final class ClientVersionResolver {
 

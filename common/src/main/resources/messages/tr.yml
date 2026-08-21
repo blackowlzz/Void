@@ -8,6 +8,7 @@ verbose-disabled: "%prefix% &7Verbose &cdevre dışı&7."
 brands-enabled: "%prefix% &7Marka takibi &aetkin&7."
 brands-disabled: "%prefix% &7Marka takibi &cdevre dışı&7."
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
 console-specify-target: "%prefix% &cKonsol olarak bir hedef belirtmelisiniz!"
 reloading: "%prefix% &7Yeniden yükleniyor..."
 reloaded: "%prefix% &7Yapılandırma &ayeniden yüklendi&7."
@@ -123,4 +124,4 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Şema işaretçileri: bkz. config.yml'deki başlık yorumu.
 config-flavor: V2
-config-version: 1
+config-version: 2

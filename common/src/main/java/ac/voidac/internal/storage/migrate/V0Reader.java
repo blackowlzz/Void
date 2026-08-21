@@ -21,14 +21,14 @@ import java.util.function.Consumer;
  * {@code (player_uuid, created_at)} so the session reconstructor can bucket by
  * time-gap without loading the whole dataset into memory.
  * <p>
- * JDBC-source-agnostic — the caller supplies any URL. The legacy plugin wrote
+ * JDBC-source-agnostic: the caller supplies any URL. The legacy plugin wrote
  * the same {@code void_history_*} schema through three dialects (SQLite,
  * MySQL, PostgreSQL); the SQL in this class sticks to the portable subset
  * that all three parse identically.
  * <p>
  * Driver responsibility lives with the caller / host classpath. The running
  * Paper server that used the legacy stack must have the same JDBC driver on
- * its classpath that it did before cutover — if the driver is missing,
+ * its classpath that it did before cutover, if the driver is missing,
  * {@link #isLegacyStorePresent()} returns {@code false} (SQLException → null
  * presence) and migration cleanly no-ops rather than crashing Void.
  */

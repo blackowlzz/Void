@@ -7,7 +7,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Fired when Void sends a player-on-foot setback — the
+ * Fired when Void sends a player-on-foot setback, the
  * {@code ServerPlayerPositionAndLook} / teleport packet branch of
  * {@link VoidSetbackEvent}.
  *
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * (e.g. sibling anticheats that need to dedupe the teleport-confirm the
  * client will emit in response) can correlate on id. See
  * {@link VoidTeleportEvent} for the complementary
- * "every outbound teleport packet" signal — that event fires at this
+ * "every outbound teleport packet" signal, that event fires at this
  * site as well so either subscription sees the setback teleport.
  *
  * <p>Fires on the Netty thread associated with the user. Observational,
@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class VoidPlayerSetbackEvent extends VoidSetbackEvent<VoidPlayerSetbackEvent.Channel> {
     private VoidPlayerSetbackEvent() {
-        // Never instantiated — exists only as a Class key for bus.get(VoidPlayerSetbackEvent.class).
+        // Never instantiated: exists only as a Class key for bus.get(VoidPlayerSetbackEvent.class).
     }
 
     @FunctionalInterface
@@ -45,7 +45,7 @@ public final class VoidPlayerSetbackEvent extends VoidSetbackEvent<VoidPlayerSet
             subscribe(handler, priority, false, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onPlayerSetback(@NotNull Object pluginContext, @NotNull Handler handler) {
             onPlayerSetback(resolvePlugin(pluginContext), handler);
@@ -71,11 +71,11 @@ public final class VoidPlayerSetbackEvent extends VoidSetbackEvent<VoidPlayerSet
 
         @Override
         protected boolean dispatchTypedFromLegacy(@NotNull VoidPlayerSetbackEvent event, @NotNull Handler handler, boolean cancelled) {
-            // Unreachable — no public constructor, so no caller can post() one.
+            // Unreachable: no public constructor, so no caller can post() one.
             throw new UnsupportedOperationException("VoidPlayerSetbackEvent has no legacy representation");
         }
 
-        /** Bridge from {@link VoidSetbackEvent.Handler} — used by the abstract channel when a setback-level subscriber registers. */
+        /** Bridge from {@link VoidSetbackEvent.Handler}, used by the abstract channel when a setback-level subscriber registers. */
         @ApiStatus.Internal
         public static @NotNull Handler bridgeFromSetback(@NotNull VoidSetbackEvent.Handler abstractHandler) {
             return (user, id, x, y, z, ts) -> abstractHandler.onAnySetback(user, ts);

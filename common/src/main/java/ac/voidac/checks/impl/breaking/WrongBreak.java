@@ -54,7 +54,6 @@ public class WrongBreak extends Check implements BlockBreakCheck {
             final Vector3i pos = blockBreak.position;
 
             if (!shouldExempt(blockBreak.block, pos.y) && !pos.equals(lastBlock)) {
-                // https://github.com/VoidAnticheat/Void/issues/1512
                 if (player.getClientVersion().isOlderThan(ClientVersion.V_1_14_4) || (!lastBlockWasInstantBreak && pos.equals(lastCancelledBlock))) {
                     if (flagAndAlert("action=CANCELLED_DIGGING" + ", last=" + MessageUtil.toUnlabledString(lastBlock) + ", pos=" + MessageUtil.toUnlabledString(pos))) {
                         if (shouldModifyPackets()) {

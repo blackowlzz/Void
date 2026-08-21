@@ -5,7 +5,6 @@ import ac.voidac.platform.bukkit.VoidBukkitLoaderPlugin;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -21,12 +20,10 @@ public class UpdateChecker implements StartableInitable, Listener {
 
     private static final String MODRINTH_API = "https://api.modrinth.com/v2/project/voidac/version";
     private static final String MODRINTH_URL = "https://modrinth.com/plugin/voidac";
-    private static final String BDEVS_API    = "https://bdevs.it/api/plugins/voidac/version";
-    private static final String BDEVS_URL    = "https://bdevs.it/resources/voidac";
     private static final String UPDATE_PERMISSION = "void.alerts";
     private static final long TICKS_PER_HOUR = 72000L;
 
-    // Rebuilt each check cycle; null = nothing to tell
+    // rebuilt every cycle, null means nothing to say
     private volatile String joinNotification = null;
 
     @Override
@@ -37,91 +34,23 @@ public class UpdateChecker implements StartableInitable, Listener {
     }
 
     private void checkForUpdate() {
-        String current  = currentVersion();
-        String modrinth = fetchModrinth();
-        String bdevs    = fetchBdevs();
+        String current = currentVersion();
+        String latest = fetchModrinth();
 
-        // Only flag if a marketplace has a version strictly newer than what we're running.
-        boolean outdatedOnModrinth = modrinth != null && isNewerThan(modrinth, current);
-        boolean outdatedOnBdevs    = bdevs    != null && isNewerThan(bdevs, current);
-        // True when both fetched but report different versions (regardless of direction).
-        boolean platformsMismatch  = modrinth != null && bdevs != null
-                && !modrinth.equalsIgnoreCase(bdevs);
-
-        if (!outdatedOnModrinth && !outdatedOnBdevs) {
+        // null means the request failed, and a flaky network isn't news
+        if (latest == null || !isNewerThan(latest, current)) {
             joinNotification = null;
             return;
         }
 
-        // Console notice
         LogUtil.warn("=================================================");
-        if (outdatedOnModrinth && outdatedOnBdevs) {
-            if (platformsMismatch) {
-                LogUtil.warn("VoidAC update available, versions differ between marketplaces!");
-                LogUtil.warn("  Modrinth: " + modrinth + "  ->  " + MODRINTH_URL);
-                LogUtil.warn("  bdevs.it: " + bdevs    + "  ->  " + BDEVS_URL);
-                LogUtil.warn("  Running : " + current);
-                LogUtil.warn("  Download from whichever marketplace has the higher version.");
-            } else {
-                LogUtil.warn("VoidAC " + modrinth + " is available! You are running " + current);
-                LogUtil.warn("  Modrinth: " + MODRINTH_URL);
-                LogUtil.warn("  bdevs.it: " + BDEVS_URL);
-            }
-        } else if (outdatedOnModrinth) {
-            LogUtil.warn("VoidAC " + modrinth + " is available on Modrinth! You are running " + current);
-            LogUtil.warn("  Download: " + MODRINTH_URL);
-            if (platformsMismatch) {
-                LogUtil.warn("  Note: bdevs.it does not yet carry this release (shows " + bdevs + ").");
-            }
-        } else {
-            LogUtil.warn("VoidAC " + bdevs + " is available on bdevs.it! You are running " + current);
-            LogUtil.warn("  Download: " + BDEVS_URL);
-            if (platformsMismatch) {
-                LogUtil.warn("  Note: Modrinth does not yet carry this release (shows " + modrinth + ").");
-            }
-        }
+        LogUtil.warn("VoidAC " + latest + " is out. You are running " + current);
+        LogUtil.warn("  Download: " + MODRINTH_URL);
         LogUtil.warn("=================================================");
 
-        joinNotification = buildJoinMessage(
-                current, modrinth, bdevs,
-                outdatedOnModrinth, outdatedOnBdevs, platformsMismatch);
-    }
-
-    private static String buildJoinMessage(String current,
-                                           String modrinth, String bdevs,
-                                           boolean outdatedOnModrinth, boolean outdatedOnBdevs,
-                                           boolean platformsMismatch) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("&6&lVoidAC &eUpdate Available! &7Running: &c").append(current).append("<newline>");
-
-        if (outdatedOnModrinth && outdatedOnBdevs) {
-            if (platformsMismatch) {
-                sb.append("  &7Modrinth &8: &a").append(modrinth)
-                  .append("  &7bdevs.it &8: &a").append(bdevs)
-                  .append("<newline>")
-                  .append("  &eVersions differ between platforms. Download the highest one.");
-            } else {
-                sb.append("  &7Latest: &a").append(modrinth).append("<newline>")
-                  .append("  &7Modrinth &8: &nhttps://modrinth.com/plugin/voidac")
-                  .append("  &7| bdevs.it &8: &nhttps://bdevs.it/plugins/voidac");
-            }
-        } else if (outdatedOnModrinth) {
-            sb.append("  &7Modrinth &8: &a").append(modrinth)
-              .append("  &7&nhttps://modrinth.com/plugin/voidac");
-            if (platformsMismatch) {
-                sb.append("<newline>  &7bdevs.it does not yet carry this release &8(shows &e")
-                  .append(bdevs).append("&8)");
-            }
-        } else {
-            sb.append("  &7bdevs.it &8: &a").append(bdevs)
-              .append("  &7&nhttps://bdevs.it/plugins/voidac");
-            if (platformsMismatch) {
-                sb.append("<newline>  &7Modrinth does not yet carry this release &8(shows &e")
-                  .append(modrinth).append("&8)");
-            }
-        }
-
-        return sb.toString();
+        joinNotification = "&6&lVoidAC &eUpdate Available! &7Running: &c" + current + "<newline>"
+                + "  &7Latest: &a" + latest
+                + "  &8| &7&n" + MODRINTH_URL;
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -137,8 +66,6 @@ public class UpdateChecker implements StartableInitable, Listener {
         }, 60L);
     }
 
-    // ── Fetch helpers ─────────────────────────────────────────────────────────────
-
     private String fetchModrinth() {
         try {
             HttpURLConnection conn = openGet(MODRINTH_API);
@@ -148,19 +75,6 @@ public class UpdateChecker implements StartableInitable, Listener {
                     new InputStreamReader(conn.getInputStream())).getAsJsonArray();
             if (versions.isEmpty()) return null;
             return versions.get(0).getAsJsonObject().get("version_number").getAsString();
-        } catch (Exception ignored) {
-            return null;
-        }
-    }
-
-    private String fetchBdevs() {
-        try {
-            HttpURLConnection conn = openGet(BDEVS_API);
-            if (conn.getResponseCode() != 200) return null;
-
-            JsonObject json = JsonParser.parseReader(
-                    new InputStreamReader(conn.getInputStream())).getAsJsonObject();
-            return json.get("version").getAsString();
         } catch (Exception ignored) {
             return null;
         }
@@ -176,9 +90,7 @@ public class UpdateChecker implements StartableInitable, Listener {
         return conn;
     }
 
-    // ── Version comparison ────────────────────────────────────────────────────────
-
-    // Returns true only if a is strictly newer than b (semver dot comparison).
+    /** True only if a is strictly newer than b. */
     private static boolean isNewerThan(String a, String b) {
         try {
             int[] av = parseSemver(a);
@@ -189,9 +101,9 @@ public class UpdateChecker implements StartableInitable, Listener {
                 int bi = i < bv.length ? bv[i] : 0;
                 if (ai != bi) return ai > bi;
             }
-            return false; // equal
+            return false;
         } catch (Exception ignored) {
-            // Unparseable version string: fall back to inequality check
+            // unparseable, so fall back to "is it different at all"
             return !a.equalsIgnoreCase(b);
         }
     }

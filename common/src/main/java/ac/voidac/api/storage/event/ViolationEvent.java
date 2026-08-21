@@ -14,7 +14,7 @@ import java.util.UUID;
  * get a slot, populate fields, and publish. Never retain references past publish.
  * <p>
  * The immutable read-side counterpart is {@link ViolationRecord}, which backends
- * materialise on read from their native storage — never from an event.
+ * materialise on read from their native storage, never from an event.
  */
 @ApiStatus.Experimental
 public final class ViolationEvent {

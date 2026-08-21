@@ -14,8 +14,8 @@ import java.util.function.Supplier;
  * ac.voidac.api.storage.query.Query} and {@link
  * ac.voidac.api.storage.query.Page}.
  * <p>
- * Keeping write-event types and read-record types on separate type parameters —
- * Category on {@code E}, Query on its own {@code R} — is what lets the write
+ * Keeping write-event types and read-record types on separate type parameters,
+ * Category on {@code E}, Query on its own {@code R}, is what lets the write
  * path be allocation-free (pre-allocated mutable events in the ring) while the
  * read path stays value-semantic (immutable records that survive across calls).
  */

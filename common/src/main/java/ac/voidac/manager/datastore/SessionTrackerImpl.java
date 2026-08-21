@@ -31,7 +31,7 @@ public final class SessionTrackerImpl implements SessionTracker {
             @NotNull UUID playerUuid,
             long now,
             @NotNull ClientMeta meta) {
-        // Lock-free CAS retry loop. get/putIfAbsent/replace hold a bin lock only for the CAS itself — no user code under the lock. UUID.randomUUID() (~1µs) runs unlocked. The loop keeps a fresh in-memory session_id on race-with-close (unconditional put would have re-inserted the closed session's id and a quick reconnect would inherit it).
+        // Lock-free CAS retry loop. get/putIfAbsent/replace hold a bin lock only for the CAS itself, no user code under the lock. UUID.randomUUID() (~1µs) runs unlocked. The loop keeps a fresh in-memory session_id on race-with-close (unconditional put would have re-inserted the closed session's id and a quick reconnect would inherit it).
         UUID candidateSessionId = null;
         while (true) {
             State current = states.get(playerUuid);
@@ -42,7 +42,7 @@ public final class SessionTrackerImpl implements SessionTracker {
                     emit(fresh, playerUuid, now, null); // closed_at stays null while alive
                     return fresh.sessionId;
                 }
-                // Lost the insert race — someone inserted between get and putIfAbsent. Retry as update.
+                // Lost the insert race: someone inserted between get and putIfAbsent. Retry as update.
                 continue;
             }
             State next = new State(current.sessionId, current.startedEpochMs, now, now, meta);
@@ -50,7 +50,7 @@ public final class SessionTrackerImpl implements SessionTracker {
                 emit(next, playerUuid, now, null);
                 return next.sessionId;
             }
-            // CAS lost — state changed (close removed it, or another observe replaced it). Retry.
+            // CAS lost: state changed (close removed it, or another observe replaced it). Retry.
         }
     }
 
@@ -61,8 +61,8 @@ public final class SessionTrackerImpl implements SessionTracker {
         if (current == null) return;
         if (now - current.lastEmittedEpochMs < heartbeatIntervalMs) return;
         State next = new State(current.sessionId, current.startedEpochMs, now, now, current.cachedMeta);
-        // CAS the new state in. If another thread (rare — pollData runs on a
-        // single tick scheduler per player) beat us, just skip — they'll emit.
+        // CAS the new state in. If another thread (rare, pollData runs on a
+        // single tick scheduler per player) beat us, just skip, they'll emit.
         if (states.replace(playerUuid, current, next)) {
             emit(next, playerUuid, now, null);
         }

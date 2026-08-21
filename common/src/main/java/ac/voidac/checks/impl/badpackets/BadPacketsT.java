@@ -16,16 +16,18 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientIn
 @CheckData(name = "BadPacketsT", stableKey = "void.badpackets.invalid_interact_vector")
 public class BadPacketsT extends Check implements PacketCheck {
 
+    // 1.7 never sends INTERACT_AT, so anything that shows up here came from Via
+    private final boolean exempt = player.getClientVersion().isOlderThan(ClientVersion.V_1_8);
+
     private final double maxHorizontalDisplacement;
     private final double minVerticalDisplacement;
     private final double maxVerticalDisplacement;
 
     public BadPacketsT(final VoidPlayer player) {
         super(player);
-        // 1.7 and 1.8 seem to have different hitbox "expansion" values than 1.9+
-        // https://github.com/VoidAnticheat/Void/pull/1274#issuecomment-1872458702
-        // https://github.com/VoidAnticheat/Void/pull/1274#issuecomment-1872533497
-        double expansion = player.getClientVersion().isOlderThan(ClientVersion.V_1_9) ? 0.1 : 0;
+        // pre-1.9 expands hitboxes by 0.1 on every side. that's vanilla, not us being nice.
+        // and it's a float there, so keep the f or the maths drifts
+        double expansion = player.getClientVersion().isOlderThan(ClientVersion.V_1_9) ? 0.1f : 0;
         maxHorizontalDisplacement = 0.3001 + expansion;
         minVerticalDisplacement = -0.0001 - expansion;
         maxVerticalDisplacement = 1.8001 + expansion;
@@ -33,12 +35,20 @@ public class BadPacketsT extends Check implements PacketCheck {
 
     @Override
     public void onPacketReceive(final PacketReceiveEvent event) {
+        if (exempt) return;
+
         if (event.getPacketType().equals(PacketType.Play.Client.INTERACT_ENTITY)) {
             final WrapperPlayClientInteractEntity wrapper = new WrapperPlayClientInteractEntity(event);
             // Only INTERACT_AT actually has an interaction vector
             if (wrapper.getAction() != WrapperPlayClientInteractEntity.InteractAction.INTERACT_AT) return;
             Vector3d targetVector = wrapper.getLocation();
             if (targetVector == null) return; // shouldn't ever happen, but whatever
+
+            // NaN or infinity here is never the client being weird, it's someone poking
+            if (!Double.isFinite(targetVector.x) || !Double.isFinite(targetVector.y) || !Double.isFinite(targetVector.z)) {
+                flagAndAlert(String.format("%s/%s/%s", targetVector.x, targetVector.y, targetVector.z));
+                return;
+            }
 
             final PacketEntity packetEntity = player.compensatedEntities.getEntity(wrapper.getEntityId());
             // Don't continue if the compensated entity hasn't been resolved

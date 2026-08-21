@@ -12,7 +12,7 @@ public abstract class VoidVerboseCheckEvent<CHANNEL extends EventChannel<?, ?>>
         extends VoidCheckEvent<CHANNEL> {
     private String verbose;
 
-    /** Pool constructor — fields populated via {@link #init(VoidUser, AbstractCheck, String)}. */
+    /** Pool constructor: fields populated via {@link #init(VoidUser, AbstractCheck, String)}. */
     protected VoidVerboseCheckEvent() {
         super();
     }
@@ -34,7 +34,7 @@ public abstract class VoidVerboseCheckEvent<CHANNEL extends EventChannel<?, ?>>
 
     /**
      * Abstract-level verbose-check handler. Fires for every concrete
-     * {@code VoidVerboseCheckEvent} subtype — FlagEvent and
+     * {@code VoidVerboseCheckEvent} subtype: FlagEvent and
      * CommandExecuteEvent out of the box, plus any addon subtypes that
      * opt into bridging. Does not fire for
      * {@link CompletePredictionEvent}, which extends {@link VoidCheckEvent}
@@ -64,7 +64,7 @@ public abstract class VoidVerboseCheckEvent<CHANNEL extends EventChannel<?, ?>>
             subscribeAbstract(handler, priority, ignoreCancelled, plugin);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onVerboseCheck(@NotNull Object pluginContext, @NotNull Handler handler) {
             subscribeAbstractResolving(pluginContext, handler, 0, false);

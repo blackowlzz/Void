@@ -10,8 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Bridges the public {@link StorageEventHandler} — the Disruptor-free
- * surface — to LMAX Disruptor's {@link EventHandler}. This is the only
+ * Bridges the public {@link StorageEventHandler}, the Disruptor-free
+ * surface: to LMAX Disruptor's {@link EventHandler}. This is the only
  * place on the write path where {@code com.lmax.disruptor.EventHandler}
  * appears; keeping it behind this adapter lets backend handlers target a
  * relocation-safe interface so packaging (shadow jar, shaded Disruptor)

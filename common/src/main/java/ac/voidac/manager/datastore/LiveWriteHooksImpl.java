@@ -105,7 +105,7 @@ public final class LiveWriteHooksImpl implements LiveWriteHooks {
     @Override
     public void onQuitFromUserDisconnect(@NotNull User user, @Nullable VoidPlayer voidPlayer, long now) {
         UUID uuid = user.getUUID();
-        if (uuid == null) return; // disconnected pre-LOGIN_SUCCESS — no session to close
+        if (uuid == null) return; // disconnected pre-LOGIN_SUCCESS: no session to close
         onQuit(uuid, now, LiveWriteHooks.clientMetaFor(user, voidPlayer));
     }
 

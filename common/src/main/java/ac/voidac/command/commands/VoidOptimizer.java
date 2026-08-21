@@ -66,7 +66,7 @@ public class VoidOptimizer implements BuildableCommand {
         sender.sendMessage(msg(PREFIX + " &a✔ &7Optimizer &astarted&7."));
         sender.sendMessage(msg("  &8▸ &7Grant &fvoid.optimizer.legit &7to trusted/legit players so their flags are treated as false positives."));
         sender.sendMessage(msg("  &8▸ &7Let the server run for at least &f24h &7with active play."));
-        sender.sendMessage(msg("  &8▸ &e⚠ &7Per-flag analysis is now active — expect a small CPU overhead until you run &f/void optimizer stop&7."));
+        sender.sendMessage(msg("  &8▸ &e⚠ &7Per-flag analysis is now active, expect a small CPU overhead until you run &f/void optimizer stop&7."));
     }
 
     private void handleStop(Sender sender, ThresholdOptimizerManager opt) {

@@ -151,7 +151,7 @@ public class AntiSpoofA extends Check implements PacketCheck {
             return;
         }
 
-        // 3. Check REGISTER channel payloads — both modern (fabric:register / minecraft:register)
+        // 3. Check REGISTER channel payloads, both modern (fabric:register / minecraft:register)
         //    and legacy (REGISTER). Fabric Networking API v2 uses "fabric:register".
         if (lowerChannel.equals(FABRIC_REGISTER_CHANNEL_V1)
                 || lowerChannel.equals(FABRIC_REGISTER_CHANNEL_V2)
@@ -171,7 +171,7 @@ public class AntiSpoofA extends Check implements PacketCheck {
         if (data == null || data.length == 0 || data.length > 256) return;
 
         // Minecraft brand packet: [VarInt length][UTF-8 string]
-        // For short strings (< 128 chars) VarInt is exactly 1 byte — try both forms.
+        // For short strings (< 128 chars) VarInt is exactly 1 byte, try both forms.
         if (data.length > 1) {
             // Normal form: skip the VarInt length prefix (byte 0)
             String brand = new String(data, 1, data.length - 1, StandardCharsets.UTF_8)
@@ -228,7 +228,7 @@ public class AntiSpoofA extends Check implements PacketCheck {
                 }
             }
         } catch (Exception ignored) {
-            // Non-UTF-8 binary payload — skip silently
+            // Non-UTF-8 binary payload: skip silently
         }
     }
 

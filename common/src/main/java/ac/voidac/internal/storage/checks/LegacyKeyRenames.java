@@ -17,10 +17,10 @@ import java.util.Map;
  *       to rewrite already-persisted rows on existing operator installs.</li>
  * </ul>
  *
- * <p>Order matters only for readability — every entry's old key is unique and
+ * <p>Order matters only for readability, every entry's old key is unique and
  * the migration applies them all idempotently. Entries omitted here keep their
  * {@code void.legacy.*} key forever (V0-only historical checks with no live V2
- * class — aim-fold/gold/hold, looka, clientbrand — stay legacy because there
+ * class: aim-fold/gold/hold, looka, clientbrand, stay legacy because there
  * is no source-of-truth class to rename).
  */
 @ApiStatus.Internal
@@ -33,7 +33,7 @@ public final class LegacyKeyRenames {
     static {
         Map<String, String> m = new LinkedHashMap<>();
 
-        // BadPackets — letter-keyed checks where V2 and V3 diverged in semantics.
+        // BadPackets: letter-keyed checks where V2 and V3 diverged in semantics.
         m.put("void.legacy.badpacketsb", "void.badpackets.ignored_rotation");
         m.put("void.legacy.badpacketsc", "void.badpackets.wake_not_sleeping");
         m.put("void.legacy.badpacketsh", "void.badpackets.unexpected_sequence");
@@ -51,7 +51,7 @@ public final class LegacyKeyRenames {
         m.put("void.legacy.groundspoof", "void.groundspoof.fake");
         m.put("void.legacy.timerlimit", "void.timer.limit");
 
-        // Elytra — every check fires when the player STARTS gliding under some
+        // Elytra: every check fires when the player STARTS gliding under some
         // disallowed condition; the category implies the verb, the suffix is
         // just the condition.
         m.put("void.legacy.elytraa", "void.elytra.already_gliding");
@@ -64,7 +64,7 @@ public final class LegacyKeyRenames {
         m.put("void.legacy.elytrah", "void.elytra.vehicle");
         m.put("void.legacy.elytrai", "void.elytra.water");
 
-        // MultiActions — two simultaneous actions, named <verb>_while_<context>.
+        // MultiActions: two simultaneous actions, named <verb>_while_<context>.
         m.put("void.legacy.multiactionsa", "void.multiactions.attack_while_using");
         m.put("void.legacy.multiactionsb", "void.multiactions.break_while_using");
         m.put("void.legacy.multiactionsc", "void.multiactions.inventory_click_while_moving");
@@ -77,7 +77,7 @@ public final class LegacyKeyRenames {
         m.put("void.legacy.multiinteracta", "void.multiinteract.multiple_targets");
         m.put("void.legacy.multiinteractb", "void.multiinteract.interact_at_position_changed");
 
-        // PacketOrder — every check is "X happened in the wrong order"; the
+        // PacketOrder: every check is "X happened in the wrong order"; the
         // <thing>_order suffix matches the colleague's naming style.
         m.put("void.legacy.packetordera", "void.packetorder.window_click_order");
         m.put("void.legacy.packetorderb", "void.packetorder.noswing");
@@ -96,7 +96,7 @@ public final class LegacyKeyRenames {
         m.put("void.legacy.packetordero", "void.packetorder.tick_end_order");
         m.put("void.legacy.packetorderp", "void.packetorder.transaction_response_order");
 
-        // Sprint — terse condition names; category implies "started sprinting".
+        // Sprint: terse condition names; category implies "started sprinting".
         m.put("void.legacy.sprinta", "void.sprint.hunger");
         m.put("void.legacy.sprintb", "void.sprint.sneaking");
         m.put("void.legacy.sprintc", "void.sprint.using_item");

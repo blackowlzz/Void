@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FlagEvent extends VoidVerboseCheckEvent<FlagEvent.Channel> {
 
-    /** Pool constructor — fields populated via {@link #init}. */
+    /** Pool constructor: fields populated via {@link #init}. */
     public FlagEvent() {
         super();
     }
@@ -25,7 +25,7 @@ public class FlagEvent extends VoidVerboseCheckEvent<FlagEvent.Channel> {
     }
 
     /**
-     * Typed flag handler. Returns the new cancelled state — returning
+     * Typed flag handler. Returns the new cancelled state, returning
      * {@code true} cancels, {@code false} leaves uncancelled. The last
      * parameter carries the cancelled state threaded through priority-ordered
      * dispatch; a handler registered with {@code ignoreCancelled = true}
@@ -56,7 +56,7 @@ public class FlagEvent extends VoidVerboseCheckEvent<FlagEvent.Channel> {
             subscribe(handler, priority, ignoreCancelled, plugin, null);
         }
 
-        /** @deprecated resolve your context once at plugin enable — {@code api.getVoidPlugin(this)} — and call the {@link VoidPlugin}-taking overload. */
+        /** @deprecated resolve your context once at plugin enable, {@code api.getVoidPlugin(this)}, and call the {@link VoidPlugin}-taking overload. */
         @Deprecated
         public void onFlag(@NotNull Object pluginContext, @NotNull Handler handler) {
             onFlag(resolvePlugin(pluginContext), handler);
@@ -116,7 +116,7 @@ public class FlagEvent extends VoidVerboseCheckEvent<FlagEvent.Channel> {
             return handler.onFlag(event.getUser(), event.getCheck(), event.getVerbose(), cancelled);
         }
 
-        /** Bridge from {@link VoidCheckEvent.Handler} — used by the abstract channel when a check-level subscriber registers. */
+        /** Bridge from {@link VoidCheckEvent.Handler}, used by the abstract channel when a check-level subscriber registers. */
         @ApiStatus.Internal
         public static @NotNull Handler bridgeFromCheck(@NotNull VoidCheckEvent.Handler abstractHandler) {
             return (user, check, verbose, cancelled) -> abstractHandler.onCheck(user, check, cancelled);
@@ -128,7 +128,7 @@ public class FlagEvent extends VoidVerboseCheckEvent<FlagEvent.Channel> {
             return (user, check, verbose, cancelled) -> abstractHandler.onVerboseCheck(user, check, verbose, cancelled);
         }
 
-        /** Bridge from root-level {@link ac.voidac.api.event.VoidEvent.Handler} — observational only, cancelled is passed through unchanged. */
+        /** Bridge from root-level {@link ac.voidac.api.event.VoidEvent.Handler}, observational only, cancelled is passed through unchanged. */
         @ApiStatus.Internal
         public static @NotNull Handler bridgeFromAny(@NotNull ac.voidac.api.event.VoidEvent.Handler abstractHandler) {
             return (user, check, verbose, cancelled) -> {

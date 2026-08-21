@@ -17,7 +17,7 @@ public record PunishmentRecord(
         String reason,
         String duration,
         @Nullable Integer waveId,
-        /** e.g. "AntiKB: 14, AntiAura: 7" — snapshot at ban time */
+        /** e.g. "AntiKB: 14, AntiAura: 7", snapshot at ban time */
         @Nullable String flagsSummary,
         long timestamp
 ) {}

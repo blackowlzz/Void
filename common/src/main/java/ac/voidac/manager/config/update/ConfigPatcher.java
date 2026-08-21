@@ -78,14 +78,64 @@ public final class ConfigPatcher {
         }
     }
 
+    /** {@code |}, {@code >}, and their chomping/indent variants: {@code |-}, {@code >+}, {@code |2}. */
+    private static final Pattern BLOCK_SCALAR = Pattern.compile("^[|>][+-]?[0-9]?[+-]?$");
+
     private void replaceScalarValue(NodePosition position, Object value) {
         String line = lines.get(position.lineIndex);
-        String valueStr = formatValue(value);
         Pattern linePattern = Pattern.compile("^(\\s*[^:]+:\\s*)(.*?)(\\s*#.*)?$");
         Matcher matcher = linePattern.matcher(line);
-        if (matcher.matches()) {
-            lines.set(position.lineIndex, matcher.group(1) + valueStr + (matcher.group(3) != null ? matcher.group(3) : ""));
+        if (!matcher.matches()) return;
+
+        // A `reason: |` line holds an indicator, not a value. Overwrite it and
+        // the `|` is gone while the body underneath stays put, which is how a
+        // colour code turns into a YAML anchor and takes the whole config down.
+        // Anything that was not a block stays inline: the templates write their
+        // multi-line values as quoted strings with \n, and formatValue keeps them
+        // that way. Promoting one to a block here would change what it parses to.
+        String indicator = matcher.group(2).trim();
+        if (BLOCK_SCALAR.matcher(indicator).matches()) {
+            replaceBlockScalar(position, value == null ? "" : value.toString(), indicator);
+            return;
         }
+
+        lines.set(position.lineIndex, matcher.group(1) + formatValue(value)
+                + (matcher.group(3) != null ? matcher.group(3) : ""));
+    }
+
+    /**
+     * Rewrites a block scalar in place: the indicator line keeps whatever
+     * chomping it already had, and the body underneath is replaced with the new
+     * text at the body's own indent.
+     */
+    private void replaceBlockScalar(NodePosition position, String text, String indicator) {
+        String keyLine = lines.get(position.lineIndex);
+        int colon = keyLine.indexOf(':');
+        if (colon < 0) return;
+        lines.set(position.lineIndex, keyLine.substring(0, colon + 1) + " " + indicator);
+
+        int bodyStart = position.lineIndex + 1;
+        int bodyEnd = bodyStart;
+        int bodyIndent = -1;
+        for (int i = bodyStart; i < lines.size(); i++) {
+            String l = lines.get(i);
+            if (l.trim().isEmpty()) {
+                bodyEnd = i + 1;
+                continue;
+            }
+            if (getIndentation(l) <= position.indent) break;
+            if (bodyIndent == -1) bodyIndent = getIndentation(l);
+            bodyEnd = i + 1;
+        }
+        if (bodyIndent == -1) bodyIndent = position.indent + 4;
+
+        List<String> body = new ArrayList<>();
+        for (String l : text.split("\n", -1)) body.add(" ".repeat(bodyIndent) + l);
+        // a value ending in a newline leaves an empty last element behind
+        while (body.size() > 1 && body.get(body.size() - 1).isBlank()) body.remove(body.size() - 1);
+
+        if (bodyEnd > bodyStart) lines.subList(bodyStart, bodyEnd).clear();
+        lines.addAll(bodyStart, body);
     }
 
     private void replaceListBlock(NodePosition keyPosition, List<?> newList) {
@@ -119,10 +169,18 @@ public final class ConfigPatcher {
             blockEndLine = blockStartLine;
             listIndent = keyPosition.indent + 2;
         }
-        String newBlock = generateListBlock(newList, listIndent);
         if (blockEndLine > blockStartLine) {
             lines.subList(blockStartLine, blockEndLine).clear();
         }
+        if (newList.isEmpty()) {
+            // a key with no block under it reads back as null, so an empty
+            // list has to keep the inline form to stay an empty list
+            String keyLine = lines.get(keyPosition.lineIndex);
+            int colon = keyLine.indexOf(':');
+            if (colon >= 0) lines.set(keyPosition.lineIndex, keyLine.substring(0, colon + 1) + " []");
+            return;
+        }
+        String newBlock = generateListBlock(newList, listIndent);
         if (!newBlock.isEmpty()) {
             lines.addAll(blockStartLine, Arrays.asList(newBlock.split("\r?\n")));
         }
@@ -145,7 +203,8 @@ public final class ConfigPatcher {
         String s = value.toString();
         if (s.isEmpty()) return "\"\"";
         boolean needsQuotes = false;
-        if (YAML_KEYWORDS_TO_QUOTE.contains(s) || s.startsWith(" ") || s.endsWith(" ")) {
+        if (YAML_KEYWORDS_TO_QUOTE.contains(s) || s.startsWith(" ") || s.endsWith(" ")
+                || s.indexOf('\n') != -1 || s.indexOf('\r') != -1 || s.indexOf('\t') != -1) {
             needsQuotes = true;
         } else {
             try {
@@ -168,7 +227,13 @@ public final class ConfigPatcher {
             // raw `\d` from a regex round-trips as an "unknown escape"
             // parser error. Escape `\` first so the `\` we inject ahead of
             // any embedded `"` doesn't get re-doubled by the second pass.
-            return "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\"";
+            // Newlines go in as escapes too: a real one inside double quotes
+            // gets folded back into a space and the message loses its layout.
+            return "\"" + s.replace("\\", "\\\\")
+                    .replace("\"", "\\\"")
+                    .replace("\n", "\\n")
+                    .replace("\r", "\\r")
+                    .replace("\t", "\\t") + "\"";
         }
         return s;
     }

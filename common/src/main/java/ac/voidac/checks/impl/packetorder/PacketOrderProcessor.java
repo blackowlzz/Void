@@ -40,11 +40,19 @@ public final class PacketOrderProcessor extends Check implements PacketCheck {
     private boolean jumpingWithMount;
     private boolean stabbing;
 
+    // client status action 2 was "open inventory" up to 1.11.2 and is something
+    // else on everything newer, so anyone reading it has to ask first
+    public boolean isLegacyInventoryClient() {
+        return player.getClientVersion().isOlderThan(ClientVersion.V_1_12);
+    }
+
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         final PacketTypeCommon packetType = event.getPacketType();
 
-        if (packetType == PacketType.Play.Client.CLIENT_STATUS) {
+        // action 2 only means "opened the inventory" on old clients. 26.1 reuses
+        // the same byte to ask for gamerule values, which is not the same thing at all
+        if (packetType == PacketType.Play.Client.CLIENT_STATUS && isLegacyInventoryClient()) {
             if (new WrapperPlayClientClientStatus(event).getAction() == WrapperPlayClientClientStatus.Action.OPEN_INVENTORY_ACHIEVEMENT) {
                 openingInventory = true;
             }
