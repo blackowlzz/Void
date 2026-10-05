@@ -36,13 +36,15 @@ public class SneakingEstimator extends Check implements PostPredictionCheck {
     @Getter
     private SimpleCollisionBox sneakingPotentialHiddenVelocity = new SimpleCollisionBox();
     private List<VectorData> possible = new ArrayList<>();
+    private float inputSpeed;
 
     public SneakingEstimator(VoidPlayer player) {
         super(player);
     }
 
-    public void storePossibleVelocities(List<VectorData> possible) {
+    public void storePossibleVelocities(List<VectorData> possible, float inputSpeed) {
         this.possible = possible;
+        this.inputSpeed = inputSpeed;
     }
 
     @Override
@@ -65,13 +67,13 @@ public class SneakingEstimator extends Check implements PostPredictionCheck {
             if (data.isJump() == player.predictedVelocity.isJump() && data.isKnockback() == player.predictedVelocity.isKnockback() && data.isExplosion() == player.predictedVelocity.isExplosion()) {
                 // Compounding hidden velocity: dangerous but stable in testing
                 if (player.uncertaintyHandler.lastStuckWest.hasOccurredSince(0) || player.uncertaintyHandler.lastStuckNorth.hasOccurredSince(0)) {
-                    sneakingPotentialHiddenVelocity.minX = Math.min(sneakingPotentialHiddenVelocity.minX, data.vector.getX());
-                    sneakingPotentialHiddenVelocity.minZ = Math.min(sneakingPotentialHiddenVelocity.minZ, data.vector.getZ());
+                    sneakingPotentialHiddenVelocity.minX = Math.min(sneakingPotentialHiddenVelocity.minX, data.vector.getX() - inputSpeed);
+                    sneakingPotentialHiddenVelocity.minZ = Math.min(sneakingPotentialHiddenVelocity.minZ, data.vector.getZ() - inputSpeed);
                 }
 
                 if (player.uncertaintyHandler.lastStuckEast.hasOccurredSince(0) || player.uncertaintyHandler.lastStuckSouth.hasOccurredSince(0)) {
-                    sneakingPotentialHiddenVelocity.maxX = Math.max(sneakingPotentialHiddenVelocity.maxX, data.vector.getX());
-                    sneakingPotentialHiddenVelocity.maxZ = Math.max(sneakingPotentialHiddenVelocity.maxZ, data.vector.getZ());
+                    sneakingPotentialHiddenVelocity.maxX = Math.max(sneakingPotentialHiddenVelocity.maxX, data.vector.getX() + inputSpeed);
+                    sneakingPotentialHiddenVelocity.maxZ = Math.max(sneakingPotentialHiddenVelocity.maxZ, data.vector.getZ() + inputSpeed);
                 }
             }
         }

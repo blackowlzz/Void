@@ -21,6 +21,8 @@ import ac.voidac.predictionengine.EntityFluidInteraction;
 import ac.voidac.predictionengine.MovementCheckRunner;
 import ac.voidac.predictionengine.PointThreeEstimator;
 import ac.voidac.predictionengine.UncertaintyHandler;
+import ac.voidac.predictionengine.blockeffects.CompensatedGeysers;
+import ac.voidac.predictionengine.blockeffects.PotentSulfurGeyser;
 import ac.voidac.manager.AttackCooldownHandler;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
@@ -121,6 +123,7 @@ public class VoidPlayer implements VoidUser {
     private final AtomicInteger transactionIDCounter = new AtomicInteger(ThreadLocalRandom.current().nextInt(64, 2048));
     public final AtomicInteger lastTransactionSent = new AtomicInteger(0);
     public final AtomicInteger lastTransactionReceived = new AtomicInteger(0);
+    public final TransactionDiagnostics transactionDiagnostics = new TransactionDiagnostics();
     // End transaction handling stuff
     // Manager like classes
     public final CheckManager checkManager;
@@ -135,7 +138,6 @@ public class VoidPlayer implements VoidUser {
     private long transactionPing = 0;
     public long lastTransSent = 0;
     public long lastTransReceived = 0;
-    @Getter
     private long playerClockAtLeast = System.nanoTime();
     public double lastWasClimbing = 0;
     public boolean canSwimHop = false;
@@ -150,6 +152,12 @@ public class VoidPlayer implements VoidUser {
     public final UncertaintyHandler uncertaintyHandler;
     // Null unless diagnostic-logger.enabled=true in config
     public @Nullable DiagnosticLogger diagnosticLogger;
+    public Vector3dm predictionStartVelocity = new Vector3dm();
+    public double predictionStartY;
+    public Vector3dm lastUncertaintyMin = new Vector3dm();
+    public Vector3dm lastUncertaintyMax = new Vector3dm();
+    public Vector3dm bestUncertaintyMin = new Vector3dm();
+    public Vector3dm bestUncertaintyMax = new Vector3dm();
     public double gravity;
     public float friction;
     public double speed;
@@ -221,6 +229,7 @@ public class VoidPlayer implements VoidUser {
     public final LastInstanceManager lastInstanceManager;
     public final CompensatedFireworks fireworks;
     public final CompensatedWorld compensatedWorld;
+    public final CompensatedGeysers compensatedGeysers = new CompensatedGeysers();
     public final CompensatedEntities compensatedEntities;
     public final CompensatedDashableEntities dashableEntities;
     public final CompensatedInventory inventory;
@@ -257,6 +266,7 @@ public class VoidPlayer implements VoidUser {
     public final ArrayDeque<RotationData> pendingRotations = new ArrayDeque<>();
     public final CompensatedCameraEntity cameraEntity;
     public final StorageEspDecoyManager storageEspDecoyManager;
+    public final AntiEspManager antiEspManager;
     @Getter @Setter private ResyncHandler resyncHandler = VoidAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("disable-default-resync-handler", false) ? NoOpResyncHandler.INSTANCE : new DefaultResyncHandler(this);
     @Getter private final FeatureManagerImpl featureManager = new FeatureManagerImpl(this);
     public boolean serverOpenedInventoryThisTick;
@@ -264,6 +274,7 @@ public class VoidPlayer implements VoidUser {
     private boolean debugPacketCancel = false;
     private int spamThreshold = 100;
     private int maxTransactionTime = 60;
+    private int maxFrozenClientTime = 300;
     @Getter private boolean ignoreDuplicatePacketRotation = false;
     @Getter @Setter private boolean experimentalChecks = false;
     @Getter private boolean cancelDuplicatePacket = true;
@@ -298,7 +309,7 @@ public class VoidPlayer implements VoidUser {
     public boolean wasLastPredictionCompleteChecked;
     public boolean isJumping;
     public boolean lastJumping;
-    public EntityFluidInteraction fluidInteraction = new EntityFluidInteraction(FluidTag.WATER, FluidTag.LAVA);
+    public EntityFluidInteraction fluidInteraction = new EntityFluidInteraction(this, FluidTag.WATER, FluidTag.LAVA);
     public boolean canFloatWhileRidden = false;
     public boolean isInNetherPortal = false;
 
@@ -318,6 +329,7 @@ public class VoidPlayer implements VoidUser {
         checkManager = new CheckManager(this);
         punishmentManager = new PunishmentManager(this);
         storageEspDecoyManager = new StorageEspDecoyManager(this);
+        antiEspManager = new AntiEspManager(this);
         this.tagManager = new SyncedTags(this); // must be after this.user = user
         movementCheckRunner = new MovementCheckRunner(this);
 
@@ -388,7 +400,16 @@ public class VoidPlayer implements VoidUser {
         // A player cannot swim hop (> 0 y vel) and be on the ground
         // Fixes bug with underwater stepping movement being confused with swim hopping movement
         if (canSwimHop && !onGround) {
-            possibleMovements.add(new VectorData(clientVelocity.clone().setY(0.3f + (canFloatWhileRidden ? 0.04f : 0.0f)), VectorData.VectorType.Swimhop));
+            Vector3dm vector = clientVelocity.clone().setY(0.30000001192092896 + (canFloatWhileRidden ? 0.03999999910593033 : 0.0));
+            if (getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_2)) {
+                Collisions.resolveBlockEffects(this, vector, true, finalMovementsThisTick);
+            }
+
+            if (getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_2)) {
+                PotentSulfurGeyser.launchEntityTicker(this, vector, false);
+            }
+
+            possibleMovements.add(new VectorData(vector, VectorData.VectorType.Swimhop));
         }
 
         // If the player has that client sided riptide thing and has colliding with an entity
@@ -498,6 +519,10 @@ public class VoidPlayer implements VoidUser {
     }
 
     public void sendTransaction(boolean async) {
+        sendTransaction(async, false);
+    }
+
+    void sendTransaction(boolean async, boolean flush) {
         // don't send transactions outside PLAY phase
         // Sending in non-play corrupts the pipeline, don't waste bandwidth when anticheat disabled
         if (user.getEncoderState() != ConnectionState.PLAY) return;
@@ -521,11 +546,13 @@ public class VoidPlayer implements VoidUser {
             if (async) {
                 runSafely(() -> {
                     addTransactionSend(transactionID);
-                    user.writePacket(packet);
+                    if (flush) user.sendPacket(packet);
+                    else user.writePacket(packet);
                 });
             } else {
                 addTransactionSend(transactionID);
-                user.writePacket(packet);
+                if (flush) user.sendPacket(packet);
+                else user.writePacket(packet);
             }
         } catch (Exception ignored) {
             // Packet write may fail if the channel is closed mid-send (e.g. ProtocolLib/ViaVersion pipeline teardown)
@@ -545,7 +572,28 @@ public class VoidPlayer implements VoidUser {
 
     private final AtomicBoolean hasDisconnected = new AtomicBoolean(false);
 
+    public long getPlayerClockAtLeast() {
+        if (lastTransactionSent.get() == 0) {
+            playerClockAtLeast = System.nanoTime();
+        }
+        return playerClockAtLeast;
+    }
+
+    public boolean isTransactionClockExpired(long now) {
+        return now - getPlayerClockAtLeast() > maxTransactionTime * 1e9;
+    }
+
     public void timedOut() {
+        if (hasDisconnected.get()) return;
+        long now = System.currentTimeMillis();
+        LogUtil.warn("Transaction timeout for " + user.getProfile().getName()
+                + ": sent=" + lastTransactionSent.get()
+                + ", received=" + lastTransactionReceived.get()
+                + ", pending=" + transactionsSent.size()
+                + ", lastSendMs=" + (lastTransSent == 0 ? -1 : now - lastTransSent)
+                + ", lastResponseMs=" + (lastTransReceived == 0 ? -1 : now - lastTransReceived)
+                + ", clockAgeMs=" + (System.nanoTime() - getPlayerClockAtLeast()) / 1_000_000L
+                + ", " + transactionDiagnostics.describe(System.nanoTime()));
         disconnect(MessageUtil.miniMessage(MessageUtil.replacePlaceholders(this, VoidAPI.INSTANCE.getConfigManager().getDisconnectTimeout())));
     }
 
@@ -579,10 +627,14 @@ public class VoidPlayer implements VoidUser {
         //
         // This will only really activate if there's no entities around the player being tracked
         // 80 is a magic value that is roughly every other tick, we don't want to spam too many packets.
-        if (lastTransSent != 0 && lastTransSent + 80 < System.currentTimeMillis()) {
-            sendTransaction(true); // send on netty thread
+        long now = System.nanoTime();
+        boolean clientFrozen = transactionDiagnostics.isClientFrozen(now)
+                && now - getPlayerClockAtLeast() < maxFrozenClientTime * 1e9;
+        long heartbeatIntervalMs = clientFrozen ? 1000 : 80;
+        if (lastTransSent != 0 && lastTransSent + heartbeatIntervalMs < System.currentTimeMillis()) {
+            sendTransaction(true, true);
         }
-        if ((System.nanoTime() - getPlayerClockAtLeast()) > maxTransactionTime * 1e9) {
+        if (!clientFrozen && isTransactionClockExpired(now)) {
             timedOut();
         }
 
@@ -768,19 +820,10 @@ public class VoidPlayer implements VoidUser {
 
         if (data != null) {
             // If we actually need to check vehicle movement
-            if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_9) && getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_9)) {
-                // And if the vehicle is a type of vehicle that we track
-                if (EntityTypes.isTypeInstanceOf(data.getEntityType(), EntityTypes.BOAT) ||
-                        EntityTypes.isTypeInstanceOf(data.getEntityType(), EntityTypes.ABSTRACT_HORSE) ||
-                        data.getEntityType() == EntityTypes.PIG ||
-                        data.getEntityType() == EntityTypes.STRIDER ||
-                        EntityTypes.isTypeInstanceOf(data.getEntityType(), EntityTypes.CAMEL) ||
-                        data.getEntityType() == EntityTypes.HAPPY_GHAST ||
-                        EntityTypes.isTypeInstanceOf(data.getEntityType(), EntityTypes.ABSTRACT_NAUTILUS)) {
-                    // We need to set its velocity otherwise it will jump a bit on us, flagging the anticheat
-                    // The server does override this with some vehicles. This is intentional.
-                    user.writePacket(new WrapperPlayServerEntityVelocity(vehicleID, new Vector3d()));
-                }
+            if (resetsVehicleVelocityOnMount(data.getEntityType())) {
+                // We need to set its velocity otherwise it will jump a bit on us, flagging the anticheat
+                // The server does override this with some vehicles. This is intentional.
+                user.writePacket(new WrapperPlayServerEntityVelocity(vehicleID, new Vector3d()));
             }
         }
 
@@ -788,6 +831,18 @@ public class VoidPlayer implements VoidUser {
         sendTransaction();
 
         latencyUtils.addRealTimeTask(lastTransactionSent.get(), () -> this.vehicleData.wasVehicleSwitch = true);
+    }
+
+    public boolean resetsVehicleVelocityOnMount(EntityType type) {
+        return PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_9)
+                && getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_9)
+                && (EntityTypes.isTypeInstanceOf(type, EntityTypes.BOAT)
+                || EntityTypes.isTypeInstanceOf(type, EntityTypes.ABSTRACT_HORSE)
+                || type == EntityTypes.PIG
+                || type == EntityTypes.STRIDER
+                || EntityTypes.isTypeInstanceOf(type, EntityTypes.CAMEL)
+                || type == EntityTypes.HAPPY_GHAST
+                || EntityTypes.isTypeInstanceOf(type, EntityTypes.ABSTRACT_NAUTILUS));
     }
 
     public int getRidingVehicleId() {
@@ -822,9 +877,8 @@ public class VoidPlayer implements VoidUser {
         latencyUtils.addRealTimeTask(lastTransactionSent.get(), () -> {
             this.vehicleData.wasVehicleSwitch = true;
             // Pre-1.14 players desync sprinting attribute when in vehicle to be false, sprinting itself doesn't change
-            // 1.21.5 introduced this again! (only in minecarts?)
-            if (getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_14) ||
-                    (getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_5) && EntityTypes.MINECART == entityType)) {
+            // 1.21.5 introduced this again! (only in dummy vehicles?)
+            if (getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_14)) {
                 compensatedEntities.hasSprintingAttributeEnabled = false;
             }
         });
@@ -874,13 +928,13 @@ public class VoidPlayer implements VoidUser {
     }
 
     public boolean isInWaterOrRain() {
-        return compensatedWorld.isRaining || Collisions.hasMaterial(this, boundingBox.copy().expand(0.1f), (block) -> Materials.isWater(CompensatedWorld.blockVersion, block.first()));
+        return compensatedWorld.isRaining || Collisions.hasMaterial(this, boundingBox.copy().expand(0.1f), (block, x, y, z) -> Materials.isWater(CompensatedWorld.blockVersion, block));
     }
 
     public void updateNetherPortalState() {
         // Expand over the full movement this tick so a fast run-through is still detected
         SimpleCollisionBox movementThisTick = GetBoundingBox.getCollisionBoxForPlayer(this, x, y, z).expandToCoordinate(lastX - x, lastY - y, lastZ - z);
-        isInNetherPortal = Collisions.hasMaterial(this, movementThisTick, data -> data.first().getType() == StateTypes.NETHER_PORTAL);
+        isInNetherPortal = Collisions.hasMaterial(this, movementThisTick, (block, x, y, z) -> block.getType() == StateTypes.NETHER_PORTAL);
     }
 
     @Contract(pure = true)
@@ -972,9 +1026,11 @@ public class VoidPlayer implements VoidUser {
         updatePermissions();
         featureManager.onReload(config);
         storageEspDecoyManager.reload(config);
+        antiEspManager.reload(config);
         debugPacketCancel = config.getBooleanElse("debug-packet-cancel", false);
         spamThreshold = config.getIntElse("packet-spam-threshold", 100);
         maxTransactionTime = VoidMath.clamp(config.getIntElse("max-transaction-time", 60), 1, 180);
+        maxFrozenClientTime = VoidMath.clamp(config.getIntElse("max-frozen-client-time", 300), 0, 600);
         ignoreDuplicatePacketRotation = config.getBooleanElse("ignore-duplicate-packet-rotation", false);
         cancelDuplicatePacket = config.getBooleanElse("cancel-duplicate-packet", true);
 

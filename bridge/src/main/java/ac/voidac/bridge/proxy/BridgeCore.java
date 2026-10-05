@@ -38,7 +38,7 @@ public final class BridgeCore {
         this.config = config;
         this.bans = bans;
         this.codec = new BridgeCodec(config.secret());
-        this.server = new BridgeServer(platform, codec, (origin, frame) -> handleFrame(frame));
+        this.server = new BridgeServer(platform, codec, this::handleFrame);
     }
 
     public void start() {
@@ -62,8 +62,13 @@ public final class BridgeCore {
         return server.connected();
     }
 
-    /** Already verified by the codec before it gets here. */
-    private void handleFrame(@NotNull BridgeFrame frame) {
+    void handleFrame(@NotNull String connectionName, @NotNull BridgeFrame frame) {
+        if (!frame.origin().equalsIgnoreCase(connectionName)) {
+            platform.warn("Ignoring a " + frame.type() + " frame that claims to come from '" + frame.origin()
+                    + "' on the connection of '" + connectionName + "'. Check that every backend has its own bridge.server-name.", null);
+            return;
+        }
+
         switch (frame.type()) {
             case HELLO -> handleHello(frame); // ack like
             case ALERT -> forward(frame, false);
@@ -83,7 +88,14 @@ public final class BridgeCore {
         // the whole list every time, so a server that was down can't stay out of
         // step either way: it picks up what it missed and drops what we lifted
         List<BanPayload> payloads = bans.activePayloads(frame.origin());
-        byte[] sync = codec.encode(MessageType.SYNC, PROXY_ORIGIN, new SyncPayload(payloads).encode());
+        byte[] sync;
+        try {
+            sync = codec.encode(MessageType.SYNC, PROXY_ORIGIN, new SyncPayload(payloads).encode());
+        } catch (IllegalArgumentException tooLarge) {
+            platform.warn("The ban list (" + payloads.size() + " bans) is too large for a single SYNC, so '"
+                    + frame.origin() + "' was not synced.", tooLarge);
+            return;
+        }
         if (server.send(frame.origin(), sync) && !payloads.isEmpty()) {
             platform.info("Sent " + payloads.size() + " active ban(s) to '" + frame.origin() + "'.");
         }

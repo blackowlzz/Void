@@ -1,6 +1,7 @@
 package ac.voidac.utils.latency;
 
 import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.data.ShulkerData;
 import ac.voidac.utils.data.TrackerData;
@@ -35,12 +36,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CompensatedEntities {
 
     public static final UUID SPRINTING_MODIFIER_UUID = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
     public static final UUID SNOW_MODIFIER_UUID = UUID.fromString("1eaf83ff-7207-4596-b37a-d7a07b3ec4ce");
+    private static final Set<String> UNRESOLVED_ATTRIBUTE_ENTITY_TYPES = ConcurrentHashMap.newKeySet();
 
     public final Int2ObjectOpenHashMap<PacketEntity> entityMap = new Int2ObjectOpenHashMap<>(40, 0.7f);
     public final IntArraySet entitiesRemovedThisTick = new IntArraySet();
@@ -139,8 +143,10 @@ public class CompensatedEntities {
 
         for (WrapperPlayServerUpdateAttributes.Property snapshotWrapper : objects) {
             Attribute attribute = snapshotWrapper.getAttribute();
-            if (attribute == null)
-                continue; // TODO: Warn if this happens? Either modded server or bug in packetevents.
+            if (attribute == null) {
+                warnUnresolvedAttribute(entity);
+                continue;
+            }
 
             // Rewrite horse.jumpStrength -> modern equivalent
             if (attribute == Attributes.HORSE_JUMP_STRENGTH) {
@@ -157,14 +163,24 @@ public class CompensatedEntities {
         }
     }
 
+    private static void warnUnresolvedAttribute(PacketEntity entity) {
+        String typeName = String.valueOf(entity.type.getName());
+        if (!UNRESOLVED_ATTRIBUTE_ENTITY_TYPES.add(typeName)) return;
+        LogUtil.warn("Ignoring an attribute PacketEvents could not resolve on a " + typeName
+                + " entity (server " + PacketEvents.getAPI().getServerManager().getVersion().getReleaseName()
+                + "). Expected on modded servers, otherwise PacketEvents may be outdated for this Minecraft version.");
+    }
+
     private void tickPassenger(PacketEntity riding, PacketEntity passenger) {
         if (riding == null || passenger == null) {
             return;
         }
 
-        passenger.setPositionRaw(player, riding.getPossibleLocationBoxes().offset(0, BoundingBoxSize.getMyRidingOffset(riding) + BoundingBoxSize.getPassengerRidingOffset(player, passenger), 0));
+        // TODO: is this correct?
+        double offset = BoundingBoxSize.getMyRidingOffset(passenger) + BoundingBoxSize.getPassengerRidingOffset(player, riding);
+        passenger.setPositionRaw(player, riding.getPossibleLocationBoxes().offset(0, offset, 0));
 
-        for (PacketEntity passengerPassenger : riding.passengers) {
+        for (PacketEntity passengerPassenger : passenger.passengers) {
             tickPassenger(passenger, passengerPassenger);
         }
     }
@@ -182,6 +198,8 @@ public class CompensatedEntities {
             packetEntity = new PacketEntityCamel(player, uuid, entityType, position.getX(), position.getY(), position.getZ(), xRot);
         } else if (EntityTypes.isTypeInstanceOf(entityType, EntityTypes.ABSTRACT_HORSE)) {
             packetEntity = new PacketEntityHorse(player, uuid, entityType, position.getX(), position.getY(), position.getZ(), xRot);
+        } else if (entityType == EntityTypes.SULFUR_CUBE) {
+            packetEntity = new PacketEntitySizeable(player, uuid, entityType, position.getX(), position.getY(), position.getZ());
         } else if (entityType == EntityTypes.SLIME || entityType == EntityTypes.MAGMA_CUBE || entityType == EntityTypes.PHANTOM) {
             packetEntity = new PacketEntitySizeable(player, uuid, entityType, position.getX(), position.getY(), position.getZ());
         } else if (EntityTypes.PIG.equals(entityType)) {
@@ -215,6 +233,8 @@ public class CompensatedEntities {
             packetEntity = new PacketEntityGuardian(player, uuid, entityType, position.x, position.y, position.z, false); // can still be an Elder Guardian in 1.8-1.10.2 from entity metadata updates
         } else if (EntityTypes.ELDER_GUARDIAN.equals(entityType)) {
             packetEntity = new PacketEntityGuardian(player, uuid, entityType, position.x, position.y, position.z, true);
+        } else if (EntityTypes.SKELETON == entityType) {
+            packetEntity = new PacketEntitySkeleton(player, uuid, entityType, position.x, position.y, position.z);
         } else {
             packetEntity = new PacketEntity(player, uuid, entityType, position.getX(), position.getY(), position.getZ());
         }
@@ -260,7 +280,7 @@ public class CompensatedEntities {
             } else if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThanOrEquals(ServerVersion.V_1_16_5)) {
                 id = 15;
             } else {
-                id = 16 + (EntityTypes.isTypeInstanceOf(entity.type, EntityTypes.ABSTRACT_PIGLIN) ? 1 : 0); // BABY is still at 16 in 26.1 (AGE_LOCKED is 17, after BABY), for some reason, piglins have their own age metadata??
+                id = 16 + (EntityTypes.isTypeInstanceOf(entity.getType(), EntityTypes.ABSTRACT_PIGLIN) ? 1 : 0); // BABY is still at 16 in 26.1 (AGE_LOCKED is 17, after BABY), for some reason, piglins have their own age metadata??
             }
 
             // 1.14 good
@@ -288,8 +308,16 @@ public class CompensatedEntities {
                 id = 14;
             } else if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThanOrEquals(ServerVersion.V_1_16_5)) {
                 id = 15;
-            } else {
+            } else if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThan(ServerVersion.V_26_2)) {
                 id = 16;
+            } else {
+                final EntityType type = sizeable.getType();
+                final boolean cubeMob = type == EntityTypes.SLIME || type == EntityTypes.MAGMA_CUBE || type == EntityTypes.SULFUR_CUBE;
+                if (cubeMob) {
+                    id = 18;
+                } else {
+                    id = 16;
+                }
             }
 
             EntityData<?> sizeObject = WatchableIndexUtil.getIndex(watchableObjects, id);
@@ -339,7 +367,7 @@ public class CompensatedEntities {
         if (entity instanceof PacketEntityRideable rideable) {
             int offset = 0;
             if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThanOrEquals(ServerVersion.V_1_8_8)) {
-                if (entity.type == EntityTypes.PIG) {
+                if (entity.getType() == EntityTypes.PIG) {
                     EntityData<?> pigSaddle = WatchableIndexUtil.getIndex(watchableObjects, 16);
                     if (pigSaddle != null) {
                         rideable.hasSaddle = ((byte) pigSaddle.getValue()) != 0;
@@ -355,7 +383,7 @@ public class CompensatedEntities {
                 offset = 1;
             }
 
-            if (entity.type == EntityTypes.PIG) {
+            if (entity.getType() == EntityTypes.PIG) {
                 // SADDLE removed in 1.21.5, shifting BOOST_TIME from 18→17.
                 // ageableOffset naturally cancels this out in 26.1 (BOOST_TIME back at 18).
                 if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_21_5))
@@ -471,7 +499,7 @@ public class CompensatedEntities {
             }
         }
 
-        if (entity.type == EntityTypes.FIREWORK_ROCKET) {
+        if (entity.getType() == EntityTypes.FIREWORK_ROCKET) {
             int offset = 0;
             if (PacketEvents.getAPI().getServerManager().getVersion().isOlderThanOrEquals(ServerVersion.V_1_12_2)) {
                 offset = 2;
@@ -487,12 +515,10 @@ public class CompensatedEntities {
                 if (attachedEntityID == player.entityID) {
                     player.fireworks.addNewFirework(entityID);
                 }
-            } else { // 1.14+
-                Optional<Integer> attachedEntityID = (Optional<Integer>) fireworkWatchableObject.getValue();
-
-                if (attachedEntityID.isPresent() && attachedEntityID.get().equals(player.entityID)) {
-                    player.fireworks.addNewFirework(entityID);
-                }
+            } else if (fireworkWatchableObject.getValue() instanceof Optional<?> optional
+                    && optional.isPresent() && optional.get() instanceof Integer attachedEntityID
+                    && attachedEntityID.equals(player.entityID)) { // 1.14+
+                player.fireworks.addNewFirework(entityID);
             }
         }
 
@@ -556,6 +582,13 @@ public class CompensatedEntities {
             if (guardianByte != null) {
                 int info = (Integer) guardianByte.getValue(); // wiki says this is a byte but testing on 1.8 shows it's an integer
                 ((PacketEntityGuardian) entity).isElder = (info & isElderlyBitMask) != 0;
+            }
+        }
+
+        if (entity instanceof PacketEntitySkeleton skeleton && PacketEvents.getAPI().getServerManager().getVersion().isOlderThanOrEquals(ServerVersion.V_1_8_8)) {
+            EntityData<?> skeletonTypeObject = WatchableIndexUtil.getIndex(watchableObjects, 13);
+            if (skeletonTypeObject != null && skeletonTypeObject.getValue() instanceof Byte skeletonType) {
+                skeleton.isWitherSkeleton = skeletonType == 1;
             }
         }
     }

@@ -4,8 +4,12 @@ import ac.voidac.VoidAPI;
 import ac.voidac.manager.datastore.PlayerToggleStore;
 import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.anticheat.LeadDeveloper;
+import ac.voidac.utils.anticheat.LeadDeveloperGreeting;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
+import ac.voidac.utils.anticheat.ReleaseChecker;
+import ac.voidac.utils.anticheat.ReleaseStatus;
 import com.github.retrooper.packetevents.event.*;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
 import com.github.retrooper.packetevents.protocol.ConnectionState;
@@ -103,6 +107,29 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
             );
         }
 
+        if (LeadDeveloper.matches(platformPlayer.getUniqueId(), VoidAPI.INSTANCE.getPlatformServer().isOnlineMode())) {
+            VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(
+                    VoidAPI.INSTANCE.getVoidPlugin(),
+                    () -> {
+                        if (!platformPlayer.isOnline()) return;
+                        ReleaseStatus status = ReleaseChecker.check(VoidAPI.INSTANCE.getExternalAPI().getVoidVersion());
+                        LeadDeveloperGreeting.compose(status).forEach(platformPlayer::sendMessage);
+                    },
+                    5L, TimeUnit.SECONDS
+            );
+        }
+
+        if (VoidAPI.INSTANCE.getConfigManager().isSmallCapsLanguageMismatch() && platformPlayer.hasPermission("void.alerts")) {
+            VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(
+                    VoidAPI.INSTANCE.getVoidPlugin(),
+                    () -> platformPlayer.sendMessage(MessageUtil.miniMessage(
+                            VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse(
+                                    "small-caps-language-warning",
+                                    "%prefix% &e⚠ &7Small caps is enabled but does not render properly in this language. "
+                                            + "Set &fsmall-caps: false &7in config.yml."))),
+                    5L, TimeUnit.SECONDS
+            );
+        }
     }
 
 

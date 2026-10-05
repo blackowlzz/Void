@@ -79,6 +79,24 @@ Punishments:
       - "1:1 [log]"
       - "5:3 [webhook]"
       - "5:3 [proxy]"
+  WallHit:
+    remove-violations-after: 300
+    checks:
+      - "WallHit"
+    commands:
+      - "1:1 [alert]"
+      - "1:1 [log]"
+      - "5:5 [webhook]"
+      - "5:5 [proxy]"
+  AntiSpoof:
+    remove-violations-after: 300
+    checks:
+      - "AntiSpoof"
+    commands:
+      - "1:0 [alert]"
+      - "1:1 [log]"
+      - "1:0 [webhook]"
+      - "1:0 [proxy]"
   Misc:
     remove-violations-after: 300
     checks:

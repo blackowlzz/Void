@@ -1,5 +1,6 @@
 package ac.voidac.predictionengine.predictions.rideable;
 
+import ac.voidac.predictionengine.blockeffects.PotentSulfurGeyser;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.predictionengine.predictions.PredictionEngine;
 import ac.voidac.utils.collisions.CollisionData;
@@ -190,6 +191,7 @@ public class PredictionEngineBoat extends PredictionEngine {
         // yes, this is how mojank does it
         Collisions.applyEffectsFromBlocks(player);
         Collisions.applyEffectsFromBlocks(player);
+        PotentSulfurGeyser.launchEntityTicker(player, player.clientVelocity, true);
     }
 
     @Override

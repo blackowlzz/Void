@@ -1,7 +1,9 @@
 package ac.voidac.manager.config;
 
 import ac.voidac.api.config.ConfigManager;
+import ac.voidac.manager.punishment.PunishmentDuration;
 import ac.voidac.utils.anticheat.LogUtil;
+import ac.voidac.utils.anticheat.SmallCaps;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -27,6 +29,10 @@ public class BaseConfigManager {
     @Getter
     private String prefix = "&bVoid &8»";
     @Getter
+    private boolean smallCapsEnabled = false;
+    @Getter
+    private boolean smallCapsLanguageMismatch = false;
+    @Getter
     private String webhookNotEnabled;
     @Getter
     private String webhookTestMessage;
@@ -46,6 +52,8 @@ public class BaseConfigManager {
     private boolean blockBlacklistedForgeClients;
     @Getter
     private boolean disablePongCancelling;
+    @Getter
+    private boolean viaProxyWarnOnJoin;
     @Getter
     private boolean autoTotemPunishEnabled;
     @Getter
@@ -106,9 +114,13 @@ public class BaseConfigManager {
     @Getter
     private String manualPunishReason;
     @Getter
+    private String manualPunishDefaultReason;
+    @Getter
     private boolean manualPunishPreferCustomBan;
     @Getter
     private String manualPunishCustomBanCommand;
+    @Getter
+    private String unbanCommand;
 
     // /void optimizer feature toggle: commands refuse to run when false
     @Getter
@@ -127,6 +139,11 @@ public class BaseConfigManager {
             LogUtil.warn("Detected invalid max-transaction-time! This setting is clamped between 1 and 180 to prevent issues. Attempting to disable or set this too high can result in memory usage issues.");
         }
 
+        int configuredMaxFrozenClientTime = config.getIntElse("max-frozen-client-time", 300);
+        if (configuredMaxFrozenClientTime > 600 || configuredMaxFrozenClientTime < 0) {
+            LogUtil.warn("Detected invalid max-frozen-client-time! This setting is clamped between 0 and 600 to prevent memory usage issues.");
+        }
+
         ignoredClientPatterns.clear();
         for (String string : config.getStringListElse("client-brand.ignored-clients", List.of())) {
             try {
@@ -138,6 +155,8 @@ public class BaseConfigManager {
 
         printAlertsToConsole = config.getBooleanElse("alerts.print-to-console", true);
         prefix = config.getStringElse("prefix", "&8[&5Void&8]");
+        smallCapsEnabled = config.getBooleanElse("small-caps", false);
+        smallCapsLanguageMismatch = smallCapsEnabled && !SmallCaps.supportsLanguage(config.getLanguageCode());
 
         webhookNotEnabled = config.getStringElse("webhook-not-enabled", "Void webhooks are dormant.");
         webhookTestMessage = config.getStringElse("webhook-test-message", "void signal test");
@@ -150,11 +169,12 @@ public class BaseConfigManager {
         disconnectBlacklistedForge = config.getStringElse("disconnect.blacklisted-forge",
                 "<red>Your Forge version is blacklisted because it carries built-in reach exploits.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309.");
         disablePongCancelling = config.getBooleanElse("disable-pong-cancelling", false);
+        viaProxyWarnOnJoin = config.getBooleanElse("viaproxy-warn-on-join", true);
 
         autoTotemPunishEnabled = config.getBooleanElse("exploit.auto-totem.autopunish.enabled", false);
         autoTotemPunishAction = config.getStringElse("exploit.auto-totem.autopunish.action", "ban");
         autoTotemPunishReason = config.getStringElse("exploit.auto-totem.autopunish.reason", "&cAutoTotem detected.\n&7Check: &f%check_name% &8(&dVL %vl%&8)");
-        autoTotemCustomBanDuration = config.getStringElse("exploit.auto-totem.autopunish.duration", "1d");
+        autoTotemCustomBanDuration = loadDuration(config, "exploit.auto-totem.autopunish.duration", "1d");
         autoTotemPreferCustomBan = config.getBooleanElse("exploit.auto-totem.autopunish.prefer-custom-ban", false);
         autoTotemCustomBanCommand = config.getStringElse("exploit.auto-totem.autopunish.custom-ban-command", "litebans:tempban {player} {duration} {reason}");
 
@@ -165,15 +185,17 @@ public class BaseConfigManager {
         autoPunishReason = config.getStringElse("punishments.auto-punish.reason", "&cThe void has claimed you.\n&7Check: &f%check_name% &8(&dVL %vl%&8)\n&7Why? You were detected cheating or bypassing check logic.\n&7If this was a mistake, check the appeal link below.");
         autoPunishBroadcastMessage = config.getStringElse("punishments.auto-punish.broadcast-message", "&8[&5Void&8] &5The Void&7 punished &f%player%&7 for &f%check_name%&7 &8(&dVL %vl%&8)");
         autoPunishSupportLink = config.getStringElse("punishments.auto-punish.support-link", "");
-        autoPunishCustomBanDuration = config.getStringElse("punishments.auto-punish.duration", autoTotemCustomBanDuration);
+        autoPunishCustomBanDuration = loadDuration(config, "punishments.auto-punish.duration", autoTotemCustomBanDuration);
         autoPunishPreferCustomBan = config.getBooleanElse("punishments.auto-punish.prefer-custom-ban", autoTotemPreferCustomBan);
         autoPunishCustomBanCommand = config.getStringElse("punishments.auto-punish.custom-ban-command", autoTotemCustomBanCommand);
 
-        manualPunishDuration = config.getStringElse("punishments.manual-punish.duration", "permanent");
+        manualPunishDuration = loadDuration(config, "punishments.manual-punish.duration", "7d");
         manualPunishReason   = config.getStringElse("punishments.manual-punish.reason",
                 "&5&l✦ Void AntiCheat\n&8▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n&c&lYou have been banned.\n&8▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n&7 Banned by &8» &f{issued_by}\n&7 Duration  &8» &f{duration}\n&8▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        manualPunishDefaultReason = config.getStringElse("punishments.manual-punish.default-reason", "Cheating");
         manualPunishPreferCustomBan = config.getBooleanElse("punishments.manual-punish.prefer-custom-ban", autoPunishPreferCustomBan);
         manualPunishCustomBanCommand = config.getStringElse("punishments.manual-punish.custom-ban-command", autoPunishCustomBanCommand);
+        unbanCommand = config.getStringElse("punishments.unban-command", "unban {player}");
 
         thresholdOptimizerEnabled = config.getBooleanElse("threshold-optimizer.enabled", false);
 
@@ -245,5 +267,15 @@ public class BaseConfigManager {
             }
         }
         return parsed;
+    }
+
+    private String loadDuration(ConfigManager config, String path, String fallback) {
+        String configured = config.getStringElse(path, fallback);
+        try {
+            return PunishmentDuration.normalize(configured);
+        } catch (IllegalArgumentException exception) {
+            LogUtil.warn("Invalid punishment duration at '" + path + "': '" + configured + "'. Using '" + fallback + "'.");
+            return PunishmentDuration.normalize(fallback);
+        }
     }
 }

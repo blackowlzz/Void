@@ -21,6 +21,7 @@ import ac.voidac.checks.CheckData;
 import ac.voidac.checks.type.PacketCheck;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
+import ac.voidac.utils.data.HitData;
 import ac.voidac.utils.data.packetentity.PacketEntity;
 import ac.voidac.utils.data.packetentity.PacketEntitySizeable;
 import ac.voidac.utils.data.packetentity.dragon.PacketEntityEnderDragonPart;
@@ -76,21 +77,25 @@ public class Reach extends Check implements PacketCheck {
     public void onPacketReceive(final PacketReceiveEvent event) {
         if (!player.disableVoid && event.getPacketType() == PacketType.Play.Client.ATTACK) {
             WrapperPlayClientAttack packet = new WrapperPlayClientAttack(event);
-            onInteract(event, packet.getEntityId(), InteractionHand.MAIN_HAND);
+            onInteract(event, packet.getEntityId(), InteractionHand.MAIN_HAND, true);
         }
 
         if (!player.disableVoid && event.getPacketType() == PacketType.Play.Client.INTERACT_ENTITY) {
             WrapperPlayClientInteractEntity packet = new WrapperPlayClientInteractEntity(event);
-            onInteract(event, packet.getEntityId(), packet.getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK ? InteractionHand.MAIN_HAND : packet.getHand());
+            boolean attack = packet.getAction() == WrapperPlayClientInteractEntity.InteractAction.ATTACK;
+            onInteract(event, packet.getEntityId(), attack ? InteractionHand.MAIN_HAND : packet.getHand(), attack);
         }
 
         // If the player set their look, or we know they have a new tick
         if (isUpdate(event.getPacketType())) {
             tickBetterReachCheckWithAngle();
         }
+        if (isTickPacket(event.getPacketType())) {
+            player.checkManager.getCheck(WallHit.class).advanceTick();
+        }
     }
 
-    private void onInteract(PacketReceiveEvent event, int entityId, InteractionHand hand) {
+    private void onInteract(PacketReceiveEvent event, int entityId, InteractionHand hand, boolean attack) {
         // Don't let the player teleport to bypass reach
         if (player.getSetbackTeleportUtil().shouldBlockMovement()) {
             event.setCancelled(true);
@@ -120,7 +125,7 @@ public class Reach extends Check implements PacketCheck {
         // Prevents Happy Ghast Reach false on 1.21.6+ servers with ViaBackwards set up
         if (entity.type == EntityTypes.HAPPY_GHAST && player.getClientVersion().isOlderThan(ClientVersion.V_1_21_6))
             return;
-        if (player.gamemode == GameMode.CREATIVE || player.gamemode == GameMode.SPECTATOR)
+        if (player.gamemode == GameMode.SPECTATOR || (player.gamemode == GameMode.CREATIVE && !attack))
             return;
         if (player.inVehicle()) return;
         if (entity.riding != null) return;
@@ -162,30 +167,53 @@ public class Reach extends Check implements PacketCheck {
                 if (currentRange == null) {
                     // Range (Start) -> No Range (Current)
                     // Client logic uses Start Range
-                    maxReach = startRange.getMaxRange();
+                    maxReach = player.gamemode == GameMode.CREATIVE ? startRange.getMaxCreativeRange() : startRange.getMaxRange();
                     hitboxMargin = startRange.getHitboxMargin();
                 } else {
                     // Range (Start) -> Range (Current)
                     // Client logic requires satisfying BOTH constraints
-                    maxReach = Math.min(startRange.getMaxRange(), currentRange.getMaxRange());
+                    maxReach = player.gamemode == GameMode.CREATIVE
+                            ? Math.min(startRange.getMaxCreativeRange(), currentRange.getMaxCreativeRange())
+                            : Math.min(startRange.getMaxRange(), currentRange.getMaxRange());
                     hitboxMargin = Math.min(startRange.getHitboxMargin(), currentRange.getHitboxMargin());
                 }
             }
         }
 
         boolean tooManyAttacks = playerAttackQueue.size() > 10;
-        if (!tooManyAttacks) {
-            playerAttackQueue.put(entityId, new InteractionData(
-                    player.x, player.y, player.z,
-                    hasRange, maxReach, hitboxMargin
-            )); // Queue for next tick for very precise check
-        }
 
         boolean knownInvalid = isKnownInvalid(entity, hasRange, maxReach, hitboxMargin);
 
-        if ((shouldModifyPackets() && cancelImpossibleHits && knownInvalid) || tooManyAttacks) {
+        WallHit.CancellationDecision cancellation = WallHit.CancellationDecision.NOT_CHECKED;
+        if (attack && !blacklisted.contains(entity.type) && (entity.isLivingEntity || entity.type == EntityTypes.END_CRYSTAL)) {
+            SimpleCollisionBox targetBox = getTargetBox(entity);
+            applyReachModifiers(targetBox, hasRange, maxReach, hitboxMargin, true);
+            cancellation = player.checkManager.getCheck(WallHit.class)
+                    .cancellationDecision(targetBox, player.x, player.y, player.z);
+            WallHit wallHit = player.checkManager.getCheck(WallHit.class);
+            if ((cancellation == WallHit.CancellationDecision.INCOMPLETE_COVERAGE
+                    || cancellation == WallHit.CancellationDecision.NO_OBSTRUCTION)
+                    && wallHit.canCancelConfirmedAttack(entityId)) {
+                CheckResult wallResult = checkReach(entity, player.x, player.y, player.z,
+                        hasRange, maxReach, hitboxMargin, false, true, true);
+                if (wallResult.type() == ResultType.WALL_HIT) {
+                    cancellation = WallHit.CancellationDecision.CONFIRMED_RAY;
+                }
+            }
+            if (cancellation != WallHit.CancellationDecision.BLOCK
+                    && cancellation != WallHit.CancellationDecision.CONFIRMED_RAY) {
+                wallHit.clearConfirmation(entityId);
+            }
+        }
+        if ((shouldModifyPackets() && cancelImpossibleHits && knownInvalid)
+                || cancellation == WallHit.CancellationDecision.BLOCK
+                || cancellation == WallHit.CancellationDecision.CONFIRMED_RAY || tooManyAttacks) {
             event.setCancelled(true);
             player.onPacketCancel();
+        }
+        if (!tooManyAttacks) {
+            playerAttackQueue.put(entityId, new InteractionData(player.x, player.y, player.z,
+                    hasRange, maxReach, hitboxMargin, attack, cancellation, event.isCancelled()));
         }
     }
 
@@ -224,7 +252,11 @@ public class Reach extends Check implements PacketCheck {
             if (reachEntity == null) continue;
 
             InteractionData interactionData = attack.getValue();
-            CheckResult result = checkReach(reachEntity, interactionData.x, interactionData.y, interactionData.z, interactionData.hasAttackRange, interactionData.maxReach, interactionData.hitboxMargin, false);
+            CheckResult result = checkReach(reachEntity, interactionData.x, interactionData.y, interactionData.z, interactionData.hasAttackRange, interactionData.maxReach, interactionData.hitboxMargin, false, interactionData.attack);
+            WallHit wallHit = player.checkManager.getCheck(WallHit.class);
+            if (interactionData.attack && result.type() != ResultType.WALL_HIT) {
+                wallHit.clearConfirmation(attack.getIntKey());
+            }
             switch (result.type()) {
                 case REACH -> {
                     String added = ", type=" + reachEntity.type.getName().getKey();
@@ -232,6 +264,12 @@ public class Reach extends Check implements PacketCheck {
                         added += ", size=" + sizeable.size;
                     }
                     flagAndAlert(result.verbose() + added);
+                }
+                case WALL_HIT -> {
+                    if (wallHit.flagAndAlert(result.verbose() + ", precheck=" + interactionData.cancellation
+                            + ", cancel_requested=" + interactionData.cancelRequested)) {
+                        wallHit.confirmObstruction(attack.getIntKey());
+                    }
                 }
                 case HITBOX -> {
                     String added = "type=" + reachEntity.type.getName().getKey();
@@ -248,10 +286,27 @@ public class Reach extends Check implements PacketCheck {
 
     @NotNull
     private CheckResult checkReach(PacketEntity reachEntity, double x, double y, double z, boolean hasAttackRange, float itemMaxReach, float itemHitboxMargin, boolean isPrediction) {
+        return checkReach(reachEntity, x, y, z, hasAttackRange, itemMaxReach, itemHitboxMargin, isPrediction, true);
+    }
+
+    @NotNull
+    private CheckResult checkReach(PacketEntity reachEntity, double x, double y, double z, boolean hasAttackRange, float itemMaxReach, float itemHitboxMargin, boolean isPrediction, boolean attack) {
+        return checkReach(reachEntity, x, y, z, hasAttackRange, itemMaxReach, itemHitboxMargin, isPrediction, attack, false);
+    }
+
+    @NotNull
+    private CheckResult checkReach(PacketEntity reachEntity, double x, double y, double z, boolean hasAttackRange,
+                                   float itemMaxReach, float itemHitboxMargin, boolean isPrediction,
+                                   boolean attack, boolean wallOnly) {
         SimpleCollisionBox targetBox = getTargetBox(reachEntity);
 
-        double maxReach = applyReachModifiers(targetBox, hasAttackRange, itemMaxReach, itemHitboxMargin, !player.packetStateData.didLastLastMovementIncludePosition);
+        double maxReach = applyReachModifiers(targetBox, hasAttackRange, itemMaxReach, itemHitboxMargin,
+                wallOnly || !player.packetStateData.didLastLastMovementIncludePosition);
         double minDistance = Double.MAX_VALUE;
+        WallHit wallCheck = player.checkManager.getCheck(WallHit.class);
+        boolean checkWalls = attack && !isPrediction && wallCheck.canCheck();
+        boolean allRaysBlocked = checkWalls;
+        HitData obstruction = null;
 
         // https://bugs.mojang.com/browse/MC-67665
         List<Vector3dm> possibleLookDirs = new ArrayList<>(Collections.singletonList(ReachUtils.getLook(player, player.yaw, player.pitch)));
@@ -285,17 +340,27 @@ public class Reach extends Check implements PacketCheck {
 
                 if (ReachUtils.isVecInside(targetBox, eyePos)) {
                     minDistance = 0;
+                    allRaysBlocked = false;
                     break;
                 }
 
                 if (intercept != null) {
                     minDistance = Math.min(eyePos.distance(intercept), minDistance);
+                    if (checkWalls && allRaysBlocked && eyePos.distance(intercept) <= maxReach) {
+                        HitData hit = wallCheck.findObstruction(eyePos, intercept);
+                        if (hit == null) allRaysBlocked = false;
+                        else if (obstruction == null) obstruction = hit;
+                    }
                 }
             }
         }
 
         // if the entity is not exempt and the entity is alive
         if ((!blacklisted.contains(reachEntity.type) && reachEntity.isLivingEntity) || reachEntity.type == EntityTypes.END_CRYSTAL) {
+            if (allRaysBlocked && obstruction != null && minDistance <= maxReach) {
+                return new CheckResult(ResultType.WALL_HIT, "block=" + obstruction.state().getType().getName());
+            }
+            if (wallOnly || player.gamemode == GameMode.CREATIVE) return NONE;
             if (minDistance == Double.MAX_VALUE) {
                 cancelBuffer = 1;
                 return new CheckResult(ResultType.HITBOX, "");
@@ -329,6 +394,10 @@ public class Reach extends Check implements PacketCheck {
             hitboxMargin += itemHitboxMargin;
         } else {
             maxReach = player.compensatedEntities.self.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE);
+            if (player.gamemode == GameMode.CREATIVE && (player.getClientVersion().isOlderThan(ClientVersion.V_1_20_5)
+                    || PacketEvents.getAPI().getServerManager().getVersion().isOlderThan(ServerVersion.V_1_20_5))) {
+                maxReach = 6;
+            }
             // 1.7 and 1.8 players get a bit of extra hitbox (this is why you should use 1.8 on cross version servers)
             // Yes, this is vanilla and not uncertainty.  All reach checks have this or they are wrong.
             if (player.getClientVersion().isOlderThan(ClientVersion.V_1_9)) {
@@ -357,7 +426,7 @@ public class Reach extends Check implements PacketCheck {
     }
 
     private enum ResultType {
-        REACH, HITBOX, NONE
+        REACH, HITBOX, WALL_HIT, NONE
     }
 
     private record CheckResult(ResultType type, String verbose) {
@@ -367,6 +436,7 @@ public class Reach extends Check implements PacketCheck {
     }
 
     private record InteractionData(double x, double y, double z, boolean hasAttackRange,
-                                   float maxReach, float hitboxMargin) {
+                                   float maxReach, float hitboxMargin, boolean attack,
+                                   WallHit.CancellationDecision cancellation, boolean cancelRequested) {
     }
 }

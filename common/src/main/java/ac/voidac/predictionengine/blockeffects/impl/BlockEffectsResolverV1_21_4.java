@@ -4,6 +4,7 @@ import ac.voidac.player.VoidPlayer;
 import ac.voidac.predictionengine.blockeffects.BlockEffectsResolver;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.voidac.utils.math.VoidMath;
+import ac.voidac.utils.math.Vector3dm;
 import ac.voidac.utils.nmsutil.Collisions;
 import ac.voidac.utils.nmsutil.GetBoundingBox;
 import com.github.retrooper.packetevents.protocol.world.states.WrappedBlockState;
@@ -22,7 +23,7 @@ public class BlockEffectsResolverV1_21_4 implements BlockEffectsResolver {
     public static final BlockEffectsResolver INSTANCE = new BlockEffectsResolverV1_21_4();
 
     @Override
-    public void applyEffectsFromBlocks(VoidPlayer player, List<VoidPlayer.Movement> movements) {
+    public void applyEffectsFromBlocks(VoidPlayer player, Vector3dm clientVelocity, boolean onlyApplyVelocity, List<VoidPlayer.Movement> movements) {
         LongSet visitedBlocks = player.visitedBlocks;
 
         for (VoidPlayer.Movement movement : movements) {
@@ -39,7 +40,7 @@ public class BlockEffectsResolverV1_21_4 implements BlockEffectsResolver {
                 }
 
                 if (visitedBlocks.add(VoidMath.asLong(blockPos))) {
-                    Collisions.onInsideBlock(player, blockType, blockState, blockPos.x, blockPos.y, blockPos.z, true);
+                    Collisions.onInsideBlock(player, clientVelocity, onlyApplyVelocity, blockType, blockState, blockPos.x, blockPos.y, blockPos.z, true);
                 }
             }
         }

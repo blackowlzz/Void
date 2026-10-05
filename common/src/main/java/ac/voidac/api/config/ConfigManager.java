@@ -36,6 +36,10 @@ public interface ConfigManager extends BasicReloadable {
 
     @Nullable <T> List<T> getListElse(String key, List<T> otherwise);
 
+    default String getLanguageCode() {
+        return "en";
+    }
+
     boolean hasLoaded();
 
 }

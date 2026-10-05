@@ -1,36 +1,36 @@
 # \u00BB は » (二重 >>)です。ANSI と UTF-8 はこれを異なる方法で解釈します... 場合によっては ? と表示されることがあります。
 prefix: "&8[&5Void&8]"
 
-alerts-enabled: "%prefix% &7アラート &aオン&7。"
-alerts-disabled: "%prefix% &7アラート &cオフ&7。"
-verbose-enabled: "%prefix% &7Verbose &aオン&7。"
-verbose-disabled: "%prefix% &7Verbose &cオフ&7。"
-brands-enabled: "%prefix% &7ブランド追跡 &aオン&7。"
-brands-disabled: "%prefix% &7ブランド追跡 &cオフ&7。"
+alerts-enabled: "%prefix% &a✔ &7<sc>アラート</sc> &a<sc>オン</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>アラート</sc> &c<sc>オフ</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>Verbose</sc> &a<sc>オン</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>Verbose</sc> &c<sc>オフ</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>ブランド追跡</sc> &a<sc>オン</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>ブランド追跡</sc> &c<sc>オフ</sc>"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
-malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
-console-specify-target: "%prefix% &cコンソールでターゲットを指定する必要があります！"
-player-not-found: "%prefix% &cプレイヤーはチェックから免除されているか、オフラインです！"
-player-not-this-server: "%prefix% &cプレイヤーはこのサーバーにいません！"
-sender-not-found: "%prefix% &c免除状態の場合、このコマンドは使用できません！"
-spectate-return: "\n%prefix% &f以前の場所に戻るにはここをクリック\n"
-cannot-spectate-return: "%prefix% &c観戦しているプレイヤー以外ではこの操作はできません"
-cannot-run-on-self: "%prefix% &c自分に対してこのコマンドは使用できません！"
-upload-log: "%prefix% &fデバッグをアップロードしました: %url%"
-upload-log-start: "%prefix% &fログをアップロード中... しばらくお待ちください"
-upload-log-not-found: "%prefix% &cそのログが見つかりません"
-upload-log-upload-failure: "%prefix% &cログのアップロード中に問題が発生しました。詳細はコンソールを確認してください"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>が読み取れないパケットを送信したためキックされました</sc> &8(&7<sc>クラッシャーの可能性</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>コンソールではターゲットを指定してください</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>そのプレイヤーが見つかりません</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>そのプレイヤーはこのサーバーにいません</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>免除されたユーザーはこのコマンドを使用できません</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>クリックして戻る</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>観戦した後でのみ実行できます</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>自分自身にこのコマンドは使用できません</sc>"
+upload-log: "%prefix% &a✔ &7<sc>ログを保存しました</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>ログを保存中...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>ログが見つかりません</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>ログの保存に失敗しました。詳細はコンソールを確認してください</sc>"
 disconnect:
     timeout: "<lang:disconnect.timeout>"
     closed: "<lang:disconnect.closed>"
     error: "<red>An error occurred whilst processing packets. Please contact the administrators."
     blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
-run-as-player: "%prefix% &cこのコマンドはプレイヤーのみが使用できます！"
-run-as-player-or-console: "%prefix% &cこのコマンドはプレイヤーまたはコンソールからのみ使用できます！"
-webhook-not-enabled: "Void webhooks are dormant."
+run-as-player: "%prefix% &c✖ &7<sc>このコマンドはプレイヤーのみ使用できます</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>このコマンドはプレイヤーまたはコンソールのみ使用できます</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Webhook は有効ではありません</sc>"
 webhook-test-message: "void signal test"
-webhook-test-succeeded: "Void webhook test succeeded!"
-webhook-test-failed: "Void webhook test failed!"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Webhook のテストメッセージを送信しました</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Webhook のテストに失敗しました。詳細はコンソールを確認してください</sc>"
 
 # 使用可能なプレースホルダー:
 # %prefix%
@@ -41,33 +41,34 @@ webhook-test-failed: "Void webhook test failed!"
 # %vl% - 違反回数
 # %verbose% - チェックからの追加情報（全てのチェックが情報を追加するわけではありません）
 alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
-alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
 experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7スモールキャップが有効ですが、この言語では正しく表示されません。config.yml で &fsmall-caps: false &7に設定してください。"
 
 profile:
     - ""
-    - "  %prefix% &5プロファイル &8─ &f%player%"
-    - "  &8▸ &7Ping       &f%ping% ms"
-    - "  &8▸ &7バージョン &f%version%"
-    - "  &8▸ &7ブランド   &f%brand%"
-    - "  &8▸ &7感度       &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
-    - "  &8▸ &7FastMath   &f%fast_math%"
+    - "  %prefix% &5<sc>プロファイル</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>Ping</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>バージョン</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>ブランド</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>感度</sc> &8│ &fH %h_sensitivity%% &8/ &fV %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
     - ""
 help:
-    - "  &5/void alerts              &8│ &7アラートを切り替えます"
-    - "  &5/void verbose             &8│ &7Verboseを切り替えます"
-    - "  &5/void brands              &8│ &7ブランド追跡を切り替えます"
-    - "  &5/void profile &8<player>    &8│ &7プレイヤープロファイルを表示"
-    - "  &5/void debug &8<player>      &8│ &7デバッグトレースを表示"
-    - "  &5/void spectate &8<player>   &8│ &7プレイヤーを観戦"
-    - "  &5/void history &8<player>    &8│ &7セッション履歴"
-    - "  &5/void log &8[0-255]         &8│ &7デバッグログをアップロード"
-    - "  &5/void perf                &8│ &7予測タイミングを表示"
-    - "  &5/void reload              &8│ &7設定をリロード"
-    - "  &5/void version             &8│ &7アップデートを確認"
-    - "  &5/void punish &8<player>     &8│ &7プレイヤーを手動で処罰"
-    - "  &5/void banwave             &8│ &7バンウェーブを管理"
-    - "  &5/void punishments &8<query> &8│ &7処罰記録を検索"
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>アラートを切り替え</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>Verbose を切り替え</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>クライアントブランドを監視</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<player> &8· &7<sc>プレイヤーのプロファイルを表示</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<player> &8· &7<sc>デバッグトレースを表示</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<player> &8· &7<sc>プレイヤーを密かに観戦</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<player> &8· &7<sc>セッション履歴を閲覧</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<player> &8· &7<sc>プレイヤーを手動で処罰</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>バンウェーブのキューを管理</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<query> &8· &7<sc>処罰記録を検索</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>デバッグログをアップロード</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>予測タイミングを表示</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>設定を再読み込み</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>アップデートを確認</sc>"
 
 # === /void history ===
 # セッション単位の履歴 UI です。下記すべての行は自由に書き換え可能で、
@@ -76,15 +77,15 @@ help:
 # テンプレートは不要です。任意の行に <hover:show_text:'...'> を追加すると
 # ツールチップを重ねて表示できます。
 
-void-history-load-failure: "%prefix% &c履歴サブシステムの読み込みに失敗しました！サーバーコンソールでエラーを確認してください。"
-void-history-disabled: "%prefix% &c履歴サブシステムは無効です！"
-void-history-failed: "%prefix% &c履歴の読み込みに失敗しました：&7%error%"
-void-history-unknown-player: "%prefix% &c不明なプレイヤー：&f%player%"
-void-history-no-sessions: "%prefix% &7&f%player% &7のセッション履歴はありません。"
-void-history-session-not-found: "%prefix% &c&f%player% &cの第 &f%ordinal% &c回セッションが見つかりません。"
+void-history-load-failure: "%prefix% &c✖ &7<sc>履歴を読み込めませんでした。コンソールでエラーを確認してください</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>履歴は無効です</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>履歴の読み込みに失敗しました:</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>不明なプレイヤー:</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7&f%player% &7<sc>のセッションはありません</sc>"
+void-history-session-not-found: "%prefix% &c✖ &7&f%player% &7<sc>の</sc> &f%ordinal% &7<sc>番目のセッションが見つかりません</sc>"
 
 # セッション一覧: 有効なプレースホルダ: %prefix% %player% %page% %max_pages%
-void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+void-history-header: "%prefix% &5<sc>セッション</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
 # セッション概要行: 有効なプレースホルダ:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -93,23 +94,23 @@ void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_
 # 接続が正常終了せずに失われたセッションでは %crashed_marker% が
 # void-history-crashed-marker に展開されます。継続中／正常終了したセッションでは
 # 空文字列になります。
-void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>フラグ</sc> &8(&d%unique_checks%&8) &8│ &7%timeago% <sc>前</sc> &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # closed_at == last_activity のセッション（つまり次回起動時のクラッシュ掃引で
 # スタンプされ、切断パスを通っていない行）に対して %crashed_marker% に
 # 差し込まれるインラインマーカーです。先頭にスペースを含めることで、
 # 表示時は自然に読め、空のときはきれいに消えます。
-void-history-crashed-marker: " &8(&ccrashed&8)"
+void-history-crashed-marker: " &8(&c<sc>クラッシュ</sc>&8)"
 
 # セッション詳細: 有効なプレースホルダ:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
-void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
-void-history-detail-meta2: "  &8▸ &7クライアント &f%client_version% &8│ &7ブランド &f%client_brand%"
-void-history-detail-violations-header: "  &8▸ &d%violations% &7違反 &8(&d%unique_checks% &7種類&8)"
-void-history-detail-empty: "  &8▸ &7(なし)"
+void-history-detail-header: "%prefix% &5<sc>セッション</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>バージョン</sc> &f%void_version% &8│ &7<sc>サーバー</sc> &f%server_name% &8│ &7<sc>期間</sc> &f%duration% &8│ &7%timeago% <sc>前</sc>"
+void-history-detail-meta2: "  &8▸ &7<sc>クライアント</sc> &f%client_version% &8│ &7<sc>ブランド</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>違反</sc> &8(&d%unique_checks% &7<sc>種類</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>なし</sc>)"
 # グループ化された行（デフォルト）: 有効なプレースホルダ: %prefix% %offset% %checks_list%
 #   %checks_list% は void-history-check-count の項目を ", " で連結したものです
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
@@ -121,4 +122,8 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # スキーマ用マーカー: config.yml のヘッダーコメントを参照。
 config-flavor: V2
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>Verbose は</sc> &c<sc>オフ</sc>&7<sc>です。検知された違反のみ表示されます。</sc> &5/void verbose &7<sc>で検知しきい値に近いケースも表示できます。</sc>"
 config-version: 2
+reloading: "%prefix% &7<sc>設定を再読み込み中...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>設定</sc> &a<sc>再読み込み完了</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>設定の再読み込み</sc> &c<sc>失敗</sc>&7<sc>。詳細はコンソールを確認してください</sc>"

@@ -1,39 +1,39 @@
 # \u00BB 表示 » (相当于缩小版的 >>), ANSI和UTF-8的显示方式有所不同,有时你甚至可以看到乱码.
 prefix: "&8[&5Void&8]"
 
-alerts-enabled: "%prefix% &7警报 &a已开启&7。"
-alerts-disabled: "%prefix% &7警报 &c已禁用&7。"
-verbose-enabled: "%prefix% &7详细模式 &a已开启&7。"
-verbose-disabled: "%prefix% &7详细模式 &c已禁用&7。"
-brands-enabled: "%prefix% &7品牌追踪 &a已开启&7。"
-brands-disabled: "%prefix% &7品牌追踪 &c已禁用&7。"
+alerts-enabled: "%prefix% &a✔ &7<sc>警报</sc> &a<sc>已开启</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>警报</sc> &c<sc>已关闭</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>详细模式</sc> &a<sc>已开启</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>详细模式</sc> &c<sc>已关闭</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>品牌追踪</sc> &a<sc>已开启</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>品牌追踪</sc> &c<sc>已关闭</sc>"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
-malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
-console-specify-target: "%prefix% &c您必须指定一个目标作为控制台!"
-reloading: "%prefix% &7重载中..."
-reloaded: "%prefix% &7配置 &a重载完毕&7。"
-reload-failed: "%prefix% &7配置重载 &c失败&7。"
-player-not-found: "%prefix% &c指定玩家不存在或离线!"
-player-not-this-server: "%prefix% &c指定玩家不在此服务器上！"
-sender-not-found: "%prefix% &c如果你被豁免，则无法使用此命令！"
-spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &f点击这里返回之前的位置\n</hover></click>"
-cannot-spectate-return: "%prefix% &c您只能在观看玩家后执行此操作"
-cannot-run-on-self: "%prefix% &c你不能对自己使用此命令!"
-upload-log: "%prefix% &f已经将日志文件上传至: %url%"
-upload-log-start: "%prefix% &f上传中...请等待"
-upload-log-not-found: "%prefix% &c找不到该日志."
-upload-log-upload-failure: "%prefix% &c上载此日志时出错, 有关详细信息, 请参阅控制台"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>发送了无法读取的数据包并被踢出</sc> &8(&7<sc>疑似崩服</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>控制台必须指定目标</sc>"
+reloading: "%prefix% &7<sc>正在重载配置...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>配置</sc> &a<sc>已重载</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>配置重载</sc> &c<sc>失败</sc>&7<sc>，详情请查看控制台</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>找不到该玩家</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>该玩家不在此服务器上</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>被豁免的用户无法使用此命令</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>点击返回</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>只有在旁观玩家后才能执行此操作</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>你不能对自己使用此命令</sc>"
+upload-log: "%prefix% &a✔ &7<sc>日志已保存</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>正在保存日志...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>找不到日志</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>日志保存失败，详情请查看控制台</sc>"
 disconnect:
     timeout: "<lang:disconnect.timeout>"
     closed: "<lang:disconnect.closed>"
     error: "<red>An error occurred whilst processing packets. Please contact the administrators."
     blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
-run-as-player: "%prefix% &c此命令只能由玩家使用！"
-run-as-player-or-console: "%prefix% &c此命令只能由玩家或控制台使用！"
-webhook-not-enabled: "Void webhooks are dormant."
+run-as-player: "%prefix% &c✖ &7<sc>只有玩家可以使用此命令</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>只有玩家或控制台可以使用此命令</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Webhook 未启用</sc>"
 webhook-test-message: "void signal test"
-webhook-test-succeeded: "Void webhook test succeeded!"
-webhook-test-failed: "Void webhook test failed!"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Webhook 测试消息已送达</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Webhook 测试失败，详情请查看控制台</sc>"
 
 # 变量:
 # %prefix% - 前缀
@@ -44,70 +44,71 @@ webhook-test-failed: "Void webhook test failed!"
 # %vl% - VL值
 # %verbose% - 检查中的额外信息说明，例如偏移量，并非所有检查都会添加信息
 alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
-alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
 experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7小型大写字母已启用，但在此语言下无法正确显示。请在 config.yml 中设置 &fsmall-caps: false&7。"
 
 profile:
     - ""
-    - "  %prefix% &5档案 &8─ &f%player%"
-    - "  &8▸ &7延迟     &f%ping% ms"
-    - "  &8▸ &7版本     &f%version%"
-    - "  &8▸ &7客户端   &f%brand%"
-    - "  &8▸ &7灵敏度   &f横 %h_sensitivity%% &8│ &f纵 %v_sensitivity%%"
-    - "  &8▸ &7FastMath &f%fast_math%"
+    - "  %prefix% &5<sc>档案</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>延迟</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>版本</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>品牌</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>灵敏度</sc> &8│ &f横 %h_sensitivity%% &8/ &f纵 %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
     - ""
 help:
-    - "  &5/void alerts              &8│ &7开启/关闭警报"
-    - "  &5/void verbose             &8│ &7开启/关闭详细模式"
-    - "  &5/void brands              &8│ &7追踪客户端品牌"
-    - "  &5/void profile &8<玩家>      &8│ &7查看玩家档案"
-    - "  &5/void debug &8<玩家>        &8│ &7查看调试跟踪"
-    - "  &5/void spectate &8<玩家>     &8│ &7旁观玩家"
-    - "  &5/void history &8<玩家>      &8│ &7查看会话历史"
-    - "  &5/void log &8[0-255]         &8│ &7上传调试日志"
-    - "  &5/void perf                &8│ &7查看预测耗时"
-    - "  &5/void reload              &8│ &7重载配置"
-    - "  &5/void version             &8│ &7检查更新"
-    - "  &5/void punish &8<玩家>       &8│ &7手动处罚玩家"
-    - "  &5/void banwave             &8│ &7管理封禁浪潮"
-    - "  &5/void punishments &8<query> &8│ &7查找处罚记录"
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>开启/关闭警报</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>开启/关闭详细模式</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>追踪客户端品牌</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<玩家> &8· &7<sc>查看玩家档案</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<玩家> &8· &7<sc>查看调试跟踪</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<玩家> &8· &7<sc>悄悄旁观玩家</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<玩家> &8· &7<sc>浏览会话历史</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<玩家> &8· &7<sc>手动处罚玩家</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>管理封禁浪潮队列</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<查询> &8· &7<sc>查找处罚记录</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>上传调试日志</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>查看预测耗时</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>重载配置</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>检查更新</sc>"
 
 # === /void history ===
 # 基于会话的历史界面。下方所有行均可自定义；每个键的占位符在注释中说明。
 # 会话和违规行的悬停文本由渲染器根据原始数据（verbose、检查统计）自动构建，
 # 无需模板: 但你可以在任意行加 <hover:show_text:'...'> 叠加额外提示。
 
-void-history-load-failure: "%prefix% &c历史子系统加载失败！请检查服务器控制台中的错误。"
-void-history-disabled: "%prefix% &c历史子系统已禁用！"
-void-history-failed: "%prefix% &c历史加载失败：&7%error%"
-void-history-unknown-player: "%prefix% &c未知玩家：&f%player%"
-void-history-no-sessions: "%prefix% &7没有 &f%player% &7的会话历史。"
-void-history-session-not-found: "%prefix% &c未找到 &f%player% &c的第 &f%ordinal% &c次会话。"
+void-history-load-failure: "%prefix% &c✖ &7<sc>无法加载历史，请查看控制台中的错误</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>历史已禁用</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>历史加载失败:</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>未知玩家:</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7<sc>没有</sc> &f%player% &7<sc>的会话</sc>"
+void-history-session-not-found: "%prefix% &c✖ &7<sc>未找到</sc> &f%player% &7<sc>的第</sc> &f%ordinal% &7<sc>次会话</sc>"
 
 # 会话列表: 可用占位符: %prefix% %player% %page% %max_pages%
-void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+void-history-header: "%prefix% &5<sc>会话</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
 # 单条会话摘要: 可用占位符:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %crashed_marker%
 # 当会话因服务器崩溃、kill -9 或未触发 UserDisconnectEvent 的连接重置而非正常关闭时，
 # %crashed_marker% 会展开为 void-history-crashed-marker；正在进行或正常关闭的会话则为空字符串。
-void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>标记</sc> &8(&d%unique_checks%&8) &8│ &7%timeago% <sc>前</sc> &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # 替换到 %crashed_marker% 的内联标记：仅对 closed_at == last_activity 的会话显示
 # （即由下次启动的崩溃扫描而非正常断开路径标记的会话）。包含前导空格，
 # 这样存在时读起来自然，缺失时也会消失。
-void-history-crashed-marker: " &8(&ccrashed&8)"
+void-history-crashed-marker: " &8(&c<sc>崩溃</sc>&8)"
 
 # 会话详情: 可用占位符:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
-void-history-detail-meta1: "  &8▸ &7版本 &f%void_version% &8│ &7服务器 &f%server_name% &8│ &7时长 &f%duration% &8│ &7%timeago% 前"
-void-history-detail-meta2: "  &8▸ &7客户端 &f%client_version% &8│ &7品牌 &f%client_brand%"
-void-history-detail-violations-header: "  &8▸ &d%violations% &7次违规 &8(&d%unique_checks% &7种类&8)"
-void-history-detail-empty: "  &8▸ &7(无)"
+void-history-detail-header: "%prefix% &5<sc>会话</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>版本</sc> &f%void_version% &8│ &7<sc>服务器</sc> &f%server_name% &8│ &7<sc>时长</sc> &f%duration% &8│ &7%timeago% <sc>前</sc>"
+void-history-detail-meta2: "  &8▸ &7<sc>客户端</sc> &f%client_version% &8│ &7<sc>品牌</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>违规</sc> &8(&d%unique_checks% &7<sc>种类</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>无</sc>)"
 # 分组行（默认）: 可用占位符: %prefix% %offset% %checks_list%
 #   %checks_list% 是用 ", " 拼接 void-history-check-count 项构成的列表
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
@@ -119,4 +120,5 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # 模式标记: 参见 config.yml 顶部的注释。
 config-flavor: V2
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>详细模式当前</sc> &c<sc>已关闭</sc>&7<sc>，因此只会显示已触发的警报。</sc> &5/void verbose &7<sc>还会显示接近检测阈值的情况。</sc>"
 config-version: 2

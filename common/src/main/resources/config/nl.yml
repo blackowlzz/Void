@@ -16,6 +16,10 @@ verbose:
 
 experimental-checks: false
 
+# Toont Void-berichten in kleine hoofdletters (ᴠᴏɪᴅ-ѕᴛɪᴊʟ). Vereist een clientlettertype met deze tekens: zie je vakjes in plaats van letters, laat dit dan uit.
+# Alleen bedoeld voor Engels: talen met accenten of niet-Latijnse schriften (Italiaans, Russisch, Chinees, ...) tonen gemengde of niet-gestileerde tekst, en staff met void.alerts krijgt 5 seconden na het joinen een waarschuwing in het spel.
+small-caps: false
+
 # Spelers die verbinding maken via een proxy met ViaVersion kunnen
 # pakketvertaalproblemen veroorzaken die fout-positieven genereren.
 # allow: stel in op true om ze toe te laten in plaats van te kicken.
@@ -23,6 +27,8 @@ experimental-checks: false
 via-proxy:
     allow: false
     disable-setbacks: true
+
+viaproxy-warn-on-join: true
 
 # Cross-versie voorspellings-offset demping.
 #
@@ -78,6 +84,9 @@ spectators:
 
 # Seconden voor het kicken van een speler die niet meer reageert.
 max-transaction-time: 60
+
+# Maximaal aantal seconden dat een bevroren client die nog op keep-alives reageert (bijv. geminimaliseerd met vsync) verbonden blijft. 0-600, hogere waarden gebruiken meer geheugen.
+max-frozen-client-time: 300
 
 # Pastebin API-sleutel voor /void debug. Leeg laten voor lokale opslag.
 pastebin-api-key: ""
@@ -137,10 +146,12 @@ AutoClickerB:
     min-bucket-cv: 0.10
 
 AutoClickerC:
-    # Vanilla clients send at most 1 attack per tick. Keep at 1.
+    # A client queues every click and sends them all on the next tick, so an occasional double click is normal.
+    # Drag clicking can keep several per tick going for a while. Keep at 1 and let min-consecutive-ticks filter.
+    # Raise it only if drag clicking is allowed on your server.
     max-attacks-per-tick: 1
     # Consecutive ticks with too many attacks before flagging.
-    # 3 absorbs rare ViaVersion packet reordering without missing real violations.
+    # 3 absorbs one-off double clicks and rare ViaVersion packet reordering without missing real violations.
     min-consecutive-ticks: 3
 
 TimerA:
@@ -200,6 +211,8 @@ exploit:
 
 punishments:
 
+    unban-command: "unban {player}"
+
     auto-punish:
         enabled: false
         # Violations die EEN ENKELE check moet bereiken voordat Void ingrijpt (niet de som van alle checks).
@@ -240,12 +253,14 @@ punishments:
 
     manual-punish:
         duration: "7d"
+        default-reason: "Cheating"
         reason: |
             &5VoidAC
             &cAccount Geblokkeerd
             &7Verbannen door: &f{issued_by}
             &7Ban ID: &d{ban_id}
             &7Duur: &f{duration}
+            &7Reden: &f{reason}
         prefer-custom-ban: false
         custom-ban-command: "litebans:tempban {player} {duration} {reason}"
 
@@ -258,18 +273,51 @@ ban-wave:
     queue-on-auto-punish: false
     auto-execute-days: 7
     duration: "7d"
+    default-reason: "Cheating"
     reason: |
         &5VoidAC
         &cAccount Geblokkeerd
         &7Ban Wave: &d#{wave}
         &7Ban ID: &d{ban_id}
         &7Duur: &f{duration}
+        &7Reden: &f{reason}
     broadcast: "&8[&5Void&8] &7Ban Wave &d#{wave} &7uitgevoerd: &d{count} &7spelers verwijderd."
     prefer-custom-ban: false
     # Commandosjabloon. Plaatshouders: {player}  {duration}  {reason}
     # LiteBans:    "litebans:tempban {player} {duration} {reason}"
     # AdvancedBan: "ban {player} {reason} -t {duration}"
     custom-ban-command: "litebans:tempban {player} {duration} {reason}"
+
+# Anti-ESP and Anti-Freecam
+
+anti-spoof:
+    auto-kick: true
+    kick-message: "<red>You have been kicked for using a blacklisted client."
+
+# =============================================================================
+# WARNING: ANTIESP IS AN EXPERIMENTAL DEVELOPMENT FEATURE
+#
+# AntiESP is still under active testing and is not ready for production use.
+# Enabling it may cause incorrect blocks, hidden entities, visual glitches,
+# compatibility problems, or other serious gameplay issues for players.
+# This section is included only for developer testing convenience.
+# Keep enabled set to false on every live server.
+# =============================================================================
+anti-esp:
+    enabled: false
+    entity-visibility: true
+    block-entity-visibility: true
+    terrain-masking: true
+    hide-below-y: 0
+    replacement-block: "air"
+    proximity-radius: 16
+    line-of-sight-distance: 96
+    underground-reveal-radius: 2
+    entity-recheck-interval-ticks: 2
+    pov-unmasking: true
+    pov-distance: 48
+    pov-refresh-interval-ticks: 4
+    chunk-refresh-cooldown-ticks: 4
 
 # Storage ESP Decoys
 
@@ -352,6 +400,7 @@ threshold-optimizer:
 
 packet-spam-threshold: 100
 debug-packet-cancel: false
+debug-packet-exceptions: false
 
 max-ping-out-of-flying: 1000
 max-ping-firework-boost: 1000
@@ -381,4 +430,4 @@ diagnostic-logger:
     # Async write queue depth. Entries are dropped (oldest first) when full.
     queue-capacity: 4096
 config-flavor: V2
-config-version: 22
+config-version: 32

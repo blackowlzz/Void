@@ -51,6 +51,9 @@ allprojects {
 
         exclusive("https://repo." + "g" + "rim" + ".ac/snapshots") {
             includeGroup("ac.voidac")
+        }
+
+        exclusive("https://maven.grim.ac/public/snapshots") {
             includeGroup("com.github.retrooper")
         }
 

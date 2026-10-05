@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,8 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,12 +25,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
 
 /**
  * The network's ban list. Lives on the proxy because the proxy is what actually
  * refuses the login, so a backend being down stops being anybody's problem.
  *
  * Reads sit on the login path so they're lock-free. Writes are rare.
+ *
+ * A player can hold several bans at once as long as they cover different
+ * scopes. A new ban replaces an older one only when both cover the same servers.
  */
 public final class BanRegistry {
 
@@ -57,12 +64,16 @@ public final class BanRegistry {
         }
     }
 
+    private static final String BACKUP_NAME = "bans.yml.bak";
+
     private final Path file;
     private final ProxyPlatform platform;
 
-    private final Map<UUID, Entry> byUuid = new ConcurrentHashMap<>();
+    private final Map<UUID, List<Entry>> byUuid = new ConcurrentHashMap<>();
     // fallback for when offline-mode UUIDs disagree across the network
-    private final Map<String, Entry> byName = new ConcurrentHashMap<>();
+    private final Map<String, List<Entry>> byName = new ConcurrentHashMap<>();
+
+    private boolean backedUp;
 
     public BanRegistry(@NotNull Path dataDirectory, @NotNull ProxyPlatform platform) {
         this.file = dataDirectory.resolve("bans.yml");
@@ -71,18 +82,24 @@ public final class BanRegistry {
 
     /** Pass a null serverName to ask "is this player banned from anything at all". */
     public @Nullable Entry find(@Nullable UUID uuid, @Nullable String playerName, @Nullable String serverName) {
-        Entry entry = uuid != null ? byUuid.get(uuid) : null;
-        if (entry == null && playerName != null) {
-            entry = byName.get(playerName.toLowerCase(Locale.ROOT));
+        List<Entry> candidates = uuid != null ? byUuid.get(uuid) : null;
+        if (candidates == null && playerName != null) {
+            candidates = byName.get(nameKey(playerName));
         }
-        if (entry == null) return null;
+        if (candidates == null) return null;
 
-        if (entry.isExpired()) {
-            remove(entry.uuid(), entry.playerName());
-            return null;
+        Entry best = null;
+        boolean sawExpired = false;
+        for (Entry entry : candidates) {
+            if (entry.isExpired()) {
+                sawExpired = true;
+                continue;
+            }
+            if (serverName != null && !entry.covers(serverName)) continue;
+            if (best == null || outranks(entry, best, serverName == null)) best = entry;
         }
-        if (serverName != null && !entry.covers(serverName)) return null;
-        return entry;
+        if (sawExpired) pruneExpired();
+        return best;
     }
 
     public boolean isNetworkWide(@NotNull Entry entry, @NotNull Collection<String> known) {
@@ -93,13 +110,17 @@ public final class BanRegistry {
         return true;
     }
 
-    /** Every live ban, for answering a SYNC. */
+    /** Every live ban, for answering a SYNC. One per player: the strongest one covering that server. */
     public @NotNull List<BanPayload> activePayloads(@Nullable String forServer) {
         List<BanPayload> out = new ArrayList<>();
-        for (Entry entry : byUuid.values()) {
-            if (entry.isExpired()) continue;
-            if (forServer != null && !entry.covers(forServer)) continue;
-            out.add(entry.toPayload());
+        for (List<Entry> entries : byUuid.values()) {
+            Entry best = null;
+            for (Entry entry : entries) {
+                if (entry.isExpired()) continue;
+                if (forServer != null && !entry.covers(forServer)) continue;
+                if (best == null || outranks(entry, best, false)) best = entry;
+            }
+            if (best != null) out.add(best.toPayload());
         }
         // name-only bans have no UUID and backends can't store them anyway,
         // so they stay proxy-side and simply don't get synced
@@ -107,55 +128,65 @@ public final class BanRegistry {
     }
 
     /**
-     * True means something changed. A repeat of the same ban id returns false,
-     * which is what stops the second arrival (live, then SYNC) causing another
-     * round of kicks.
+     * True means something changed. A repeat of the same ban id over the same
+     * servers returns false, which is what stops the second arrival (live, then
+     * SYNC) causing another round of kicks.
      */
-    public boolean put(@NotNull Entry entry) {
+    public synchronized boolean put(@NotNull Entry entry) {
         if (entry.isExpired()) return false;
 
-        Entry existing = entry.uuid() != null
-                ? byUuid.get(entry.uuid())
-                : byName.get(entry.playerName().toLowerCase(Locale.ROOT));
-        if (existing != null && existing.banId().equals(entry.banId()) && !existing.isExpired()) {
-            return false;
+        for (Entry existing : subjectEntries(entry)) {
+            if (!existing.isExpired()
+                    && existing.banId().equals(entry.banId())
+                    && existing.servers().equals(entry.servers())) {
+                return false;
+            }
         }
 
-        if (entry.uuid() != null) byUuid.put(entry.uuid(), entry);
-        byName.put(entry.playerName().toLowerCase(Locale.ROOT), entry);
+        insert(entry);
         save();
         return true;
     }
 
-    public boolean remove(@Nullable UUID uuid, @Nullable String playerName) {
-        boolean changed = false;
-        if (uuid != null) {
-            Entry removed = byUuid.remove(uuid);
-            if (removed != null) {
-                byName.remove(removed.playerName().toLowerCase(Locale.ROOT));
-                changed = true;
+    public synchronized boolean remove(@Nullable UUID uuid, @Nullable String playerName) {
+        List<Entry> doomed = new ArrayList<>();
+        List<Entry> byId = uuid != null ? byUuid.get(uuid) : null;
+        List<Entry> named = playerName != null ? byName.get(nameKey(playerName)) : null;
+
+        if (byId != null) {
+            doomed.addAll(byId);
+            if (named != null) {
+                for (Entry entry : named) {
+                    if (entry.uuid() == null) doomed.add(entry);
+                }
             }
+        } else if (named != null) {
+            doomed.addAll(named);
         }
-        if (playerName != null) {
-            Entry removed = byName.remove(playerName.toLowerCase(Locale.ROOT));
-            if (removed != null) {
-                if (removed.uuid() != null) byUuid.remove(removed.uuid());
-                changed = true;
-            }
-        }
-        if (changed) save();
-        return changed;
+
+        if (!delete(doomed)) return false;
+        save();
+        return true;
     }
 
-    public void pruneExpired() {
-        boolean changed = byUuid.values().removeIf(Entry::isExpired);
-        changed |= byName.values().removeIf(Entry::isExpired);
-        if (changed) save();
+    public synchronized void pruneExpired() {
+        List<Entry> doomed = new ArrayList<>();
+        for (List<Entry> entries : byUuid.values()) {
+            for (Entry entry : entries) {
+                if (entry.isExpired()) doomed.add(entry);
+            }
+        }
+        for (List<Entry> entries : byName.values()) {
+            for (Entry entry : entries) {
+                if (entry.isExpired()) doomed.add(entry);
+            }
+        }
+        if (delete(doomed)) save();
     }
 
     /** A corrupt file gets renamed, not deleted. Losing a ban list quietly is how cheaters walk back in. */
     @SuppressWarnings("unchecked")
-    public void load() {
+    public synchronized void load() {
         if (!Files.exists(file)) return;
 
         List<Map<String, Object>> raw;
@@ -200,8 +231,7 @@ public final class BanRegistry {
                         servers);
 
                 if (entry.isExpired()) continue;
-                if (uuid != null) byUuid.put(uuid, entry);
-                byName.put(entry.playerName().toLowerCase(Locale.ROOT), entry);
+                insert(entry);
                 loaded++;
             } catch (Exception malformed) {
                 platform.warn("Skipping a malformed row in bans.yml: " + malformed, null);
@@ -210,13 +240,92 @@ public final class BanRegistry {
         platform.info("Loaded " + loaded + " active ban(s).");
     }
 
+    private static boolean outranks(Entry candidate, Entry current, boolean widestFirst) {
+        if (widestFirst) {
+            boolean candidateWide = candidate.servers().isEmpty();
+            if (candidateWide != current.servers().isEmpty()) return candidateWide;
+        }
+        int byExpiry = Long.compare(lifetime(candidate), lifetime(current));
+        if (byExpiry != 0) return byExpiry > 0;
+        return candidate.issuedAt() > current.issuedAt();
+    }
+
+    private static long lifetime(Entry entry) {
+        return entry.expiresAt() == 0 ? Long.MAX_VALUE : entry.expiresAt();
+    }
+
+    private static String nameKey(String playerName) {
+        return playerName.toLowerCase(Locale.ROOT);
+    }
+
+    private List<Entry> subjectEntries(Entry entry) {
+        List<Entry> candidates = entry.uuid() != null
+                ? byUuid.get(entry.uuid())
+                : byName.get(nameKey(entry.playerName()));
+        if (candidates == null) return List.of();
+        List<Entry> subject = new ArrayList<>(candidates.size());
+        for (Entry existing : candidates) {
+            if (sameSubject(existing, entry)) subject.add(existing);
+        }
+        return subject;
+    }
+
+    private static boolean sameSubject(Entry a, Entry b) {
+        if (a.uuid() != null) return a.uuid().equals(b.uuid());
+        return b.uuid() == null && a.playerName().equalsIgnoreCase(b.playerName());
+    }
+
+    private void insert(Entry entry) {
+        List<Entry> replaced = new ArrayList<>();
+        for (Entry existing : subjectEntries(entry)) {
+            if (existing.servers().equals(entry.servers())) replaced.add(existing);
+        }
+        delete(replaced);
+
+        if (entry.uuid() != null) byUuid.merge(entry.uuid(), List.of(entry), BanRegistry::concat);
+        byName.merge(nameKey(entry.playerName()), List.of(entry), BanRegistry::concat);
+    }
+
+    private static List<Entry> concat(List<Entry> first, List<Entry> second) {
+        List<Entry> merged = new ArrayList<>(first.size() + second.size());
+        merged.addAll(first);
+        merged.addAll(second);
+        return List.copyOf(merged);
+    }
+
+    private boolean delete(Collection<Entry> doomed) {
+        if (doomed.isEmpty()) return false;
+
+        Set<Entry> identities = Collections.newSetFromMap(new IdentityHashMap<>());
+        identities.addAll(doomed);
+        for (Entry entry : identities) {
+            if (entry.uuid() != null) prune(byUuid, entry.uuid(), identities::contains);
+            prune(byName, nameKey(entry.playerName()), identities::contains);
+        }
+        return true;
+    }
+
+    private static <K> void prune(Map<K, List<Entry>> index, K key, Predicate<Entry> doomed) {
+        index.computeIfPresent(key, (k, entries) -> {
+            List<Entry> kept = new ArrayList<>(entries.size());
+            for (Entry entry : entries) {
+                if (!doomed.test(entry)) kept.add(entry);
+            }
+            return kept.isEmpty() ? null : List.copyOf(kept);
+        });
+    }
+
     /** Temp file plus a move, so a crash mid-write can't leave a half a ban list. */
     private synchronized void save() {
-        List<Map<String, Object>> rows = new ArrayList<>();
-        Set<String> written = new LinkedHashSet<>();
+        backUpOnce();
 
-        for (Entry entry : byName.values()) {
-            if (entry.isExpired() || !written.add(entry.banId())) continue;
+        List<Map<String, Object>> rows = new ArrayList<>();
+        Set<Entry> distinct = Collections.newSetFromMap(new IdentityHashMap<>());
+        for (List<Entry> entries : byUuid.values()) distinct.addAll(entries);
+        for (List<Entry> entries : byName.values()) distinct.addAll(entries);
+
+        for (Entry entry : distinct) {
+            if (entry.isExpired()) continue;
             Map<String, Object> row = new LinkedHashMap<>();
             row.put("ban-id", entry.banId());
             row.put("uuid", entry.uuid() == null ? null : entry.uuid().toString());
@@ -243,6 +352,17 @@ public final class BanRegistry {
         } catch (Exception e) {
             platform.warn("Failed to save bans.yml. In-memory list is still right, "
                     + "it just won't survive a restart", e);
+        }
+    }
+
+    private void backUpOnce() {
+        if (backedUp) return;
+        backedUp = true;
+        if (!Files.exists(file)) return;
+        try {
+            Files.copy(file, file.resolveSibling(BACKUP_NAME), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            platform.warn("Could not back up bans.yml before rewriting it", e);
         }
     }
 

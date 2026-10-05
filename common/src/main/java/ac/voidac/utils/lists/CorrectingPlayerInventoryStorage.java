@@ -90,7 +90,7 @@ public class CorrectingPlayerInventoryStorage extends InventoryStorage {
         super.setItem(item, stack);
 
         if (item == player.inventory.inventory.getSelected() + Inventory.HOTBAR_OFFSET) {
-            player.attackCooldown.updateHeldItem();
+            player.attackCooldown.updateHeldItem(false);
         }
     }
 

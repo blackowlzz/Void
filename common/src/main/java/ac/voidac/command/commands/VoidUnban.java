@@ -2,16 +2,17 @@ package ac.voidac.command.commands;
 
 import ac.voidac.VoidAPI;
 import ac.voidac.command.BuildableCommand;
+import ac.voidac.command.PunishmentCommandResolver;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.sender.Sender;
-import ac.voidac.utils.anticheat.MessageUtil;
-import net.kyori.adventure.text.Component;
 import org.incendo.cloud.CommandManager;
 import org.incendo.cloud.context.CommandContext;
 import org.incendo.cloud.parser.standard.StringParser;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
+
+import static ac.voidac.command.render.MessageStyle.*;
 
 /**
  * /void unban <player>
@@ -22,8 +23,6 @@ import java.util.UUID;
  * Permission: void.unban
  */
 public class VoidUnban implements BuildableCommand {
-
-    private static final String PREFIX = "&8[&5Void&8]";
 
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
@@ -44,18 +43,23 @@ public class VoidUnban implements BuildableCommand {
                 VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> {
                     UUID removed = VoidAPI.INSTANCE.getVoidBanManager().unbanByName(name);
-                    if (removed == null) {
-                        sender.sendMessage(msg(PREFIX + " &c✖ &f" + name
-                                + " &7has no active Void native ban."));
+                    String externalCommand = PunishmentCommandResolver.resolveUnbanCommand(
+                            VoidAPI.INSTANCE.getConfigManager().getUnbanCommand(), name).orElse(null);
+                    if (externalCommand != null) {
+                        VoidAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(
+                                VoidAPI.INSTANCE.getVoidPlugin(),
+                                () -> {
+                                    VoidAPI.INSTANCE.getPlatformServer().dispatchCommand(
+                                            VoidAPI.INSTANCE.getPlatformServer().getConsoleSender(), externalCommand);
+                                    sender.sendMessage(success(sc("Unban processed for ") + "&f" + name));
+                                }
+                        );
+                    } else if (removed == null) {
+                        sender.sendMessage(error("&f" + name + " " + sc("has no active Void ban")));
                     } else {
-                        sender.sendMessage(msg(PREFIX + " &a✔ &f" + name
-                                + " &7has been unbanned from Void."));
+                        sender.sendMessage(success("&f" + name + " " + sc("has been unbanned")));
                     }
                 }
         );
-    }
-
-    private static Component msg(String legacy) {
-        return MessageUtil.miniMessage(legacy);
     }
 }

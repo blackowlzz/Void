@@ -31,6 +31,9 @@ public class PacketBlockAction extends PacketListenerAbstract {
 
             WrapperPlayServerBlockAction blockAction = new WrapperPlayServerBlockAction(event);
             Vector3i blockPos = blockAction.getBlockPosition();
+            if (player.antiEspManager.shouldHideBlockEntity(blockPos)) {
+                event.setCancelled(true);
+            }
 
             player.latencyUtils.addRealTimeTask(player.lastTransactionSent.get(), () -> {
                 // The client ignores the state sent to the client.

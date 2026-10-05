@@ -7,7 +7,12 @@
 *.tmp
 *.bak
 *.swp
+*.orig
+*.rej
+*~
 *~.nib
+hs_err_pid*
+replay_pid*
 
 build/
 bin/
@@ -17,6 +22,7 @@ run/
 .gradle/
 .gradletasknamecache
 gradle-app.setting
+.kotlin/
 buildSrc/.kotlin
 
 .idea/
@@ -39,8 +45,11 @@ nbactions.xml
 nb-configuration.xml
 
 .vscode/
-.code-workspace
+*.code-workspace
+.fleet/
 .DS_Store
+Thumbs.db
+desktop.ini
 .mtj.tmp/
 local.properties
 
@@ -48,4 +57,6 @@ local.properties
 .ignored/
 /workspace.gradle.kts
 .license-server-id
-.claude/
+.env
+.env.*
+!.env.example

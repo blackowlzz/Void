@@ -2,6 +2,7 @@ package ac.voidac.checks.impl.badpackets;
 
 import ac.voidac.checks.Check;
 import ac.voidac.checks.CheckData;
+import ac.voidac.checks.ClientCheckApplicability;
 import ac.voidac.checks.type.PacketCheck;
 import ac.voidac.player.VoidPlayer;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
@@ -17,6 +18,8 @@ public class BadPacketsZ extends Check implements PacketCheck {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
+        if (!ClientCheckApplicability.playerInputAndBundle(player.getClientVersion())) return;
+
         if (event.getPacketType() == PacketType.Play.Client.CLIENT_TICK_END) {
             sent = false;
         }

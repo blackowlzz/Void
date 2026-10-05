@@ -25,6 +25,10 @@ public abstract class TypedPacketEntity {
         this.isHappyGhast = EntityTypes.HAPPY_GHAST.equals(type);
     }
 
+    public EntityType getType() {
+        return type;
+    }
+
     public boolean isPushable() {
         // Players can only push living entities
         // Minecarts and boats are the only non-living that can push

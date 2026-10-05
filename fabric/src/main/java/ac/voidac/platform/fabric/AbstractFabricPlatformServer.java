@@ -34,6 +34,11 @@ public abstract class AbstractFabricPlatformServer implements PlatformServer {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public boolean isOnlineMode() {
+        return VoidFabricLoaderPlugin.FABRIC_SERVER.usesAuthentication();
+    }
+
     @Nullable
     public GameProfile getProfileByName(String name) {
         return VoidFabricLoaderPlugin.FABRIC_SERVER.getProfileCache().get(name);

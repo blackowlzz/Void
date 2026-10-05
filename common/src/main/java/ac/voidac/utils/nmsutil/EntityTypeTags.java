@@ -10,6 +10,10 @@ public class EntityTypeTags {
             EntityTypes.HORSE, EntityTypes.ZOMBIE_HORSE, EntityTypes.MULE, EntityTypes.DONKEY, EntityTypes.CAMEL, EntityTypes.CAMEL_HUSK
     );
 
+    public static final EntityTag NOT_AFFECTED_BY_GEYSERS = new EntityTag(
+            EntityTypes.ENDER_DRAGON
+    );
+
     public record EntityTag(EntityType... tags) {
 
         public boolean anyOf(EntityType tested) {

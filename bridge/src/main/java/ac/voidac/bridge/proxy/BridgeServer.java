@@ -4,6 +4,7 @@ import ac.voidac.bridge.protocol.BridgeCodec;
 import ac.voidac.bridge.protocol.BridgeFrame;
 import ac.voidac.bridge.protocol.FrameStream;
 import ac.voidac.bridge.protocol.MessageType;
+import ac.voidac.bridge.protocol.SocketTuning;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,6 +41,8 @@ public final class BridgeServer {
 
     /** Plenty for any network, and a hard stop on somebody opening sockets for fun. */
     private static final int MAX_CONNECTIONS = 256;
+
+    private static final int HANDSHAKE_MAX_FRAME = 8 * 1024;
 
     private final AtomicInteger openConnections = new AtomicInteger();
 
@@ -109,13 +112,20 @@ public final class BridgeServer {
         while (!shuttingDown && socket != null && !socket.isClosed()) {
             try {
                 Socket client = socket.accept();
-                if (openConnections.get() >= MAX_CONNECTIONS) {
+                if (openConnections.incrementAndGet() > MAX_CONNECTIONS) {
+                    openConnections.decrementAndGet();
                     closeQuietly(client);
                     continue;
                 }
-                Thread handler = new Thread(() -> handle(client), "void-bridge-conn");
-                handler.setDaemon(true);
-                handler.start();
+                try {
+                    Thread handler = new Thread(() -> handle(client), "void-bridge-conn");
+                    handler.setDaemon(true);
+                    handler.start();
+                } catch (RuntimeException | Error startFailure) {
+                    openConnections.decrementAndGet();
+                    closeQuietly(client);
+                    throw startFailure;
+                }
             } catch (Exception e) {
                 if (!shuttingDown) {
                     platform.warn("Bridge accept loop hiccuped: " + e.getMessage(), null);
@@ -125,17 +135,16 @@ public final class BridgeServer {
     }
 
     private void handle(@NotNull Socket client) {
-        openConnections.incrementAndGet();
         String serverName = null;
         try {
             client.setTcpNoDelay(true);
-            client.setKeepAlive(true);
+            SocketTuning.keepAlive(client);
             // only for the handshake: after that a quiet backend is a normal backend
             client.setSoTimeout(HANDSHAKE_TIMEOUT_MS);
 
             DataInputStream in = new DataInputStream(client.getInputStream());
 
-            byte[] first = FrameStream.read(in);
+            byte[] first = FrameStream.read(in, HANDSHAKE_MAX_FRAME);
             BridgeFrame hello = first == null ? null : codec.decode(first);
             if (hello == null || hello.type() != MessageType.HELLO) {
                 // wrong key, wrong protocol, or somebody poking the port
@@ -149,7 +158,7 @@ public final class BridgeServer {
             Connection previous = connections.put(serverName, new Connection(serverName, client));
             if (previous != null) closeQuietly(previous.socket());
 
-            onFrame.accept(serverName, hello);
+            dispatch(serverName, hello);
 
             while (!shuttingDown && !client.isClosed()) {
                 byte[] raw = FrameStream.read(in);
@@ -157,7 +166,7 @@ public final class BridgeServer {
 
                 BridgeFrame frame = codec.decode(raw);
                 if (frame == null) continue;
-                onFrame.accept(serverName, frame);
+                dispatch(serverName, frame);
             }
         } catch (Exception e) {
             // a backend restarting looks exactly like this, so keep it quiet
@@ -173,6 +182,14 @@ public final class BridgeServer {
                 }
             }
             closeQuietly(client);
+        }
+    }
+
+    private void dispatch(@NotNull String serverName, @NotNull BridgeFrame frame) {
+        try {
+            onFrame.accept(serverName, frame);
+        } catch (RuntimeException failure) {
+            platform.warn("Could not handle a " + frame.type() + " frame from '" + serverName + "'", failure);
         }
     }
 

@@ -9,14 +9,14 @@ import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.anticheat.MessageUtil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.protocol.player.User;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import org.incendo.cloud.Command;
 import org.incendo.cloud.CommandManager;
 import org.incendo.cloud.context.CommandContext;
 import org.incendo.cloud.description.Description;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import static ac.voidac.command.render.MessageStyle.*;
 
 public class VoidDebug implements BuildableCommand {
 
@@ -79,14 +79,8 @@ public class VoidDebug implements BuildableCommand {
         boolean isOutput = voidPlayer.checkManager.getDebugHandler().toggleConsoleOutput();
         String playerName = voidPlayer.user.getProfile().getName(); // Use user profile for name
 
-        Component message = Component.text()
-                .append(Component.text("Console echo for ", NamedTextColor.GRAY))
-                .append(Component.text(playerName, NamedTextColor.WHITE))
-                .append(Component.text(" is now ", NamedTextColor.GRAY))
-                .append(Component.text(isOutput ? "enabled" : "disabled", NamedTextColor.WHITE))
-                .build();
-
-        sender.sendMessage(message);
+        sender.sendMessage(success(sc("Console echo for ") + "&f" + playerName + " &7" + sc("is now ")
+                + (isOutput ? "&a" + sc("enabled") : "&c" + sc("disabled"))));
     }
 
     private @Nullable VoidPlayer parseTarget(@NotNull Sender sender, @Nullable Sender t) {
@@ -102,11 +96,11 @@ public class VoidDebug implements BuildableCommand {
             sender.sendMessage(MessageUtil.getParsedComponent(sender, "player-not-found", "%prefix% &cThat player is exempt or offline."));
 
             if (user == null) {
-                sender.sendMessage(Component.text("PacketEvents user could not be resolved", NamedTextColor.RED));
+                sender.sendMessage(error(sc("PacketEvents user could not be resolved")));
             } else {
                 boolean isExempt = VoidAPI.INSTANCE.getPlayerDataManager().shouldCheck(user);
                 if (!isExempt) {
-                    sender.sendMessage(Component.text("User state: " + user.getConnectionState(), NamedTextColor.RED));
+                    sender.sendMessage(error(sc("User state: ") + "&f" + user.getConnectionState()));
                 }
             }
         }

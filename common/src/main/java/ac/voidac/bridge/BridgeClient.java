@@ -6,6 +6,7 @@ import ac.voidac.bridge.protocol.BridgeCodec;
 import ac.voidac.bridge.protocol.BridgeFrame;
 import ac.voidac.bridge.protocol.FrameStream;
 import ac.voidac.bridge.protocol.MessageType;
+import ac.voidac.bridge.protocol.SocketTuning;
 import ac.voidac.bridge.protocol.payload.AlertPayload;
 import ac.voidac.bridge.protocol.payload.BanPayload;
 import ac.voidac.bridge.protocol.payload.HelloPayload;
@@ -24,8 +25,8 @@ import java.io.DataInputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -54,6 +55,8 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
     private volatile boolean proxyAuthoritative;
 
     private volatile @Nullable Socket socket;
+    private volatile boolean linked;
+    private final BridgeOutbox outbox = new BridgeOutbox(this::transmit, MAX_PENDING, MAX_QUEUED_WRITES, "void-bridge-writer");
     private volatile @Nullable Thread worker;
     private volatile boolean shuttingDown;
 
@@ -63,6 +66,11 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
     private static final int CONNECT_TIMEOUT_MS = 5_000;
     private static final long RETRY_MIN_MS = 1_000;
     private static final long RETRY_MAX_MS = 30_000;
+    private static final int MAX_PENDING = 500;
+    private static final int MAX_QUEUED_WRITES = 1_000;
+    private static final long SHUTDOWN_DRAIN_MS = 2_000;
+    private static final long DATABASE_WAIT_MS = 60_000;
+    private static final long DATABASE_POLL_MS = 100;
 
     @Override
     public void start() {
@@ -71,8 +79,10 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
 
     @Override
     public void stop() {
+        outbox.shutdown(SHUTDOWN_DRAIN_MS);
         shuttingDown = true;
         disconnect();
+        outbox.clear();
     }
 
     public void reload(@NotNull ConfigManager config) {
@@ -92,7 +102,10 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         this.proxyAuthoritative = config.getBooleanElse("bridge.bans.proxy-authoritative", true);
 
         this.codec = null;
-        if (!enabled) return;
+        if (!enabled) {
+            outbox.clear();
+            return;
+        }
 
         String secret = config.getStringElse("bridge.secret", "");
         if (secret.isBlank() || secret.equals("CHANGE-ME")) {
@@ -147,21 +160,27 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
     }
 
     /**
-     * Fire and forget. Nothing to queue if the socket is down: the SYNC on the
-     * next connect carries the real state anyway, and a missed alert is just a
-     * missed alert.
+     * Fire and forget, written off the calling thread. A missed alert is just a
+     * missed alert, but bans and unbans that can't be sent are kept and go out
+     * after the next successful connect.
      */
     private void send(@NotNull MessageType type, byte @NotNull [] payload) {
+        outbox.submit(type, payload);
+    }
+
+    private boolean transmit(@NotNull MessageType type, byte @NotNull [] payload) {
         BridgeCodec active = codec;
         Socket connection = socket;
-        if (active == null || connection == null || connection.isClosed()) return;
+        if (!linked || active == null || connection == null || connection.isClosed()) return false;
 
         try {
             OutputStream out = connection.getOutputStream();
             FrameStream.write(out, active.encode(type, serverName, payload));
+            return true;
         } catch (Exception e) {
             LogUtil.warn("Bridge send failed (" + type + "), reconnecting: " + e.getMessage());
             closeQuietly(connection);
+            return false;
         }
     }
 
@@ -179,10 +198,11 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         boolean alreadyComplained = false;
 
         while (!shuttingDown && forGeneration == generation && enabled) {
-            try (Socket connection = new Socket()) {
+            Socket connection = new Socket();
+            try {
                 connection.connect(new InetSocketAddress(proxyHost, proxyPort), CONNECT_TIMEOUT_MS);
                 connection.setTcpNoDelay(true);
-                connection.setKeepAlive(true);
+                SocketTuning.keepAlive(connection);
                 this.socket = connection;
 
                 sayHello(connection);
@@ -207,7 +227,11 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                     alreadyComplained = true;
                 }
             } finally {
-                this.socket = null;
+                if (this.socket == connection) {
+                    this.linked = false;
+                    this.socket = null;
+                }
+                closeQuietly(connection);
             }
 
             if (shuttingDown || forGeneration != generation || !enabled) return;
@@ -240,17 +264,21 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 if (answered) LogUtil.warn("Bridge lost the proxy connection, reconnecting.");
                 return answered;
             }
-            if (!answered) {
+            boolean firstAnswer = !answered;
+            if (firstAnswer) {
                 answered = true;
                 LogUtil.info("Bridge connected to the proxy at " + proxyHost + ":" + proxyPort
                         + " as '" + serverName + "'.");
             }
+            if (firstAnswer) linked = true;
             handleIncoming(raw);
+            if (firstAnswer) outbox.flush();
         }
         return answered;
     }
 
     private void disconnect() {
+        this.linked = false;
         Socket active = socket;
         if (active != null) closeQuietly(active);
         this.socket = null;
@@ -278,6 +306,10 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         BridgeFrame frame = active.decode(raw);
         if (frame == null) return;
 
+        if (frame.type() == MessageType.BAN || frame.type() == MessageType.UNBAN || frame.type() == MessageType.SYNC) {
+            awaitPunishmentDatabase();
+        }
+
         // SYNC is addressed to us and legitimately carries our own bans back
         if (frame.origin().equals(serverName) && frame.type() != MessageType.SYNC) return;
 
@@ -287,6 +319,19 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
             case UNBAN -> handleUnban(frame);
             case SYNC -> handleSync(frame);
             case HELLO -> { } // only the proxy answers those
+        }
+    }
+
+    private void awaitPunishmentDatabase() {
+        long deadline = System.currentTimeMillis() + DATABASE_WAIT_MS;
+        while (!shuttingDown && !VoidAPI.INSTANCE.getPunishmentDatabase().isReady()
+                && System.currentTimeMillis() < deadline) {
+            try {
+                Thread.sleep(DATABASE_POLL_MS);
+            } catch (InterruptedException interrupted) {
+                Thread.currentThread().interrupt();
+                return;
+            }
         }
     }
 
@@ -330,10 +375,10 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         if (sync == null) return;
 
         int applied = 0;
-        Set<String> live = new HashSet<>();
+        Map<UUID, String> live = new HashMap<>();
         for (BanPayload ban : sync.bans()) {
             if (ban.isExpired()) continue;
-            live.add(ban.banId());
+            if (ban.uuid() != null) live.put(ban.uuid(), ban.banId());
             if (VoidAPI.INSTANCE.getVoidBanManager().applyRemoteBan(ban)) applied++;
         }
         if (applied > 0) {

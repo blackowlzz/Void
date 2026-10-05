@@ -25,10 +25,10 @@ public class Blackowlzz implements BuildableCommand {
         String version = VoidAPI.INSTANCE.getVoidPlugin().getDescription().getVersion();
         return MessageUtil.miniMessage(
             "<newline>" +
-            "&7This server uses &5VoidAC &8(&7" + version + "&8)&7, want to use it on yours?<newline>" +
+            "%prefix% &7<sc>This server uses</sc> &5VoidAC &8(&7" + version + "&8)&7<sc>, want it on yours?</sc><newline>" +
             "<newline>" +
-            "  &a  Modrinth &8» &fhttps://modrinth.com/plugin/voidac<newline>" +
-            "  &b  Discord  &8» &fhttps://discord.gg/DRnhHrcseU<newline>"
+            "  &8▸ &a<sc>Modrinth</sc> &8│ <click:open_url:'https://modrinth.com/plugin/voidac'>&fhttps://modrinth.com/plugin/voidac</click><newline>" +
+            "  &8▸ &b<sc>Discord</sc> &8│ <click:open_url:'https://discord.gg/DRnhHrcseU'>&fhttps://discord.gg/DRnhHrcseU</click><newline>"
         );
     }
 

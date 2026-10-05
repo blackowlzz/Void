@@ -29,7 +29,8 @@ bridge:
 
   alerts:
     # Forward this server's alerts to the network. Driven by the [proxy] line in
-    # punishments.yml, which already exists in every punishment group.
+    # punishments.yml, which already exists in every punishment group. The text
+    # is alerts-format-proxy in messages.yml, where %server% is this server's name.
     send: true
 
     # Show alerts other servers forwarded to your staff.

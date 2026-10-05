@@ -13,6 +13,7 @@ import lombok.experimental.UtilityClass;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextReplacementConfig;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -27,6 +28,10 @@ public class MessageUtil {
     private static final Pattern STRIP_COLOR_PATTERN = Pattern.compile("(?i)" + '§' + "[0-9A-FK-ORX]");
     private final Pattern HEX_PATTERN = Pattern.compile("([&§]#[A-Fa-f0-9]{6})|([&§]x([&§][A-Fa-f0-9]){6})");
     private final char PLACEHOLDER_ESCAPE_CHAR = '\uFFFF'; // this specific character holds no significance
+    private final MiniMessage MINI_MESSAGE = MiniMessage.builder()
+            .tags(TagResolver.resolver(TagResolver.standard(),
+                    SmallCapsTag.resolver(() -> VoidAPI.INSTANCE.getConfigManager().isSmallCapsEnabled())))
+            .build();
 
     public @NotNull String toUnlabledString(@Nullable Vector3d vec) {
         return vec == null ? "null" : vec.x + ", " + vec.y + ", " + vec.z;
@@ -186,7 +191,7 @@ public class MessageUtil {
                 .replace("§n", "<underlined>")
                 .replace("§o", "<italic>");
 
-        return MiniMessage.miniMessage().deserialize(string).compact();
+        return MINI_MESSAGE.deserialize(string).compact();
     }
 
     public Component getParsedComponent(Sender sender, String key, String fallbackText) {

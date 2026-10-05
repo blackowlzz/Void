@@ -12,7 +12,8 @@ import ac.voidac.utils.chunks.Column;
 import ac.voidac.utils.collisions.CollisionData;
 import ac.voidac.utils.collisions.datatypes.CollisionBox;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
-import ac.voidac.utils.data.Pair;
+import ac.voidac.utils.functions.BlockAndPositionConsumer;
+import ac.voidac.utils.functions.BlockAndPositionPredicate;
 import ac.voidac.utils.data.VectorData;
 import ac.voidac.utils.data.packetentity.PacketEntity;
 import ac.voidac.utils.data.tags.SyncedTags;
@@ -41,8 +42,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.function.Predicate;
 
 @UtilityClass
 public final class Collisions {
@@ -462,20 +461,20 @@ public final class Collisions {
                         continue;
                     }
 
-                    onInsideBlock(player, blockType, block, blockX, blockY, blockZ, true);
+                    onInsideBlock(player, player.clientVelocity, false, blockType, block, blockX, blockY, blockZ, true);
                 }
             }
         }
     }
 
-    public static void onInsideBlock(VoidPlayer player, StateType blockType, WrappedBlockState block, int blockX, int blockY, int blockZ, boolean magic) {
+    public static void onInsideBlock(VoidPlayer player, Vector3dm clientVelocity, boolean onlyApplyVelocity, StateType blockType, WrappedBlockState block, int blockX, int blockY, int blockZ, boolean magic) {
         // Cobwebs and sweet berry bushes only slow down living entities: a player riding a boat/minecart
         // through one should not have their vehicle's movement slowed (this was previously causing false
         // reads on depth strider/vehicle speed when a boat clipped a cobweb or berry bush hitbox).
         PacketEntity riding = player.compensatedEntities.self.getRiding();
         boolean stuckEntityIsLiving = riding == null || riding.isLivingEntity;
 
-        if (stuckEntityIsLiving && blockType == StateTypes.COBWEB) {
+        if (!onlyApplyVelocity && stuckEntityIsLiving && blockType == StateTypes.COBWEB) {
             if (player.compensatedEntities.hasPotionEffect(PotionTypes.WEAVING)) {
                 player.stuckSpeedMultiplier = new Vector3dm(0.5, 0.25, 0.5);
             } else {
@@ -483,22 +482,22 @@ public final class Collisions {
             }
         }
 
-        if (stuckEntityIsLiving && blockType == StateTypes.SWEET_BERRY_BUSH
+        if (!onlyApplyVelocity && stuckEntityIsLiving && blockType == StateTypes.SWEET_BERRY_BUSH
                 && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
             player.stuckSpeedMultiplier = new Vector3dm(0.8f, 0.75, 0.8f);
         }
 
-        if (blockType == StateTypes.POWDER_SNOW && blockX == Math.floor(player.x) && blockY == Math.floor(player.y) && blockZ == Math.floor(player.z)
+        if (!onlyApplyVelocity && blockType == StateTypes.POWDER_SNOW && blockX == Math.floor(player.x) && blockY == Math.floor(player.y) && blockZ == Math.floor(player.z)
                 && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_17)) {
             player.stuckSpeedMultiplier = new Vector3dm(0.9f, 1.5, 0.9f);
         }
 
         if (blockType == StateTypes.SOUL_SAND && player.getClientVersion().isOlderThan(ClientVersion.V_1_15)) {
-            player.clientVelocity.setX(player.clientVelocity.getX() * 0.4D);
-            player.clientVelocity.setZ(player.clientVelocity.getZ() * 0.4D);
+            clientVelocity.setX(clientVelocity.getX() * 0.4D);
+            clientVelocity.setZ(clientVelocity.getZ() * 0.4D);
         }
 
-        if (blockType == StateTypes.LAVA && player.getClientVersion().isOlderThan(ClientVersion.V_1_16) && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
+        if (!onlyApplyVelocity && blockType == StateTypes.LAVA && player.getClientVersion().isOlderThan(ClientVersion.V_1_16) && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14)) {
             player.wasTouchingLava = true;
         }
 
@@ -508,49 +507,45 @@ public final class Collisions {
             if (player.inVehicle() && player.compensatedEntities.self.getRiding().isBoat) {
                 if (!blockAbove.getType().isAir()) {
                     if (block.isDrag()) {
-                        player.clientVelocity.setY(Math.max(-0.3D, player.clientVelocity.getY() - 0.03D));
+                        clientVelocity.setY(Math.max(-0.3D, clientVelocity.getY() - 0.03D));
                     } else {
-                        player.clientVelocity.setY(Math.min(0.7D, player.clientVelocity.getY() + 0.06D));
+                        clientVelocity.setY(Math.min(0.7D, clientVelocity.getY() + 0.06D));
                     }
                 }
             } else {
                 if (blockAbove.getType().isAir()) {
-                    for (VectorData vector : player.getPossibleVelocitiesMinusKnockback()) {
-                        if (block.isDrag()) {
-                            vector.vector.setY(Math.max(-0.9D, vector.vector.getY() - 0.03D));
-                        } else {
-                            vector.vector.setY(Math.min(1.8D, vector.vector.getY() + 0.1D));
-                        }
+                    if (block.isDrag()) {
+                        clientVelocity.setY(Math.max(-0.9D, clientVelocity.getY() - 0.03D));
+                    } else {
+                        clientVelocity.setY(Math.min(1.8D, clientVelocity.getY() + 0.1D));
                     }
                 } else {
-                    for (VectorData vector : player.getPossibleVelocitiesMinusKnockback()) {
-                        if (block.isDrag()) {
-                            vector.vector.setY(Math.max(-0.3D, vector.vector.getY() - 0.03D));
-                        } else {
-                            vector.vector.setY(Math.min(0.7D, vector.vector.getY() + 0.06D));
-                        }
+                    if (block.isDrag()) {
+                        clientVelocity.setY(Math.max(-0.3D, clientVelocity.getY() - 0.03D));
+                    } else {
+                        clientVelocity.setY(Math.min(0.7D, clientVelocity.getY() + 0.06D));
                     }
                 }
             }
 
             // Reset fall distance inside bubble column
-            player.fallDistance = 0;
+            if (!onlyApplyVelocity) player.fallDistance = 0;
         }
 
         if (blockType == StateTypes.HONEY_BLOCK && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_15)) {
-            if (isSlidingDown(player.clientVelocity, player, blockX, blockY, blockZ)) {
-                if (getOldDeltaY(player, player.clientVelocity.getY()) < -0.13D) {
-                    double d0 = -0.05 / getOldDeltaY(player, player.clientVelocity.getY());
-                    player.clientVelocity.setX(player.clientVelocity.getX() * d0);
-                    player.clientVelocity.setY(getNewDeltaY(player, -0.05D));
-                    player.clientVelocity.setZ(player.clientVelocity.getZ() * d0);
+            if (isSlidingDown(clientVelocity, player, blockX, blockY, blockZ)) {
+                if (getOldDeltaY(player, clientVelocity.getY()) < -0.13D) {
+                    double d0 = -0.05 / getOldDeltaY(player, clientVelocity.getY());
+                    clientVelocity.setX(clientVelocity.getX() * d0);
+                    clientVelocity.setY(getNewDeltaY(player, -0.05D));
+                    clientVelocity.setZ(clientVelocity.getZ() * d0);
                 } else {
-                    player.clientVelocity.setY(getNewDeltaY(player, -0.05D));
+                    clientVelocity.setY(getNewDeltaY(player, -0.05D));
                 }
             }
 
             // If honey sliding, fall distance is 0
-            player.fallDistance = 0;
+            if (!onlyApplyVelocity) player.fallDistance = 0;
         }
     }
 
@@ -603,6 +598,10 @@ public final class Collisions {
     }
 
     public static void resolveBlockEffects(VoidPlayer player, List<VoidPlayer.Movement> movements) {
+        resolveBlockEffects(player, player.clientVelocity, false, movements);
+    }
+
+    public static void resolveBlockEffects(VoidPlayer player, Vector3dm clientVelocity, boolean onlyApplyVelocity, List<VoidPlayer.Movement> movements) {
         ClientVersion version = player.getClientVersion();
         BlockEffectsResolver resolver;
 
@@ -618,7 +617,7 @@ public final class Collisions {
             resolver = BlockEffectsResolverV1_21_10.INSTANCE; // 1.21.10
         }
 
-        resolver.applyEffectsFromBlocks(player, movements);
+        resolver.applyEffectsFromBlocks(player, clientVelocity, onlyApplyVelocity, movements);
     }
 
     private static double getOldDeltaY(VoidPlayer player, double value) {
@@ -750,7 +749,7 @@ public final class Collisions {
     }
 
     // Thanks Tuinity
-    public static boolean hasMaterial(VoidPlayer player, SimpleCollisionBox checkBox, Predicate<Pair<WrappedBlockState, Vector3i>> searchingFor) {
+    public static boolean hasMaterial(VoidPlayer player, SimpleCollisionBox checkBox, @NotNull BlockAndPositionPredicate searchingFor) {
         int minBlockX = (int) Math.floor(checkBox.minX);
         int maxBlockX = (int) Math.floor(checkBox.maxX);
         int minBlockY = (int) Math.floor(checkBox.minY);
@@ -804,7 +803,7 @@ public final class Collisions {
 
                             WrappedBlockState data = section.get(CompensatedWorld.blockVersion, x & 0xF, y & 0xF, z & 0xF, false);
 
-                            if (searchingFor.test(new Pair<>(data, new Vector3i(x, y, z))))
+                            if (searchingFor.test(data, x, y, z))
                                 return true;
                         }
                     }
@@ -815,7 +814,7 @@ public final class Collisions {
     }
 
     // Thanks Tuinity
-    public static void forEachCollisionBox(@NotNull VoidPlayer player, @NotNull SimpleCollisionBox checkBox, @NotNull BiConsumer<WrappedBlockState, Vector3i> searchingFor) {
+    public static void forEachCollisionBox(@NotNull VoidPlayer player, @NotNull SimpleCollisionBox checkBox, @NotNull BlockAndPositionConsumer searchingFor) {
         int minBlockX = (int) Math.floor(checkBox.minX - COLLISION_EPSILON) - 1;
         int maxBlockX = (int) Math.floor(checkBox.maxX + COLLISION_EPSILON) + 1;
         int minBlockY = (int) Math.floor(checkBox.minY - COLLISION_EPSILON) - 1;
@@ -883,7 +882,7 @@ public final class Collisions {
                                 final CollisionBox collisionBox = CollisionData.getData(type).getMovementCollisionBox(player, player.getClientVersion(), data, x, y, z);
 
                                 if (collisionBox.isIntersected(checkBox)) {
-                                    searchingFor.accept(data, new Vector3i(x, y, z));
+                                    searchingFor.accept(data, x, y, z);
                                 }
                             }
                         }

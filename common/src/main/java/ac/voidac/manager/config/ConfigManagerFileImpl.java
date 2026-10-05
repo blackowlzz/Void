@@ -9,13 +9,19 @@ import ac.voidac.utils.anticheat.LogUtil;
 import github.scarsz.configuralize.DynamicConfig;
 import github.scarsz.configuralize.Language;
 import org.jetbrains.annotations.Nullable;
+import org.yaml.snakeyaml.LoaderOptions;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Locale;
 import java.util.regex.Pattern;
 import java.util.logging.Logger;
 
@@ -26,6 +32,11 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
 
     public ConfigManagerFileImpl() {
         config = new DynamicConfig();
+    }
+
+    @Override
+    public String getLanguageCode() {
+        return config.getLanguage().getCode().toLowerCase(Locale.ROOT);
     }
 
     private File getConfigFile(String path) {
@@ -114,8 +125,11 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         // backups (<name>.v<oldVersion>.bak) preserve operator-rollback
         // evidence across stacked migration steps.
         runConfigUpdates();
+        backfillLocalizedDefaults("config", List.of("debug-packet-exceptions"));
+        backfillLocalizedDefaults("messages", List.of("verbose-join-reminder", "reloading", "reloaded", "reload-failed", "small-caps-language-warning"));
         addAutoTotemCheck();
-        addFreecamAndAntiSpoofChecks();
+        addAntiSpoofCheck();
+        addWallHitCheck();
 
         try {
             config.loadAll();
@@ -301,37 +315,64 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         }
     }
 
-    private void addFreecamAndAntiSpoofChecks() {
+    private void backfillLocalizedDefaults(String resourceDirectory, List<String> keys) {
+        File file = getConfigFile(resourceDirectory + ".yml");
+        if (!file.exists()) return;
+        String language = config.getLanguage().getCode().toLowerCase(Locale.ROOT);
+        String resource = "/" + resourceDirectory + "/" + language + ".yml";
+        if (VoidAPI.class.getResource(resource) == null) resource = "/" + resourceDirectory + "/en.yml";
+        try (var stream = VoidAPI.class.getResourceAsStream(resource)) {
+            if (stream == null) return;
+            String before = Files.readString(file.toPath());
+            String defaults = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+            String after = ensureMissingRootDefaults(before, defaults, keys);
+            if (before.equals(after)) return;
+            var backup = file.toPath().resolveSibling(file.getName() + ".before-language-backfill.bak");
+            if (!Files.exists(backup)) Files.copy(file.toPath(), backup);
+            var temporary = Files.createTempFile(file.toPath().getParent(), "void-language-", ".tmp");
+            try {
+                Files.writeString(temporary, after);
+                Files.move(temporary, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            } finally {
+                Files.deleteIfExists(temporary);
+            }
+        } catch (IOException e) {
+            LogUtil.warn("Failed to add localized defaults to " + file.getName() + ": " + e.getMessage());
+        }
+    }
+
+    static String ensureMissingRootDefaults(String input, String defaults, List<String> keys) {
+        try {
+            LoaderOptions options = new LoaderOptions();
+            options.setAllowDuplicateKeys(false);
+            Yaml yaml = new Yaml(new SafeConstructor(options));
+            if (!(yaml.load(input) instanceof Map<?, ?> existing)
+                    || !(yaml.load(defaults) instanceof Map<?, ?> bundled)) return input;
+            if (existing.containsKey("config-flavor") && !"V2".equals(existing.get("config-flavor"))) return input;
+            Map<String, Object> missing = new LinkedHashMap<>();
+            for (String key : keys) {
+                if (!existing.containsKey(key) && bundled.containsKey(key)) missing.put(key, bundled.get(key));
+            }
+            if (missing.isEmpty()) return input;
+            String newline = input.contains("\r\n") ? "\r\n" : "\n";
+            String result = input + newline + yaml.dumpAsMap(missing).replace("\n", newline);
+            Map<Object, Object> expected = new LinkedHashMap<>(existing);
+            expected.putAll(missing);
+            return expected.equals(yaml.load(result)) ? result : input;
+        } catch (RuntimeException e) {
+            return input;
+        }
+    }
+
+    private void addAntiSpoofCheck() {
         File config = new File(VoidAPI.INSTANCE.getVoidPlugin().getDataFolder(), "punishments.yml");
         if (!config.exists()) return;
 
         try {
             String configString = new String(Files.readAllBytes(config.toPath()));
-            boolean modified = false;
-
-            // Add Freecam punishment group if missing
-            Pattern freecamPattern = Pattern.compile("(?m)^  Freecam:\\s*$");
-            if (!freecamPattern.matcher(configString).find()) {
-                String freecamBlock = "\n  Freecam:\n" +
-                        "    remove-violations-after: 300\n" +
-                        "    # Disabled by default. Add \"Freecam\" below to enable FreecamA/FreecamB.\n" +
-                        "    checks: []\n" +
-                        "    commands:\n" +
-                        "      - \"1:1 [alert]\"\n" +
-                        "      - \"1:1 [log]\"\n" +
-                        "      - \"1:1 [webhook]\"\n" +
-                        "      - \"1:1 [proxy]\"\n" +
-                        "      - \"5:0 kick %player% &cDetected using Freecam\"\n";
-
-                // Insert before Misc if it exists, otherwise append
-                Pattern miscPattern = Pattern.compile("(?m)^  Misc:\\s*$");
-                if (miscPattern.matcher(configString).find()) {
-                    configString = miscPattern.matcher(configString).replaceFirst(freecamBlock + "  Misc:");
-                } else {
-                    configString = configString.trim() + freecamBlock + "\n";
-                }
-                modified = true;
-            }
+            String migratedConfig = migrateAntiSpoofPunishmentConfig(configString);
+            boolean modified = !migratedConfig.equals(configString);
+            configString = migratedConfig;
 
             // Add AntiSpoof punishment group if missing
             Pattern antiSpoofPattern = Pattern.compile("(?m)^  AntiSpoof:\\s*$");
@@ -344,8 +385,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
                         "      - \"1:0 [alert]\"\n" +
                         "      - \"1:1 [log]\"\n" +
                         "      - \"1:0 [webhook]\"\n" +
-                        "      - \"1:0 [proxy]\"\n" +
-                        "      - \"1:0 kick %player% &cBlacklisted client detected\"\n";
+                        "      - \"1:0 [proxy]\"\n";
 
                 // Insert before Misc if it exists, otherwise append
                 Pattern miscPattern = Pattern.compile("(?m)^  Misc:\\s*$");
@@ -362,6 +402,69 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
             }
         } catch (IOException ignored) {
         }
+    }
+
+    private void addWallHitCheck() {
+        File file = getConfigFile("punishments.yml");
+        if (!file.exists()) return;
+        try {
+            String before = Files.readString(file.toPath());
+            String after = ensureWallHitPunishments(before);
+            if (before.equals(after)) return;
+            var backup = file.toPath().resolveSibling("punishments.yml.before-wallhit.bak");
+            if (!Files.exists(backup)) Files.copy(file.toPath(), backup);
+            var temporary = Files.createTempFile(file.toPath().getParent(), "punishments-wallhit-", ".tmp");
+            try {
+                Files.writeString(temporary, after);
+                Files.move(temporary, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            } finally {
+                Files.deleteIfExists(temporary);
+            }
+            LogUtil.info("Added the WallHit alert group to punishments.yml");
+        } catch (IOException e) {
+            LogUtil.warn("Failed to add the WallHit punishment group: " + e.getMessage());
+        }
+    }
+
+    static String ensureWallHitPunishments(String input) {
+        try {
+            Object document = new Yaml(new SafeConstructor(new LoaderOptions())).load(input);
+            if (!(document instanceof Map<?, ?> root)
+                    || !(root.get("Punishments") instanceof Map<?, ?> groups)) return input;
+            for (var entry : groups.entrySet()) {
+                if ("WallHit".equalsIgnoreCase(String.valueOf(entry.getKey()))) return input;
+                if (!(entry.getValue() instanceof Map<?, ?> group)
+                        || !(group.get("checks") instanceof List<?> checks)) continue;
+                for (Object value : checks) {
+                    if (!(value instanceof String selector)) continue;
+                    selector = selector.toLowerCase(Locale.ROOT);
+                    if (selector.startsWith("!")) selector = selector.substring(1);
+                    if ("wallhit".contains(selector) || "unknown".contains(selector)) return input;
+                }
+            }
+            var rootLine = Pattern.compile("(?m)^Punishments:[ \\t]*(?:#.*)?\\r?$").matcher(input);
+            if (!rootLine.find()) return input;
+            String newline = input.contains("\r\n") ? "\r\n" : "\n";
+            String block = String.join(newline,
+                    "  WallHit:",
+                    "    remove-violations-after: 300",
+                    "    checks: [WallHit]",
+                    "    commands:",
+                    "      - \"1:1 [alert]\"",
+                    "      - \"1:1 [log]\"",
+                    "      - \"5:5 [webhook]\"",
+                    "      - \"5:5 [proxy]\"");
+            int insertion = input.indexOf('\n', rootLine.start());
+            if (insertion < 0) return input + newline + block + newline;
+            return input.substring(0, insertion + 1) + block + newline + input.substring(insertion + 1);
+        } catch (RuntimeException e) {
+            return input;
+        }
+    }
+
+    static String migrateAntiSpoofPunishmentConfig(String configString) {
+        return configString.replace("      - \"1:0 kick %player% &cBlacklisted client detected\"\n", "")
+                .replace("      - \"1:0 kick %player% &cBlacklisted client detected\"\r\n", "");
     }
 
     private void newOffsetNewDiscordConf(File config, String configString) throws IOException {

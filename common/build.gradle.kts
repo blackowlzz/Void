@@ -11,7 +11,7 @@ repositories {
     if (BuildConfig.mavenLocalOverride) mavenLocal()
 
     // PacketEvents
-    exclusive("https://repo." + "g" + "rim" + ".ac/snapshots") {
+    exclusive("https://maven.grim.ac/public/snapshots") {
         includeGroup("com.github.retrooper")
     }
 
@@ -84,6 +84,17 @@ dependencies {
     compileOnly(libs.floodgate.api)
     compileOnly(libs.viaversion)
     compileOnly(libs.netty)
+    testImplementation(testlibs.junitJupiter)
+    testImplementation("com.github.retrooper:packetevents-netty-common:${libs.versions.packetevents.get()}")
+    testRuntimeOnly(testlibs.junitPlatformLauncher)
+    testRuntimeOnly(libs.viaversion)
+    testRuntimeOnly(libs.netty)
+    testRuntimeOnly(libs.paper.api)
+    testRuntimeOnly(libs.packetevents.spigot)
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
 
 publishing.publications.create<MavenPublication>("maven") {

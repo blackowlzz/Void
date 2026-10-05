@@ -16,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import java.time.Instant;
 import java.util.List;
 
+import static ac.voidac.command.render.MessageStyle.*;
+
 /**
  * /void punishments <IGN | VOID-XXXXXX>
  *
@@ -25,9 +27,6 @@ import java.util.List;
  * Permission: void.punishments
  */
 public class VoidPunishments implements BuildableCommand {
-
-    private static final String PREFIX = "&8[&5Void&8]";
-    private static final String SEP    = "&8 &m─────────────────────────────────";
 
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
@@ -49,13 +48,13 @@ public class VoidPunishments implements BuildableCommand {
         if (query.toUpperCase().startsWith("VOID-")) {
             PunishmentRecord record = db.queryByBanId(query);
             if (record == null) {
-                sender.sendMessage(msg(PREFIX + " &c✖ &7No punishment found with ID &d" + query.toUpperCase() + "&7."));
+                sender.sendMessage(error(sc("No punishment found with ID ") + "&d" + query.toUpperCase() + "&7."));
                 return;
             }
-            sender.sendMessage(msg(PREFIX + " &5Punishment &d" + record.banId() + "&7:"));
-            sender.sendMessage(msg(SEP));
+            sender.sendMessage(header("Punishment", "&d" + record.banId()));
+            sender.sendMessage(separator());
             sender.sendMessage(formatRecord(record));
-            sender.sendMessage(msg(SEP));
+            sender.sendMessage(separator());
             return;
         }
 
@@ -66,18 +65,17 @@ public class VoidPunishments implements BuildableCommand {
                     List<PunishmentRecord> records = db.queryByName(query);
 
                     if (records.isEmpty()) {
-                        sender.sendMessage(msg(PREFIX + " &c✖ &7No punishments found for &f" + query + "&7."));
+                        sender.sendMessage(error(sc("No punishments found for ") + "&f" + query + "&7."));
                         return;
                     }
 
-                    sender.sendMessage(msg(
-                            PREFIX + " &5Punishments &7for &f" + query
-                                    + " &8(&f" + records.size() + " record" + (records.size() == 1 ? "" : "s") + "&8):"));
-                    sender.sendMessage(msg(SEP));
+                    sender.sendMessage(header("Punishments", "&f" + query + " &8(&f" + records.size()
+                            + " &7" + sc(records.size() == 1 ? "record" : "records") + "&8)"));
+                    sender.sendMessage(separator());
                     for (PunishmentRecord r : records) {
                         sender.sendMessage(formatRecord(r));
                     }
-                    sender.sendMessage(msg(SEP));
+                    sender.sendMessage(separator());
                 }
         );
     }
@@ -89,19 +87,15 @@ public class VoidPunishments implements BuildableCommand {
         line.append("  &8▸ &d").append(r.banId());
         line.append(" &8│ &7").append(date).append(" UTC");
         line.append(" &8│ &5").append(r.type());
-        line.append(" &8│ &7by &f").append(r.issuedBy());
+        line.append(" &8│ &7").append(sc("by")).append(" &f").append(r.issuedBy());
 
-        if (r.checkName()    != null) line.append(" &8│ &7check&8: &b").append(r.checkName());
-        if (r.waveId()       != null) line.append(" &8│ &7wave&8: &d#").append(r.waveId());
+        if (r.checkName()    != null) line.append(" &8│ &7").append(sc("check")).append("&8: &b").append(r.checkName());
+        if (r.waveId()       != null) line.append(" &8│ &7").append(sc("wave")).append("&8: &d#").append(r.waveId());
 
-        line.append(" &8│ &7dur&8: &f").append(r.duration());
+        line.append(" &8│ &7").append(sc("duration")).append("&8: &f").append(r.duration());
 
-        if (r.flagsSummary() != null) line.append(" &8│ &7flags&8: &7").append(r.flagsSummary());
+        if (r.flagsSummary() != null) line.append(" &8│ &7").append(sc("flags")).append("&8: &7").append(r.flagsSummary());
 
-        return msg(line.toString());
-    }
-
-    private static Component msg(String legacy) {
-        return MessageUtil.miniMessage(legacy);
+        return MessageUtil.miniMessage(line.toString());
     }
 }

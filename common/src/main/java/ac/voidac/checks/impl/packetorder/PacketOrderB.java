@@ -46,8 +46,8 @@ public class PacketOrderB extends Check implements PacketCheck {
     public void onPacketReceive(PacketReceiveEvent event) {
         if (exempt) return;
 
-        if (event.getPacketType() == PacketType.Play.Client.ANIMATION
-            && new WrapperPlayClientAnimation(event).getHand() == InteractionHand.MAIN_HAND) {
+        if (isAnimation(event.getPacketType()) && (event.getPacketType() == PacketType.Play.Client.PUNCH
+                || new WrapperPlayClientAnimation(event).getHand() == InteractionHand.MAIN_HAND)) {
             sentAnimationSinceLastAttack = sentAnimation = true;
             sentAttack = sentSlotSwitch = false;
             return;
@@ -68,7 +68,7 @@ public class PacketOrderB extends Check implements PacketCheck {
 
         if (event.getPacketType() == PacketType.Play.Client.PLAYER_DIGGING) {
             WrapperPlayClientPlayerDigging packet = new WrapperPlayClientPlayerDigging(event);
-            if (packet.getAction() == DiggingAction.STAB) {
+            if (packet.getAction() == DiggingAction.STAB && player.getClientVersion().isOlderThan(ClientVersion.V_26_3)) {
                 onAttack(event);
                 return;
             }

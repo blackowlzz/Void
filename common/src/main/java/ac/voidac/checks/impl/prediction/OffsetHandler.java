@@ -1,5 +1,6 @@
 package ac.voidac.checks.impl.prediction;
 
+import ac.voidac.utils.diagnostic.DiagnosticLogger;
 import ac.voidac.VoidAPI;
 import ac.voidac.api.config.ConfigManager;
 import ac.voidac.api.event.events.CompletePredictionEvent;
@@ -32,12 +33,13 @@ public class OffsetHandler extends Check implements PostPredictionCheck {
     public void onPredictionComplete(final PredictionComplete predictionComplete) {
         double offset = predictionComplete.getOffset();
 
-        if (player.diagnosticLogger != null) {
+        DiagnosticLogger diagnosticLogger = player.diagnosticLogger;
+        if (diagnosticLogger != null) {
             // Determine if this tick will flag before the actual flag logic runs,
             // so the log entry and the flag appear in the same tick block.
             boolean willFlag = predictionComplete.isChecked()
                     && (offset >= threshold || offset >= immediateSetbackThreshold);
-            player.diagnosticLogger.recordTick(player, offset, willFlag,
+            diagnosticLogger.recordTick(player, offset, willFlag,
                     willFlag ? offset + " /gl " + (predictionComplete.getIdentifier()) : "",
                     predictionComplete.isChecked());
         }

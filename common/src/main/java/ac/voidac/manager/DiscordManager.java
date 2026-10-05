@@ -50,7 +50,8 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
     private static final ConcurrentLinkedDeque<Pair<HttpRequest, CompletableFuture<Boolean>>> requests = new ConcurrentLinkedDeque<>();
     private static final AtomicBoolean taskStarted = new AtomicBoolean();
     private static final AtomicBoolean sending = new AtomicBoolean();
-    private static long rateLimitedUntil;
+    private static volatile long rateLimitedUntil;
+    private static volatile int headAttempts;
 
     private static final String LOGO_FILENAME = "void_logo.png";
     private static final String LOGO_ATTACHMENT_REF = "attachment://" + LOGO_FILENAME;
@@ -307,31 +308,55 @@ public class DiscordManager implements StartableInitable, ReloadableInitable {
             HttpRequest request = pair.first();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString()).whenComplete((response, throwable) -> {
                 if (throwable != null) {
-                    sending.set(false);
                     LogUtil.error("Exception caught while sending a Void webhook alert", throwable);
+                    retryOrDrop(pair, WebhookRetryPolicy.backoffMillis(headAttempts + 1));
                     return;
                 }
 
-                if (response != null && response.statusCode() == 429) {
-                    sending.set(false);
-                    var reset = response.headers().firstValueAsLong("X-RateLimit-Reset");
-                    if (reset.isPresent()) {
-                        rateLimitedUntil = Math.max(reset.getAsLong() * 1000, rateLimitedUntil);
-                    }
+                int status = response.statusCode();
+                if (WebhookRetryPolicy.isRateLimited(status)) {
+                    defer(WebhookRetryPolicy.delayMillis(status, response.headers(), headAttempts));
                     return;
                 }
 
-                requests.remove(pair);
-                sending.set(false);
+                if (WebhookRetryPolicy.isTransientFailure(status)) {
+                    LogUtil.warn("Discord answered " + status + " while sending a Void webhook alert, retrying later.");
+                    retryOrDrop(pair, WebhookRetryPolicy.delayMillis(status, response.headers(), headAttempts + 1));
+                    return;
+                }
 
-                // TODO: handle 503 (Service Unavailable)?
-                if (response != null && response.statusCode() >= 400) {
-                    LogUtil.error("Encountered status code " + response.statusCode() + " with body " + response.body() + " and headers " + response.headers().map() + " while sending a Void webhook alert.");
-                    pair.second().complete(false);
+                if (status >= 400) {
+                    LogUtil.error("Encountered status code " + status + " with body " + response.body() + " and headers " + response.headers().map() + " while sending a Void webhook alert.");
+                    finish(pair, false);
                 } else {
-                    pair.second().complete(true);
+                    finish(pair, true);
                 }
             });
         }
+    }
+
+    private static void retryOrDrop(Pair<HttpRequest, CompletableFuture<Boolean>> pair, long delayMillis) {
+        if (!requests.contains(pair)) {
+            finish(pair, false);
+            return;
+        }
+        if (++headAttempts >= WebhookRetryPolicy.MAX_ATTEMPTS) {
+            LogUtil.error("Dropping a Void webhook alert after " + headAttempts + " failed attempts.");
+            finish(pair, false);
+            return;
+        }
+        defer(delayMillis);
+    }
+
+    private static void defer(long delayMillis) {
+        rateLimitedUntil = Math.max(rateLimitedUntil, System.currentTimeMillis() + delayMillis);
+        sending.set(false);
+    }
+
+    private static void finish(Pair<HttpRequest, CompletableFuture<Boolean>> pair, boolean success) {
+        requests.remove(pair);
+        headAttempts = 0;
+        sending.set(false);
+        pair.second().complete(success);
     }
 }

@@ -22,11 +22,12 @@ public class MultiActionsC extends Check implements PacketCheck {
     @Contract(pure = true)
     public static String getVerbose(@NotNull VoidPlayer player) {
         StringJoiner verbose = new StringJoiner(", ");
-        if (player.isSprinting && (!player.isSwimming || !player.clientClaimsLastOnGround)) {
+        if (player.isSprinting && (!player.isSwimming || !player.clientClaimsLastOnGround)
+                && !player.inVehicle() && !player.uncertaintyHandler.lastVehicleSwitch.hasOccurredSince(1)) {
             verbose.add("sprinting");
         }
 
-        if (player.isSneaking && player.getClientVersion().isOlderThan(ClientVersion.V_1_15)) {
+        if (player.isSneaking && (player.getClientVersion().isOlderThan(ClientVersion.V_1_15) || player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_9))) {
             verbose.add("sneaking");
         }
 

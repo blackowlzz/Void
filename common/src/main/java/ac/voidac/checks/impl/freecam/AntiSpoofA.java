@@ -115,9 +115,11 @@ public class AntiSpoofA extends Check implements PacketCheck {
 
     @Override
     public void onReload(ConfigManager config) {
-        autoKick = config.getBooleanElse("AntiSpoofA.auto-kick", true);
-        kickMessage = config.getStringElse("AntiSpoofA.kick-message",
-                "<red>You have been kicked for using a blacklisted client.");
+        autoKick = config.getBooleanElse("anti-spoof.auto-kick",
+                config.getBooleanElse("AntiSpoofA.auto-kick", true));
+        kickMessage = config.getStringElse("anti-spoof.kick-message",
+                config.getStringElse("AntiSpoofA.kick-message",
+                        "<red>You have been kicked for using a blacklisted client."));
     }
 
     @Override

@@ -2,6 +2,7 @@ package ac.voidac.checks.impl.packetorder;
 
 import ac.voidac.checks.Check;
 import ac.voidac.checks.CheckData;
+import ac.voidac.checks.ClientCheckApplicability;
 import ac.voidac.checks.type.PostPredictionCheck;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.anticheat.update.PredictionComplete;
@@ -20,6 +21,8 @@ public class PacketOrderH extends Check implements PostPredictionCheck {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
+        if (!ClientCheckApplicability.packetOrderH(player.getClientVersion())) return;
+
         if (event.getPacketType() == PacketType.Play.Client.ENTITY_ACTION) {
             switch (new WrapperPlayClientEntityAction(event).getAction()) {
                 case START_SPRINTING, STOP_SPRINTING -> {

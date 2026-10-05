@@ -8,8 +8,9 @@ import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.platform.api.sender.Sender;
 import ac.voidac.player.VoidPlayer;
+import ac.voidac.utils.anticheat.MessageUtil;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.JoinConfiguration;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -17,12 +18,16 @@ import org.incendo.cloud.CommandManager;
 import org.incendo.cloud.parser.standard.StringParser;
 import org.incendo.cloud.suggestion.SuggestionProvider;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static ac.voidac.command.render.MessageStyle.*;
 
 public class VoidList implements BuildableCommand {
 
@@ -46,10 +51,7 @@ public class VoidList implements BuildableCommand {
             return;
         }
 
-        sender.sendMessage(Component.text()
-                .append(Component.text("Unrecognized argument: ", NamedTextColor.GRAY))
-                .append(Component.text(id, NamedTextColor.RED))
-                .build());
+        sender.sendMessage(error(sc("Unrecognized argument: ") + "&f" + id));
     }
 
     private Component playerComponent(String name, UUID uuid, boolean online, boolean exempt) {
@@ -61,63 +63,39 @@ public class VoidList implements BuildableCommand {
     }
 
     private Component playerHoverComponent(UUID uuid, boolean online, boolean exempt, boolean registered) {
-        var builder = Component.text();
-        builder.append(Component.text()
-                .append(Component.text("UUID: ").color(NamedTextColor.GRAY))
-                .append(Component.text(uuid + "").color(NamedTextColor.WHITE))
-                .append(Component.newline())
-                .append(Component.text("State: ").color(NamedTextColor.GRAY))
-                .append(online ? Component.text("Online").color(NamedTextColor.GREEN)
-                        : Component.text("Offline").color(NamedTextColor.RED)));
-        if (exempt) {
-            builder.append(Component.newline());
-            builder.append(Component.text("Void-exempt").color(NamedTextColor.LIGHT_PURPLE));
-        }
-        if (!registered) {
-            builder.append(Component.newline());
-            builder.append(Component.text("Not registered").color(NamedTextColor.RED));
-        }
-        return builder.build();
+        return MessageUtil.miniMessage("&7" + sc("UUID") + "&8: &f" + uuid
+                + "<newline>&7" + sc("State") + "&8: " + (online ? "&a" + sc("Online") : "&c" + sc("Offline"))
+                + (exempt ? "<newline>&d" + sc("Void-exempt") : "")
+                + (registered ? "" : "<newline>&c" + sc("Not registered")));
     }
 
     private void handleListPlayers(Sender sender) {
-        final TextComponent.Builder builder = Component.text();
+        final List<Component> entries = new ArrayList<>();
 
         final Map<UUID, PlatformPlayer> onlinePlayers = VoidAPI.INSTANCE.getPlatformPlayerFactory().getOnlinePlayers()
                 .stream().collect(Collectors.toMap(VoidIdentity::getUniqueId, Function.identity()));
-        //
         final Set<PlatformPlayer> unregisteredPlayers = new HashSet<>(onlinePlayers.values());
 
-        boolean after = false;
-        builder.append(Component.text("Registered players = [", NamedTextColor.GRAY));
-        //
         for (VoidPlayer entry : VoidAPI.INSTANCE.getPlayerDataManager().getEntries()) {
-            if (after) {
-                builder.append(Component.text(", ").color(NamedTextColor.GRAY));
-            } else {
-                after = true;
-            }
             PlatformPlayer platformPlayer = onlinePlayers.get(entry.getUniqueId());
             if (platformPlayer != null) unregisteredPlayers.remove(platformPlayer);
             boolean online = platformPlayer != null && platformPlayer.isOnline();
             boolean exempt = !VoidAPI.INSTANCE.getPlayerDataManager().shouldCheck(entry.user);
-            builder.append(playerComponent(entry.getName(), entry.getUniqueId(), online, exempt));
+            entries.add(playerComponent(entry.getName(), entry.getUniqueId(), online, exempt));
         }
-        //
+
         for (PlatformPlayer platformPlayer : unregisteredPlayers) {
-            if (after) {
-                builder.append(Component.text(", ").color(NamedTextColor.GRAY));
-            } else {
-                after = true;
-            }
-            builder.append(Component.text(platformPlayer.getName()).color(NamedTextColor.LIGHT_PURPLE)
+            entries.add(Component.text(platformPlayer.getName()).color(NamedTextColor.LIGHT_PURPLE)
                     .clickEvent(ClickEvent.suggestCommand(platformPlayer.getName()))
                     .hoverEvent(HoverEvent.showText(playerHoverComponent(platformPlayer.getUniqueId(), platformPlayer.isOnline(), false, false)))
             );
         }
-        // close and send
-        builder.append(Component.text("]", NamedTextColor.GRAY));
-        sender.sendMessage(builder.build());
+
+        sender.sendMessage(header("Players", "&8(&f" + entries.size() + "&8)"));
+        sender.sendMessage(Component.text()
+                .append(Component.text("  "))
+                .append(Component.join(JoinConfiguration.separator(Component.text(", ", NamedTextColor.DARK_GRAY)), entries))
+                .build());
     }
 
 }

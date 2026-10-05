@@ -4,10 +4,10 @@ import ac.voidac.command.commands.*;
 import ac.voidac.command.commands.VoidBanWave;
 import ac.voidac.command.commands.VoidPunish;
 import ac.voidac.command.handler.VoidCommandFailureHandler;
+import ac.voidac.command.render.MessageStyle;
 import ac.voidac.platform.api.command.CommandService;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.sender.Sender;
-import ac.voidac.utils.anticheat.MessageUtil;
 import io.leangen.geantyref.TypeToken;
 import net.kyori.adventure.text.ComponentLike;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -76,7 +76,7 @@ public class CloudCommandService implements CommandService {
         );
         commandManager.registerCommandPostProcessor(senderRequirementPostprocessor);
         registerExceptionHandler(commandManager, InvalidSyntaxException.class, e ->
-                MessageUtil.miniMessage("&8[&5Void&8] &7Usage: &f" + e.correctSyntax()));
+                MessageStyle.error(MessageStyle.sc("Usage") + " &8│ &f" + e.correctSyntax()));
         commandsRegistered = true;
     }
 

@@ -25,16 +25,14 @@ public final class FrameStream {
         if (frame.length > MAX_FRAME) {
             throw new IOException("Frame too large to send: " + frame.length);
         }
-        byte[] header = {
-                (byte) (frame.length >>> 24),
-                (byte) (frame.length >>> 16),
-                (byte) (frame.length >>> 8),
-                (byte) frame.length
-        };
-        // one write so two threads can't interleave a header and a body
+        byte[] message = new byte[Integer.BYTES + frame.length];
+        message[0] = (byte) (frame.length >>> 24);
+        message[1] = (byte) (frame.length >>> 16);
+        message[2] = (byte) (frame.length >>> 8);
+        message[3] = (byte) frame.length;
+        System.arraycopy(frame, 0, message, Integer.BYTES, frame.length);
         synchronized (out) {
-            out.write(header);
-            out.write(frame);
+            out.write(message);
             out.flush();
         }
     }
@@ -47,13 +45,17 @@ public final class FrameStream {
      *                     treat as "drop this connection"
      */
     public static byte @Nullable [] read(@NotNull DataInputStream in) throws IOException {
+        return read(in, MAX_FRAME);
+    }
+
+    public static byte @Nullable [] read(@NotNull DataInputStream in, int maxFrame) throws IOException {
         int length;
         try {
             length = in.readInt();
         } catch (EOFException hungUp) {
             return null;
         }
-        if (length <= 0 || length > MAX_FRAME) {
+        if (length <= 0 || length > Math.min(maxFrame, MAX_FRAME)) {
             throw new IOException("Implausible frame length: " + length);
         }
         byte[] frame = new byte[length];

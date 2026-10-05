@@ -300,8 +300,8 @@ public final class StorageEspDecoyManager {
     }
 
     private void refreshVisibleDecoys() {
-        Set<Long> loadedChunks = new HashSet<>(player.compensatedWorld.chunks.keySet());
-        activeDecoyCache.keySet().removeIf(chunkKey -> !loadedChunks.contains(chunkKey));
+        long[] loadedChunks = player.compensatedWorld.chunks.keySet().toLongArray();
+        activeDecoyCache.keySet().removeIf(chunkKey -> !player.compensatedWorld.chunks.containsKey((long) chunkKey));
 
         for (long chunkKey : loadedChunks) {
             int chunkX = (int) (chunkKey >> 32);

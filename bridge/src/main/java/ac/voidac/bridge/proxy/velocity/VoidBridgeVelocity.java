@@ -96,7 +96,11 @@ public final class VoidBridgeVelocity implements ProxyPlatform {
 
         // scoped ban bounces them off those servers only, rest of the network is fine
         event.setResult(ServerPreConnectEvent.ServerResult.denied());
-        player.sendMessage(text(active.banScreen(ban)));
+        if (player.getCurrentServer().isEmpty()) {
+            player.disconnect(text(active.banScreen(ban)));
+        } else {
+            player.sendMessage(text(active.banScreen(ban)));
+        }
     }
 
     @Override

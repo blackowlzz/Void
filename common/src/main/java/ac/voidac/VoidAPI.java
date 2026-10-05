@@ -36,12 +36,16 @@ import ac.voidac.platform.api.manager.PlatformPluginManager;
 import ac.voidac.platform.api.player.PlatformPlayerFactory;
 import ac.voidac.platform.api.scheduler.PlatformScheduler;
 import ac.voidac.platform.api.sender.SenderFactory;
+import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.PlayerDataManager;
+import ac.voidac.utils.diagnostic.DiagnosticLogger;
 import ac.voidac.utils.common.arguments.CommonVoidArguments;
 import ac.voidac.utils.reflection.ReflectionUtils;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -149,6 +153,22 @@ public final class VoidAPI {
     public void stop() {
         checkInitialized();
         initManager.stop();
+        closeDiagnosticLoggers();
+    }
+
+    private void closeDiagnosticLoggers() {
+        List<DiagnosticLogger> loggers = new ArrayList<>();
+        for (VoidPlayer player : getPlayerDataManager().getEntries()) {
+            DiagnosticLogger logger = player.diagnosticLogger;
+            if (logger != null) {
+                player.diagnosticLogger = null;
+                logger.close();
+                loggers.add(logger);
+            }
+        }
+        for (DiagnosticLogger logger : loggers) {
+            logger.awaitClose(1000);
+        }
     }
 
     public boolean isInitialized() {

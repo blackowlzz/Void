@@ -1,39 +1,39 @@
 # \u00BB se traduit par » (double >>). Les interprétations diffèrent entre les normes ANSI et UTF-8... vous pouvez même voir ? en raison de cela
 prefix: "&8[&5Void&8]"
 
-alerts-enabled: "%prefix% &7Alertes &aactivées&7."
-alerts-disabled: "%prefix% &7Alertes &cdésactivées&7."
-verbose-enabled: "%prefix% &7Verbose &aactivé&7."
-verbose-disabled: "%prefix% &7Verbose &cdésactivé&7."
-brands-enabled: "%prefix% &7Suivi des marques &aactivé&7."
-brands-disabled: "%prefix% &7Suivi des marques &cdésactivé&7."
+alerts-enabled: "%prefix% &a✔ &7<sc>Alertes</sc> &a<sc>activées</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>Alertes</sc> &c<sc>désactivées</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>Verbose</sc> &a<sc>activé</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>Verbose</sc> &c<sc>désactivé</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>Suivi des marques</sc> &a<sc>activé</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>Suivi des marques</sc> &c<sc>désactivé</sc>"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
-malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
-console-specify-target: "%prefix% &cVous devez spécifier une cible en tant que console !"
-reloading: "%prefix% &7Rechargement..."
-reloaded: "%prefix% &7Configuration &arechargée&7."
-reload-failed: "%prefix% &7Rechargement &céchoué&7."
-player-not-found: "%prefix% &cPlayer est ignoré ou hors ligne !"
-player-not-this-server: "%prefix% &cPlayer n'est pas sur ce serveur !"
-sender-not-found: "%prefix% &cVous ne pouvez pas utiliser cette commande si vous êtes exempté !"
-spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fClickez ici pour retourner à votre position d'origine\n</hover></click>"
-cannot-spectate-return: "%prefix% &cVous pouvez faire cela uniquement en étant en spectateur"
-cannot-run-on-self: "%prefix% &cVous ne pouvez pas utiliser cette commande sur vous-même !"
-upload-log: "%prefix% &fLe fichier de débogage a été téléversé vers : %url%"
-upload-log-start: "%prefix% &fTéléversement du journal... Veuillez patienter"
-upload-log-not-found: "%prefix% &cUImpossible de trouver le journal de débogage"
-upload-log-upload-failure: "%prefix% &cUne erreur est survenue lors du téléversement de ce journal, regardez la console pour plus d'information"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>a envoyé un paquet illisible et a été expulsé</sc> &8(&7<sc>crasher possible</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>La console doit spécifier une cible</sc>"
+reloading: "%prefix% &7<sc>Rechargement de la configuration...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>Configuration</sc> &a<sc>rechargée</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>Rechargement de la configuration</sc> &c<sc>échoué</sc>&7<sc>, consultez la console pour les détails</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>Ce joueur est introuvable</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>Ce joueur n'est pas sur ce serveur</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>Les utilisateurs exemptés ne peuvent pas utiliser cette commande</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>Cliquez pour revenir</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>Vous ne pouvez le faire qu'après avoir observé un joueur</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>Vous ne pouvez pas utiliser cette commande sur vous-même</sc>"
+upload-log: "%prefix% &a✔ &7<sc>Journal enregistré</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>Enregistrement du journal...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>Aucun journal trouvé</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>Échec de l'enregistrement du journal, consultez la console pour les détails</sc>"
 disconnect:
     timeout: "<lang:disconnect.timeout>"
     closed: "<lang:disconnect.closed>"
     error: "<red>An error occurred whilst processing packets. Please contact the administrators."
     blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
-run-as-player: "%prefix% &cCette commande ne peut être utilisée que par les joueurs !"
-run-as-player-or-console: "%prefix% &cCette commande ne peut être utilisée que par les joueurs ou la console !"
-webhook-not-enabled: "Void webhooks are dormant."
+run-as-player: "%prefix% &c✖ &7<sc>Seuls les joueurs peuvent utiliser cette commande</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>Seuls les joueurs ou la console peuvent utiliser cette commande</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Les webhooks ne sont pas activés</sc>"
 webhook-test-message: "void signal test"
-webhook-test-succeeded: "Void webhook test succeeded!"
-webhook-test-failed: "Void webhook test failed!"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Message de test du webhook envoyé</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Échec du test du webhook, consultez la console pour les détails</sc>"
 
 # Placeholders valides :
 # %prefix%
@@ -44,33 +44,34 @@ webhook-test-failed: "Void webhook test failed!"
 # %vl% - violations
 # %verbose% - Informations supplémentaires sur les vérifivations comme les écarts, toutes les vérifications n'ajoutent pas d'information
 alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
-alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
 experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7Les petites capitales sont activées mais ne s'affichent pas correctement dans cette langue. Mets &fsmall-caps: false &7dans config.yml."
 
 profile:
     - ""
-    - "  %prefix% &5Profil &8─ &f%player%"
-    - "  &8▸ &7Ping         &f%ping% ms"
-    - "  &8▸ &7Version      &f%version%"
-    - "  &8▸ &7Marque       &f%brand%"
-    - "  &8▸ &7Sensibilité  &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
-    - "  &8▸ &7FastMath     &f%fast_math%"
+    - "  %prefix% &5<sc>Profil</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>Ping</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>Version</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>Marque</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>Sensibilité</sc> &8│ &fH %h_sensitivity%% &8/ &fV %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
     - ""
 help:
-    - "  &5/void alerts              &8│ &7Activer/désactiver les alertes"
-    - "  &5/void verbose             &8│ &7Activer/désactiver le verbose"
-    - "  &5/void brands              &8│ &7Surveiller les marques clients"
-    - "  &5/void profile &8<joueur>    &8│ &7Inspecter le profil d'un joueur"
-    - "  &5/void debug &8<joueur>      &8│ &7Voir le debug trace"
-    - "  &5/void spectate &8<joueur>   &8│ &7Observer un joueur"
-    - "  &5/void history &8<joueur>    &8│ &7Historique des sessions"
-    - "  &5/void log &8[0-255]         &8│ &7Téléverser le log de debug"
-    - "  &5/void perf                &8│ &7Voir les temps de prédiction"
-    - "  &5/void reload              &8│ &7Recharger la configuration"
-    - "  &5/void version             &8│ &7Vérifier les mises à jour"
-    - "  &5/void punish &8<joueur>     &8│ &7Punir manuellement un joueur"
-    - "  &5/void banwave             &8│ &7Gérer la vague de bans"
-    - "  &5/void punishments &8<query> &8│ &7Rechercher des punitions"
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>Activer/désactiver les alertes</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>Activer/désactiver le verbose</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>Surveiller les marques clients</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<joueur> &8· &7<sc>Inspecter le profil d'un joueur</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<joueur> &8· &7<sc>Voir le debug trace</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<joueur> &8· &7<sc>Observer un joueur discrètement</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<joueur> &8· &7<sc>Parcourir l'historique des sessions</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<joueur> &8· &7<sc>Punir manuellement un joueur</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>Gérer la file de la vague de bans</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<recherche> &8· &7<sc>Rechercher des punitions</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>Téléverser le log de debug</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>Voir les temps de prédiction</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>Recharger la configuration</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>Vérifier les mises à jour</sc>"
 
 # === /void history ===
 # UI d'historique basée sur les sessions. Toutes les lignes ci-dessous sont
@@ -81,15 +82,15 @@ help:
 # <hover:show_text:'...'> sur n'importe quelle ligne pour superposer des
 # tooltips supplémentaires.
 
-void-history-load-failure: "%prefix% &cLe sous-système d'historique n'a pas pu être chargé ! Vérifiez la console du serveur pour les erreurs."
-void-history-disabled: "%prefix% &cLe sous-système d'historique est désactivé !"
-void-history-failed: "%prefix% &cÉchec du chargement de l'historique : &7%error%"
-void-history-unknown-player: "%prefix% &cJoueur inconnu : &f%player%"
-void-history-no-sessions: "%prefix% &7Pas d'historique de sessions pour &f%player%&7."
-void-history-session-not-found: "%prefix% &cSession &f%ordinal%&c introuvable pour &f%player%&c."
+void-history-load-failure: "%prefix% &c✖ &7<sc>Impossible de charger l'historique, consultez la console pour les erreurs</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>L'historique est désactivé</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>Échec du chargement de l'historique :</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>Joueur inconnu :</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7<sc>Aucune session pour</sc> &f%player%"
+void-history-session-not-found: "%prefix% &c✖ &7<sc>Session</sc> &f%ordinal% &7<sc>introuvable pour</sc> &f%player%"
 
 # Liste des sessions: placeholders valides : %prefix% %player% %page% %max_pages%
-void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+void-history-header: "%prefix% &5<sc>Sessions</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
 # Ligne de résumé d'une session: placeholders valides :
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -98,24 +99,24 @@ void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_
 # dont la connexion a disparu sans fermeture propre (crash serveur, kill -9,
 # RST de canal sans UserDisconnectEvent). Chaîne vide pour les sessions en
 # cours ou closes proprement.
-void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>flags</sc> &8(&d%unique_checks%&8) &8│ &7<sc>il y a</sc> %timeago% &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # Marqueur en ligne substitué dans %crashed_marker% pour les sessions dont
 # closed_at == last_activity (c.-à-d. estampillées par le balayage de crash
 # au prochain démarrage, et non par le chemin de déconnexion). Inclut un
 # espace de tête pour que le marqueur se lise naturellement quand il est
 # présent et disparaisse proprement quand il est vide.
-void-history-crashed-marker: " &8(&ccrashed&8)"
+void-history-crashed-marker: " &8(&c<sc>crash</sc>&8)"
 
 # Détail de session: placeholders valides :
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
-void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
-void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Marque &f%client_brand%"
-void-history-detail-violations-header: "  &8▸ &d%violations% &7violations &8(&d%unique_checks% &7uniques&8)"
-void-history-detail-empty: "  &8▸ &7(aucune)"
+void-history-detail-header: "%prefix% &5<sc>Session</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>Version</sc> &f%void_version% &8│ &7<sc>Serveur</sc> &f%server_name% &8│ &7<sc>Durée</sc> &f%duration% &8│ &7<sc>il y a</sc> %timeago%"
+void-history-detail-meta2: "  &8▸ &7<sc>Client</sc> &f%client_version% &8│ &7<sc>Marque</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>violations</sc> &8(&d%unique_checks% &7<sc>uniques</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>aucune</sc>)"
 # Ligne groupée (par défaut): placeholders valides : %prefix% %offset% %checks_list%
 #   %checks_list% est construite en joignant les entrées void-history-check-count avec ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
@@ -127,4 +128,5 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Marqueurs de schéma: voir le commentaire d'en-tête dans config.yml.
 config-flavor: V2
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>Verbose est</sc> &c<sc>désactivé</sc>&7<sc>, vous ne voyez donc que les alertes réellement déclenchées.</sc> &5/void verbose &7<sc>affiche aussi les cas proches du seuil.</sc>"
 config-version: 2

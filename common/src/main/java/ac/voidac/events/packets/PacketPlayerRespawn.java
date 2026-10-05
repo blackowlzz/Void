@@ -144,6 +144,7 @@ public class PacketPlayerRespawn extends PacketListenerAbstract {
             // clear server entity positions when the world changes
             if (isWorldChange(player, respawn)) {
                 player.compensatedEntities.serverPositionsMap.clear();
+                player.antiEspManager.clearWorldState();
             }
 
             player.latencyUtils.addRealTimeTask(player.lastTransactionSent.get() + 1, () -> {
@@ -195,6 +196,7 @@ public class PacketPlayerRespawn extends PacketListenerAbstract {
                     player.compensatedWorld.openShulkerBoxes.clear();
                     player.compensatedWorld.chunks.clear();
                     player.compensatedWorld.clearPredictions();
+                    player.compensatedGeysers.clear();
                     player.storageEspDecoyManager.clearVisibilityCache();
                     player.compensatedWorld.isRaining = false;
                     player.checkManager.getBlockPlaceCheck(BadPacketsH.class).onWorldChange();

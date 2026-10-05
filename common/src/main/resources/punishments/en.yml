@@ -73,6 +73,15 @@ Punishments:
       - "1:1 [log]"
       - "1:1 [webhook]"
       - "1:1 [proxy]"
+  WallHit:
+    remove-violations-after: 300
+    checks:
+      - "WallHit"
+    commands:
+      - "1:1 [alert]"
+      - "1:1 [log]"
+      - "5:5 [webhook]"
+      - "5:5 [proxy]"
   Hitboxes:
     remove-violations-after: 300
     checks:
@@ -82,16 +91,6 @@ Punishments:
       - "1:1 [log]"
       - "5:3 [webhook]"
       - "5:3 [proxy]"
-  Freecam:
-    remove-violations-after: 300
-    # Disabled by default. Add "Freecam" below to enable FreecamA/FreecamB.
-    checks: []
-    commands:
-      - "1:1 [alert]"
-      - "1:1 [log]"
-      - "1:1 [webhook]"
-      - "1:1 [proxy]"
-      - "5:0 kick %player% &cDetected using Freecam"
   AntiSpoof:
     remove-violations-after: 300
     checks:
@@ -101,7 +100,6 @@ Punishments:
       - "1:1 [log]"
       - "1:0 [webhook]"
       - "1:0 [proxy]"
-      - "1:0 kick %player% &cBlacklisted client detected"
   Misc:
     remove-violations-after: 300
     checks:

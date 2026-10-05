@@ -48,6 +48,14 @@ dependencies {
     // bundled, not assumed: Bungee ships SnakeYAML, Velocity makes no promises,
     // and relocating ours means we can't collide with theirs
     implementation(libs.snakeyaml)
+
+    testCompileOnly(libs.jetbrains.annotations)
+    testImplementation(testlibs.junitJupiter)
+    testRuntimeOnly(testlibs.junitPlatformLauncher)
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
 
 // otherwise spotless reaches through the shared source dir and reformats

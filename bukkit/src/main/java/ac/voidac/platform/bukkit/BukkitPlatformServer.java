@@ -32,6 +32,11 @@ public class BukkitPlatformServer implements PlatformServer {
     }
 
     @Override
+    public boolean isOnlineMode() {
+        return Bukkit.getOnlineMode();
+    }
+
+    @Override
     public double getTPS() {
         // Folia throws UnsupportedOperationException on calling getTPS(), there is no API for getting TPS on Folia
         if (VoidAPI.INSTANCE.getPlatform() == Platform.FOLIA) {

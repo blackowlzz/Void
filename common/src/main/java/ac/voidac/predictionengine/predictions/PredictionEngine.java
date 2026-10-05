@@ -163,7 +163,7 @@ public class PredictionEngine {
         // Computers are actually really fast at sorting, I don't see sorting as a problem
         possibleVelocities.sort((a, b) -> sortVectorData(a, b, player));
 
-        player.checkManager.getPostPredictionCheck(SneakingEstimator.class).storePossibleVelocities(possibleVelocities);
+        player.checkManager.getPostPredictionCheck(SneakingEstimator.class).storePossibleVelocities(possibleVelocities, speed);
 
         double bestInput = Double.MAX_VALUE;
 
@@ -248,6 +248,8 @@ public class PredictionEngine {
             if (resultAccuracy < bestInput) {
                 bestCollisionVel = clientVelAfterInput.returnNewModified(outputVel, VectorData.VectorType.BestVelPicked);
                 bestCollisionVel.preUncertainty = clientVelAfterInput;
+                player.bestUncertaintyMin = player.lastUncertaintyMin;
+                player.bestUncertaintyMax = player.lastUncertaintyMax;
                 beforeCollisionMovement = primaryPushMovement;
                 realBeforeCollisionMovement = realPrimaryPushMovement;
 
@@ -628,8 +630,14 @@ public class PredictionEngine {
         Vector3dm maxVector = vector.vector.clone().add(max.add(uncertainty));
 
         // Handle the player landing within 0.03 movement, which resets Y velocity
-        if (player.uncertaintyHandler.onGroundUncertain && vector.vector.getY() < 0) {
-            maxVector.setY(0);
+        if (player.uncertaintyHandler.onGroundUncertain && vector.vector.getY() < 0 && !player.uncertaintyHandler.influencedByBouncyBlock()) {
+            double movementY = Math.max(minVector.getY(), -player.getMovementThreshold());
+            double bounceY = BlockProperties.getVelocityAfterVerticalCollision(player, minVector.getY(), movementY);
+            if (bounceY < 0) {
+                minVector.setY(bounceY);
+            } else {
+                maxVector.setY(bounceY);
+            }
         }
 
         // Handles stuff like missing idle packet causing gravity to be missed (plus 0.03 of course)
@@ -762,8 +770,9 @@ public class PredictionEngine {
             if (player.wasTouchingLava) trueFriction = 0.5;
             if (player.wasTouchingWater) trueFriction = 0.96;
 
-            double maxY = Math.max(box.maxY, box.maxY + ((box.maxY - player.gravity) * 0.91));
-            double minY = Math.min(box.minY, box.minY + ((box.minY - player.gravity) * 0.91));
+            float verticalDrag = BlockProperties.getModifiedAirDrag(0.98F, player);
+            double maxY = Math.max(box.maxY, box.maxY + ((box.maxY - player.gravity) * verticalDrag));
+            double minY = Math.min(box.minY, box.minY + ((box.minY - player.gravity) * verticalDrag));
             double minX = Math.min(box.minX, box.minX + (-player.speed * trueFriction));
             double minZ = Math.min(box.minZ, box.minZ + (-player.speed * trueFriction));
             double maxX = Math.max(box.maxX, box.maxX + (player.speed * trueFriction));
@@ -792,6 +801,8 @@ public class PredictionEngine {
             minVector.setZ(Math.min(minVector.getZ() - pistonZ, pistonZ));
             maxVector.setZ(Math.max(maxVector.getZ() + pistonZ, pistonZ));
         }
+        player.lastUncertaintyMin = minVector;
+        player.lastUncertaintyMax = maxVector;
         return VectorUtils.cutBoxToVector(targetVec, minVector, maxVector);
     }
 

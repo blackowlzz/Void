@@ -99,14 +99,14 @@ public class ThresholdOptimizerManager {
 
     public List<String> getStatusLines() {
         List<String> lines = new ArrayList<>();
-        lines.add(running.get() ? "&aRunning" : "&cStopped");
+        lines.add(running.get() ? "&a<sc>Running</sc>" : "&c<sc>Stopped</sc>");
         if (startedAt > 0) {
-            lines.add("Started: &f" + REPORT_DATE.format(Instant.ofEpochMilli(startedAt)) + " UTC");
+            lines.add("&7<sc>Started</sc>&8: &f" + REPORT_DATE.format(Instant.ofEpochMilli(startedAt)) + " UTC");
         }
         if (stoppedAt > 0) {
-            lines.add("Stopped: &f" + REPORT_DATE.format(Instant.ofEpochMilli(stoppedAt)) + " UTC");
+            lines.add("&7<sc>Stopped</sc>&8: &f" + REPORT_DATE.format(Instant.ofEpochMilli(stoppedAt)) + " UTC");
         }
-        lines.add("Checks observed: &f" + checkStats.size());
+        lines.add("&7<sc>Checks observed</sc>&8: &f" + checkStats.size());
 
         long totalLegit = 0, totalUntrusted = 0;
         Set<UUID> legitPlayers = new HashSet<>(), untrustedPlayers = new HashSet<>();
@@ -116,8 +116,8 @@ public class ThresholdOptimizerManager {
             legitPlayers.addAll(s.legitPlayers);
             untrustedPlayers.addAll(s.untrustedPlayers);
         }
-        lines.add("Legit flags: &f" + totalLegit + " &7from &f" + legitPlayers.size() + " &7players");
-        lines.add("Untrusted flags: &f" + totalUntrusted + " &7from &f" + untrustedPlayers.size() + " &7players");
+        lines.add("&7<sc>Legit flags</sc>&8: &f" + totalLegit + " &7<sc>from</sc> &f" + legitPlayers.size() + " &7<sc>players</sc>");
+        lines.add("&7<sc>Untrusted flags</sc>&8: &f" + totalUntrusted + " &7<sc>from</sc> &f" + untrustedPlayers.size() + " &7<sc>players</sc>");
 
         if (checkStats.isEmpty()) return lines;
 
@@ -128,11 +128,11 @@ public class ThresholdOptimizerManager {
             CheckStats s = e.getValue();
             if (s.legitFlagCount == 0) continue;
             lines.add("  &8▸ &d" + e.getKey()
-                    + " &8│ &7legit max VL &f" + (int) s.legitMaxVl
-                    + " &8│ &7samples &f" + s.legitFlagCount
-                    + (s.legitFlagCount < MIN_LEGIT_SAMPLES ? " &c(low)" : ""));
+                    + " &8│ &7<sc>legit max vl</sc> &f" + (int) s.legitMaxVl
+                    + " &8│ &7<sc>samples</sc> &f" + s.legitFlagCount
+                    + (s.legitFlagCount < MIN_LEGIT_SAMPLES ? " &c(<sc>low</sc>)" : ""));
             if (++shown >= 8) {
-                lines.add("  &8... &7(" + (sorted.size() - shown) + " more)");
+                lines.add("  &8... &7(" + (sorted.size() - shown) + " <sc>more</sc>)");
                 break;
             }
         }

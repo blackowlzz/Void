@@ -249,16 +249,28 @@ public class BlockProperties {
     // present in the map and the lookup cannot throw. Below 26.2 requiredVersion pins them to
     // their defaults (1.0 / 0.0 / 1.0), which makes each of these return the vanilla value.
     public static float getModifiedFriction(float friction, VoidPlayer player) {
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
+            return friction;
+        }
+
         PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
         return VoidMath.clamp(1.0F - (1.0F - friction) * (float) entity.getAttributeValue(Attributes.FRICTION_MODIFIER), 0.0F, 1.0F);
     }
 
     public static float getModifiedAirDrag(float drag, VoidPlayer player) {
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
+            return drag;
+        }
+
         PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
         return VoidMath.clamp(1.0F - (1.0F - drag) * (float) entity.getAttributeValue(Attributes.AIR_DRAG_MODIFIER), 0.0F, 1.0F);
     }
 
     public static float getEntityBounciness(VoidPlayer player) {
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2)) {
+            return 0.0F;
+        }
+
         PacketEntity entity = player.inVehicle() ? player.compensatedEntities.self.getRiding() : player.compensatedEntities.self;
         // Shifting cancels the bounce, same as it always did for slime
         if (entity == player.compensatedEntities.self && player.isSneaking) {
@@ -286,7 +298,8 @@ public class BlockProperties {
 
     public static double getVelocityAfterVerticalCollision(VoidPlayer player, double velocity, double movementY, double restitution) {
         double gravity = getEffectiveGravity(player, velocity);
-        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2) || velocity < 0.0 && -velocity < gravity) {
+        boolean correctGravity = player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_3) ? -velocity <= gravity : -velocity < gravity;
+        if (player.getClientVersion().isOlderThan(ClientVersion.V_26_2) || velocity < 0.0 && correctGravity) {
             return 0.0;
         }
 
@@ -312,11 +325,19 @@ public class BlockProperties {
     }
 
     public static float getBlockBounceRestitution(StateType type, VoidPlayer player) {
+        if (type == StateTypes.STRAW_BED && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_3)) {
+            return 0.0F;
+        }
+
+        if (type == StateTypes.SHELF_MUSHROOM && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_3)) {
+            return 0.75F;
+        }
+
         if (type == StateTypes.SLIME_BLOCK && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8)) {
             return 1.0F;
         }
 
-        if (BlockTags.BEDS.contains(type) && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12)) {
+        if ((BlockTags.BEDS.contains(type) || (type == StateTypes.STRAW_BED && player.getClientVersion().isOlderThan(ClientVersion.V_26_3))) && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12)) {
             return player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_2) ? 0.75F : 0.66F;
         }
 

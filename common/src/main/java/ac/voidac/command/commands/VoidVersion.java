@@ -5,14 +5,12 @@ import ac.voidac.command.BuildableCommand;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.sender.Sender;
 import ac.voidac.utils.anticheat.LogUtil;
+import ac.voidac.utils.anticheat.SemanticVersion;
 import ac.voidac.utils.common.arguments.CommonVoidArguments;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import lombok.AllArgsConstructor;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.event.ClickEvent;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextDecoration;
 import org.incendo.cloud.CommandManager;
 import org.incendo.cloud.context.CommandContext;
 import org.jetbrains.annotations.NotNull;
@@ -23,7 +21,10 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.OptionalInt;
 import java.util.concurrent.atomic.AtomicReference;
+
+import static ac.voidac.command.render.MessageStyle.*;
 
 public class VoidVersion implements BuildableCommand {
 
@@ -37,10 +38,7 @@ public class VoidVersion implements BuildableCommand {
 
     public static void checkForUpdatesAsync(Sender sender) {
         String current = VoidAPI.INSTANCE.getExternalAPI().getVoidVersion();
-        sender.sendMessage(Component.text()
-                .append(Component.text("Void trace version: ").color(NamedTextColor.GRAY))
-                .append(Component.text(current).color(NamedTextColor.AQUA))
-                .build());
+        sender.sendMessage(info(sc("Running Void ") + "&5" + current));
         final long now = System.currentTimeMillis();
         if (now - lastCheck < 60000) {
             Component message = updateMessage.get();
@@ -76,25 +74,16 @@ public class VoidVersion implements BuildableCommand {
 
             Status status = Status.SemVer.getVersionStatus(current, latest);
             Component msg = switch (status) {
-                case AHEAD ->
-                        Component.text("You are walking on a development build of Void").color(NamedTextColor.LIGHT_PURPLE);
-                case UPDATED ->
-                        Component.text("Void is already at the current edge").color(NamedTextColor.GREEN);
-                case OUTDATED -> Component.text()
-                        .append(Component.text("A new Void release is stirring!").color(NamedTextColor.AQUA))
-                        .append(Component.text(" Version ").color(NamedTextColor.GRAY))
-                        .append(Component.text(latest).color(NamedTextColor.GRAY).decorate(TextDecoration.ITALIC))
-                        .append(Component.text(" can be claimed here: ").color(NamedTextColor.GRAY))
-                        .append(Component.text(MODRINTH_URL).color(NamedTextColor.GRAY).decorate(TextDecoration.UNDERLINED)
-                                .clickEvent(ClickEvent.openUrl(MODRINTH_URL)))
-                        .build();
-                case UNKNOWN ->
-                        Component.text("Void cannot read this version.").color(NamedTextColor.RED);
+                case AHEAD -> info("&d" + sc("You are running a development build"));
+                case UPDATED -> success(sc("Void is up to date"));
+                case OUTDATED -> warning(sc("A new release is available") + " &8│ &f" + latest + " &8▸ <click:open_url:'"
+                        + MODRINTH_URL + "'><aqua><u>" + MODRINTH_URL + "</u></aqua></click>");
+                case UNKNOWN -> error(sc("Could not read this version"));
             };
             updateMessage.set(msg);
             sender.sendMessage(msg);
         } catch (Exception e) {
-            sender.sendMessage(Component.text("The void could not check the latest version.").color(NamedTextColor.RED));
+            sender.sendMessage(error(sc("Could not check the latest version")));
             LogUtil.error("Failed to check latest Void version.", e);
         }
     }
@@ -127,53 +116,10 @@ public class VoidVersion implements BuildableCommand {
         private static class SemVer {
 
             public static Status getVersionStatus(String current, String latest) {
-                try {
-                    var cmp = compareSemver(current, latest);
-                    if (cmp == 0) return Status.UPDATED;
-                    if (cmp < 0) return Status.OUTDATED;
-                    return Status.AHEAD;
-                } catch (Exception ignored) {}
-                return Status.UNKNOWN;
-            }
-
-            public static String normalizeCoreVersion(String version) {
-                String trimmed = version.trim();
-                String[] dashParts = trimmed.split("-");
-                String[] plusParts = dashParts[0].split("\\+");
-                return plusParts[0];
-            }
-
-            public static int[] parseVersion(String version) {
-                String core = normalizeCoreVersion(version);
-                if (core.isEmpty()) return null;
-                String[] parts = core.split("\\.");
-                if (parts.length < 1) return null;
-
-                int major = parseInt(parts[0]);
-                int minor = parts.length > 1 ? parseInt(parts[1]) : 0;
-                int patch = parts.length > 2 ? parseInt(parts[2]) : 0;
-
-                if (major < 0 || minor < 0 || patch < 0) return null;
-                return new int[] { major, minor, patch };
-            }
-
-            private static int parseInt(String str) {
-                try {
-                    return Integer.parseInt(str);
-                } catch (NumberFormatException e) {
-                    return -1;
-                }
-            }
-
-            public static int compareSemver(String a, String b) {
-                int[] pa = parseVersion(a);
-                int[] pb = parseVersion(b);
-                if (pa == null || pb == null) return 0;
-                for (int i = 0; i < 3; i++) {
-                    if (pa[i] < pb[i]) return -1;
-                    if (pa[i] > pb[i]) return 1;
-                }
-                return 0;
+                OptionalInt comparison = SemanticVersion.compare(current, latest);
+                if (comparison.isEmpty()) return Status.UNKNOWN;
+                if (comparison.getAsInt() == 0) return Status.UPDATED;
+                return comparison.getAsInt() < 0 ? Status.OUTDATED : Status.AHEAD;
             }
         }
     }

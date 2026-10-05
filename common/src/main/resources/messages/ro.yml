@@ -1,0 +1,112 @@
+# \u00BB este » (dublu >>), ANSI și UTF-8 îl interpretează diferit... din acest motiv poți vedea chiar ?
+prefix: "&8[&5Void&8]"
+
+alerts-enabled: "%prefix% &a✔ &7<sc>Alerte</sc> &a<sc>activate</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>Alerte</sc> &c<sc>dezactivate</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>Verbose</sc> &a<sc>activat</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>Verbose</sc> &c<sc>dezactivat</sc>"
+# Trimis la 5 s după conectare oricui are void.verbose.enable-on-join, dacă verbose este dezactivat.
+# Această permisiune nu mai activează verbose, doar declanșează această reamintire.
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>Verbose este</sc> &c<sc>dezactivat</sc>&7<sc>, deci vezi doar flag-urile care s-au declanșat efectiv.</sc> &5/void verbose &7<sc>arată și cazurile apropiate de prag.</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>Urmărirea brandurilor</sc> &a<sc>activată</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>Urmărirea brandurilor</sc> &c<sc>dezactivată</sc>"
+client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>a trimis un pachet ilizibil și a fost dat afară</sc> &8(&7<sc>posibil crasher</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>Consola trebuie să specifice o țintă</sc>"
+reloading: "%prefix% &7<sc>Se reîncarcă configurația...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>Configurația</sc> &a<sc>reîncărcată</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>Reîncărcarea configurației</sc> &c<sc>a eșuat</sc>&7<sc>, detalii în consolă</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>Jucătorul nu a fost găsit</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>Jucătorul nu este pe acest server</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>Utilizatorii exceptați nu pot folosi această comandă</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>Apasă pentru a reveni</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>Poți face asta doar după ce ai urmărit un jucător</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>Nu poți folosi această comandă asupra ta</sc>"
+upload-log: "%prefix% &a✔ &7<sc>Log salvat</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>Se salvează logul...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>Nu s-a găsit niciun log</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>Salvarea logului a eșuat, detalii în consolă</sc>"
+disconnect:
+    timeout: "<lang:disconnect.timeout>"
+    closed: "<lang:disconnect.closed>"
+    error: "<red>An error occurred whilst processing packets. Please contact the administrators."
+    blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
+run-as-player: "%prefix% &c✖ &7<sc>Doar jucătorii pot folosi această comandă</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>Doar jucătorii sau consola pot folosi această comandă</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Webhook-urile nu sunt activate</sc>"
+webhook-test-message: "void signal test"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Mesajul de test al webhook-ului a fost livrat</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Testul webhook-ului a eșuat, detalii în consolă</sc>"
+
+# Placeholdere disponibile:
+# %prefix%
+# %player%
+# %check_name%
+# %description%
+# %experimental%
+# %vl% - încălcări
+# %verbose% - informații suplimentare de la check, cum ar fi deplasările, nu toate check-urile le adaugă
+alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7Literele mici majuscule sunt activate, dar nu se afișează corect în această limbă. Setează &fsmall-caps: false &7în config.yml."
+
+profile:
+    - ""
+    - "  %prefix% &5<sc>Profil</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>Ping</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>Versiune</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>Brand</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>Sensibilitate</sc> &8│ &fO %h_sensitivity%% &8/ &fV %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
+    - ""
+help:
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>Activează/dezactivează alertele</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>Activează/dezactivează modul verbose</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>Monitorizează brandurile clienților</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<jucător> &8· &7<sc>Inspectează profilul unui jucător</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<jucător> &8· &7<sc>Vezi urma de debug</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<jucător> &8· &7<sc>Urmărește un jucător în tăcere</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<jucător> &8· &7<sc>Răsfoiește istoricul sesiunilor</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<jucător> &8· &7<sc>Pedepsește manual un jucător</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>Gestionează coada valului de ban-uri</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<interogare> &8· &7<sc>Caută înregistrări de pedepse</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>Încarcă logul de debug</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>Vezi timpii de predicție</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>Reîncarcă configurația</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>Verifică actualizările</sc>"
+
+# /void history
+
+void-history-load-failure: "%prefix% &c✖ &7<sc>Istoricul nu a putut fi încărcat, verifică consola pentru erori</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>Istoricul este dezactivat</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>Încărcarea istoricului a eșuat:</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>Jucător necunoscut:</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7<sc>Nicio sesiune pentru</sc> &f%player%"
+void-history-session-not-found: "%prefix% &c✖ &7<sc>Sesiunea</sc> &f%ordinal% &7<sc>nu a fost găsită pentru</sc> &f%player%"
+
+# Placeholdere: %prefix% %player% %page% %max_pages%
+void-history-header: "%prefix% &5<sc>Sesiuni</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+# Placeholdere: %prefix% %player% %ordinal% %void_version% %server_name% %client_version% %client_brand% %duration% %timeago% %violations% %unique_checks% %crashed_marker%
+# %crashed_marker% devine void-history-crashed-marker la deconectări necurate, altfel este gol.
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>flag-uri</sc> &8(&d%unique_checks%&8) &8│ &7<sc>acum</sc> %timeago% &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+
+# Inserat în %crashed_marker% pentru sesiunile încheiate fără o deconectare curată.
+void-history-crashed-marker: " &8(&c<sc>crash</sc>&8)"
+
+# Placeholdere: %prefix% %player% %ordinal% %void_version% %server_name% %client_version% %client_brand% %duration% %timeago% %violations% %unique_checks% %bucket_size%
+void-history-detail-header: "%prefix% &5<sc>Sesiune</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>Versiune</sc> &f%void_version% &8│ &7<sc>Server</sc> &f%server_name% &8│ &7<sc>Durată</sc> &f%duration% &8│ &7<sc>acum</sc> %timeago%"
+void-history-detail-meta2: "  &8▸ &7<sc>Client</sc> &f%client_version% &8│ &7<sc>Brand</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>încălcări</sc> &8(&d%unique_checks% &7<sc>unice</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>niciuna</sc>)"
+# Placeholdere: %prefix% %offset% %checks_list%, %checks_list% unește intrările void-history-check-count prin virgulă
+void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
+# Placeholdere: %prefix% %offset% %check% %vl% %verbose%
+void-history-detail-entry: "  &8▸ &f%check% &8(&5%offset%&8)&7 %verbose%"
+# Placeholdere: %check_name% %count%
+void-history-check-count: "&f%check_name%&7 x&d%count%"
+
+# Marcaje de schemă: vezi comentariul de antet din config.yml.
+config-flavor: V2
+config-version: 2

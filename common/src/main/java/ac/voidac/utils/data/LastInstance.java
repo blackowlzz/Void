@@ -13,6 +13,10 @@ public class LastInstance {
         return lastInstance <= time;
     }
 
+    public int ticksSince() {
+        return lastInstance;
+    }
+
     public void reset() {
         lastInstance = 0;
     }

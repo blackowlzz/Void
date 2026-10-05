@@ -1,39 +1,39 @@
 # \u00BB is » (double >>), ANSI en UTF-8 interpreteren dit anders... je kunt zelfs "?" zien als gevolg hiervan
 prefix: "&8[&5Void&8]"
 
-alerts-enabled: "%prefix% &7Meldingen &aingeschakeld&7."
-alerts-disabled: "%prefix% &7Meldingen &cuitgeschakeld&7."
-verbose-enabled: "%prefix% &7Verbose &aingeschakeld&7."
-verbose-disabled: "%prefix% &7Verbose &cuitgeschakeld&7."
-brands-enabled: "%prefix% &7Merk-tracking &aingeschakeld&7."
-brands-disabled: "%prefix% &7Merk-tracking &cuitgeschakeld&7."
+alerts-enabled: "%prefix% &a✔ &7<sc>Meldingen</sc> &a<sc>ingeschakeld</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>Meldingen</sc> &c<sc>uitgeschakeld</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>Verbose</sc> &a<sc>ingeschakeld</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>Verbose</sc> &c<sc>uitgeschakeld</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>Merk-tracking</sc> &a<sc>ingeschakeld</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>Merk-tracking</sc> &c<sc>uitgeschakeld</sc>"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
-malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
-console-specify-target: "%prefix% &cJe moet een doel opgeven als de console!"
-reloading: "%prefix% &7Herladen..."
-reloaded: "%prefix% &7Configuratie &aherladen&7."
-reload-failed: "%prefix% &7Herladen &cmislukt&7."
-player-not-found: "%prefix% &cSpeler is vrijgesteld of offline!"
-player-not-this-server: "%prefix% &cSpeler is niet op deze server!"
-sender-not-found: "%prefix% &cJe kunt dit commando niet gebruiken als je vrijgesteld bent!"
-spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fKlik hier om terug te keren naar de vorige locatie\n</hover></click>"
-cannot-spectate-return: "%prefix% &cJe kunt dit alleen doen nadat je een speler hebt bekeken"
-cannot-run-on-self: "%prefix% &cJe kunt dit commando niet op jezelf gebruiken!"
-upload-log: "%prefix% &fDebug geüpload naar: %url%"
-upload-log-start: "%prefix% &fLog wordt geüpload... even geduld"
-upload-log-not-found: "%prefix% &cKan dat log niet vinden"
-upload-log-upload-failure: "%prefix% &cEr is iets misgegaan tijdens het uploaden van dit log, zie console voor meer informatie"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>stuurde een onleesbaar pakket en werd gekickt</sc> &8(&7<sc>mogelijke crasher</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>De console moet een doel opgeven</sc>"
+reloading: "%prefix% &7<sc>Configuratie wordt herladen...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>Configuratie</sc> &a<sc>herladen</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>Herladen van de configuratie</sc> &c<sc>mislukt</sc>&7<sc>, zie de console voor details</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>Die speler kon niet worden gevonden</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>Die speler is niet op deze server</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>Vrijgestelde gebruikers kunnen dit commando niet gebruiken</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>Klik om terug te keren</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>Dit kan alleen nadat je een speler hebt bekeken</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>Je kunt dit commando niet op jezelf gebruiken</sc>"
+upload-log: "%prefix% &a✔ &7<sc>Log opgeslagen</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>Log wordt opgeslagen...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>Geen log gevonden</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>Log opslaan mislukt, zie de console voor details</sc>"
 disconnect:
     timeout: "<lang:disconnect.timeout>"
     closed: "<lang:disconnect.closed>"
     error: "<red>An error occurred whilst processing packets. Please contact the administrators."
     blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
-run-as-player: "%prefix% &cDit commando kan alleen door spelers worden gebruikt!"
-run-as-player-or-console: "%prefix% &cDit commando kan alleen door spelers of de console worden gebruikt!"
-webhook-not-enabled: "Void webhooks are dormant."
+run-as-player: "%prefix% &c✖ &7<sc>Alleen spelers kunnen dit commando gebruiken</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>Alleen spelers of de console kunnen dit commando gebruiken</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Webhooks zijn niet ingeschakeld</sc>"
 webhook-test-message: "void signal test"
-webhook-test-succeeded: "Void webhook test succeeded!"
-webhook-test-failed: "Void webhook test failed!"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Webhook-testbericht afgeleverd</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Webhook-test mislukt, zie de console voor details</sc>"
 
 # Geldige plaatsaanduidingen:
 # %prefix%
@@ -44,33 +44,34 @@ webhook-test-failed: "Void webhook test failed!"
 # %vl% - overtredingen
 # %verbose% - extra informatie van de controle zoals offsets, niet alle controles voegen informatie toe
 alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
-alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
 experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7Kleine hoofdletters staan aan, maar worden in deze taal niet goed weergegeven. Zet &fsmall-caps: false &7in config.yml."
 
 profile:
     - ""
-    - "  %prefix% &5Profiel &8─ &f%player%"
-    - "  &8▸ &7Ping        &f%ping% ms"
-    - "  &8▸ &7Versie      &f%version%"
-    - "  &8▸ &7Merk        &f%brand%"
-    - "  &8▸ &7Gevoeligheid &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
-    - "  &8▸ &7FastMath    &f%fast_math%"
+    - "  %prefix% &5<sc>Profiel</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>Ping</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>Versie</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>Merk</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>Gevoeligheid</sc> &8│ &fH %h_sensitivity%% &8/ &fV %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
     - ""
 help:
-    - "  &5/void alerts              &8│ &7Meldingen in-/uitschakelen"
-    - "  &5/void verbose             &8│ &7Verbose in-/uitschakelen"
-    - "  &5/void brands              &8│ &7Merktracking in-/uitschakelen"
-    - "  &5/void profile &8<speler>    &8│ &7Spelersprofiel bekijken"
-    - "  &5/void debug &8<speler>      &8│ &7Debug trace bekijken"
-    - "  &5/void spectate &8<speler>   &8│ &7Speler bekijken"
-    - "  &5/void history &8<speler>    &8│ &7Sessiegeschiedenis"
-    - "  &5/void log &8[0-255]         &8│ &7Debug-log uploaden"
-    - "  &5/void perf                &8│ &7Voorspellingstijden bekijken"
-    - "  &5/void reload              &8│ &7Configuratie herladen"
-    - "  &5/void version             &8│ &7Updates controleren"
-    - "  &5/void punish &8<speler>     &8│ &7Speler handmatig straffen"
-    - "  &5/void banwave             &8│ &7Ban wave beheren"
-    - "  &5/void punishments &8<query> &8│ &7Straffen opzoeken"
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>Meldingen in-/uitschakelen</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>Verbose in-/uitschakelen</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>Client-merken monitoren</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<speler> &8· &7<sc>Spelersprofiel bekijken</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<speler> &8· &7<sc>Debug trace bekijken</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<speler> &8· &7<sc>Speler ongezien bekijken</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<speler> &8· &7<sc>Sessiegeschiedenis doorbladeren</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<speler> &8· &7<sc>Speler handmatig straffen</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>Ban wave-wachtrij beheren</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<zoekterm> &8· &7<sc>Straffen opzoeken</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>Debug-log uploaden</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>Voorspellingstijden bekijken</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>Configuratie herladen</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>Op updates controleren</sc>"
 
 # === /void history ===
 # Op sessies gebaseerde geschiedenis-UI. Alle regels hieronder zijn vrij
@@ -80,15 +81,15 @@ help:
 # echter <hover:show_text:'...'> aan elke regel toevoegen om extra tooltips
 # erbovenop te leggen.
 
-void-history-load-failure: "%prefix% &cGeschiedenissubsysteem kon niet worden geladen! Controleer de serverconsole op fouten."
-void-history-disabled: "%prefix% &cHet geschiedenissubsysteem is uitgeschakeld!"
-void-history-failed: "%prefix% &cKon geschiedenis niet laden: &7%error%"
-void-history-unknown-player: "%prefix% &cOnbekende speler: &f%player%"
-void-history-no-sessions: "%prefix% &7Geen sessiegeschiedenis voor &f%player%&7."
-void-history-session-not-found: "%prefix% &cSessie &f%ordinal%&c niet gevonden voor &f%player%&c."
+void-history-load-failure: "%prefix% &c✖ &7<sc>De geschiedenis kon niet worden geladen, controleer de console op fouten</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>De geschiedenis is uitgeschakeld</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>Geschiedenis laden mislukt:</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>Onbekende speler:</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7<sc>Geen sessies voor</sc> &f%player%"
+void-history-session-not-found: "%prefix% &c✖ &7<sc>Sessie</sc> &f%ordinal% &7<sc>niet gevonden voor</sc> &f%player%"
 
 # Sessielijst: geldige placeholders: %prefix% %player% %page% %max_pages%
-void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+void-history-header: "%prefix% &5<sc>Sessies</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
 # Samenvattingsregel per sessie: geldige placeholders:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -97,24 +98,24 @@ void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_
 # waarvan de verbinding zonder nette afsluiting wegviel (servercrash, kill -9,
 # kanaal-RST die geen UserDisconnectEvent vuurt). Lege string voor lopende of
 # netjes gesloten sessies.
-void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>flags</sc> &8(&d%unique_checks%&8) &8│ &7%timeago% <sc>geleden</sc> &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # Inline-markering die in %crashed_marker% wordt geplaatst voor sessies met
 # closed_at == last_activity (d.w.z. gestempeld door de crash-sweep bij de
 # volgende start, niet door het disconnect-pad). Begint met een spatie zodat
 # de markering natuurlijk leest wanneer aanwezig en netjes verdwijnt
 # wanneer leeg.
-void-history-crashed-marker: " &8(&ccrashed&8)"
+void-history-crashed-marker: " &8(&c<sc>gecrasht</sc>&8)"
 
 # Sessiedetail: geldige placeholders:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
-void-history-detail-meta1: "  &8▸ &7Versie &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duur &f%duration% &8│ &7%timeago% geleden"
-void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Merk &f%client_brand%"
-void-history-detail-violations-header: "  &8▸ &d%violations% &7overtredingen &8(&d%unique_checks% &7uniek&8)"
-void-history-detail-empty: "  &8▸ &7(geen)"
+void-history-detail-header: "%prefix% &5<sc>Sessie</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>Versie</sc> &f%void_version% &8│ &7<sc>Server</sc> &f%server_name% &8│ &7<sc>Duur</sc> &f%duration% &8│ &7%timeago% <sc>geleden</sc>"
+void-history-detail-meta2: "  &8▸ &7<sc>Client</sc> &f%client_version% &8│ &7<sc>Merk</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>overtredingen</sc> &8(&d%unique_checks% &7<sc>uniek</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>geen</sc>)"
 # Gegroepeerde regel (standaard): geldige placeholders: %prefix% %offset% %checks_list%
 #   %checks_list% wordt gebouwd door void-history-check-count-items te verbinden met ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
@@ -126,4 +127,5 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Schemamarkers: zie de header-comment in config.yml.
 config-flavor: V2
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>Verbose staat</sc> &c<sc>uit</sc>&7<sc>, dus je ziet alleen meldingen die echt zijn afgegaan.</sc> &5/void verbose &7<sc>toont ook gevallen vlak onder de grens.</sc>"
 config-version: 2

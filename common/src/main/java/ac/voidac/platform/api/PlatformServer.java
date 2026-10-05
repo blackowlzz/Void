@@ -13,4 +13,6 @@ public interface PlatformServer {
     void registerOutgoingPluginChannel(String name);
 
     double getTPS();
+
+    boolean isOnlineMode();
 }

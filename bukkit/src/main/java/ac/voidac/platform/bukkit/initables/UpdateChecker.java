@@ -48,9 +48,10 @@ public class UpdateChecker implements StartableInitable, Listener {
         LogUtil.warn("  Download: " + MODRINTH_URL);
         LogUtil.warn("=================================================");
 
-        joinNotification = "&6&lVoidAC &eUpdate Available! &7Running: &c" + current + "<newline>"
-                + "  &7Latest: &a" + latest
-                + "  &8| &7&n" + MODRINTH_URL;
+        joinNotification = "%prefix% &e⚠ &7<sc>Update available</sc><newline>"
+                + "  &8▸ &7<sc>Running</sc> &8│ &c" + current + "<newline>"
+                + "  &8▸ &7<sc>Latest</sc> &8│ &a" + latest + "<newline>"
+                + "  &8▸ <click:open_url:'" + MODRINTH_URL + "'>&b&n" + MODRINTH_URL + "</click>";
     }
 
     @EventHandler(priority = EventPriority.MONITOR)

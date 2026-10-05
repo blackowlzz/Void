@@ -66,8 +66,10 @@ public class PacketPluginMessage extends PacketListenerAbstract {
             if (VoidAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("via-proxy.disable-setbacks", true)) {
                 voidPlayer.noSetbackPermission = true;
             }
-            notifyStaff(user.getName());
-            sendWebhookNotification(user.getName());
+            if (VoidAPI.INSTANCE.getConfigManager().isViaProxyWarnOnJoin()) {
+                notifyStaff(user.getName());
+                sendWebhookNotification(user.getName());
+            }
         }
     }
 

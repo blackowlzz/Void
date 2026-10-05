@@ -202,8 +202,15 @@ public class MovementCheckRunner extends Check implements PositionCheck {
         }
 
         final PacketEntity riding = player.compensatedEntities.self.getRiding();
+        boolean mountedThisTick = false;
+        boolean mountedOnGround = false;
         if (player.vehicleData.wasVehicleSwitch || player.vehicleData.lastDummy) {
             update.setTeleport(true);
+
+            mountedThisTick = player.vehicleData.wasVehicleSwitch && riding != null;
+            if (mountedThisTick && player.resetsVehicleVelocityOnMount(riding.getType())) {
+                player.clientVelocity = new Vector3dm();
+            }
 
             player.vehicleData.lastDummy = false;
             player.vehicleData.wasVehicleSwitch = false;
@@ -233,6 +240,8 @@ public class MovementCheckRunner extends Check implements PositionCheck {
                 player.lastZ = cutTo.getZ();
 
                 player.boundingBox = GetBoundingBox.getCollisionBoxForPlayer(player, player.lastX, player.lastY, player.lastZ);
+
+                mountedOnGround = riding.serverOnGround;
             } else {
                 // Server always teleports the player when they eject anyways,
                 // so just let the player control where they eject within reason, they get set back anyways
@@ -382,14 +391,14 @@ public class MovementCheckRunner extends Check implements PositionCheck {
         SimpleCollisionBox steppingOnBB = GetBoundingBox.getCollisionBoxForPlayer(player, player.lastX, player.lastY, player.lastZ)
                 .expand(player.getMovementThreshold())
                 .offset(0.0, player.getClientVersion().isOlderThan(ClientVersion.V_1_15) ? -1.0 : -0.2, 0.0);
-        Collisions.forEachCollisionBox(player, steppingOnBB, (data, pos) -> {
+        Collisions.forEachCollisionBox(player, steppingOnBB, (data, x, y, z) -> {
             if (data.getType() == StateTypes.SLIME_BLOCK && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8)) {
                 double blockHeight = 1D;
-                double blockAboveHeight = BlockProperties.getBlockCollisionHeight(player, player.compensatedWorld.getBlock(pos.getX(), pos.getY() + 1, pos.getZ()));
+                double blockAboveHeight = BlockProperties.getBlockCollisionHeight(player, player.compensatedWorld.getBlock(x, y + 1, z));
                 if (blockAboveHeight > 0D && blockAboveHeight < 1D) {
                     blockHeight += blockAboveHeight;
                 }
-                if (Math.abs((pos.getY() + blockHeight) - player.lastY) <= player.getMovementThreshold()) {
+                if (Math.abs((y + blockHeight) - player.lastY) <= player.getMovementThreshold()) {
                     player.uncertaintyHandler.isSteppingOnSlime = true;
                     player.uncertaintyHandler.isSteppingOnBouncyBlock = true;
                 }
@@ -403,7 +412,12 @@ public class MovementCheckRunner extends Check implements PositionCheck {
                 }
                 player.uncertaintyHandler.isSteppingOnHoney = true;
             }
-            if (BlockTags.BEDS.contains(data.getType()) && Math.abs((pos.getY() + 0.5625D) - player.lastY) <= player.getMovementThreshold() && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12)) {
+            if (BlockTags.BEDS.contains(data.getType()) && Math.abs((y + 0.5625D) - player.lastY) <= player.getMovementThreshold() && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12)) {
+                player.uncertaintyHandler.isSteppingOnBouncyBlock = true;
+            }
+            if (data.getType() == StateTypes.SHELF_MUSHROOM && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_26_3)
+                    && (Math.abs((y + 0.6875) - player.lastY) <= player.getMovementThreshold()
+                    || Math.abs((y + (data.getAge() == 0 ? 0.5625 : 0.5)) - player.lastY) <= player.getMovementThreshold())) {
                 player.uncertaintyHandler.isSteppingOnBouncyBlock = true;
             }
             if (BlockTags.ICE.contains(data.getType())) {
@@ -436,8 +450,8 @@ public class MovementCheckRunner extends Check implements PositionCheck {
 
         player.uncertaintyHandler.isNearGlitchyBlock = player.getClientVersion().isOlderThan(ClientVersion.V_1_9)
                 && Collisions.hasMaterial(player, expandedBB.copy().expand(0.2),
-                checkData -> BlockTags.ANVIL.contains(checkData.first().getType())
-                        || checkData.first().getType() == StateTypes.CHEST || checkData.first().getType() == StateTypes.TRAPPED_CHEST);
+                (block, x, y, z) -> BlockTags.ANVIL.contains(block.getType())
+                        || block.getType() == StateTypes.CHEST || block.getType() == StateTypes.TRAPPED_CHEST);
 
         player.uncertaintyHandler.isOrWasNearGlitchyBlock = isGlitchy || player.uncertaintyHandler.isNearGlitchyBlock;
         player.uncertaintyHandler.checkForHardCollision();
@@ -466,6 +480,10 @@ public class MovementCheckRunner extends Check implements PositionCheck {
         boolean wasChecked = false;
 
         // Exempt if the player is dead or is riding a dead entity
+        if (player.diagnosticLogger != null) {
+            player.predictionStartVelocity = player.clientVelocity.clone();
+            player.predictionStartY = player.lastY;
+        }
         if (player.compensatedEntities.self.isDead || (riding != null && riding.isDead)) {
             // Dead players can't cheat, if you find a way how they could, open an issue
             player.predictedVelocity = new VectorData(new Vector3dm(), VectorData.VectorType.Dead);
@@ -612,6 +630,10 @@ public class MovementCheckRunner extends Check implements PositionCheck {
             // The player wasn't checked, explosion and knockback status unknown
             player.checkManager.getExplosionHandler().forceExempt();
             player.checkManager.getKnockbackHandler().forceExempt();
+        }
+
+        if (mountedThisTick) {
+            player.onGround = mountedOnGround;
         }
 
         player.lastOnGround = player.onGround;

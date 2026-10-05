@@ -18,8 +18,6 @@ import ac.voidac.checks.impl.exploit.AutoTotem;
 import ac.voidac.checks.impl.exploit.ExploitA;
 import ac.voidac.checks.impl.exploit.ExploitB;
 import ac.voidac.checks.impl.freecam.AntiSpoofA;
-import ac.voidac.checks.impl.freecam.FreecamA;
-import ac.voidac.checks.impl.freecam.FreecamB;
 import ac.voidac.checks.impl.groundspoof.NoFall;
 import ac.voidac.checks.impl.misc.ClientBrand;
 import ac.voidac.checks.impl.misc.GhostBlockMitigation;
@@ -162,8 +160,6 @@ public class CheckManager {
                 .put(CrashF.class, new CrashF(player))
                 .put(CrashH.class, new CrashH(player))
                 .put(CrashI.class, new CrashI(player))
-                .put(FreecamA.class, new FreecamA(player))
-                .put(FreecamB.class, new FreecamB(player))
                 .put(AntiSpoofA.class, new AntiSpoofA(player))
                 .put(InventoryA.class, new InventoryA(player))
                 .put(InventoryB.class, new InventoryB(player))

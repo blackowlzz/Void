@@ -19,27 +19,7 @@ import com.github.retrooper.packetevents.protocol.potion.PotionType;
 import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
 import java.util.OptionalInt;
 
-/**
- * Per-player movement diagnostic recorder.
- *
- * Writes one structured block per prediction tick to a log file.
- * File is located at: plugins/Void/diagnostic/<PlayerName>-<timestamp>.log
- *
- * All file I/O is offloaded to a background daemon thread via a bounded queue.
- * Flags from any check accumulate in a per-tick buffer and are flushed together
- * with the prediction data at the end of each prediction tick.
- *
- * HOW TO READ THE LOG:
- *   PASS lines with offset near 0.000E+0: clean, legitimate movement.
- *   PASS lines with offset near threshold: borderline, watch for patterns.
- *   FLAG lines: check UNCERT row to distinguish false flag vs cheat.
- *     - If lerp=Y, slime=Y, or edge=Y: likely a false flag from an engine edge case.
- *     - If all UNCERT fields are N and offset >> threshold: likely a cheat.
- *   Compare ACTUAL vs PREDICTED vectors to understand the engine error direction.
- *   003=Y means the 0.03 movement optimization fired; prediction is less certain this tick.
- */
 public final class DiagnosticLogger {
-
     private static final String POISON_PILL = "\0CLOSE";
     private static final int LINE_WIDTH = 82;
     private static final String HDR_FILL = "═".repeat(LINE_WIDTH);
@@ -51,15 +31,12 @@ public final class DiagnosticLogger {
     private final Thread writerThread;
     private final AtomicLong tickCounter = new AtomicLong(0);
 
-    // Flags accumulated during the current tick, flushed by recordTick()
-    // Written on the prediction thread only; no sync needed.
     private final StringBuilder pendingFlags = new StringBuilder(128);
 
     public DiagnosticLogger(File pluginDataFolder, VoidPlayer player, int queueCapacity) {
         this.queue = new ArrayBlockingQueue<>(Math.max(256, queueCapacity));
 
         File dir = new File(pluginDataFolder, "diagnostic");
-        //noinspection ResultOfMethodCallIgnored
         dir.mkdirs();
 
         String ts = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
@@ -68,7 +45,6 @@ public final class DiagnosticLogger {
         writerThread = new Thread(() -> {
             try (BufferedWriter w = new BufferedWriter(
                     new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8), 65536)) {
-                // Write file header
                 w.write("# VoidAC Diagnostic Log");
                 w.newLine();
                 w.write("# Player: " + player.getName() + " | Started: " + new Date());
@@ -98,22 +74,18 @@ public final class DiagnosticLogger {
                     String line = queue.take();
                     if (line == POISON_PILL) break;
                     w.write(line);
+                    if (queue.isEmpty()) w.flush();
                 }
                 w.flush();
             } catch (InterruptedException ignored) {
                 Thread.currentThread().interrupt();
-            } catch (Exception e) {
-                // Don't crash the server for a diagnostic tool
+            } catch (Exception ignored) {
             }
         }, "void-diag-" + player.getName());
         writerThread.setDaemon(true);
         writerThread.start();
     }
 
-    /**
-     * Called from OffsetHandler after prediction completes.
-     * Emits the full tick block including any flags accumulated since last call.
-     */
     public void recordTick(VoidPlayer player, double offset, boolean flaggedBySim,
                            String simVerbose, boolean checked) {
         long tick = tickCounter.incrementAndGet();
@@ -123,7 +95,6 @@ public final class DiagnosticLogger {
 
         StringBuilder sb = new StringBuilder(640);
 
-        // ─── Header ────────────────────────────────────────────────────────────────
         String hdr = "═ T#" + String.format("%08d", tick)
                 + " | " + TIME_FMT.get().format(new Date())
                 + " | ping=" + String.format("%3d", player.getTransactionPing()) + "ms ";
@@ -132,23 +103,19 @@ public final class DiagnosticLogger {
         if (pad > 0) sb.append(HDR_FILL, 0, pad);
         sb.append('\n');
 
-        // ─── Player ────────────────────────────────────────────────────────────────
         sb.append("  PLAYER  ").append(player.getName())
           .append(" | ").append(player.getClientVersion().getReleaseName())
           .append(" | GM:").append(player.gamemode.name().toLowerCase())
           .append('\n');
 
-        // ─── Position ──────────────────────────────────────────────────────────────
         sb.append("  POS     ")
           .append(String.format("x=%+011.5f  y=%+010.5f  z=%+011.5f", player.x, player.y, player.z))
           .append('\n');
 
-        // ─── Look ──────────────────────────────────────────────────────────────────
         sb.append("  LOOK    ")
           .append(String.format("yaw=%+08.3f  pitch=%+08.3f", player.yaw, player.pitch))
           .append('\n');
 
-        // ─── State ─────────────────────────────────────────────────────────────────
         sb.append("  STATE   ")
           .append("ground=").append(flag(player.onGround))
           .append("  sneak=").append(flag(player.isSneaking))
@@ -162,8 +129,6 @@ public final class DiagnosticLogger {
           .append("  lava=").append(flag(player.wasTouchingLava))
           .append('\n');
 
-        // speed and the effects feeding it. a beacon desyncing here is invisible
-        // in the offset alone, you need the number the engine actually used
         sb.append("  SPEED   ")
           .append("attr=").append(player.speed)
           .append("  speed=").append(effectLevel(player, PotionTypes.SPEED))
@@ -172,7 +137,6 @@ public final class DiagnosticLogger {
           .append("  levit=").append(effectLevel(player, PotionTypes.LEVITATION))
           .append('\n');
 
-        // ─── Uncertainty ───────────────────────────────────────────────────────────
         int entCount = u.collidingEntities.isEmpty() ? 0
                 : u.collidingEntities.get(u.collidingEntities.size() - 1);
         sb.append("  UNCERT  ")
@@ -184,13 +148,13 @@ public final class DiagnosticLogger {
           .append("  003=").append(flag(u.lastMovementWasZeroPointZeroThree))
           .append("  003unk=").append(flag(u.lastMovementWasUnknown003VectorReset))
           .append("  tp=").append(flag(u.lastTeleportTicks.hasOccurredSince(5)))
+          .append("  vsw=").append(Math.min(u.lastVehicleSwitch.ticksSince(), 99))
           .append("  edge=").append(flag(u.stuckOnEdge.hasOccurredSince(2)))
           .append("  scaf=").append(flag(u.isSteppingNearScaffolding))
           .append("  shulk=").append(flag(u.isSteppingNearShulker))
           .append("  glitch=").append(flag(u.isOrWasNearGlitchyBlock))
           .append('\n');
 
-        // ─── Uncertainty margins ───────────────────────────────────────────────────
         if (u.xNegativeUncertainty != 0 || u.xPositiveUncertainty != 0
                 || u.yNegativeUncertainty != 0 || u.yPositiveUncertainty != 0
                 || u.zNegativeUncertainty != 0 || u.zPositiveUncertainty != 0) {
@@ -202,8 +166,19 @@ public final class DiagnosticLogger {
               .append('\n');
         }
 
-        // ─── Prediction ────────────────────────────────────────────────────────────
         sb.append("  ─ PREDICTION ").append(SEC_FILL).append('\n');
+
+        Vector3dm start = player.predictionStartVelocity;
+        sb.append("  start     ")
+          .append(String.format("vx=%+.7f  vy=%+.7f  vz=%+.7f  fromY=%+.5f", start.getX(), start.getY(), start.getZ(), player.predictionStartY))
+          .append('\n');
+
+        Vector3dm boxMin = player.bestUncertaintyMin;
+        Vector3dm boxMax = player.bestUncertaintyMax;
+        sb.append("  allowed   ")
+          .append(String.format("x=[%+.7f,%+.7f]  y=[%+.7f,%+.7f]  z=[%+.7f,%+.7f]",
+                  boxMin.getX(), boxMax.getX(), boxMin.getY(), boxMax.getY(), boxMin.getZ(), boxMax.getZ()))
+          .append('\n');
 
         sb.append("  actual    ")
           .append(String.format("dx=%+.7f  dy=%+.7f  dz=%+.7f", actual.getX(), actual.getY(), actual.getZ()))
@@ -230,21 +205,16 @@ public final class DiagnosticLogger {
             sb.append("  PASS").append('\n');
         }
 
-        // ─── Buffered flags from other checks ──────────────────────────────────────
         if (pendingFlags.length() > 0) {
             sb.append(pendingFlags);
             pendingFlags.setLength(0);
         }
 
-        sb.append('\n'); // blank line between ticks
+        sb.append('\n');
 
         offer(sb.toString());
     }
 
-    /**
-     * Called from Check.flag() for every check, on the prediction thread.
-     * Buffered until the next recordTick() flush.
-     */
     public void recordFlag(String checkName, double oldVl, double newVl, String verbose) {
         pendingFlags.append("  >> FLAG:")
                     .append(checkName)
@@ -256,10 +226,6 @@ public final class DiagnosticLogger {
         pendingFlags.append('\n');
     }
 
-    /**
-     * Flushes pending flags and closes the writer thread.
-     * Call on player disconnect.
-     */
     public void close() {
         if (pendingFlags.length() > 0) {
             offer("  (disconnect) " + pendingFlags + "\n");
@@ -268,9 +234,16 @@ public final class DiagnosticLogger {
         offer(POISON_PILL);
     }
 
+    public void awaitClose(long timeoutMillis) {
+        try {
+            writerThread.join(timeoutMillis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
     private void offer(String s) {
         if (!queue.offer(s)) {
-            // Queue full: drop oldest to make room, never block the prediction thread
             queue.poll();
             queue.offer(s);
         }

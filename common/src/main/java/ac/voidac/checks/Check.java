@@ -1,5 +1,6 @@
 package ac.voidac.checks;
 
+import ac.voidac.utils.diagnostic.DiagnosticLogger;
 import ac.voidac.VoidAPI;
 import ac.voidac.api.AbstractCheck;
 import ac.voidac.api.config.ConfigManager;
@@ -106,8 +107,9 @@ public class Check extends VoidProcessor implements AbstractCheck {
         lastViolationTime = System.currentTimeMillis();
         double oldVl = violations;
         violations++;
-        if (player.diagnosticLogger != null) {
-            player.diagnosticLogger.recordFlag(checkName, oldVl, violations, verbose);
+        DiagnosticLogger diagnosticLogger = player.diagnosticLogger;
+        if (diagnosticLogger != null) {
+            diagnosticLogger.recordFlag(checkName, oldVl, violations, verbose);
         }
         player.punishmentManager.handleAutoPunish(this);
         return true;
@@ -185,6 +187,10 @@ public class Check extends VoidProcessor implements AbstractCheck {
         return packetType == PacketType.Play.Client.KEEP_ALIVE
                 || packetType == PacketType.Play.Client.CHUNK_BATCH_ACK
                 || packetType == PacketType.Play.Client.RESOURCE_PACK_STATUS;
+    }
+
+    public static boolean isAnimation(PacketTypeCommon packetType) {
+        return packetType == PacketType.Play.Client.ANIMATION || packetType == PacketType.Play.Client.PUNCH;
     }
 
     public boolean isUpdate(PacketTypeCommon packetType) {

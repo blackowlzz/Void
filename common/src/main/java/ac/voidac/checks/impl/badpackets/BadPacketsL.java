@@ -31,11 +31,15 @@ public class BadPacketsL extends Check implements PacketCheck {
             // 1.7 and below clients do the same, except use SOUTH for RELEASE_USE_ITEM
             final int expectedFace = player.getClientVersion().isOlderThanOrEquals(ClientVersion.V_1_7_10) && packet.getAction() == DiggingAction.RELEASE_USE_ITEM
                     ? 255 : 0;
+            final boolean directionChange = packet.getAction() == DiggingAction.CHANGE_DESTROY_DIRECTION;
+            final boolean isValidFace = directionChange
+                    ? packet.getBlockFaceId() >= 0 && packet.getBlockFaceId() <= 5
+                    : packet.getBlockFaceId() == expectedFace;
 
-            if (packet.getBlockFaceId() != expectedFace
-                    || packet.getBlockPosition().getX() != 0
+            if (!isValidFace
+                    || !directionChange && (packet.getBlockPosition().getX() != 0
                     || packet.getBlockPosition().getY() != 0
-                    || packet.getBlockPosition().getZ() != 0
+                    || packet.getBlockPosition().getZ() != 0)
                     || packet.getSequence() != 0
             ) {
                 if (flagAndAlert("pos="

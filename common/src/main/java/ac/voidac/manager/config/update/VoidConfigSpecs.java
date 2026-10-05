@@ -87,7 +87,7 @@ public final class VoidConfigSpecs {
      * auto-lifts from the bundled default.
      */
     public static @NotNull ConfigUpdater.Spec mainConfig() {
-          return ConfigUpdater.Spec.builder("/config/", 22, ConfigUpdater.ConfigFlavor.V2)
+          return ConfigUpdater.Spec.builder("/config/", 32, ConfigUpdater.ConfigFlavor.V2)
                 .migration(10, ctx -> {
                     String typeRaw = ctx.input().getString("history.database.type");
                     String type = typeRaw == null ? null : typeRaw.trim().toUpperCase(Locale.ROOT);
@@ -136,6 +136,24 @@ public final class VoidConfigSpecs {
                         ctx.output().put("punishments.auto-punish.broadcast-message", "&8[&5Void&8] &5The Void&7 punished &f%player%&7.");
                     }
                 })
+                .migration(26, ctx -> {
+                    String replacement = ctx.input().getString("anti-esp.replacement-block");
+                    if (replacement != null && replacement.equalsIgnoreCase("air")) {
+                        ctx.output().put("anti-esp.replacement-block", "stone");
+                    }
+                })
+                .migration(27, ctx -> {
+                    Object autoKick = ctx.input().get("AntiSpoofA.auto-kick");
+                    if (autoKick instanceof Boolean) {
+                        ctx.output().put("anti-spoof.auto-kick", autoKick);
+                    }
+                    String kickMessage = ctx.input().getString("AntiSpoofA.kick-message");
+                    if (kickMessage != null) {
+                        ctx.output().put("anti-spoof.kick-message", kickMessage);
+                    }
+                })
+                .migration(28, ctx -> ctx.output().put("anti-esp.terrain-masking", false))
+                .migration(29, ctx -> ctx.output().put("anti-esp.terrain-masking", true))
                 .build();
     }
 

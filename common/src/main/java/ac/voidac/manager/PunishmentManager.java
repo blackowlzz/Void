@@ -21,6 +21,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class PunishmentManager implements ConfigReloadable {
     private final VoidPlayer player;
@@ -31,6 +32,7 @@ public class PunishmentManager implements ConfigReloadable {
     private boolean testMode;
     private String proxyAlertString = "";
     private static final CommandExecuteEvent.Channel COMMAND_CHANNEL = VoidAPI.INSTANCE.getEventBus().get(CommandExecuteEvent.class);
+    private static final Pattern GL_SUFFIX = Pattern.compile(" /gl .*");
 
     public PunishmentManager(VoidPlayer player) {
         this.player = player;
@@ -111,6 +113,8 @@ public class PunishmentManager implements ConfigReloadable {
                 .replace("[alert]", alertString)
                 .replace("[proxy]", proxyAlertString)
                 .replace("%check_name%", check.getDisplayName())
+                .replace("%server%", ProxyAlertLabel.of(
+                        VoidAPI.INSTANCE.getBridgeClient().isEnabled(), VoidAPI.INSTANCE.getBridgeClient().getServerName()))
                 .replace("%experimental%", check.isExperimental() ? experimentalSymbol : "")
                 .replace("%vl%", Integer.toString(vl))
                 .replace("%description%", check.getDescription())
@@ -133,12 +137,15 @@ public class PunishmentManager implements ConfigReloadable {
                 final int vl = getViolations(group, check);
                 final int violationCount = group.violations.size();
                 for (ParsedCommand command : group.commands) {
+                    boolean printsVerbose = command.command.equals("[alert]") && VoidAPI.INSTANCE.getAlertManager().hasVerboseListeners();
+                    if (!printsVerbose && violationCount < command.threshold) continue;
+
                     String cmd = replaceAlertPlaceholders(command.command, vl, check, verbose);
 
                     @Nullable Set<@Nullable PlatformPlayer> verboseListeners = null;
 
                     // Verbose that prints all flags
-                    if (VoidAPI.INSTANCE.getAlertManager().hasVerboseListeners() && command.command.equals("[alert]")) {
+                    if (printsVerbose) {
                         sentDebug = true;
                         Component component = MessageUtil.miniMessage(cmd);
                         verboseListeners = VoidAPI.INSTANCE.getAlertManager().sendVerbose(component, null);
@@ -154,7 +161,7 @@ public class PunishmentManager implements ConfigReloadable {
                             switch (command.command) {
                                 case "[webhook]" -> VoidAPI.INSTANCE.getDiscordManager().sendAlert(player, verbose, check.getDisplayName(), vl);
                                 case "[log]" -> {
-                                    String verboseWithoutGl = verbose.replaceAll(" /gl .*", "");
+                                    String verboseWithoutGl = GL_SUFFIX.matcher(verbose).replaceAll("");
                                     VoidAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
                                             .recordFlagFromCheck(player, check, vl, verboseWithoutGl);
                                 }

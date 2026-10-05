@@ -2,7 +2,9 @@ package ac.voidac.command.commands;
 
 import ac.voidac.VoidAPI;
 import ac.voidac.command.BuildableCommand;
+import ac.voidac.command.PunishmentTargetGuard;
 import ac.voidac.manager.BanWaveManager;
+import ac.voidac.manager.punishment.PunishmentDuration;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.player.OfflinePlatformPlayer;
 import ac.voidac.platform.api.player.PlatformPlayer;
@@ -17,12 +19,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.UUID;
 
-public class VoidBanWave implements BuildableCommand {
+import static ac.voidac.command.render.MessageStyle.*;
 
-    // ── Reusable style constants ──────────────────────────────────────────
-    private static final String PREFIX  = "&8[&5Void&8]";
-    private static final String SEP     = "&8 &m─────────────────────────────────";
-    private static final String DIVIDER = "&8│";
+public class VoidBanWave implements BuildableCommand {
 
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
@@ -37,20 +36,22 @@ public class VoidBanWave implements BuildableCommand {
                 .permission("void.banwave")
                 .handler(this::handleList));
 
-        // /void banwave add <player>
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("add")
                 .permission("void.banwave")
                 .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
-                .handler(ctx -> handleAdd(ctx, null)));
+                .handler(ctx -> handleAdd(ctx, null, null)));
 
-        // /void banwave add <player> <duration>
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("add")
                 .permission("void.banwave")
                 .required("player", StringParser.stringParser(), adapter.onlinePlayerSuggestions())
                 .required("duration", StringParser.stringParser())
-                .handler(ctx -> handleAdd(ctx, ctx.get("duration"))));
+                .optional("reason", StringParser.greedyStringParser())
+                .handler(ctx -> handleAdd(
+                        ctx,
+                        ctx.getOrDefault("duration", null),
+                        ctx.getOrDefault("reason", null))));
 
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("remove")
@@ -76,13 +77,13 @@ public class VoidBanWave implements BuildableCommand {
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
         int next = bwm.getWaveNumber() + 1;
 
-        sender.sendMessage(MessageUtil.miniMessage(PREFIX + " &5Ban Wave &7─ Status"));
-        sender.sendMessage(MessageUtil.miniMessage(SEP));
-        sender.sendMessage(MessageUtil.miniMessage("  &8▸ &7Enabled          " + DIVIDER + " " + bool(bwm.isEnabled())));
-        sender.sendMessage(MessageUtil.miniMessage("  &8▸ &7Queue on punish  " + DIVIDER + " " + bool(bwm.isQueueOnAutoPunish())));
-        sender.sendMessage(MessageUtil.miniMessage("  &8▸ &7Next wave        " + DIVIDER + " &d#" + next));
-        sender.sendMessage(MessageUtil.miniMessage("  &8▸ &7Queued players   " + DIVIDER + " &f" + bwm.getQueueSize()));
-        sender.sendMessage(MessageUtil.miniMessage(SEP));
+        sender.sendMessage(header("Ban Wave", sc("Status")));
+        sender.sendMessage(separator());
+        sender.sendMessage(detail("Enabled", enabled(bwm.isEnabled())));
+        sender.sendMessage(detail("Queue on punish", enabled(bwm.isQueueOnAutoPunish())));
+        sender.sendMessage(detail("Next wave", "&d#" + next));
+        sender.sendMessage(detail("Queued players", String.valueOf(bwm.getQueueSize())));
+        sender.sendMessage(separator());
     }
 
     private void handleList(@NotNull CommandContext<Sender> context) {
@@ -91,24 +92,24 @@ public class VoidBanWave implements BuildableCommand {
         Map<UUID, BanWaveManager.BanEntry> queue = bwm.getQueue();
         int next = bwm.getWaveNumber() + 1;
 
-        sender.sendMessage(MessageUtil.miniMessage(
-                PREFIX + " &5Ban Wave &d#" + next
-                        + " &7queue &8(&f" + queue.size() + " &7players&8):"));
+        sender.sendMessage(header("Ban Wave", "&d#" + next + " &7" + sc("queue")
+                + " &8(&f" + queue.size() + " &7" + sc("players") + "&8)"));
 
         if (queue.isEmpty()) {
-            sender.sendMessage(MessageUtil.miniMessage("  &8▸ &7Queue is empty."));
+            sender.sendMessage(bullet(sc("Queue is empty")));
             return;
         }
 
-        sender.sendMessage(MessageUtil.miniMessage(SEP));
+        sender.sendMessage(separator());
         int i = 1;
         for (BanWaveManager.BanEntry entry : queue.values()) {
             sender.sendMessage(MessageUtil.miniMessage(bwm.formatEntry(i++, entry)));
         }
-        sender.sendMessage(MessageUtil.miniMessage(SEP));
+        sender.sendMessage(separator());
     }
 
-    private void handleAdd(@NotNull CommandContext<Sender> context, @Nullable String durationArg) {
+    private void handleAdd(@NotNull CommandContext<Sender> context, @Nullable String durationArg,
+                           @Nullable String reasonArg) {
         Sender sender = context.sender();
         String name = context.get("player");
 
@@ -126,22 +127,34 @@ public class VoidBanWave implements BuildableCommand {
             playerName = offline.getName();
         }
 
-        String duration = (durationArg != null && !durationArg.isBlank()) ? durationArg.trim() : null;
+        if (PunishmentTargetGuard.isSelf(sender, uuid, playerName)) {
+            sender.sendMessage(error(sc("You cannot add yourself to a ban wave")));
+            return;
+        }
+
+        String duration = null;
+        if (durationArg != null && !durationArg.isBlank()) {
+            try {
+                duration = PunishmentDuration.normalize(durationArg);
+            } catch (IllegalArgumentException exception) {
+                sender.sendMessage(invalidDuration(durationArg));
+                return;
+            }
+        }
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
-        boolean added = bwm.addToQueue(uuid, playerName, "manual", sender.getName(), duration);
+        String reason = bwm.resolveReason(reasonArg);
+        boolean added = bwm.addToQueue(uuid, playerName, "manual", sender.getName(), duration, reason);
         boolean isOffline = online == null || online.isExternalPlayer();
 
         if (added) {
             String durDisplay = duration != null ? duration : "config default";
-            sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &a✔ &f" + playerName
-                            + (isOffline ? " &8(offline)" : "")
-                            + " &7added to wave &d#" + (bwm.getWaveNumber() + 1)
-                            + " &8(&7duration&8: &f" + durDisplay
-                            + " &8│ &7total&8: &f" + bwm.getQueueSize() + "&8)."));
+            sender.sendMessage(success("&f" + playerName + (isOffline ? " &8(" + sc("offline") + ")" : "")
+                    + " &7" + sc("added to wave ") + "&d#" + (bwm.getWaveNumber() + 1)));
+            sender.sendMessage(detail("Duration", durDisplay));
+            sender.sendMessage(detail("Reason", reason));
+            sender.sendMessage(detail("Queue size", String.valueOf(bwm.getQueueSize())));
         } else {
-            sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &e⚠ &f" + playerName + " &7is already in the ban wave queue."));
+            sender.sendMessage(warning("&f" + playerName + " &7" + sc("is already in the ban wave queue")));
         }
     }
 
@@ -151,11 +164,9 @@ public class VoidBanWave implements BuildableCommand {
         UUID removed = VoidAPI.INSTANCE.getBanWaveManager().removeFromQueueByName(name);
 
         if (removed != null) {
-            sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &a✔ &f" + name + " &7removed from the ban wave queue."));
+            sender.sendMessage(success("&f" + name + " &7" + sc("removed from the ban wave queue")));
         } else {
-            sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &c✖ &f" + name + " &7was not found in the queue."));
+            sender.sendMessage(error("&f" + name + " &7" + sc("was not found in the queue")));
         }
     }
 
@@ -164,24 +175,21 @@ public class VoidBanWave implements BuildableCommand {
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
 
         if (bwm.getQueueSize() == 0) {
-            sender.sendMessage(MessageUtil.miniMessage(
-                    PREFIX + " &c✖ &7Queue is empty, nothing to execute."));
+            sender.sendMessage(error(sc("Queue is empty, nothing to execute")));
             return;
         }
 
         int queued = bwm.getQueueSize();
         int next   = bwm.getWaveNumber() + 1;
-        sender.sendMessage(MessageUtil.miniMessage(
-                PREFIX + " &7Executing ban wave &d#" + next
-                        + " &8(&f" + queued + " &7players&8)..."));
+        sender.sendMessage(info(sc("Executing ban wave ") + "&d#" + next
+                + " &8(&f" + queued + " &7" + sc("players") + "&8)..."));
 
         VoidAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(
                 VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> {
                     int banned = bwm.executeWave();
-                    sender.sendMessage(MessageUtil.miniMessage(
-                            PREFIX + " &5⚡ Ban Wave &d#" + bwm.getWaveNumber()
-                                    + " &acomplete &8─ &f" + banned + " &aplayers banned."));
+                    sender.sendMessage(success("&5" + sc("Ban wave") + " &d#" + bwm.getWaveNumber()
+                            + " &a" + sc("complete") + " &8─ &f" + banned + " &a" + sc("players banned")));
                 }
         );
     }
@@ -191,13 +199,10 @@ public class VoidBanWave implements BuildableCommand {
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
         int count = bwm.getQueueSize();
         bwm.clearQueue();
-        sender.sendMessage(MessageUtil.miniMessage(
-                PREFIX + " &7Queue cleared &8─ &f" + count + " &7players removed."));
+        sender.sendMessage(success(sc("Queue cleared") + " &8─ &f" + count + " &7" + sc("players removed")));
     }
 
-    // ── Util ──────────────────────────────────────────────────────────────
-
-    private static String bool(boolean v) {
-        return v ? "&ayes" : "&cno";
+    private static String enabled(boolean value) {
+        return value ? "&a" + sc("yes") : "&c" + sc("no");
     }
 }

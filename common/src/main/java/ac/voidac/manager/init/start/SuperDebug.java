@@ -8,6 +8,7 @@ import ac.voidac.predictionengine.UncertaintyHandler;
 import ac.voidac.predictionengine.predictions.PredictionEngine;
 import ac.voidac.utils.anticheat.update.PredictionComplete;
 import ac.voidac.utils.data.VectorData;
+import ac.voidac.utils.data.VelocityData;
 import ac.voidac.utils.lists.EvictingQueue;
 import ac.voidac.utils.math.VoidMath;
 import ac.voidac.utils.math.Vector3dm;
@@ -35,6 +36,10 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
     private final List<Vector3dm> startTickClientVel = new EvictingQueue<>(60);
     private final List<Vector3dm> baseTickAddition = new EvictingQueue<>(60);
     private final List<Vector3dm> baseTickWater = new EvictingQueue<>(60);
+    private final List<Vector3dm> firstBreadKB = new EvictingQueue<>(60);
+    private final List<Vector3dm> likelyKB = new EvictingQueue<>(60);
+    private final List<Vector3dm> firstBreadExplosion = new EvictingQueue<>(60);
+    private final List<Vector3dm> likelyExplosions = new EvictingQueue<>(60);
 
     public SuperDebug(VoidPlayer player) {
         super(player);
@@ -54,7 +59,8 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
 
         for (Iterator<Object2IntMap.Entry<StringBuilder>> it = continuedDebug.object2IntEntrySet().iterator(); it.hasNext(); ) {
             Map.Entry<StringBuilder, Integer> debug = it.next();
-            appendDebug(debug.getKey(), player.predictedVelocity, player.actualMovement, location, player.startTickClientVel, player.baseTickAddition, player.baseTickWaterPushing);
+            appendDebug(debug.getKey(), player.predictedVelocity, player.actualMovement, location, player.startTickClientVel, player.baseTickAddition, player.baseTickWaterPushing,
+                    snapshot(player.firstBreadKB), snapshot(player.likelyKB), snapshot(player.firstBreadExplosion), snapshot(player.likelyExplosions));
             debug.setValue(debug.getValue() - 1);
             if (debug.getValue() <= 0) it.remove();
         }
@@ -65,6 +71,10 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
         startTickClientVel.add(player.startTickClientVel);
         baseTickAddition.add(player.baseTickAddition);
         baseTickWater.add(player.baseTickWaterPushing);
+        firstBreadKB.add(snapshot(player.firstBreadKB));
+        likelyKB.add(snapshot(player.likelyKB));
+        firstBreadExplosion.add(snapshot(player.firstBreadExplosion));
+        likelyExplosions.add(snapshot(player.likelyExplosions));
 
         if (predictionComplete.getIdentifier() == 0) return; // 1 - 256 are valid possible values
 
@@ -90,7 +100,7 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
             Vector3dm startTickVel = startTickClientVel.get(i);
             Vector3dm addition = baseTickAddition.get(i);
             Vector3dm water = baseTickWater.get(i);
-            appendDebug(sb, predict, actual, loc, startTickVel, addition, water);
+            appendDebug(sb, predict, actual, loc, startTickVel, addition, water, firstBreadKB.get(i), likelyKB.get(i), firstBreadExplosion.get(i), likelyExplosions.get(i));
         }
 
         UncertaintyHandler uncertaintyHandler = player.uncertaintyHandler;
@@ -194,7 +204,12 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
         continuedDebug.put(sb, 40);
     }
 
-    private void appendDebug(StringBuilder sb, VectorData predict, Vector3dm actual, Location location, Vector3dm startTick, Vector3dm addition, Vector3dm water) {
+    private static Vector3dm snapshot(VelocityData velocityData) {
+        return velocityData == null ? null : velocityData.vector.clone();
+    }
+
+    private void appendDebug(StringBuilder sb, VectorData predict, Vector3dm actual, Location location, Vector3dm startTick, Vector3dm addition, Vector3dm water,
+                             Vector3dm firstBreadKB, Vector3dm likelyKB, Vector3dm firstBreadExplosion, Vector3dm likelyExplosions) {
         if (predict.isZeroPointZeroThree()) {
             sb.append("Movement threshold/tick skipping\n");
         }
@@ -202,19 +217,19 @@ public final class SuperDebug extends Check implements PostPredictionCheck {
             sb.append("* 0.6 horizontal attack slowdown\n");
         }
         if (predict.isKnockback()) {
-            if (player.firstBreadKB != null) {
-                sb.append("First bread knockback: ").append(player.firstBreadKB.vector).append("\n");
+            if (firstBreadKB != null) {
+                sb.append("First bread knockback: ").append(firstBreadKB).append("\n");
             }
-            if (player.likelyKB != null) {
-                sb.append("Second bread knockback: ").append(player.likelyKB.vector).append("\n");
+            if (likelyKB != null) {
+                sb.append("Second bread knockback: ").append(likelyKB).append("\n");
             }
         }
         if (predict.isExplosion()) {
-            if (player.firstBreadExplosion != null) {
-                sb.append("First bread explosion: ").append(player.firstBreadExplosion.vector).append("\n");
+            if (firstBreadExplosion != null) {
+                sb.append("First bread explosion: ").append(firstBreadExplosion).append("\n");
             }
-            if (player.likelyExplosions != null) {
-                sb.append("Second bread explosion: ").append(player.likelyExplosions.vector).append("\n");
+            if (likelyExplosions != null) {
+                sb.append("Second bread explosion: ").append(likelyExplosions).append("\n");
             }
         }
         if (predict.isTrident()) {

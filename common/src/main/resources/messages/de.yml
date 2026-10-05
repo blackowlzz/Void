@@ -1,38 +1,38 @@
 prefix: "&8[&5Void&8]"
 
-alerts-enabled: "%prefix% &7Benachrichtigungen &aaktiviert&7."
-alerts-disabled: "%prefix% &7Benachrichtigungen &cdeaktiviert&7."
-verbose-enabled: "%prefix% &7Verbose &aaktiviert&7."
-verbose-disabled: "%prefix% &7Verbose &cdeaktiviert&7."
-brands-enabled: "%prefix% &7Marken-Tracking &aaktiviert&7."
-brands-disabled: "%prefix% &7Marken-Tracking &cdeaktiviert&7."
+alerts-enabled: "%prefix% &a✔ &7<sc>Benachrichtigungen</sc> &a<sc>aktiviert</sc>"
+alerts-disabled: "%prefix% &c✖ &7<sc>Benachrichtigungen</sc> &c<sc>deaktiviert</sc>"
+verbose-enabled: "%prefix% &a✔ &7<sc>Verbose</sc> &a<sc>aktiviert</sc>"
+verbose-disabled: "%prefix% &c✖ &7<sc>Verbose</sc> &c<sc>deaktiviert</sc>"
+brands-enabled: "%prefix% &a✔ &7<sc>Marken-Tracking</sc> &a<sc>aktiviert</sc>"
+brands-disabled: "%prefix% &c✖ &7<sc>Marken-Tracking</sc> &c<sc>deaktiviert</sc>"
 client-brand-format: "%prefix% &f%player% &8▸ &7%brand%"
-malformed-packet-format: "%prefix% &f%player% &7sent a packet the server could not read and was kicked &8(&7possible crasher&8)"
-console-specify-target: "%prefix% &cDu musst ein Ziel angeben, da du die Konsole benutzt!"
-reloading: "%prefix% &7Wird neu geladen..."
-reloaded: "%prefix% &7Konfiguration &aneu geladen&7."
-reload-failed: "%prefix% &7Neuladen &cfehlgeschlagen&7."
-player-not-found: "%prefix% &cSpieler ist nicht auffindbar oder geschützt!"
-player-not-this-server: "%prefix% &cSpieler ist nicht auf diesem Server!"
-sender-not-found: "%prefix% &cDu kannst diesen Befehl nicht verwenden, wenn du ausgenommen bist!"
-spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">\n%prefix% &fKlicke hier, um zur vorherigen Position zurückzukehren\n</hover></click>"
-cannot-spectate-return: "%prefix% &cDas kannst du nur tun, nachdem du einen Spieler beobachtet hast."
-cannot-run-on-self: "%prefix% &cDu kannst diesen Befehl nicht auf dich selbst anwenden!"
-upload-log: "%prefix% &fDebug wurde hochgeladen zu: %url%"
-upload-log-start: "%prefix% &fHochladen des Logs... Bitte warten"
-upload-log-not-found: "%prefix% &cLog konnte nicht gefunden werden"
-upload-log-upload-failure: "%prefix% &cFehler beim Hochladen des Logs, siehe Konsole für weitere Informationen"
+malformed-packet-format: "%prefix% &c✖ &f%player% &7<sc>hat ein unlesbares Paket gesendet und wurde gekickt</sc> &8(&7<sc>möglicher Crasher</sc>&8)"
+console-specify-target: "%prefix% &c✖ &7<sc>Die Konsole muss ein Ziel angeben</sc>"
+reloading: "%prefix% &7<sc>Konfiguration wird neu geladen...</sc>"
+reloaded: "%prefix% &a✔ &7<sc>Konfiguration</sc> &a<sc>neu geladen</sc>"
+reload-failed: "%prefix% &c✖ &7<sc>Neuladen der Konfiguration</sc> &c<sc>fehlgeschlagen</sc>&7<sc>, siehe Konsole für Details</sc>"
+player-not-found: "%prefix% &c✖ &7<sc>Dieser Spieler wurde nicht gefunden</sc>"
+player-not-this-server: "%prefix% &c✖ &7<sc>Dieser Spieler ist nicht auf diesem Server</sc>"
+sender-not-found: "%prefix% &c✖ &7<sc>Ausgenommene Nutzer können diesen Befehl nicht verwenden</sc>"
+spectate-return: "<click:run_command:/void stopspectating><hover:show_text:\"/void stopspectating\">%prefix% &7<sc>Zum Zurückkehren klicken</sc> &8▸ &5/void stopspectating</hover></click>"
+cannot-spectate-return: "%prefix% &c✖ &7<sc>Das geht erst, nachdem du einen Spieler beobachtet hast</sc>"
+cannot-run-on-self: "%prefix% &c✖ &7<sc>Du kannst diesen Befehl nicht auf dich selbst anwenden</sc>"
+upload-log: "%prefix% &a✔ &7<sc>Log gespeichert</sc> &8▸ &f%url%"
+upload-log-start: "%prefix% &7<sc>Log wird gespeichert...</sc>"
+upload-log-not-found: "%prefix% &c✖ &7<sc>Kein Log gefunden</sc>"
+upload-log-upload-failure: "%prefix% &c✖ &7<sc>Speichern des Logs fehlgeschlagen, siehe Konsole für Details</sc>"
 disconnect:
     timeout: "<lang:disconnect.timeout>"
     closed: "<lang:disconnect.closed>"
     error: "<red>An error occurred whilst processing packets. Please contact the administrators."
     blacklisted-forge: "<red>Your forge version is blacklisted due to inbuilt reach hacks.<newline><gold>Versions affected: 1.18.2-1.19.3<newline><newline><red>Please see https://github.com/MinecraftForge/MinecraftForge/issues/9309."
-run-as-player: "%prefix% &cDiesen Befehl können nur Spieler verwenden!"
-run-as-player-or-console: "%prefix% &cDiesen Befehl können nur Spieler oder die Konsole verwenden!"
-webhook-not-enabled: "Void webhooks are dormant."
+run-as-player: "%prefix% &c✖ &7<sc>Nur Spieler können diesen Befehl verwenden</sc>"
+run-as-player-or-console: "%prefix% &c✖ &7<sc>Nur Spieler oder die Konsole können diesen Befehl verwenden</sc>"
+webhook-not-enabled: "%prefix% &c✖ &7<sc>Webhooks sind nicht aktiviert</sc>"
 webhook-test-message: "void signal test"
-webhook-test-succeeded: "Void webhook test succeeded!"
-webhook-test-failed: "Void webhook test failed!"
+webhook-test-succeeded: "%prefix% &a✔ &7<sc>Webhook-Testnachricht zugestellt</sc>"
+webhook-test-failed: "%prefix% &c✖ &7<sc>Webhook-Test fehlgeschlagen, siehe Konsole für Details</sc>"
 
 # Gültige Platzhalter:
 # %prefix%
@@ -43,33 +43,34 @@ webhook-test-failed: "Void webhook test failed!"
 # %vl% - Verstöße
 # %verbose% - zusätzliche Informationen von der Prüfung, nicht alle Prüfungen liefern zusätzliche Informationen
 alerts-format: "%prefix% &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
-alerts-format-proxy: "%prefix% &8[&7proxy&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
+alerts-format-proxy: "%prefix% &8[&7%server%&8] &f%player% &8▸ &5%check_name%%experimental% &8(&d%vl%&8)&7 %verbose%"
 experimental-symbol: "*"
+small-caps-language-warning: "%prefix% &e⚠ &7Kapitälchen sind aktiviert, werden in dieser Sprache aber nicht korrekt dargestellt. Setze &fsmall-caps: false &7in der config.yml."
 
 profile:
     - ""
-    - "  %prefix% &5Profil &8─ &f%player%"
-    - "  &8▸ &7Ping         &f%ping% ms"
-    - "  &8▸ &7Version      &f%version%"
-    - "  &8▸ &7Marke        &f%brand%"
-    - "  &8▸ &7Sensitivität &fH %h_sensitivity%% &8│ &fV %v_sensitivity%%"
-    - "  &8▸ &7FastMath     &f%fast_math%"
+    - "  %prefix% &5<sc>Profil</sc> &8─ &f%player%"
+    - "  &8▸ &7<sc>Ping</sc> &8│ &f%ping% ms"
+    - "  &8▸ &7<sc>Version</sc> &8│ &f%version%"
+    - "  &8▸ &7<sc>Marke</sc> &8│ &f%brand%"
+    - "  &8▸ &7<sc>Sensitivität</sc> &8│ &fH %h_sensitivity%% &8/ &fV %v_sensitivity%%"
+    - "  &8▸ &7<sc>FastMath</sc> &8│ &f%fast_math%"
     - ""
 help:
-    - "  &5/void alerts              &8│ &7Benachrichtigungen umschalten"
-    - "  &5/void verbose             &8│ &7Verbose umschalten"
-    - "  &5/void brands              &8│ &7Client-Marken überwachen"
-    - "  &5/void profile &8<Spieler>   &8│ &7Spielerprofil anzeigen"
-    - "  &5/void debug &8<Spieler>     &8│ &7Debug-Trace anzeigen"
-    - "  &5/void spectate &8<Spieler>  &8│ &7Spieler beobachten"
-    - "  &5/void history &8<Spieler>   &8│ &7Sitzungsverlauf"
-    - "  &5/void log &8[0-255]         &8│ &7Debug-Log hochladen"
-    - "  &5/void perf                &8│ &7Vorhersagezeiten anzeigen"
-    - "  &5/void reload              &8│ &7Konfiguration neu laden"
-    - "  &5/void version             &8│ &7Updates prüfen"
-    - "  &5/void punish &8<Spieler>    &8│ &7Spieler manuell bestrafen"
-    - "  &5/void banwave             &8│ &7Ban-Welle verwalten"
-    - "  &5/void punishments &8<query> &8│ &7Strafen nachschlagen"
+    - "  <click:suggest_command:'/void alerts'>&f/void alerts</click> &8· &7<sc>Benachrichtigungen umschalten</sc>"
+    - "  <click:suggest_command:'/void verbose'>&f/void verbose</click> &8· &7<sc>Verbose umschalten</sc>"
+    - "  <click:suggest_command:'/void brands'>&f/void brands</click> &8· &7<sc>Client-Marken überwachen</sc>"
+    - "  <click:suggest_command:'/void profile '>&f/void profile</click> &7<Spieler> &8· &7<sc>Spielerprofil anzeigen</sc>"
+    - "  <click:suggest_command:'/void debug '>&f/void debug</click> &7<Spieler> &8· &7<sc>Debug-Trace anzeigen</sc>"
+    - "  <click:suggest_command:'/void spectate '>&f/void spectate</click> &7<Spieler> &8· &7<sc>Spieler unauffällig beobachten</sc>"
+    - "  <click:suggest_command:'/void history '>&f/void history</click> &7<Spieler> &8· &7<sc>Sitzungsverlauf durchsuchen</sc>"
+    - "  <click:suggest_command:'/void punish '>&f/void punish</click> &7<Spieler> &8· &7<sc>Spieler manuell bestrafen</sc>"
+    - "  <click:suggest_command:'/void banwave'>&f/void banwave</click> &8· &7<sc>Ban-Wellen-Warteschlange verwalten</sc>"
+    - "  <click:suggest_command:'/void punishments '>&f/void punishments</click> &7<Suche> &8· &7<sc>Strafen nachschlagen</sc>"
+    - "  <click:suggest_command:'/void log '>&f/void log</click> &7[0-255] &8· &7<sc>Debug-Log hochladen</sc>"
+    - "  <click:suggest_command:'/void perf'>&f/void perf</click> &8· &7<sc>Vorhersagezeiten anzeigen</sc>"
+    - "  <click:suggest_command:'/void reload'>&f/void reload</click> &8· &7<sc>Konfiguration neu laden</sc>"
+    - "  <click:suggest_command:'/void version'>&f/void version</click> &8· &7<sc>Auf Updates prüfen</sc>"
 
 # === /void history ===
 # Sitzungsbasierte Verlaufs-UI. Alle Zeilen unten sind frei konfigurierbar;
@@ -78,15 +79,15 @@ help:
 # Check-Aufschlüsselung) und brauchen keine Vorlage: du kannst aber jeder
 # Zeile <hover:show_text:'...'> hinzufügen, um zusätzliche Tooltips zu legen.
 
-void-history-load-failure: "%prefix% &cDas Verlaufs-Subsystem konnte nicht geladen werden! Überprüfe die Serverkonsole auf Fehler."
-void-history-disabled: "%prefix% &cDas History-Subsystem ist deaktiviert!"
-void-history-failed: "%prefix% &cVerlauf konnte nicht geladen werden: &7%error%"
-void-history-unknown-player: "%prefix% &cUnbekannter Spieler: &f%player%"
-void-history-no-sessions: "%prefix% &7Keine Sitzungs-Historie für &f%player%&7."
-void-history-session-not-found: "%prefix% &cSitzung &f%ordinal%&c für &f%player%&c nicht gefunden."
+void-history-load-failure: "%prefix% &c✖ &7<sc>Der Verlauf konnte nicht geladen werden, prüfe die Konsole auf Fehler</sc>"
+void-history-disabled: "%prefix% &c✖ &7<sc>Der Verlauf ist deaktiviert</sc>"
+void-history-failed: "%prefix% &c✖ &7<sc>Verlauf konnte nicht geladen werden:</sc> &f%error%"
+void-history-unknown-player: "%prefix% &c✖ &7<sc>Unbekannter Spieler:</sc> &f%player%"
+void-history-no-sessions: "%prefix% &7<sc>Keine Sitzungen für</sc> &f%player%"
+void-history-session-not-found: "%prefix% &c✖ &7<sc>Sitzung</sc> &f%ordinal% &7<sc>für</sc> &f%player% &7<sc>nicht gefunden</sc>"
 
 # Sitzungsliste: gültige Platzhalter: %prefix% %player% %page% %max_pages%
-void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
+void-history-header: "%prefix% &5<sc>Sitzungen</sc> &8─ &f%player% &8[&d%page%&8/&d%max_pages%&8]"
 # Einzelne Sitzungszeile: gültige Platzhalter:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
@@ -95,23 +96,23 @@ void-history-header: "%prefix% &5Sessions &8─ &f%player% &8[&d%page%&8/&d%max_
 # deren Verbindung ohne sauberes Schließen wegfiel (Server-Crash, kill -9,
 # Channel-RST ohne UserDisconnectEvent). Für laufende oder sauber geschlossene
 # Sitzungen leerer String.
-void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7flags &8(&d%unique_checks%&8) &8│ &7%timeago% ago &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
+void-history-session: "  &8▸ &d#%ordinal% &8│ &f%duration% &8│ &d%violations% &7<sc>Flags</sc> &8(&d%unique_checks%&8) &8│ &7%timeago% <sc>her</sc> &8│ &5%client_version% &8│ &7%server_name%%crashed_marker%"
 
 # Inline-Marker, der in %crashed_marker% eingesetzt wird bei Sitzungen mit
 # closed_at == last_activity (also vom Crash-Sweep beim nächsten Start
 # gestempelt, nicht vom Disconnect-Pfad). Mit führendem Leerzeichen, damit
 # der Marker beim Vorhandensein natürlich liest und beim Fehlen verschwindet.
-void-history-crashed-marker: " &8(&ccrashed&8)"
+void-history-crashed-marker: " &8(&c<sc>Absturz</sc>&8)"
 
 # Sitzungsdetails: gültige Platzhalter:
 #   %prefix% %player% %ordinal% %void_version% %server_name%
 #   %client_version% %client_brand% %duration% %timeago%
 #   %violations% %unique_checks% %bucket_size%
-void-history-detail-header: "%prefix% &5Session &d#%ordinal% &8─ &f%player%"
-void-history-detail-meta1: "  &8▸ &7Version &f%void_version% &8│ &7Server &f%server_name% &8│ &7Duration &f%duration% &8│ &7%timeago% ago"
-void-history-detail-meta2: "  &8▸ &7Client &f%client_version% &8│ &7Marke &f%client_brand%"
-void-history-detail-violations-header: "  &8▸ &d%violations% &7Verstöße &8(&d%unique_checks% &7verschiedene&8)"
-void-history-detail-empty: "  &8▸ &7(keine)"
+void-history-detail-header: "%prefix% &5<sc>Sitzung</sc> &d#%ordinal% &8─ &f%player%"
+void-history-detail-meta1: "  &8▸ &7<sc>Version</sc> &f%void_version% &8│ &7<sc>Server</sc> &f%server_name% &8│ &7<sc>Dauer</sc> &f%duration% &8│ &7%timeago% <sc>her</sc>"
+void-history-detail-meta2: "  &8▸ &7<sc>Client</sc> &f%client_version% &8│ &7<sc>Marke</sc> &f%client_brand%"
+void-history-detail-violations-header: "  &8▸ &d%violations% &7<sc>Verstöße</sc> &8(&d%unique_checks% &7<sc>verschiedene</sc>&8)"
+void-history-detail-empty: "  &8▸ &7(<sc>keine</sc>)"
 # Gruppenzeile (Standard): gültige Platzhalter: %prefix% %offset% %checks_list%
 #   %checks_list% wird gebaut aus void-history-check-count-Einträgen, getrennt mit ", "
 void-history-detail-group: "  &8▸ %checks_list% &8(&5%offset%&8)"
@@ -123,4 +124,5 @@ void-history-check-count: "&f%check_name%&7 x&d%count%"
 
 # Schema-Marker: siehe Kopf-Kommentar in config.yml.
 config-flavor: V2
+verbose-join-reminder: "%prefix% &e⚠ &7<sc>Verbose ist</sc> &c<sc>aus</sc>&7<sc>, du siehst also nur ausgelöste Flags.</sc> &5/void verbose &7<sc>zeigt auch Beinahe-Verstöße.</sc>"
 config-version: 2

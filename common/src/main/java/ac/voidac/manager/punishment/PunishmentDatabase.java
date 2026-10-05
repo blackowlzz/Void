@@ -51,6 +51,10 @@ public final class PunishmentDatabase {
         }
     }
 
+    public synchronized boolean isReady() {
+        return connection != null;
+    }
+
     public synchronized void close() {
         try {
             if (connection != null && !connection.isClosed()) connection.close();
@@ -378,6 +382,65 @@ public final class PunishmentDatabase {
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to clean expired bans", e);
         }
+    }
+
+    private boolean proxyBanTableReady;
+
+    private void ensureProxyBanTable() throws SQLException {
+        if (proxyBanTableReady) return;
+        try (Statement s = connection.createStatement()) {
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS void_proxy_bans ("
+                    + "uuid   TEXT PRIMARY KEY,"
+                    + "ban_id TEXT NOT NULL"
+                    + ")");
+        }
+        proxyBanTableReady = true;
+    }
+
+    public synchronized void proxyBanMark(UUID uuid, String banId) {
+        if (connection == null) return;
+        try {
+            ensureProxyBanTable();
+            try (PreparedStatement ps = connection.prepareStatement(
+                    "INSERT OR REPLACE INTO void_proxy_bans (uuid, ban_id) VALUES (?,?)")) {
+                ps.setString(1, uuid.toString());
+                ps.setString(2, banId);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Failed to mark proxy ban for " + uuid, e);
+        }
+    }
+
+    public synchronized void proxyBanUnmark(UUID uuid) {
+        if (connection == null) return;
+        try {
+            ensureProxyBanTable();
+            try (PreparedStatement ps = connection.prepareStatement(
+                    "DELETE FROM void_proxy_bans WHERE uuid = ?")) {
+                ps.setString(1, uuid.toString());
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Failed to unmark proxy ban for " + uuid, e);
+        }
+    }
+
+    public synchronized java.util.Map<UUID, String> proxyBanAll() {
+        java.util.Map<UUID, String> out = new java.util.HashMap<>();
+        if (connection == null) return out;
+        try {
+            ensureProxyBanTable();
+            try (PreparedStatement ps = connection.prepareStatement("SELECT uuid, ban_id FROM void_proxy_bans");
+                 ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    out.put(UUID.fromString(rs.getString("uuid")), rs.getString("ban_id"));
+                }
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Failed to list proxy bans", e);
+        }
+        return out;
     }
 
     private void applyPragmas() throws SQLException {

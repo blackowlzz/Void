@@ -5,6 +5,7 @@ import ac.voidac.api.event.events.VoidTransactionReceivedEvent;
 import ac.voidac.api.event.events.VoidTransactionSendEvent;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.data.Pair;
+import ac.voidac.utils.data.TransactionDiagnostics;
 import com.github.retrooper.packetevents.event.PacketListenerAbstract;
 import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
@@ -27,17 +28,26 @@ public class PacketPingListener extends PacketListenerAbstract {
 
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
+        VoidPlayer player = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(event.getUser());
+        if (player == null) return;
+        long now = System.nanoTime();
+        player.transactionDiagnostics.recordPacket(event.getPacketType(), now);
+        if (TransactionDiagnostics.isGameplayPacket(event.getPacketType()) && player.isTransactionClockExpired(now)) {
+            event.setCancelled(true);
+            player.timedOut();
+            return;
+        }
         if (event.getPacketType() == PacketType.Play.Client.WINDOW_CONFIRMATION) {
             WrapperPlayClientWindowConfirmation transaction = new WrapperPlayClientWindowConfirmation(event);
             short id = transaction.getActionId();
 
-            VoidPlayer player = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(event.getUser());
-            if (player == null) return;
             player.packetStateData.lastTransactionPacketWasValid = false;
 
             // Vanilla always uses an ID starting from 1
             // Check if we sent this packet before cancelling it
-            if (id <= 0 && player.addTransactionResponse(id)) {
+            boolean matched = id <= 0 && player.addTransactionResponse(id);
+            player.transactionDiagnostics.recordResponse(id, matched);
+            if (matched) {
                 player.packetStateData.lastTransactionPacketWasValid = true;
                 boolean shouldCancel = !VoidAPI.INSTANCE.getConfigManager().isDisablePongCancelling();
                 // Not needed for vanilla as vanilla ignores this packet, needed for packet limiters
@@ -48,22 +58,16 @@ public class PacketPingListener extends PacketListenerAbstract {
 
         if (event.getPacketType() == PacketType.Play.Client.PONG) {
             WrapperPlayClientPong pong = new WrapperPlayClientPong(event);
-            VoidPlayer player = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(event.getUser());
-            if (player == null) return;
             player.packetStateData.lastTransactionPacketWasValid = false;
 
             int id = pong.getId();
-            // If it wasn't below 0, it wasn't us
-            // If it wasn't in short range, it wasn't us either
-            if (id == (short) id) {
-                short shortID = ((short) id);
-                if (player.addTransactionResponse(shortID)) {
-                    player.packetStateData.lastTransactionPacketWasValid = true;
-                    boolean shouldCancel = !VoidAPI.INSTANCE.getConfigManager().isDisablePongCancelling();
-                    // Not needed for vanilla as vanilla ignores this packet, needed for packet limiters
-                    event.setCancelled(shouldCancel);
-                    RECEIVED_CHANNEL.fire(player, id, shouldCancel, event.getTimestamp());
-                }
+            boolean matched = id == (short) id && player.addTransactionResponse((short) id);
+            player.transactionDiagnostics.recordResponse(id, matched);
+            if (matched) {
+                player.packetStateData.lastTransactionPacketWasValid = true;
+                boolean shouldCancel = !VoidAPI.INSTANCE.getConfigManager().isDisablePongCancelling();
+                event.setCancelled(shouldCancel);
+                RECEIVED_CHANNEL.fire(player, id, shouldCancel, event.getTimestamp());
             }
         }
     }
@@ -82,6 +86,9 @@ public class PacketPingListener extends PacketListenerAbstract {
                 if (player.didWeSendThatTrans.remove(id)) {
                     player.packetStateData.lastServerTransWasValid = true;
                     player.transactionsSent.add(new Pair<>(id, System.nanoTime()));
+                    if (player.lastTransactionSent.get() == 0) {
+                        player.getPlayerClockAtLeast();
+                    }
                     player.lastTransactionSent.getAndIncrement();
                     SEND_CHANNEL.fire(player, id, event.getTimestamp());
                 }
@@ -102,6 +109,9 @@ public class PacketPingListener extends PacketListenerAbstract {
                 if (player.didWeSendThatTrans.remove(shortID)) {
                     player.packetStateData.lastServerTransWasValid = true;
                     player.transactionsSent.add(new Pair<>(shortID, System.nanoTime()));
+                    if (player.lastTransactionSent.get() == 0) {
+                        player.getPlayerClockAtLeast();
+                    }
                     player.lastTransactionSent.getAndIncrement();
                     SEND_CHANNEL.fire(player, id, event.getTimestamp());
                 }

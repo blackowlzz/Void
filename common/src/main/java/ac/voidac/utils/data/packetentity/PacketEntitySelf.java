@@ -1,5 +1,6 @@
 package ac.voidac.utils.data.packetentity;
 
+import com.github.retrooper.packetevents.protocol.vector.positionpath.PositionPath;
 import ac.voidac.checks.impl.sprint.SprintD;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
@@ -166,12 +167,12 @@ public class PacketEntitySelf extends PacketEntity {
 
     @Override
     public void onFirstTransaction(boolean relative, boolean hasPos, double relX, double relY, double relZ,
-                                   @Nullable Float packetXRot, @Nullable Float packetYRot, VoidPlayer player) {
+                                   @Nullable Float packetXRot, @Nullable Float packetYRot, VoidPlayer player, @Nullable PositionPath path, boolean positionSync, int transaction) {
         // Player ignores this
     }
 
     @Override
-    public void onSecondTransaction() {
+    public void onSecondTransaction(int transaction) {
         // Player ignores this
     }
 
