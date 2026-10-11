@@ -37,4 +37,4 @@ make the process go more smoothly.*
 ### Questions & Support
 
 - Join our [Discord](https://discord.gg/DRnhHrcseU) if you have questions or need assistance.
-- Refer to the [docs](https://github.com/blackowlzz/Void/tree/master/docs) for project documentation.
+- Refer to the [Wiki](https://www.bdevs.it/) for project documentation.
