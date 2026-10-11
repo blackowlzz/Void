@@ -68,13 +68,8 @@ public class BukkitPlatformPlayer extends BukkitVoidEntity implements PlatformPl
     }
 
     @Override
-    public boolean isSneaking() {
-        return bukkitPlayer.isSneaking();
-    }
-
-    @Override
-    public void setSneaking(boolean isSneaking) {
-        bukkitPlayer.setSneaking(isSneaking);
+    public void resyncSharedFlags() {
+        SharedFlagsResync.resync(bukkitPlayer);
     }
 
     @Override

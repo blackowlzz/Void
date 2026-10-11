@@ -8,7 +8,6 @@ import ac.voidac.api.event.EventBus;
 import ac.voidac.api.plugin.VoidPlugin;
 import ac.voidac.command.CloudCommandService;
 import ac.voidac.internal.platform.bukkit.resolver.BukkitResolverRegistrar;
-import ac.voidac.checks.impl.exploit.AntiXray;
 import ac.voidac.manager.init.Initable;
 import ac.voidac.manager.init.start.ExemptOnlinePlayersOnReload;
 import ac.voidac.manager.init.start.StartableInitable;
@@ -27,6 +26,7 @@ import ac.voidac.platform.api.sender.SenderFactory;
 import ac.voidac.platform.bukkit.initables.BukkitBStats;
 import ac.voidac.platform.bukkit.initables.BukkitEventManager;
 import ac.voidac.platform.bukkit.initables.BukkitTickEndEvent;
+import ac.voidac.platform.bukkit.initables.PaperAntiXrayConfigurator;
 import ac.voidac.platform.bukkit.initables.UpdateChecker;
 import ac.voidac.platform.bukkit.manager.BukkitItemResetHandler;
 import ac.voidac.platform.bukkit.manager.BukkitMessagePlaceHolderManager;
@@ -55,7 +55,6 @@ import org.incendo.cloud.execution.ExecutionCoordinator;
 import org.incendo.cloud.paper.LegacyPaperCommandManager;
 
 public class VoidBukkitLoaderPlugin extends JavaPlugin implements PlatformLoader {
-
     public static VoidBukkitLoaderPlugin LOADER;
 
     private final LazyHolder<PlatformScheduler> scheduler = LazyHolder.simple(this::createScheduler);
@@ -85,7 +84,7 @@ public class VoidBukkitLoaderPlugin extends JavaPlugin implements PlatformLoader
 
     private Initable[] getBukkitInitTasks() {
         return new Initable[] {
-                new AntiXray(),
+                new PaperAntiXrayConfigurator(),
                 new ExemptOnlinePlayersOnReload(),
                 new BukkitEventManager(),
                 new BukkitTickEndEvent(),
@@ -153,11 +152,6 @@ public class VoidBukkitLoaderPlugin extends JavaPlugin implements PlatformLoader
         final EventBus eventBus = externalAPI.getEventBus();
         final ac.voidac.api.plugin.VoidPlugin plugin = VoidAPI.INSTANCE.getVoidPlugin();
 
-        // Bridge Void events → legacy Bukkit Event API so pre-1.3 plugins that
-        // listened for ac.voidac.api.events.* Bukkit events keep working.
-        // Typed channel subscriptions here are plugin-bound so they go away if
-        // Void itself is disabled.
-
         eventBus.get(ac.voidac.api.event.events.VoidJoinEvent.class).onJoin(plugin, (user) -> {
             Bukkit.getPluginManager().callEvent(new ac.voidac.api.events.VoidJoinEvent(user));
         });
@@ -185,7 +179,6 @@ public class VoidBukkitLoaderPlugin extends JavaPlugin implements PlatformLoader
         });
 
         eventBus.get(ac.voidac.api.event.events.CompletePredictionEvent.class).onCompletePrediction(plugin, (user, check, offset, cancelled) -> {
-            // Legacy Bukkit event has a verbose field that the new channel event does not; pass empty.
             ac.voidac.api.events.CompletePredictionEvent bukkitEvent =
                     new ac.voidac.api.events.CompletePredictionEvent(user, check, "", offset);
             Bukkit.getPluginManager().callEvent(bukkitEvent);

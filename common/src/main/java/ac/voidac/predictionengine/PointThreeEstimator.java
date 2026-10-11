@@ -1,5 +1,7 @@
 package ac.voidac.predictionengine;
 
+import ac.voidac.checks.impl.velocity.ExplosionHandler;
+import ac.voidac.checks.impl.velocity.KnockbackHandler;
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.predictionengine.predictions.PredictionEngine;
 import ac.voidac.utils.collisions.CollisionData;
@@ -164,15 +166,19 @@ public class PointThreeEstimator {
             // This can allow a player to ignore knockback and explosions within 0.03 (e.g. if standing still)
             // But I'm not sure there's a way to fix that without falses
             // Doesn't matter too much, would only work for 1.9-1.18.1 too
+            final int transaction = player.lastTransactionReceived.get();
+            final KnockbackHandler knockbackHandler = player.checkManager.getKnockbackHandler();
+            final ExplosionHandler explosionHandler = player.checkManager.getExplosionHandler();
+
             final VelocityData oldFirstBreadKB = player.firstBreadKB;
             final VelocityData oldLikelyKB = player.likelyKB;
-            player.firstBreadKB = player.checkManager.getKnockbackHandler().calculateFirstBreadKnockback(controllingEntityId, player.lastTransactionReceived.get());
-            player.likelyKB = player.checkManager.getKnockbackHandler().calculateRequiredKB(controllingEntityId, player.lastTransactionReceived.get(), true);
+            player.firstBreadKB = orPrevious(knockbackHandler.calculateFirstBreadKnockback(controllingEntityId, transaction), oldFirstBreadKB);
+            player.likelyKB = orPrevious(knockbackHandler.calculateRequiredKB(controllingEntityId, transaction, true), oldLikelyKB);
 
             final VelocityData oldFirstBreadEx = player.firstBreadExplosion;
             final VelocityData oldLikelyEx = player.likelyExplosions;
-            player.firstBreadExplosion = player.checkManager.getExplosionHandler().getFirstBreadAddedExplosion(player.lastTransactionReceived.get());
-            player.likelyExplosions = player.checkManager.getExplosionHandler().getPossibleExplosions(player.lastTransactionReceived.get(), true);
+            player.firstBreadExplosion = orPrevious(explosionHandler.getFirstBreadAddedExplosion(transaction), oldFirstBreadEx);
+            player.likelyExplosions = orPrevious(explosionHandler.getPossibleExplosions(transaction, true), oldLikelyEx);
 
             player.updateVelocityMovementSkipping();
 
@@ -485,5 +491,9 @@ public class PointThreeEstimator {
 
         // Simulate end of tick friction
         return y * BlockProperties.getModifiedAirDrag(0.98F, player);
+    }
+
+    private static VelocityData orPrevious(VelocityData calculated, VelocityData previous) {
+        return calculated != null ? calculated : previous;
     }
 }

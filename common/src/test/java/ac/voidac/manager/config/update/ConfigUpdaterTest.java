@@ -50,8 +50,9 @@ class ConfigUpdaterTest {
         Map<String, Object> banWave = map(updated.get("ban-wave"));
 
         assertTrue(result.migrated);
-        assertEquals(32, updated.get("config-version"));
+        assertEquals(36, updated.get("config-version"));
         assertEquals(300, updated.get("max-frozen-client-time"));
+        assertEquals(true, updated.get("unverified-dev-debug-greet"));
         assertEquals(true, viaProxy.get("allow"));
         assertEquals(false, viaProxy.get("disable-setbacks"));
         assertEquals(true, updated.get("viaproxy-warn-on-join"));
@@ -88,8 +89,9 @@ class ConfigUpdaterTest {
                 Map<String, Object> banWave = map(config.get("ban-wave"));
                 Map<String, Object> antiEsp = map(config.get("anti-esp"));
 
-                assertEquals(32, config.get("config-version"));
+                assertEquals(36, config.get("config-version"));
                 assertEquals(300, config.get("max-frozen-client-time"));
+                assertEquals(true, config.get("unverified-dev-debug-greet"));
                 assertEquals("Cheating", manualPunish.get("default-reason"));
                 assertEquals("Cheating", banWave.get("default-reason"));
                 assertTrue(manualPunish.get("reason").toString().contains("{reason}"));

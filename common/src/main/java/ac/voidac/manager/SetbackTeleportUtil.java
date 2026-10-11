@@ -15,6 +15,7 @@ import ac.voidac.predictionengine.predictions.PredictionEngineWater;
 import ac.voidac.utils.anticheat.update.PredictionComplete;
 import ac.voidac.utils.chunks.Column;
 import ac.voidac.utils.collisions.datatypes.SimpleCollisionBox;
+import ac.voidac.utils.data.CoordinateOffsetTolerance;
 import ac.voidac.utils.data.Pair;
 import ac.voidac.utils.data.SetBackData;
 import ac.voidac.utils.data.TeleportAcceptData;
@@ -328,9 +329,10 @@ public class SetbackTeleportUtil extends Check implements PostPredictionCheck {
             // There seems to be a version difference in teleports past 30 million... just clamp the vector
             Vector3d clamped = VectorUtils.clampVector(new Vector3d(trueTeleportX, trueTeleportY, trueTeleportZ));
             double threshold = teleportPos.isRelativePos() ? player.getMovementThreshold() : 0;
+            boolean compat = player.isCoordinateOffsetCompat();
             boolean closeEnoughY = Math.abs(clamped.getY() - y) <= 1e-7 + threshold; // 1.7 rounding
 
-            if ((teleportId == null || teleportId == teleportPos.getTeleportId()) && player.lastTransactionReceived.get() == teleportPos.getTransaction() && Math.abs(clamped.getX() - x) <= threshold && closeEnoughY && Math.abs(clamped.getZ() - z) <= threshold) {
+            if ((teleportId == null || teleportId == teleportPos.getTeleportId()) && player.lastTransactionReceived.get() == teleportPos.getTransaction() && CoordinateOffsetTolerance.horizontalMatch(clamped.getX(), x, threshold, compat) && closeEnoughY && CoordinateOffsetTolerance.horizontalMatch(clamped.getZ(), z, threshold, compat)) {
                 pendingTeleports.poll();
                 hasAcceptedSpawnTeleport = true;
                 blockOffsets = false;
@@ -379,7 +381,10 @@ public class SetbackTeleportUtil extends Check implements PostPredictionCheck {
             }
 
             Vector3d position = teleportPos.second();
-            if (position.getX() == x && position.getY() == y && position.getZ() == z) {
+            boolean matches = player.isCoordinateOffsetCompat()
+                    ? CoordinateOffsetTolerance.horizontalMatch(position.getX(), x, 0, true) && position.getY() == y && CoordinateOffsetTolerance.horizontalMatch(position.getZ(), z, 0, true)
+                    : position.getX() == x && position.getY() == y && position.getZ() == z;
+            if (matches) {
                 player.vehicleData.vehicleTeleports.poll();
 
                 return true;

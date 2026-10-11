@@ -12,18 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static ac.voidac.command.render.MessageStyle.*;
 
-/**
- * /void optimizer &lt;start | stop | save | status | discard&gt;
- *
- * Owner-facing tuner that studies live flag data and recommends safer thresholds.
- * Refuses to run unless threshold-optimizer.enabled is true in config.
- *
- * Permission: void.optimizer
- *
- * See en.yml &gt; "THRESHOLD OPTIMIZER" for the full workflow.
- */
 public class VoidOptimizer implements BuildableCommand {
-
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
         for (String sub : new String[]{"start", "stop", "save", "status", "discard"}) {

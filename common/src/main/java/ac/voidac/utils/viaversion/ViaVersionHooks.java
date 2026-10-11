@@ -16,7 +16,6 @@ import java.util.UUID;
 
 @UtilityClass
 class ViaVersionHooks {
-    // this method's only purpose is getting <clinit> called
     static void load() {}
 
     static {
@@ -25,7 +24,7 @@ class ViaVersionHooks {
 
     private static void inject1_11ChatHook() {
         if (PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_11)) {
-            return; // not needed
+            return;
         }
 
         final Protocol1_10To1_11 protocol = Via.getManager().getProtocolManager().getProtocol(Protocol1_10To1_11.class);

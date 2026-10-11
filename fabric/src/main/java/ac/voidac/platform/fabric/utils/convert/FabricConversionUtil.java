@@ -13,52 +13,20 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Function;
 
 public abstract class FabricConversionUtil implements IFabricConversionUtil {
-
     private IFabricConversionUtil fabricConversionUtilSupplier;
 
     private final Function<net.minecraft.world.item.ItemStack, ItemStack> itemStackMapperFunction = (fabricStack) -> {
-//        if (fabricStack.isEmpty()) {
-//            return ItemStack.EMPTY;
-//        }
-//
-//        // Allocate a ByteBuf
-//        ByteBuf buffer = PooledByteBufAllocator.DEFAULT.buffer();
-//        try {
-//            // Obtain the DynamicRegistryManager (you need to provide this from your context)
-//            DynamicRegistryManager registryManager = VoidFabricLoaderPlugin.FABRIC_SERVER.getRegistryManager(); // Replace with actual method to get registry manager
-//
-//            // Create a RegistryByteBuf
-//            RegistryByteBuf registryByteBuf = new RegistryByteBuf(buffer, registryManager);
-//
-//            // Encode the ItemStack using the appropriate PacketCodec
-//            net.minecraft.item.ItemStack.PACKET_CODEC.encode(registryByteBuf, fabricStack);
-//
-//            // Create a PacketWrapper to read the ItemStack back (if needed)
-//            PacketWrapper<?> wrapper = PacketWrapper.createUniversalPacketWrapper(buffer);
-//            return wrapper.readItemStack();
-//        } catch (Exception e) {
-//            // Handle encoding errors
-//            LogUtil.error("Failed to encode ItemStack: {}" + fabricStack, e);
-//            return ItemStack.EMPTY;
-//        } finally {
-//            // Release the ByteBuf to prevent memory leaks
-//            ByteBufHelper.release(buffer);
-//        }
         throw new UnsupportedOperationException();
     };
     private final Function<Component, net.minecraft.network.chat.Component> nativeTextMapperFunction = (component) -> {
         throw new UnsupportedOperationException();
-//        Text.Serialization.fromJsonTree(GsonComponentSerializer.gson().serializeToTree(component), DynamicRegistryManager.EMPTY);
     };
-//
 
     public ItemStack fromFabricItemStack(net.minecraft.world.item.ItemStack fabricStack) {
-//        return itemStackMapperFunction.apply(fabricStack);
         return fabricConversionUtilSupplier.fromFabricItemStack(fabricStack);
     }
 
     public net.minecraft.network.chat.Component toNativeText(Component component) {
-//        return nativeTextMapperFunction.apply(component);
         return fabricConversionUtilSupplier.toNativeText(component);
     }
 

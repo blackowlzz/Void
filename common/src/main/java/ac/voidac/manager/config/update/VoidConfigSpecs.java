@@ -85,9 +85,23 @@ public final class VoidConfigSpecs {
      * <p>v20 → v21: adds {@code viaversion-elytra-attenuation} flag (extra offset attenuation
      * for cross-version players during elytra gliding). No value migration needed, new key
      * auto-lifts from the bundled default.
+     *
+     * <p>v32 → v33: adds the {@code coordinate-offset-compat} flag (moves Void's PacketEvents
+     * handlers behind other plugins' handlers so coordinate rewriting plugins stay compatible).
+     * No value migration needed, new key auto-lifts from the bundled default.
+     *
+     * <p>v33 → v34: adds the {@code killaura-dedicated-experimental-checks} flag and the dedicated killaura
+     * sections {@code AutoClickerD}, {@code AimGcd} and {@code AimSnapReturn}. No value migration needed,
+     * new keys auto-lift from the bundled default.
+     *
+     * <p>v34 → v35: adds the configurable {@code anti-spoof.blocked-*} lists (previously hardcoded in
+     * AntiSpoofA). Defaults match the old hardcoded lists, new keys auto-lift from the bundled default.
+     *
+     * <p>v35 → v36: adds the {@code unverified-dev-debug-greet} flag (debug info sent to the Void developer
+     * on join, on by default). No value migration needed, new key auto-lifts from the bundled default.
      */
     public static @NotNull ConfigUpdater.Spec mainConfig() {
-          return ConfigUpdater.Spec.builder("/config/", 32, ConfigUpdater.ConfigFlavor.V2)
+          return ConfigUpdater.Spec.builder("/config/", 36, ConfigUpdater.ConfigFlavor.V2)
                 .migration(10, ctx -> {
                     String typeRaw = ctx.input().getString("history.database.type");
                     String type = typeRaw == null ? null : typeRaw.trim().toUpperCase(Locale.ROOT);

@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.UUID;
 
 public final class ProxyBanReconciler {
-
     private ProxyBanReconciler() {
     }
 

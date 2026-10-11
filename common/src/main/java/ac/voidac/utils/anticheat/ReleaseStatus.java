@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.OptionalInt;
 
 public record ReleaseStatus(@NotNull Kind kind, int versionsBehind, @NotNull String latest) {
-
     public enum Kind {
         UP_TO_DATE,
         BEHIND,

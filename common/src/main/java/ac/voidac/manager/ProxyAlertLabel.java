@@ -4,7 +4,6 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.jetbrains.annotations.NotNull;
 
 public final class ProxyAlertLabel {
-
     static final String UNLINKED_LABEL = "proxy";
 
     private ProxyAlertLabel() {

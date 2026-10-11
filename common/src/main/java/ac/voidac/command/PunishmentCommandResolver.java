@@ -4,7 +4,6 @@ import java.util.Locale;
 import java.util.Optional;
 
 public final class PunishmentCommandResolver {
-
     private PunishmentCommandResolver() {
     }
 

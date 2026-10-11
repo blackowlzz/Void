@@ -50,13 +50,9 @@ public abstract class AbstractFabricPlatformPlayer extends AbstractFabricVoidEnt
     }
 
     @Override
-    public boolean isSneaking() {
-        return fabricPlayer.isShiftKeyDown();
-    }
-
-    @Override
-    public void setSneaking(boolean isSneaking) {
-        fabricPlayer.setShiftKeyDown(isSneaking);
+    public void resyncSharedFlags() {
+        fabricPlayer.getEntityData().getItem(Entity.DATA_SHARED_FLAGS_ID).setDirty(true);
+        fabricPlayer.getEntityData().isDirty = true;
     }
 
     @Override

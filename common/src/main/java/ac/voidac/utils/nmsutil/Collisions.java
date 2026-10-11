@@ -474,6 +474,10 @@ public final class Collisions {
         PacketEntity riding = player.compensatedEntities.self.getRiding();
         boolean stuckEntityIsLiving = riding == null || riding.isLivingEntity;
 
+        if (blockType == StateTypes.NETHER_PORTAL) {
+            player.intersectedWithNetherPortal = true;
+        }
+
         if (!onlyApplyVelocity && stuckEntityIsLiving && blockType == StateTypes.COBWEB) {
             if (player.compensatedEntities.hasPotionEffect(PotionTypes.WEAVING)) {
                 player.stuckSpeedMultiplier = new Vector3dm(0.5, 0.25, 0.5);

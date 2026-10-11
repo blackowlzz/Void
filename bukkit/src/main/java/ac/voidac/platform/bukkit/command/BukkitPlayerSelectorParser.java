@@ -9,7 +9,6 @@ import org.incendo.cloud.parser.ParserDescriptor;
 import java.util.concurrent.CompletableFuture;
 
 public class BukkitPlayerSelectorParser<C> extends AbstractPlayerSelectorParser<C> {
-
     @Override
     public ParserDescriptor<C, PlayerSelector> descriptor() {
         return super.createDescriptor();

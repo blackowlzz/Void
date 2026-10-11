@@ -10,6 +10,8 @@ import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientEntityAction;
 
+import java.util.Locale;
+
 @CheckData(name = "VehicleD", stableKey = "void.vehicle.spoofed_jump", experimental = true, description = "Jumped in a vehicle that cannot jump")
 public class VehicleD extends Check implements PacketCheck {
     public VehicleD(VoidPlayer player) {
@@ -22,7 +24,7 @@ public class VehicleD extends Check implements PacketCheck {
             final EntityType vehicle = player.getVehicleType();
 
             if (!EntityTypes.isTypeInstanceOf(vehicle, EntityTypes.ABSTRACT_HORSE) && !EntityTypes.isTypeInstanceOf(vehicle, EntityTypes.ABSTRACT_NAUTILUS)) {
-                if (flagAndAlert("vehicle=" + (vehicle == null ? "null" : vehicle.getName().getKey().toLowerCase())) && shouldModifyPackets()) {
+                if (flagAndAlert("vehicle=" + (vehicle == null ? "null" : vehicle.getName().getKey().toLowerCase(Locale.ROOT))) && shouldModifyPackets()) {
                     event.setCancelled(true);
                     player.onPacketCancel();
                 }

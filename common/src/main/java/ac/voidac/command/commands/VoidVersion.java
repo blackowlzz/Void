@@ -5,6 +5,7 @@ import ac.voidac.command.BuildableCommand;
 import ac.voidac.platform.api.manager.cloud.CloudCommandAdapter;
 import ac.voidac.platform.api.sender.Sender;
 import ac.voidac.utils.anticheat.LogUtil;
+import ac.voidac.utils.anticheat.ReleaseChecker;
 import ac.voidac.utils.anticheat.SemanticVersion;
 import ac.voidac.utils.common.arguments.CommonVoidArguments;
 import com.google.gson.JsonArray;
@@ -21,6 +22,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.OptionalInt;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -67,9 +69,10 @@ public class VoidVersion implements BuildableCommand {
 
             @SuppressWarnings("deprecation")
             JsonArray versions = new JsonParser().parse(response.body()).getAsJsonArray();
-            if (versions.isEmpty()) return;
+            List<String> releases = ReleaseChecker.pluginVersions(versions);
+            if (releases.isEmpty()) return;
 
-            String latest = versions.get(0).getAsJsonObject().get("version_number").getAsString();
+            String latest = releases.get(0);
             String current = VoidAPI.INSTANCE.getExternalAPI().getVoidVersion();
 
             Status status = Status.SemVer.getVersionStatus(current, latest);

@@ -29,18 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Backend end of the bridge. One socket to the proxy, held open whether or not
- * anyone is playing, because the moment you need to shout about a ban is usually
- * the moment the server just emptied out.
- *
- * Proxy owns the list, we keep a copy for history. HELLO on connect and it sends
- * the lot back, so being down for a while can't leave us out of step. Inbound
- * goes through VoidBanManager.applyRemote*, which never echoes, or you get a ban
- * bouncing round the network forever.
- */
 public class BridgeClient implements StartableInitable, StoppableInitable {
-
     private volatile boolean enabled;
     private volatile @Nullable BridgeCodec codec;
     private volatile String serverName = "unknown";
@@ -60,7 +49,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
     private volatile @Nullable Thread worker;
     private volatile boolean shuttingDown;
 
-    /** Bumped on every reload so an old worker knows it has been replaced. */
     private volatile int generation;
 
     private static final int CONNECT_TIMEOUT_MS = 5_000;
@@ -74,7 +62,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
 
     @Override
     public void start() {
-        // nothing here: reload() runs during load and already brought the worker up
     }
 
     @Override
@@ -109,8 +96,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
 
         String secret = config.getStringElse("bridge.secret", "");
         if (secret.isBlank() || secret.equals("CHANGE-ME")) {
-            // staying off beats running unsigned. unsigned means anyone who can
-            // reach the port gets to ban your entire playerbase
             LogUtil.warn("Bridge is enabled but bridge.secret is unset. Copy the secret from your "
                     + "proxy's void-bridge config.yml, then reload. Bridge stays off.");
             this.enabled = false;
@@ -132,40 +117,28 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         return serverName;
     }
 
-    /** True when the socket to the proxy is actually up right now. */
     public boolean isConnected() {
         Socket active = socket;
         return active != null && active.isConnected() && !active.isClosed();
     }
 
-    // outbound
-
     public void sendAlert(@Nullable UUID playerUuid, @NotNull String playerName,
                           @NotNull String checkName, int violations, @NotNull String renderedMessage) {
         if (!isEnabled() || !sendAlerts) return;
-        send(MessageType.ALERT,
+        outbox.submit(MessageType.ALERT,
                 new AlertPayload(playerUuid, playerName, checkName, violations, renderedMessage).encode());
     }
 
     public void sendBan(@NotNull String banId, @Nullable UUID uuid, @NotNull String playerName,
                         @NotNull String kickReason, long expiresAt, long issuedAt) {
         if (!isEnabled() || !sendBans) return;
-        send(MessageType.BAN,
+        outbox.submit(MessageType.BAN,
                 new BanPayload(banId, uuid, playerName, kickReason, expiresAt, issuedAt).encode());
     }
 
     public void sendUnban(@Nullable UUID uuid, @NotNull String playerName, @NotNull String banId) {
         if (!isEnabled() || !sendBans) return;
-        send(MessageType.UNBAN, new UnbanPayload(uuid, playerName, banId).encode());
-    }
-
-    /**
-     * Fire and forget, written off the calling thread. A missed alert is just a
-     * missed alert, but bans and unbans that can't be sent are kept and go out
-     * after the next successful connect.
-     */
-    private void send(@NotNull MessageType type, byte @NotNull [] payload) {
-        outbox.submit(type, payload);
+        outbox.submit(MessageType.UNBAN, new UnbanPayload(uuid, playerName, banId).encode());
     }
 
     private boolean transmit(@NotNull MessageType type, byte @NotNull [] payload) {
@@ -183,8 +156,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
             return false;
         }
     }
-
-    // connection
 
     private void startWorker(int forGeneration) {
         Thread thread = new Thread(() -> runWorker(forGeneration), "void-bridge");
@@ -206,9 +177,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 this.socket = connection;
 
                 sayHello(connection);
-                // An open socket proves nothing: point this at the Minecraft port
-                // and it opens just as happily. The proxy answers a HELLO it
-                // accepted with a SYNC, so a frame coming back is the real proof.
                 if (readUntilClosed(connection, forGeneration)) {
                     backoff = RETRY_MIN_MS;
                     alreadyComplained = false;
@@ -219,8 +187,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                     alreadyComplained = true;
                 }
             } catch (Exception e) {
-                // one line the first time, then shut up. a proxy that's down for
-                // an hour shouldn't produce an hour of identical warnings
                 if (!alreadyComplained) {
                     LogUtil.warn("Bridge can't reach the proxy at " + proxyHost + ":" + proxyPort
                             + " (" + e.getMessage() + "). Retrying quietly in the background.");
@@ -253,7 +219,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 active.encode(MessageType.HELLO, serverName, new HelloPayload(version).encode()));
     }
 
-    /** @return whether the proxy ever answered, which is what tells a real link from an open port */
     private boolean readUntilClosed(@NotNull Socket connection, int forGeneration) throws Exception {
         DataInputStream in = new DataInputStream(connection.getInputStream());
         boolean answered = false;
@@ -264,15 +229,16 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
                 if (answered) LogUtil.warn("Bridge lost the proxy connection, reconnecting.");
                 return answered;
             }
-            boolean firstAnswer = !answered;
-            if (firstAnswer) {
-                answered = true;
-                LogUtil.info("Bridge connected to the proxy at " + proxyHost + ":" + proxyPort
-                        + " as '" + serverName + "'.");
+            if (answered) {
+                handleIncoming(raw);
+                continue;
             }
-            if (firstAnswer) linked = true;
+            answered = true;
+            LogUtil.info("Bridge connected to the proxy at " + proxyHost + ":" + proxyPort
+                    + " as '" + serverName + "'.");
+            linked = true;
             handleIncoming(raw);
-            if (firstAnswer) outbox.flush();
+            outbox.flush();
         }
         return answered;
     }
@@ -292,13 +258,9 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         try {
             connection.close();
         } catch (Exception ignored) {
-            // already gone, which is where we wanted it
         }
     }
 
-    // inbound
-
-    /** Frames arrive authenticated by the codec, or they don't arrive at all. */
     private void handleIncoming(byte @NotNull [] raw) {
         BridgeCodec active = codec;
         if (!enabled || active == null) return;
@@ -310,7 +272,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
             awaitPunishmentDatabase();
         }
 
-        // SYNC is addressed to us and legitimately carries our own bans back
         if (frame.origin().equals(serverName) && frame.type() != MessageType.SYNC) return;
 
         switch (frame.type()) {
@@ -318,7 +279,7 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
             case BAN -> handleBan(frame);
             case UNBAN -> handleUnban(frame);
             case SYNC -> handleSync(frame);
-            case HELLO -> { } // only the proxy answers those
+            case HELLO -> { }
         }
     }
 
@@ -385,9 +346,6 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
             LogUtil.info("Bridge sync: picked up " + applied + " ban(s) from while we were away.");
         }
 
-        // the other half of catching up, and the easy one to forget: anything
-        // we're still enforcing that the proxy has dropped has to go, or we sit
-        // here refusing somebody the rest of the network already forgave
         if (!proxyAuthoritative) return;
         int dropped = VoidAPI.INSTANCE.getVoidBanManager().reconcileWithProxy(live);
         if (dropped > 0) {
@@ -395,19 +353,16 @@ public class BridgeClient implements StartableInitable, StoppableInitable {
         }
     }
 
-    /** Boots someone who was already here when a remote ban landed. */
     private void kickIfOnline(@Nullable UUID uuid, @NotNull String playerName, @NotNull String reason) {
         PlatformPlayer target = uuid != null
                 ? VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromUUID(uuid)
                 : null;
-        // offline-mode networks hand every backend a different UUID, so name is the fallback
         if (target == null) {
             target = VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromName(playerName);
         }
         if (target == null) return;
 
         final PlatformPlayer victim = target;
-        // off the socket thread, and on the region owning them if this is Folia
         VoidAPI.INSTANCE.getScheduler().getEntityScheduler().execute(
                 victim, VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> victim.kickPlayer(reason), null, 0L);

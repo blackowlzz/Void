@@ -3,6 +3,8 @@ package ac.voidac.manager;
 import ac.voidac.VoidAPI;
 import ac.voidac.api.AbstractCheck;
 import ac.voidac.checks.impl.aim.AimDuplicateLook;
+import ac.voidac.checks.impl.aim.AimGcd;
+import ac.voidac.checks.impl.aim.AimSnapReturn;
 import ac.voidac.checks.impl.aim.AimModulo360;
 import ac.voidac.checks.impl.aim.processor.AimProcessor;
 import ac.voidac.checks.impl.badpackets.*;
@@ -68,6 +70,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CheckManager {
@@ -100,6 +103,7 @@ public class CheckManager {
         packetChecks = new ImmutableClassToInstanceMap.Builder<PacketCheck>()
                 .put(CompensatedCameraEntity.class, player.cameraEntity)
                 .put(PacketOrderProcessor.class, player.packetOrderProcessor)
+                .put(CombatTracker.class, new CombatTracker(player))
                 .put(Reach.class, new Reach(player))
                 .put(PacketEntityReplication.class, packetEntityReplication)
                 .put(PacketChangeGameState.class, new PacketChangeGameState(player))
@@ -176,6 +180,8 @@ public class CheckManager {
                 .put(AimProcessor.class, new AimProcessor(player))
                 .put(AimModulo360.class, new AimModulo360(player))
                 .put(AimDuplicateLook.class, new AimDuplicateLook(player))
+                .put(AimGcd.class, new AimGcd(player))
+                .put(AimSnapReturn.class, new AimSnapReturn(player))
                 .build();
         vehicleChecks = new ImmutableClassToInstanceMap.Builder<VehicleCheck>()
                 .put(VehiclePredictionRunner.class, new VehiclePredictionRunner(player))
@@ -214,6 +220,7 @@ public class CheckManager {
                 .put(AutoClickerA.class, new AutoClickerA(player))
                 .put(AutoClickerB.class, new AutoClickerB(player))
                 .put(AutoClickerC.class, new AutoClickerC(player))
+                .put(AutoClickerD.class, new AutoClickerD(player))
                 .put(MultiInteractA.class, new MultiInteractA(player))
                 .put(MultiInteractB.class, new MultiInteractB(player))
                 .put(ElytraA.class, new ElytraA(player))
@@ -487,7 +494,7 @@ public class CheckManager {
 
         for (final AbstractCheck check : allChecks.values()) {
             if (check.getConfigName() == null) continue;
-            final String id = check.getConfigName().toLowerCase();
+            final String id = check.getConfigName().toLowerCase(Locale.ROOT);
             for (String permissionName : permissions) {
                 permissionName += id;
                 VoidAPI.INSTANCE.getPermissionManager().registerPermission(permissionName, PermissionDefaultValue.FALSE);

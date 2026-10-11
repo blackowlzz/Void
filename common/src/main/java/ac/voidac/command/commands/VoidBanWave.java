@@ -22,10 +22,8 @@ import java.util.UUID;
 import static ac.voidac.command.render.MessageStyle.*;
 
 public class VoidBanWave implements BuildableCommand {
-
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
-
         commandManager.command(commandManager.commandBuilder("void", "voidac")
                 .literal("banwave").literal("info")
                 .permission("void.banwave")
@@ -70,8 +68,6 @@ public class VoidBanWave implements BuildableCommand {
                 .handler(this::handleClear));
     }
 
-    // ── Handlers ──────────────────────────────────────────────────────────
-
     private void handleInfo(@NotNull CommandContext<Sender> context) {
         Sender sender = context.sender();
         BanWaveManager bwm = VoidAPI.INSTANCE.getBanWaveManager();
@@ -113,7 +109,6 @@ public class VoidBanWave implements BuildableCommand {
         Sender sender = context.sender();
         String name = context.get("player");
 
-        // Resolve the target: online player first, then offline fallback.
         PlatformPlayer online = VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromName(name);
         final UUID uuid;
         final String playerName;

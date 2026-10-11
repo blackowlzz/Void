@@ -5,7 +5,6 @@ import ac.voidac.platform.api.sender.Sender;
 import java.util.UUID;
 
 public final class PunishmentTargetGuard {
-
     private PunishmentTargetGuard() {
     }
 

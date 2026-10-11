@@ -79,10 +79,10 @@ public final class AntiEspManager {
     }
 
     public void tick() {
-        tick(player.x, player.y, player.z, player.yaw, player.pitch);
+        tick(player.x, player.y, player.z);
     }
 
-    public void tick(double x, double y, double z, float yaw, float pitch) {
+    public void tick(double x, double y, double z) {
         configureTerrain();
         terrain.tick(x, y, z, VoidAPI.INSTANCE.getTickManager().currentTick);
         if (!isEnabled()) {
@@ -93,11 +93,11 @@ public final class AntiEspManager {
     }
 
     private void configureTerrain() {
-        terrain.configure(isEnabled() && terrainMasking, thresholdY, replacementBlockId,
+        terrain.configure(shouldMaskTerrain(), thresholdY, replacementBlockId,
                 undergroundRevealRadius, chunkRefreshCooldownTicks);
     }
 
-    public boolean shouldMaskChunk(int chunkX, int chunkZ) {
+    public boolean shouldMaskTerrain() {
         return isEnabled() && terrainMasking;
     }
 
@@ -110,11 +110,11 @@ public final class AntiEspManager {
     }
 
     public boolean shouldMaskBlock(int x, int y, int z) {
-        return isEnabled() && terrainMasking && terrain.shouldMask(x, y, z);
+        return shouldMaskTerrain() && terrain.shouldMask(x, y, z);
     }
 
     public boolean shouldRevealSection(int chunkX, int sectionY, int chunkZ) {
-        return !isEnabled() || !terrainMasking || terrain.isVisible(chunkX, sectionY, chunkZ);
+        return !shouldMaskTerrain() || terrain.isVisible(chunkX, sectionY, chunkZ);
     }
 
     public void cacheChunk(WrapperPlayServerChunkData packet) {
@@ -123,7 +123,7 @@ public final class AntiEspManager {
         terrain.cache(column.getX(), column.getZ(), column.getChunks(), column.isFullChunk(), column.getTileEntities());
     }
 
-    public void cacheLegacyChunk(int chunkX, int chunkZ, BaseChunk[] chunks, byte[] biomeData) {
+    public void cacheLegacyChunk(int chunkX, int chunkZ, BaseChunk[] chunks) {
         configureTerrain();
         terrain.cache(chunkX, chunkZ, chunks, true, new TileEntity[0]);
     }
@@ -162,12 +162,8 @@ public final class AntiEspManager {
         hiddenEntities.clear();
     }
 
-    public void invalidatePov() {
-        terrain.invalidate();
-    }
-
     public void handleSpawn(PacketSendEvent event, WrapperPlayServerSpawnEntity packet) {
-        if (!EntityTypes.isTypeInstanceOf(packet.getEntityType(), EntityTypes.LIVINGENTITY)) {
+        if (!tracksEntities() || !EntityTypes.isTypeInstanceOf(packet.getEntityType(), EntityTypes.LIVINGENTITY)) {
             return;
         }
 
@@ -180,6 +176,9 @@ public final class AntiEspManager {
     }
 
     public void handleSpawn(PacketSendEvent event, WrapperPlayServerSpawnLivingEntity packet) {
+        if (!tracksEntities()) {
+            return;
+        }
         EntitySpawn spawn = EntitySpawn.living(
                 packet.getEntityId(), packet.getEntityUUID(), packet.getEntityType(), packet.getPosition(),
                 packet.getYaw(), packet.getPitch(), packet.getHeadPitch(), packet.getVelocity(), packet.getEntityMetadata()
@@ -189,6 +188,9 @@ public final class AntiEspManager {
     }
 
     public void handleSpawn(PacketSendEvent event, WrapperPlayServerSpawnPlayer packet) {
+        if (!tracksEntities()) {
+            return;
+        }
         EntitySpawn spawn = EntitySpawn.player(
                 packet.getEntityId(), packet.getUUID(), packet.getPosition(),
                 packet.getYaw(), packet.getPitch(), packet.getEntityMetadata()
@@ -242,12 +244,16 @@ public final class AntiEspManager {
         }
     }
 
-    public boolean isEntityHidden(int entityId) {
-        return hiddenEntities.contains(entityId);
-    }
-
     public boolean isEnabled() {
         return enabled && !player.noModifyPacketPermission;
+    }
+
+    public boolean isTracking(int entityId) {
+        return entitySpawns.containsKey(entityId);
+    }
+
+    private boolean tracksEntities() {
+        return entityVisibility && isEnabled();
     }
 
     public int getThresholdY() {
@@ -256,14 +262,6 @@ public final class AntiEspManager {
 
     public int getReplacementBlockId() {
         return replacementBlockId;
-    }
-
-    public int getUndergroundRevealRadius() {
-        return undergroundRevealRadius;
-    }
-
-    public int getEntityRecheckIntervalTicks() {
-        return entityRecheckIntervalTicks;
     }
 
     private static int clamp(int value, int minimum, int maximum) {

@@ -21,6 +21,7 @@ import org.incendo.cloud.suggestion.SuggestionProvider;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -39,7 +40,7 @@ public class VoidList implements BuildableCommand {
                 .literal("list")
                 .permission("void.list")
                 .required("list", StringParser.stringParser(), SUGGESTIONS)
-                .handler(commandContext -> handleList(commandContext.sender(), commandContext.getOrDefault("list", "?").toLowerCase()))
+                .handler(commandContext -> handleList(commandContext.sender(), commandContext.getOrDefault("list", "?").toLowerCase(Locale.ROOT)))
                 .build());
     }
 

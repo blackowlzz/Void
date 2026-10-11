@@ -13,19 +13,30 @@ import ac.voidac.utils.anticheat.MessageUtil;
 import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class BanWaveManager {
-
     private static final DateTimeFormatter DATE_FORMAT =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(ZoneOffset.UTC);
 
@@ -35,9 +46,9 @@ public class BanWaveManager {
     private File dataFile;
     private volatile TaskHandle autoWaveTask;
 
-    private boolean enabled           = false;
-    private boolean queueOnAutoPunish = false;
-    private int     autoExecuteDays   = 7;
+    private volatile boolean enabled = false;
+    private volatile boolean queueOnAutoPunish = false;
+    private volatile int autoExecuteDays = 7;
     private String  duration          = "permanent";
     private String  defaultReason     = "Cheating";
     private String  reasonTemplate    =
@@ -69,38 +80,34 @@ public class BanWaveManager {
         }
     }
 
-    public boolean isEnabled()            { return enabled; }
-    public boolean isQueueOnAutoPunish()  { return queueOnAutoPunish; }
-    public int     getWaveNumber()        { return waveNumber; }
-    public int     getQueueSize()         { return queue.size(); }
-
-    public Map<UUID, BanEntry> getQueue() {
-        return Collections.unmodifiableMap(queue);
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public boolean isInQueue(UUID uuid) {
-        return queue.containsKey(uuid);
+    public boolean isQueueOnAutoPunish() {
+        return queueOnAutoPunish;
+    }
+
+    public synchronized int getWaveNumber() {
+        return waveNumber;
+    }
+
+    public synchronized int getQueueSize() {
+        return queue.size();
+    }
+
+    public synchronized Map<UUID, BanEntry> getQueue() {
+        return Collections.unmodifiableMap(new LinkedHashMap<>(queue));
     }
 
     public synchronized boolean addToQueue(UUID uuid, String name, String check, String addedBy) {
         return addToQueue(uuid, name, check, addedBy, null, null);
     }
 
-    public synchronized boolean addToQueue(UUID uuid, String name, String check, String addedBy, @Nullable String duration) {
-        return addToQueue(uuid, name, check, addedBy, duration, null);
-    }
-
     public synchronized boolean addToQueue(UUID uuid, String name, String check, String addedBy,
                                            @Nullable String duration, @Nullable String reason) {
         if (queue.containsKey(uuid)) return false;
         queue.put(uuid, new BanEntry(uuid, name, check, addedBy, System.currentTimeMillis(), duration, reason));
-        save();
-        return true;
-    }
-
-    public synchronized boolean removeFromQueue(UUID uuid) {
-        if (!queue.containsKey(uuid)) return false;
-        queue.remove(uuid);
         save();
         return true;
     }
@@ -163,10 +170,6 @@ public class BanWaveManager {
         return PunishmentReason.resolve(reason, defaultReason);
     }
 
-    public String formatBanCommandReason(BanEntry entry, String waveStr) {
-        return toBanCommandLine(formatKickReason(entry, waveStr));
-    }
-
     public String formatEntry(int index, BanEntry entry) {
         String time = DATE_FORMAT.format(Instant.ofEpochMilli(entry.timestamp()));
         String dur  = entry.duration() != null ? entry.duration() : "config default";
@@ -195,15 +198,11 @@ public class BanWaveManager {
 
     private void checkAndAutoExecute() {
         if (!enabled || autoExecuteDays <= 0) return;
-        long oldestQueuedAt;
         synchronized (this) {
             if (queue.isEmpty()) return;
-            oldestQueuedAt = queue.values().stream()
-                    .mapToLong(BanEntry::timestamp)
-                    .min()
-                    .orElse(0L);
+            long oldestQueuedAt = queue.values().stream().mapToLong(BanEntry::timestamp).min().orElse(0L);
+            if (!isAutoExecutionDue(System.currentTimeMillis(), lastAutoExecuteTime, oldestQueuedAt, autoExecuteDays)) return;
         }
-        if (!isAutoExecutionDue(System.currentTimeMillis(), lastAutoExecuteTime, oldestQueuedAt, autoExecuteDays)) return;
 
         LogUtil.info("[BanWave] Auto-executing scheduled wave (interval: " + autoExecuteDays + "d)...");
         VoidAPI.INSTANCE.getScheduler().getGlobalRegionScheduler().run(
@@ -233,7 +232,7 @@ public class BanWaveManager {
         String banReason = toBanCommandLine(kickReason);
 
         VoidPlayer voidPlayer = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(entry.uuid());
-        boolean isOffline = (voidPlayer == null || voidPlayer.platformPlayer == null);
+        boolean isOffline = voidPlayer == null || voidPlayer.platformPlayer == null;
         if (!isOffline) {
             final PlatformPlayer pp = voidPlayer.platformPlayer;
             VoidAPI.INSTANCE.getScheduler().getEntityScheduler().execute(
@@ -243,17 +242,12 @@ public class BanWaveManager {
         }
 
         if (preferCustomBan) {
-            String cmd = customBanCommand
-                    .replace("{player}",   entry.name())
+            dispatchCommand(customBanCommand
+                    .replace("{player}", entry.name())
                     .replace("{duration}", effectiveDuration)
-                    .replace("{reason}",   banReason);
-            dispatchCommand(cmd);
-            // For offline targets, also store in VoidBanManager: external ban commands
-            // (e.g. litebans:tempban) may not reliably apply when the player is offline.
-            if (isOffline) {
-                VoidAPI.INSTANCE.getVoidBanManager().ban(banId, entry.uuid(), entry.name(), kickReason, effectiveDuration, System.currentTimeMillis());
-            }
-        } else {
+                    .replace("{reason}", banReason));
+        }
+        if (!preferCustomBan || isOffline) {
             VoidAPI.INSTANCE.getVoidBanManager().ban(banId, entry.uuid(), entry.name(), kickReason, effectiveDuration, System.currentTimeMillis());
         }
 
@@ -272,11 +266,8 @@ public class BanWaveManager {
         );
     }
 
-    private String toBanCommandLine(String richReason) {
-        return richReason
-                .replaceAll("[\\r\\n]+\\s*", " §8| §r")
-                .replaceAll("\\s{2,}", " ")
-                .trim();
+    private static String toBanCommandLine(String richReason) {
+        return PunishmentReason.toSingleLine(richReason, " §8| §r");
     }
 
     private void dispatchCommand(String command) {
@@ -294,9 +285,9 @@ public class BanWaveManager {
         }
     }
 
-    private void load() {
+    private synchronized void load() {
         if (dataFile == null || !dataFile.exists()) return;
-        try (BufferedReader r = new BufferedReader(new FileReader(dataFile))) {
+        try (BufferedReader r = new BufferedReader(new InputStreamReader(Files.newInputStream(dataFile.toPath()), StandardCharsets.UTF_8))) {
             String line = r.readLine();
             if (line != null) waveNumber = Integer.parseInt(line.trim());
 
@@ -306,11 +297,15 @@ public class BanWaveManager {
             queue.clear();
             while ((line = r.readLine()) != null) {
                 if (line.isBlank()) continue;
-                BanEntry entry = parseEntry(line);
-                queue.put(entry.uuid(), entry);
+                try {
+                    BanEntry entry = parseEntry(line);
+                    queue.put(entry.uuid(), entry);
+                } catch (IllegalArgumentException e) {
+                    LogUtil.warn("[BanWave] Skipping invalid banwave.dat entry: " + line);
+                }
             }
             LogUtil.info("[BanWave] Loaded: " + queue.size() + " queued players (wave #" + waveNumber + ").");
-        } catch (Exception e) {
+        } catch (IOException | NumberFormatException e) {
             LogUtil.error("[BanWave] Failed to load banwave.dat", e);
         }
     }
@@ -319,20 +314,24 @@ public class BanWaveManager {
         if (dataFile == null) return;
         try {
             dataFile.getParentFile().mkdirs();
-            File tempFile = new File(dataFile.getParentFile(), dataFile.getName() + ".tmp");
-            try (PrintWriter w = new PrintWriter(new FileWriter(tempFile))) {
-                w.println(waveNumber);
-                w.println(lastAutoExecuteTime);
+            Path target = dataFile.toPath();
+            Path temp = target.resolveSibling(dataFile.getName() + ".tmp");
+            try (BufferedWriter w = Files.newBufferedWriter(temp, StandardCharsets.UTF_8)) {
+                w.write(String.valueOf(waveNumber));
+                w.newLine();
+                w.write(String.valueOf(lastAutoExecuteTime));
+                w.newLine();
                 for (BanEntry e : queue.values()) {
-                    w.println(serializeEntry(e));
+                    w.write(serializeEntry(e));
+                    w.newLine();
                 }
             }
             try {
-                Files.move(tempFile.toPath(), dataFile.toPath(), StandardCopyOption.ATOMIC_MOVE);
+                Files.move(temp, target, StandardCopyOption.ATOMIC_MOVE);
             } catch (AtomicMoveNotSupportedException e) {
-                Files.move(tempFile.toPath(), dataFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                Files.move(temp, target, StandardCopyOption.REPLACE_EXISTING);
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             LogUtil.error("[BanWave] Failed to save banwave.dat", e);
         }
     }
@@ -361,8 +360,5 @@ public class BanWaveManager {
 
     public record BanEntry(UUID uuid, String name, String check, String addedBy, long timestamp,
                            @Nullable String duration, @Nullable String reason) {
-        public BanEntry(UUID uuid, String name, String check, String addedBy, long timestamp) {
-            this(uuid, name, check, addedBy, timestamp, null, null);
-        }
     }
 }

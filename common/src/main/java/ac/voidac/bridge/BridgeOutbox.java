@@ -11,7 +11,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 final class BridgeOutbox {
-
     interface Transport {
         boolean deliver(@NotNull MessageType type, byte @NotNull [] payload);
     }
@@ -47,8 +46,7 @@ final class BridgeOutbox {
     void flush() {
         try {
             writer.execute(this::drainPending);
-        } catch (RejectedExecutionException closed) {
-            return;
+        } catch (RejectedExecutionException ignored) {
         }
     }
 

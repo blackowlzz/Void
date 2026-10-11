@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerPlayer.class)
 public abstract class FabricJoinMessageEvent {
-
     @Unique
     private boolean voidac$joinMessageSent;
 

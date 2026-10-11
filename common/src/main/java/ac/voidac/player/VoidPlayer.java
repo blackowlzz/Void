@@ -49,7 +49,6 @@ import ac.voidac.utils.nmsutil.GetBoundingBox;
 import ac.voidac.utils.nmsutil.Materials;
 import ac.voidac.utils.viaversion.ViaVersionUtil;
 import com.github.retrooper.packetevents.PacketEvents;
-import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 import com.github.retrooper.packetevents.event.PacketSendEvent;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import com.github.retrooper.packetevents.protocol.entity.EntityPositionData;
@@ -253,6 +252,7 @@ public class VoidPlayer implements VoidUser {
     public DimensionType dimensionType;
     public @Nullable String worldName;
     public Vector3d bedPosition;
+    public final CoordinateShift coordinateShift = new CoordinateShift();
     public long lastBlockPlaceUseItem = 0;
     public long lastBlockBreak = 0;
     public final AtomicInteger cancelledPackets = new AtomicInteger(0);
@@ -285,6 +285,7 @@ public class VoidPlayer implements VoidUser {
     @Getter private boolean resetItemUsageOnItemUpdate;
     @Getter private boolean resetItemUsageOnSlotChange;
     @Getter private boolean resetItemUsageOnItemUse;
+    @Getter private boolean coordinateOffsetCompat;
     // end config
     public boolean noModifyPacketPermission = false;
     public boolean noSetbackPermission = false;
@@ -311,7 +312,7 @@ public class VoidPlayer implements VoidUser {
     public boolean lastJumping;
     public EntityFluidInteraction fluidInteraction = new EntityFluidInteraction(this, FluidTag.WATER, FluidTag.LAVA);
     public boolean canFloatWhileRidden = false;
-    public boolean isInNetherPortal = false;
+    public boolean intersectedWithNetherPortal = false;
 
     public VoidPlayer(@NotNull User user) {
         this.user = user;
@@ -894,12 +895,11 @@ public class VoidPlayer implements VoidUser {
         if (getClientVersion().isOlderThan(ClientVersion.V_1_21_2)
                 || PacketEvents.getAPI().getServerManager().getVersion().isOlderThan(ServerVersion.V_1_21_2)) return false;
 
-        // PacketEvents mappings are wrong
-        return isGlider(inventory.getHelmet(), EquipmentSlot.CHEST_PLATE)
-                || isGlider(inventory.getChestplate(), EquipmentSlot.LEGGINGS)
-                || isGlider(inventory.getLeggings(), EquipmentSlot.BOOTS)
-                || isGlider(inventory.getBoots(), EquipmentSlot.OFF_HAND)
-                || isGlider(inventory.getOffHand(), EquipmentSlot.HELMET);
+        return isGlider(inventory.getHelmet(), EquipmentSlot.HELMET)
+                || isGlider(inventory.getChestplate(), EquipmentSlot.CHEST_PLATE)
+                || isGlider(inventory.getLeggings(), EquipmentSlot.LEGGINGS)
+                || isGlider(inventory.getBoots(), EquipmentSlot.BOOTS)
+                || isGlider(inventory.getOffHand(), EquipmentSlot.OFF_HAND);
     }
 
     private static boolean isGlider(ItemStack stack, EquipmentSlot slot) {
@@ -911,10 +911,8 @@ public class VoidPlayer implements VoidUser {
         return equippable.isPresent() && equippable.get().getSlot() == slot;
     }
 
-    public void resyncPose() {
-        if (getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_14) && platformPlayer != null) {
-            platformPlayer.setSneaking(!platformPlayer.isSneaking());
-        }
+    public void resyncGlidingState() {
+        if (platformPlayer != null) platformPlayer.resyncSharedFlags();
     }
 
     public boolean canPlaceGameMasterBlocks() {
@@ -929,12 +927,6 @@ public class VoidPlayer implements VoidUser {
 
     public boolean isInWaterOrRain() {
         return compensatedWorld.isRaining || Collisions.hasMaterial(this, boundingBox.copy().expand(0.1f), (block, x, y, z) -> Materials.isWater(CompensatedWorld.blockVersion, block));
-    }
-
-    public void updateNetherPortalState() {
-        // Expand over the full movement this tick so a fast run-through is still detected
-        SimpleCollisionBox movementThisTick = GetBoundingBox.getCollisionBoxForPlayer(this, x, y, z).expandToCoordinate(lastX - x, lastY - y, lastZ - z);
-        isInNetherPortal = Collisions.hasMaterial(this, movementThisTick, (block, x, y, z) -> block.getType() == StateTypes.NETHER_PORTAL);
     }
 
     @Contract(pure = true)
@@ -1061,10 +1053,12 @@ public class VoidPlayer implements VoidUser {
         resetItemUsageOnItemUpdate = config.getBooleanElse("reset-item-usage-on-item-update", true);
         resetItemUsageOnSlotChange = config.getBooleanElse("reset-item-usage-on-slot-change", true);
         resetItemUsageOnItemUse = config.getBooleanElse("reset-item-usage-on-item-use", true);
+        coordinateOffsetCompat = config.getBooleanElse("coordinate-offset-compat", false);
         // reload all checks
         for (AbstractCheck value : checkManager.allChecks.values()) value.reload();
         // reload punishment manager
         punishmentManager.reload(config);
+        movementCheckRunner.reload(config);
     }
 
     @Override

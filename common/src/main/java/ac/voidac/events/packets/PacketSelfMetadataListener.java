@@ -147,7 +147,11 @@ public class PacketSelfMetadataListener extends PacketListenerAbstract {
                         if (bed.isPresent()) {
                             player.isInBed = true;
                             Vector3i bedPos = bed.get();
-                            player.bedPosition = new Vector3d(bedPos.getX() + 0.5, bedPos.getY(), bedPos.getZ() + 0.5);
+                            if (player.isCoordinateOffsetCompat()) {
+                                player.bedPosition = new Vector3d(player.coordinateShift.toRealBlockX(bedPos.getX()) + 0.5, bedPos.getY(), player.coordinateShift.toRealBlockZ(bedPos.getZ()) + 0.5);
+                            } else {
+                                player.bedPosition = new Vector3d(bedPos.getX() + 0.5, bedPos.getY(), bedPos.getZ() + 0.5);
+                            }
                         } else { // Run when we know the player is not in bed 100%
                             player.isInBed = false;
                         }

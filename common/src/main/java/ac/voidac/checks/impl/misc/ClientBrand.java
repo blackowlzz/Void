@@ -3,9 +3,7 @@ package ac.voidac.checks.impl.misc;
 import ac.voidac.VoidAPI;
 import ac.voidac.checks.Check;
 import ac.voidac.checks.type.PacketCheck;
-import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.player.VoidPlayer;
-import ac.voidac.utils.anticheat.LeadDeveloper;
 import ac.voidac.utils.anticheat.MessageUtil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
@@ -16,8 +14,6 @@ import com.github.retrooper.packetevents.wrapper.configuration.client.WrapperCon
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPluginMessage;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
-
-import java.util.Set;
 
 public class ClientBrand extends Check implements PacketCheck {
 
@@ -54,17 +50,10 @@ public class ClientBrand extends Check implements PacketCheck {
 
             brand = new String(minusLength).replace(" (Velocity)", ""); // removes velocity's brand suffix
             brand = MessageUtil.stripColor(brand); // strip color codes from client brand
-            boolean leadDeveloper = LeadDeveloper.matches(player.getUniqueId(), VoidAPI.INSTANCE.getPlatformServer().isOnlineMode());
-            if (leadDeveloper || !VoidAPI.INSTANCE.getConfigManager().isIgnoredClient(brand)) {
-                String message = leadDeveloper
-                        ? LeadDeveloper.JOIN_FORMAT
-                        : VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse("client-brand-format", "%prefix% &f%player% crossed the void using %brand%");
+            if (!VoidAPI.INSTANCE.getConfigManager().isIgnoredClient(brand)) {
+                String message = VoidAPI.INSTANCE.getConfigManager().getConfig().getStringElse("client-brand-format", "%prefix% &f%player% crossed the void using %brand%");
                 Component component = MessageUtil.replacePlaceholders(player, MessageUtil.miniMessage(message));
-
-                Set<PlatformPlayer> reached = VoidAPI.INSTANCE.getAlertManager().sendBrand(component, null);
-                if (leadDeveloper && !reached.contains(null)) {
-                    VoidAPI.INSTANCE.getPlatformServer().getConsoleSender().sendMessage(component);
-                }
+                VoidAPI.INSTANCE.getAlertManager().sendBrand(component, null);
             }
             // Push the now-known brand into the session row. The initial onJoin
             // upsert ran from PlayerJoinEvent, before the brand packet arrived,

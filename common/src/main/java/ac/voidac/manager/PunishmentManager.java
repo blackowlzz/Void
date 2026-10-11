@@ -80,12 +80,14 @@ public class PunishmentManager implements ConfigReloadable {
                                 excluded.add(check);
                             } else {
                                 checksList.add(check);
-                                check.setEnabled(true);
-                                enabledChecks++;
                             }
                         }
                     }
                     for (AbstractCheck check : excluded) checksList.remove(check);
+                }
+                for (AbstractCheck check : checksList) {
+                    check.setEnabled(true);
+                    enabledChecks++;
                 }
 
                 for (String command : commands) {
@@ -130,6 +132,8 @@ public class PunishmentManager implements ConfigReloadable {
 
         // Feed every flag to the optimizer when it is running.  No-op when stopped.
         VoidAPI.INSTANCE.getThresholdOptimizer().recordFlag(player, check, (int) Math.floor(check.violations));
+
+        if (check.isKillauraDedicated()) return sendDedicatedAlert(check, verbose);
 
         // Check commands
         for (PunishGroup group : groups) {
@@ -204,8 +208,28 @@ public class PunishmentManager implements ConfigReloadable {
         return sentDebug;
     }
 
+    private boolean sendDedicatedAlert(Check check, String verbose) {
+        int vl = (int) Math.floor(check.violations);
+        Component message = MessageUtil.miniMessage(replaceAlertPlaceholders("[alert]", vl, check, verbose));
+        Set<PlatformPlayer> verboseListeners = VoidAPI.INSTANCE.getAlertManager().hasVerboseListeners()
+                ? VoidAPI.INSTANCE.getAlertManager().sendVerbose(message, null)
+                : null;
+
+        if (testMode) {
+            if (verboseListeners == null || verboseListeners.contains(player.platformPlayer)) {
+                player.sendMessage(message);
+            }
+        } else {
+            VoidAPI.INSTANCE.getAlertManager().sendAlert(message, verboseListeners);
+        }
+
+        VoidAPI.INSTANCE.getDataStoreLifecycle().liveWriteHooks()
+                .recordFlagFromCheck(player, check, vl, GL_SUFFIX.matcher(verbose).replaceAll(""));
+        return true;
+    }
+
     public void handleAutoPunish(Check check) {
-        if (!VoidAPI.INSTANCE.getConfigManager().isAutoPunishEnabled()) {
+        if (!VoidAPI.INSTANCE.getConfigManager().isAutoPunishEnabled() || check.isKillauraDedicated()) {
             return;
         }
 
@@ -371,6 +395,8 @@ public class PunishmentManager implements ConfigReloadable {
     }
 
     public void handleViolation(Check check) {
+        if (check.isKillauraDedicated()) return;
+
         for (PunishGroup group : groups) {
             if (group.checks.contains(check)) {
                 long currentTime = System.currentTimeMillis();

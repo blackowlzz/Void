@@ -17,14 +17,7 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Everything the bridge does, minus the bits that care whether this is Velocity
- * or Bungee. The proxy owns the ban list, decides who hears what, and is what
- * actually refuses a banned player. Backends get told over their own socket, so
- * whether anyone is playing on them has nothing to do with whether they hear us.
- */
 public final class BridgeCore {
-
     private final ProxyPlatform platform;
     private final BridgeConfig config;
     private final BridgeCodec codec;
@@ -57,7 +50,6 @@ public final class BridgeCore {
         return config;
     }
 
-    /** Backends currently connected, for status output. */
     public @NotNull Set<String> connectedBackends() {
         return server.connected();
     }
@@ -70,12 +62,10 @@ public final class BridgeCore {
         }
 
         switch (frame.type()) {
-            case HELLO -> handleHello(frame); // ack like
+            case HELLO -> handleHello(frame);
             case ALERT -> forward(frame, false);
             case BAN -> handleBan(frame);
             case UNBAN -> handleUnban(frame);
-            // we're the only thing that sends SYNC. getting one means a backend
-            // is misconfigured, or something is pretending to be us
             case SYNC -> { }
         }
     }
@@ -85,8 +75,6 @@ public final class BridgeCore {
         String version = hello != null ? hello.voidVersion() : "unknown";
         platform.info("Backend '" + frame.origin() + "' joined the bridge (Void " + version + ").");
 
-        // the whole list every time, so a server that was down can't stay out of
-        // step either way: it picks up what it missed and drops what we lifted
         List<BanPayload> payloads = bans.activePayloads(frame.origin());
         byte[] sync;
         try {
@@ -120,8 +108,6 @@ public final class BridgeCore {
 
         forward(frame, true);
 
-        // only boot them outright if there's nowhere left to go. banned from one
-        // group just means bounced off those servers, ServerPreConnect handles it
         if (ban.uuid() != null && bans.isNetworkWide(entry, platform.serverNames())) {
             platform.disconnect(ban.uuid(), config.banScreenPrefix() + ban.kickReason());
         }
@@ -138,12 +124,6 @@ public final class BridgeCore {
         forward(frame, true);
     }
 
-    /**
-     * Re-signs and sends on to everyone else in scope.
-     * Re-encoding rather than relaying raw bytes gives each hop a fresh timestamp
-     * and nonce, so nothing lands already stale. Origin is kept, which is how the
-     * sender spots and drops its own message.
-     */
     private void forward(@NotNull BridgeFrame frame, boolean forBans) {
         if (!config.shares(frame.origin(), forBans)) return;
 
@@ -154,18 +134,15 @@ public final class BridgeCore {
         byte[] out = codec.encode(frame.type(), frame.origin(), frame.payload());
         for (String target : targets) {
             if (target.equalsIgnoreCase(frame.origin())) continue;
-            // a backend that's offline gets the truth from its next SYNC
             server.send(target.toLowerCase(Locale.ROOT), out);
         }
     }
 
-    /** Pass a null serverName to ask whether any ban applies at all. */
     public @Nullable BanRegistry.Entry banFor(@Nullable UUID uuid, @Nullable String playerName,
                                               @Nullable String serverName) {
         return bans.find(uuid, playerName, serverName);
     }
 
-    /** True when there's nowhere left to go, so they get a real ban screen instead of a failed connect. */
     public boolean shouldDenyLogin(@NotNull BanRegistry.Entry entry) {
         return config.enforceAtLogin() && bans.isNetworkWide(entry, platform.serverNames());
     }

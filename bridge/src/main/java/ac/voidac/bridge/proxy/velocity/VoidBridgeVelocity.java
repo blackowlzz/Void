@@ -27,14 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 
-/**
- * Velocity entrypoint.
- * Metadata is in velocity-plugin.json rather than the @Plugin annotation so the
- * build can stamp the version instead of us hardcoding it twice.
- */
 public final class VoidBridgeVelocity implements ProxyPlatform {
-
-
     private final ProxyServer server;
     private final Logger logger;
     private final Path dataDirectory;
@@ -69,7 +62,6 @@ public final class VoidBridgeVelocity implements ProxyPlatform {
         if (core != null) core.stop();
     }
 
-
     @Subscribe
     public void onLogin(LoginEvent event) {
         BridgeCore active = core;
@@ -94,7 +86,6 @@ public final class VoidBridgeVelocity implements ProxyPlatform {
                 player.getUniqueId(), player.getUsername(), target.getServerInfo().getName());
         if (ban == null) return;
 
-        // scoped ban bounces them off those servers only, rest of the network is fine
         event.setResult(ServerPreConnectEvent.ServerResult.denied());
         if (player.getCurrentServer().isEmpty()) {
             player.disconnect(text(active.banScreen(ban)));
@@ -117,12 +108,10 @@ public final class VoidBridgeVelocity implements ProxyPlatform {
         return names;
     }
 
-
     @Override
     public void disconnect(@NotNull UUID playerUuid, @NotNull String reason) {
         server.getPlayer(playerUuid).ifPresent(player -> player.disconnect(text(reason)));
     }
-
 
     @Override
     public void info(@NotNull String message) {

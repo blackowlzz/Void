@@ -15,7 +15,6 @@ import com.github.retrooper.packetevents.event.PacketReceiveEvent;
         setback = 15
 )
 public class AutoClickerC extends Check implements PostPredictionCheck {
-
     private int attacksThisTick = 0;
     private int consecutiveMultiTicks = 0;
 

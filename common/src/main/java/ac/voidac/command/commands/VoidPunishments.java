@@ -15,19 +15,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Locale;
 
 import static ac.voidac.command.render.MessageStyle.*;
 
-/**
- * /void punishments <IGN | VOID-XXXXXX>
- *
- * Looks up all punishment records for a player by name, or a single record
- * by its ban ID.
- *
- * Permission: void.punishments
- */
 public class VoidPunishments implements BuildableCommand {
-
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
         commandManager.command(
@@ -44,11 +36,10 @@ public class VoidPunishments implements BuildableCommand {
         String query = context.<String>get("query").trim();
         PunishmentDatabase db = VoidAPI.INSTANCE.getPunishmentDatabase();
 
-        // Direct ban-ID lookup: no DB query on the main thread needed
-        if (query.toUpperCase().startsWith("VOID-")) {
+        if (query.toUpperCase(Locale.ROOT).startsWith("VOID-")) {
             PunishmentRecord record = db.queryByBanId(query);
             if (record == null) {
-                sender.sendMessage(error(sc("No punishment found with ID ") + "&d" + query.toUpperCase() + "&7."));
+                sender.sendMessage(error(sc("No punishment found with ID ") + "&d" + query.toUpperCase(Locale.ROOT) + "&7."));
                 return;
             }
             sender.sendMessage(header("Punishment", "&d" + record.banId()));
@@ -58,7 +49,6 @@ public class VoidPunishments implements BuildableCommand {
             return;
         }
 
-        // IGN lookup: run async to avoid blocking the main thread on DB I/O
         VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runNow(
                 VoidAPI.INSTANCE.getVoidPlugin(),
                 () -> {

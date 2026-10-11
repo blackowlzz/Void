@@ -12,8 +12,6 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(LevelChunk.class)
 @Implements(@Interface(iface = PlatformChunk.class, prefix = "voidac$"))
 abstract class LevelChunkMixin {
-    // TODO (Fabric) (Region Threading) use ThreadLocal for Fabric region threading mods instead of a single variable
-    // Having a single voidac$sharedPos works when the server is run on the single thread, as vanilla does
     @Unique
     private static final BlockPos.MutableBlockPos voidac$sharedPos = new BlockPos.MutableBlockPos();
 

@@ -8,7 +8,6 @@ import com.github.retrooper.packetevents.protocol.player.GameMode;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientInteractEntity;
 
 final class AttackPackets {
-
     static final int IDLE_TICKS = 40;
 
     private AttackPackets() {

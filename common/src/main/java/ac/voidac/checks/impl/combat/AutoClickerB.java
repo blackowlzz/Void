@@ -18,7 +18,6 @@ import java.util.ArrayDeque;
         setback = 20
 )
 public class AutoClickerB extends Check implements PostPredictionCheck {
-
     private static final int BUCKET_MS = 1000;
     private static final int MIN_BUCKETS = 10;
 

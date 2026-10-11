@@ -24,7 +24,7 @@ public class MultiActionsD extends Check implements PacketCheck {
 
         // 1.12.2+ clients force-close their inventory when passing through a nether portal
         // while moving, which is vanilla behavior and not a cheat.
-        if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12_2) && player.isInNetherPortal) return;
+        if (player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_12_2) && player.intersectedWithNetherPortal) return;
 
         // Don't cancel this packet, because it won't do anything except for making chests
         // look like they are still open (desynced),

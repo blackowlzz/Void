@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -56,7 +57,7 @@ public final class ConfigUpdater {
 
         public static @Nullable ConfigFlavor parse(@Nullable Object raw) {
             if (raw == null) return null;
-            String s = raw.toString().trim().toUpperCase();
+            String s = raw.toString().trim().toUpperCase(Locale.ROOT);
             try { return valueOf(s); } catch (IllegalArgumentException e) { return null; }
         }
     }
@@ -380,7 +381,7 @@ public final class ConfigUpdater {
      * what's read back at runtime.
      */
     private @NotNull String resolveBundledDefaultPath(@NotNull Spec spec, @NotNull String langCode) {
-        String lang = langCode.toLowerCase();
+        String lang = langCode.toLowerCase(Locale.ROOT);
         if (!lang.isEmpty() && !lang.equals("en")) {
             String langPath = spec.resourceDirectory + lang + ".yml";
             if (resourceAnchor.getResource(langPath) != null) return langPath;

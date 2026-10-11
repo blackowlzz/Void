@@ -7,7 +7,7 @@ public record ActiveBanRecord(
         UUID uuid,
         String playerName,
         String reason,
-        long expiresAt,   // 0 = permanent; otherwise epoch-ms when the ban expires
+        long expiresAt,
         long timestamp
 ) {
     public boolean isPermanent() { return expiresAt == 0; }

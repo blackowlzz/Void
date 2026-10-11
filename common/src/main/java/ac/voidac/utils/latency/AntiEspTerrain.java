@@ -14,6 +14,7 @@ import com.github.retrooper.packetevents.protocol.world.chunk.impl.v_1_18.Chunk_
 import com.github.retrooper.packetevents.protocol.world.states.WrappedBlockState;
 import com.github.retrooper.packetevents.protocol.world.states.type.StateTypes;
 import com.github.retrooper.packetevents.util.Vector3i;
+import com.github.retrooper.packetevents.wrapper.PacketWrapper;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerBlockEntityData;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerMultiBlockChange;
 import it.unimi.dsi.fastutil.ints.Int2ByteOpenHashMap;
@@ -238,7 +239,7 @@ final class AntiEspTerrain {
         }
     }
 
-    private void send(com.github.retrooper.packetevents.wrapper.PacketWrapper<?> packet) {
+    private void send(PacketWrapper<?> packet) {
         PacketEvents.getAPI().getProtocolManager().sendPacketSilently(player.user.getChannel(), packet);
     }
 
@@ -261,10 +262,6 @@ final class AntiEspTerrain {
         lastBlockY = Integer.MIN_VALUE;
         lastBlockZ = Integer.MIN_VALUE;
         lastTick = Integer.MIN_VALUE;
-        dirty = true;
-    }
-
-    synchronized void invalidate() {
         dirty = true;
     }
 

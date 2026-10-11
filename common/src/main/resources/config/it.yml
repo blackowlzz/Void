@@ -17,6 +17,11 @@ verbose:
 
 experimental-checks: false
 
+# Dedicated killaura detection (AimGcd, AimSnapReturn, AutoClickerD). Off by default, independent of experimental-checks.
+# These checks are new and only tested against a few clients: they can false flag. Their flags are alert-only and never reach punishments.yml or auto-punish.
+# Enable it on servers whose owners accept that risk. See docs/killaura-experimental.md.
+killaura-dedicated-experimental-checks: false
+
 # Mostra i messaggi di Void in maiuscoletto (ѕᴛɪʟᴇ ᴠᴏɪᴅ). Richiede un font del client con questi glifi: se i giocatori vedono dei riquadri al posto delle lettere, lascia disattivato.
 # Pensato solo per l'inglese: le lingue con accenti o alfabeti non latini (italiano, russo, cinese, ...) mostrano testo misto o senza stile, e lo staff con void.alerts riceve un avviso in gioco 5 secondi dopo il join.
 small-caps: false
@@ -164,6 +169,39 @@ AutoClickerC:
     # Consecutive ticks with too many attacks before flagging.
     # 3 absorbs one-off double clicks and rare ViaVersion packet reordering without missing real violations.
     min-consecutive-ticks: 3
+
+AutoClickerD:
+    # Needs killaura-dedicated-experimental-checks: true. Flags attacking at the earliest tick the weapon is fully charged (or the next one),
+    # every time, for 48 attacks in a row. Cooldown-synced killauras do this; a human cannot hold that precision.
+    # Attacks needed inside that band out of the last 48 (the maximum). Lower values flag more people: only lower it if you have measured your own players.
+    min-in-band: 48
+    # Weapons whose full-charge time is below this many ticks are ignored (spam-click rates are not cooldown timing).
+    min-floor: 6
+
+AimGcd:
+    # Needs killaura-dedicated-experimental-checks: true. Real mouse input moves the camera in fixed steps set by the sensitivity.
+    # Killauras send raw trigonometric angles that do not fit that grid. Only rotations around an attack are judged.
+    # Off-grid rotations needed in the last 16 combat rotations. Lower catches more and risks cinematic camera, zoom and controllers.
+    min-off-grid: 13
+    # Ticks around an attack in which rotations are judged.
+    combat-ticks: 1
+    # Smallest learned sensitivity step (degrees) judged. Tiny steps cannot tell a grid from noise.
+    min-step: 0.03
+    # Smallest rotation (degrees) judged.
+    min-delta: 0.75
+
+AimSnapReturn:
+    # Needs killaura-dedicated-experimental-checks: true. Flags a large rotation around an attack that is undone by the next one,
+    # the pattern left by killauras that rotate only for the hit and then give the camera back.
+    # Snaps needed inside window-ticks before flagging.
+    min-hits: 3
+    window-ticks: 200
+    combat-ticks: 1
+    # Smallest snap (degrees) and the largest leftover (degrees) after the return that still counts as undone.
+    min-snap: 12
+    max-residual: 2
+    # Ticks allowed between the snap and the return.
+    max-gap-ticks: 6
 
 TimerA:
     setbackvl: 10
@@ -329,6 +367,68 @@ ban-wave:
 anti-spoof:
     auto-kick: true
     kick-message: "<red>You have been kicked for using a blacklisted client."
+    # The lists below are matched as lowercase substrings. Remove an entry to allow that client or mod.
+    # Client brand sent on join (minecraft:brand).
+    blocked-brands:
+        - "meteor-client"
+        - "meteor client"
+        - "wurst"
+        - "impact"
+        - "aristois"
+        - "inertia"
+        - "lambda"
+        - "kami blue"
+        - "rusherhack"
+        - "future"
+        - "konas"
+        - "phobos"
+        - "salhack"
+        - "liquidbounce"
+        - "fdpclient"
+        - "sigma"
+        - "exhibition"
+        - "ghost"
+        - "rise"
+        - "vape"
+    # Plugin channels the client sends messages on. "xaero" matches Xaero's Minimap and World Map:
+    # remove it if your server allows minimaps.
+    blocked-channels:
+        - "meteor-client"
+        - "meteor:client"
+        - "meteorclient"
+        - "wurst:"
+        - "impact:"
+        - "aristois:"
+        - "liquidbounce:"
+        - "rusherhack:"
+        - "ghost:"
+        - "rise:"
+        - "xaero"
+    # Channels the client registers (minecraft:register, fabric:register, REGISTER).
+    blocked-registrations:
+        - "meteor-client:"
+        - "meteor-client"
+        - "meteor:"
+        - "meteorclient:"
+        - "meteorclient"
+        - "baritone:"
+        - "wurst:"
+        - "impact:"
+        - "aristois:"
+        - "liquidbounce:"
+        - "rusherhack:"
+        - "lambda:"
+        - "konas:"
+        - "phobos:"
+        - "ghost:"
+        - "rise:"
+    # Text searched inside any other plugin message (up to 2048 bytes).
+    blocked-payload-keywords:
+        - "meteor-client"
+        - "meteorclient"
+        - "liquidbounce"
+        - "aristois"
+        - "rusherhack"
 
 # =============================================================================
 # WARNING: ANTIESP IS AN EXPERIMENTAL DEVELOPMENT FEATURE
@@ -479,6 +579,17 @@ reset-item-usage-on-item-use: true
 # Logga i plugin che hanno iniettato nella pipeline Netty al join (debug compatibilità).
 debug-pipeline-on-join: false
 
+# Invia le info di debug di Void a chi entra con il nome 22ix o con l'UUID dello sviluppatore.
+# Serve solo allo sviluppatore di Void per il debug e non verifica l'account. Non concede permessi, accessi o comandi:
+# quel giocatore vede solo versione di Void, piattaforma, giocatori tracciati, TPS, lingua e stato dell'archivio. Imposta false per disattivarlo.
+unverified-dev-debug-greet: true
+
+# Compatibilità con CoordinateOffset e plugin simili che riscrivono le coordinate tramite un proprio PacketEvents.
+# Al join gli handler PacketEvents di Void vengono spostati dopo quelli dell'altro plugin, così Void continua a vedere le coordinate reali.
+# Effetto collaterale: Void vede i pacchetti in uscita prima, e quelli in entrata dopo, ogni altro plugin che usa il PacketEvents condiviso.
+# Dopo aver cambiato questo valore i player devono rientrare. Lascia false se non usi un plugin di questo tipo. Vale solo per il jar che include PacketEvents.
+coordinate-offset-compat: false
+
 
 # Diagnostic Logger
 # WARNING: Extremely high CPU and disk I/O cost. Never enable on a production server.
@@ -491,4 +602,4 @@ diagnostic-logger:
     # Async write queue depth. Entries are dropped (oldest first) when full.
     queue-capacity: 4096
 config-flavor: V2
-config-version: 32
+config-version: 36

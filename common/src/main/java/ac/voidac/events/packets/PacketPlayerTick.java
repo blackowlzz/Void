@@ -37,6 +37,9 @@ public class PacketPlayerTick extends PacketListenerAbstract {
             player.antiEspManager.tick();
         } else if (WrapperPlayClientPlayerFlying.isFlying(event.getPacketType())) {
             VoidPlayer player = VoidAPI.INSTANCE.getPlayerDataManager().getPlayer(event.getUser());
+            if (player != null && player.isCoordinateOffsetCompat()) {
+                captureRawPosition(player, event);
+            }
             if (player == null || player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_2))
                 return;
 
@@ -50,12 +53,22 @@ public class PacketPlayerTick extends PacketListenerAbstract {
 
             WrapperPlayClientPlayerFlying flying = new WrapperPlayClientPlayerFlying(event);
             Vector3d position = flying.hasPositionChanged()
-                    ? flying.getLocation().getPosition()
+                    ? realPosition(player, flying.getLocation().getPosition())
                     : new Vector3d(player.x, player.y, player.z);
-            float yaw = flying.hasRotationChanged() ? flying.getLocation().getYaw() : player.yaw;
-            float pitch = flying.hasRotationChanged() ? flying.getLocation().getPitch() : player.pitch;
-            player.antiEspManager.tick(position.getX(), position.getY(), position.getZ(), yaw, pitch);
+            player.antiEspManager.tick(position.getX(), position.getY(), position.getZ());
         }
+    }
+
+    private static void captureRawPosition(VoidPlayer player, PacketReceiveEvent event) {
+        WrapperPlayClientPlayerFlying flying = new WrapperPlayClientPlayerFlying(event);
+        if (flying.hasPositionChanged()) {
+            player.coordinateShift.capture(flying.getLocation().getX(), flying.getLocation().getZ());
+        }
+    }
+
+    private static Vector3d realPosition(VoidPlayer player, Vector3d raw) {
+        if (!player.isCoordinateOffsetCompat()) return raw;
+        return new Vector3d(player.coordinateShift.toRealX(raw.getX()), raw.getY(), player.coordinateShift.toRealZ(raw.getZ()));
     }
 
 }

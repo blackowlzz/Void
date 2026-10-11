@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class BukkitParserDescriptorFactory implements CloudCommandAdapter {
-
-    // Parser is kept as a field because its stateless
     private final BukkitPlayerSelectorParser<Sender> bukkitPlayerSelectorParser = new BukkitPlayerSelectorParser<>();
 
     @Override
@@ -25,7 +23,6 @@ public class BukkitParserDescriptorFactory implements CloudCommandAdapter {
         return bukkitPlayerSelectorParser.descriptor();
     }
 
-    // TODO (Cross-platform) better + brigadier suggestions
     @Override
     public SuggestionProvider<Sender> onlinePlayerSuggestions() {
         return (context, input) -> {

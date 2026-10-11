@@ -20,15 +20,12 @@ public class VoidFabricEntryPoint implements PreLaunchEntrypoint, ModInitializer
         FabricLoader loader = FabricLoader.getInstance();
         String chainLoadEntryPointName = "voidMainLoad";
 
-        // Collect voidMainLoad entrypoints and sort by version
         List<VoidFabricLoaderPlugin> mainChainLoadEntryPoints = loader.getEntrypoints(chainLoadEntryPointName, VoidFabricLoaderPlugin.class);
         mainChainLoadEntryPoints.sort((a, b) -> b.getNativeVersion().getProtocolVersion() - a.getNativeVersion().getProtocolVersion());
 
-        // Get entrypoint for newest sub-version and execute it
         VoidFabricLoaderPlugin platformLoader = mainChainLoadEntryPoints.get(0);
         VoidFabricLoaderPlugin.LOADER = platformLoader;
 
-        // On Fabric we have to register commands earlier, and cannot register them when server is no longer null
         VoidAPI.INSTANCE.load(
                 platformLoader,
                 new FabricBStats(),

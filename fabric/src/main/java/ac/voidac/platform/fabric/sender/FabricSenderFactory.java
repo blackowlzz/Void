@@ -20,7 +20,6 @@ import java.util.Map;
 import java.util.UUID;
 
 public class FabricSenderFactory extends SenderFactory<CommandSourceStack> {
-
     public static final boolean HAS_PERMISSIONS_API = FabricLoader.getInstance().isModLoaded("fabric-permissions-api-v0");
 
     private final Map<String, PermissionDefaultValue> permissionDefaults = new HashMap<>();
@@ -64,7 +63,6 @@ public class FabricSenderFactory extends SenderFactory<CommandSourceStack> {
             }
         }
 
-        // Check registered default value
         PermissionDefaultValue defaultValue = permissionDefaults.get(node);
         if (defaultValue == null) {
             return platformServer.hasPermission(commandSource, platformServer.getOperatorPermissionLevel());
@@ -105,9 +103,9 @@ public class FabricSenderFactory extends SenderFactory<CommandSourceStack> {
     @Override
     protected boolean isConsole(CommandSourceStack sender) {
         CommandSource output = sender.source;
-        return output == sender.getServer() || // Console
-                output.getClass() == RconConsoleSource.class || // Rcon
-                (output == CommandSource.NULL && sender.getTextName().isEmpty()); // Functions
+        return output == sender.getServer() ||
+                output.getClass() == RconConsoleSource.class ||
+                (output == CommandSource.NULL && sender.getTextName().isEmpty());
     }
 
     @Override

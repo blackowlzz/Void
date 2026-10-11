@@ -13,14 +13,12 @@ public class Blackowlzz implements BuildableCommand {
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
         commandManager.command(
-                // i mean the plugin its free, a little self promotion never hurt anyone
                 commandManager.commandBuilder("blackowlzz", "ac", "anticheat")
                         .permission("void.advert")
                         .handler(this::handleBlackowlzz)
         );
     }
 
-    // also sent from the packet listener, so it lives here and not inline
     public static Component advert() {
         String version = VoidAPI.INSTANCE.getVoidPlugin().getDescription().getVersion();
         return MessageUtil.miniMessage(

@@ -16,15 +16,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * The proxy's config.yml.
- * Forgiving about shape on purpose, a typo should get you a warning and a
- * default, not a proxy that refuses to boot. The secret is the one exception,
- * because running unauthenticated is worse than not running.
- */
 public final class BridgeConfig {
-
-    /** Backends that share alerts and bans with each other. */
     public record Group(@NotNull String name,
                         @NotNull Set<String> servers,
                         boolean shareAlerts,
@@ -70,21 +62,12 @@ public final class BridgeConfig {
         return banScreenPrefix;
     }
 
-    /** Whether this server shares this kind of thing at all. A group can share alerts but not bans. */
     public boolean shares(@NotNull String origin, boolean forBans) {
         Group group = groupOf(origin);
         if (group != null) return forBans ? group.shareBans() : group.shareAlerts();
-        // ungrouped: either the whole network is one implicit group, or the
-        // operator listed groups carefully and meant to leave this one out
         return linkUnlistedServers;
     }
 
-    /**
-     * How far a message from this server reaches.
-     * Empty set means the whole network, and that distinction matters: stored
-     * empty, a network-wide ban keeps covering backends you add later, whereas
-     * a snapshot of today's server list would not.
-     */
     public @NotNull Set<String> scopeOf(@NotNull String origin, boolean forBans) {
         Group group = groupOf(origin);
         if (group == null) return Set.of();
@@ -106,7 +89,6 @@ public final class BridgeConfig {
         return false;
     }
 
-    /** Null means the secret is still unset, so the bridge must stay off. */
     @SuppressWarnings("unchecked")
     public static @Nullable BridgeConfig load(@NotNull Path dataDirectory, @NotNull ProxyPlatform platform) {
         Path file = dataDirectory.resolve("config.yml");
@@ -187,11 +169,6 @@ public final class BridgeConfig {
         return groups;
     }
 
-    /**
-     * Writes the bundled default with a real secret already filled in.
-     * Nobody should have to go hunting for openssl to get a working plugin, and
-     * a generated 64 hex chars beats whatever an admin would have typed.
-     */
     private static String copyDefault(Path target) throws Exception {
         String generated = newSecret();
         try (InputStream in = BridgeConfig.class.getResourceAsStream("/config.yml")) {

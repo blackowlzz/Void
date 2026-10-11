@@ -27,7 +27,6 @@ public final class StorageEspDecoyManager {
     private static final int MAX_OCCLUDING_COUNT = 2;
     private static final int ALWAYS_SHOW_RADIUS = 8;
     private static final int RAYCAST_RADIUS = 80;
-    private static final int HIDE_ON_SPAWN_DISTANCE = 32;
     private static final int VISIBLE_RECHECK_INTERVAL_TICKS = 5;
 
     private final VoidPlayer player;
@@ -41,7 +40,6 @@ public final class StorageEspDecoyManager {
     private volatile boolean configEnabled;
     private volatile boolean permissionEnabled;
     private volatile boolean includeClientSideBlocks;
-    private volatile int autoFlagThreshold = 16;
     private volatile int decoysPerChunk = 1;
     private volatile int lastVisibilityTick = Integer.MIN_VALUE;
 
@@ -61,7 +59,6 @@ public final class StorageEspDecoyManager {
         synchronized (stateLock) {
             configEnabled           = config.getBooleanElse("storage-esp-decoys.enabled", false);
             includeClientSideBlocks = config.getBooleanElse("storage-esp-decoys.include-client-side-blocks", false);
-            autoFlagThreshold       = config.getIntElse("storage-esp-decoys.auto-flag-threshold", 16);
             decoysPerChunk          = config.getIntElse("storage-esp-decoys.decoys-per-chunk", 1);
             decoyStates             = configEnabled ? loadDecoyStates(includeClientSideBlocks) : new StateType[0];
             decoyCache.clear();
@@ -79,13 +76,11 @@ public final class StorageEspDecoyManager {
     }
 
     public void syncFromCurrentPermissions() {
-        PlatformPlayer platformPlayer = player.platformPlayer;
-        permissionEnabled = platformPlayer != null && platformPlayer.hasPermission(PERMISSION);
-        refreshActiveState();
+        syncFromPlatformPlayer(player.platformPlayer);
     }
 
     public void tickVisibility() {
-        if (!isActive() || decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!isActive() || !hasDecoys()) {
             return;
         }
 
@@ -99,7 +94,7 @@ public final class StorageEspDecoyManager {
     }
 
     public void forceVisibilityRefresh() {
-        if (!isActive() || decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!isActive() || !hasDecoys()) {
             return;
         }
 
@@ -113,39 +108,28 @@ public final class StorageEspDecoyManager {
     }
 
     public List<Vector3i> getDecoyPositionsForChunk(int chunkX, int chunkZ) {
-        if (!isActive() || decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!isActive() || !hasDecoys()) {
             return List.of();
         }
 
         tickVisibility();
 
-        List<Vector3i> positions = new ObjectArrayList<>();
-        for (DecoyPlacement placement : getVisibleDecoysForChunk(chunkX, chunkZ)) {
+        List<DecoyPlacement> visible = getVisibleDecoysForChunk(chunkX, chunkZ);
+        List<Vector3i> positions = new ObjectArrayList<>(visible.size());
+        for (DecoyPlacement placement : visible) {
             positions.add(placement.position());
         }
         return List.copyOf(positions);
     }
 
     public int getDecoyBlockId(int x, int y, int z) {
-        if (!isActive() || decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!isActive() || !hasDecoys()) {
             return -1;
         }
 
         tickVisibility();
-
-        int chunkX = x >> 4;
-        int chunkZ = z >> 4;
-        for (DecoyPlacement placement : getVisibleDecoysForChunk(chunkX, chunkZ)) {
-            Vector3i position = placement.position();
-            if (position.getX() == x && position.getY() == y && position.getZ() == z) {
-                return placement.blockId();
-            }
-        }
-
-        return -1;
-    }
-
-    public void onFlag() {
+        DecoyPlacement placement = findVisiblePlacement(x, y, z);
+        return placement == null ? -1 : placement.blockId();
     }
 
     public boolean isActive() {
@@ -153,20 +137,7 @@ public final class StorageEspDecoyManager {
     }
 
     public boolean isDecoyPosition(int x, int y, int z) {
-        if (!isActive()) return false;
-
-        tickVisibility();
-
-        int chunkX = x >> 4;
-        int chunkZ = z >> 4;
-        for (DecoyPlacement placement : getVisibleDecoysForChunk(chunkX, chunkZ)) {
-            Vector3i position = placement.position();
-            if (position.getX() == x && position.getY() == y && position.getZ() == z) {
-                return true;
-            }
-        }
-
-        return false;
+        return getDecoyBlockId(x, y, z) != -1;
     }
 
     public void applyChunkDecoys(int chunkX, int chunkZ) {
@@ -259,9 +230,11 @@ public final class StorageEspDecoyManager {
     }
 
     private boolean isDesiredActive() {
-        // Active when the owner has enabled it in config AND the player
-        // doesn't hold the void.storageesp bypass permission.
         return configEnabled && !permissionEnabled;
+    }
+
+    private boolean hasDecoys() {
+        return decoysPerChunk > 0 && decoyStates.length > 0;
     }
 
     public void onChunkUnload(int chunkX, int chunkZ) {
@@ -270,7 +243,7 @@ public final class StorageEspDecoyManager {
     }
 
     private List<DecoyPlacement> getDecoysForChunk(int chunkX, int chunkZ) {
-        if (decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!hasDecoys()) {
             return List.of();
         }
 
@@ -279,7 +252,7 @@ public final class StorageEspDecoyManager {
     }
 
     private List<DecoyPlacement> getVisibleDecoysForChunk(int chunkX, int chunkZ) {
-        if (decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!hasDecoys()) {
             return List.of();
         }
 
@@ -317,8 +290,8 @@ public final class StorageEspDecoyManager {
             List<DecoyPlacement> nextVisible = computeVisibleDecoysForChunk(chunkX, chunkZ);
 
             for (DecoyPlacement placement : allDecoys) {
-                boolean shouldShow = containsPlacement(nextVisible, placement.position());
-                boolean wasVisible = containsPlacement(previousVisible, placement.position());
+                boolean shouldShow = nextVisible.contains(placement);
+                boolean wasVisible = previousVisible != null && previousVisible.contains(placement);
                 if (shouldShow != wasVisible) {
                     int blockId = shouldShow ? placement.blockId() : player.compensatedWorld.getBlock(placement.position()).getGlobalId();
                     sendPlacement(placement.position(), blockId);
@@ -348,34 +321,18 @@ public final class StorageEspDecoyManager {
 
         double distanceSquared = VoidMath.square(targetX - eyeX) + VoidMath.square(targetY - eyeY) + VoidMath.square(targetZ - eyeZ);
 
-        // Too close: the player can physically reach and see this position.
-        // A legitimate player would notice the block is fake when they try to open it.
-        // Hide the decoy so only ESP users (looking through walls at range) are deceived.
         if (distanceSquared <= VoidMath.square(ALWAYS_SHOW_RADIUS)) {
             return false;
         }
 
-        // Beyond raycast range, not worth the packet overhead.
         if (distanceSquared > VoidMath.square(RAYCAST_RADIUS)) {
             return false;
         }
 
-        // Re-verify the decoy is still fully buried *right now*, against the live world.
-        // buildDecoys() runs this check once and caches the result forever, so a decoy
-        // can end up exposed when:
-        //   - the initial build ran while neighbouring chunks were not yet loaded
-        //     (border faces read as air and were mis-judged), or
-        //   - the world changed afterwards (a player mined toward it, or mined the
-        //     decoy block itself), leaving a fake shulker floating in the open.
-        // A decoy only deceives ESP, never a legit player, when its own block is
-        // solid/opaque AND all six faces are backed by real solid/opaque blocks.
-        // Anything less is visible by line-of-sight, so we hide it (show the real block).
         if (!isSolidAndOpaque(px, py, pz) || !isSurroundedBySolidOpaqueBlocks(px, py, pz)) {
             return false;
         }
 
-        // Only show when the decoy is behind enough solid blocks that a legitimate
-        // player cannot see it with line-of-sight, but an ESP user would reveal it.
         return countOccludingBlocks(eyeX, eyeY, eyeZ, targetX, targetY, targetZ, position) > MAX_OCCLUDING_COUNT;
     }
 
@@ -486,23 +443,18 @@ public final class StorageEspDecoyManager {
             && isSolidAndOpaque(x, y, z - 1);
     }
 
-    private boolean containsPlacement(List<DecoyPlacement> placements, Vector3i position) {
-        if (placements == null || placements.isEmpty()) {
-            return false;
-        }
-
-        for (DecoyPlacement placement : placements) {
-            Vector3i other = placement.position();
-            if (other.getX() == position.getX() && other.getY() == position.getY() && other.getZ() == position.getZ()) {
-                return true;
+    private DecoyPlacement findVisiblePlacement(int x, int y, int z) {
+        for (DecoyPlacement placement : getVisibleDecoysForChunk(x >> 4, z >> 4)) {
+            Vector3i position = placement.position();
+            if (position.getX() == x && position.getY() == y && position.getZ() == z) {
+                return placement;
             }
         }
-
-        return false;
+        return null;
     }
 
     private List<DecoyPlacement> buildDecoys(int chunkX, int chunkZ) {
-        if (decoysPerChunk <= 0 || decoyStates.length == 0) {
+        if (!hasDecoys()) {
             return List.of();
         }
 
@@ -514,10 +466,6 @@ public final class StorageEspDecoyManager {
         int upperY = Math.max(lowerY + 1, maxY - 4);
         int ySpan = upperY - lowerY + 1;
 
-        // Stratified placement: divide the full world height into bands equal to
-        // decoysPerChunk. One decoy is placed in each band, guaranteeing coverage
-        // at every elevation so an ESP user is never out of decoy range regardless
-        // of the player's current Y.
         int bandHeight = Math.max(1, ySpan / count);
 
         Set<Long> usedPositions = new HashSet<>();
@@ -552,30 +500,10 @@ public final class StorageEspDecoyManager {
         return List.copyOf(placements);
     }
 
-    private void sendLoadedChunkDecoys(int chunkX, int chunkZ) {
-        for (DecoyPlacement placement : getVisibleDecoysForChunk(chunkX, chunkZ)) {
-            sendPlacement(placement.position(), placement.blockId());
-        }
-    }
-
-    private void resendLoadedChunkDecoys() {
-        player.runSafely(() -> {
-            if (!isActive()) return;
-            for (long chunkKey : player.compensatedWorld.chunks.keySet()) {
-                sendLoadedChunkDecoys((int) (chunkKey >> 32), (int) chunkKey);
-            }
-        });
-    }
-
     private void sendDecoyIfPresent(int x, int y, int z) {
-        int chunkX = x >> 4;
-        int chunkZ = z >> 4;
-        for (DecoyPlacement placement : getVisibleDecoysForChunk(chunkX, chunkZ)) {
-            Vector3i position = placement.position();
-            if (position.getX() == x && position.getY() == y && position.getZ() == z) {
-                sendPlacement(position, placement.blockId());
-                return;
-            }
+        DecoyPlacement placement = findVisiblePlacement(x, y, z);
+        if (placement != null) {
+            sendPlacement(placement.position(), placement.blockId());
         }
     }
 
@@ -596,7 +524,7 @@ public final class StorageEspDecoyManager {
     }
 
     private static long mixSeed(long seed, long chunkX, long chunkZ) {
-        long value = seed ^ ((long) chunkX * 0x9E3779B97F4A7C15L) ^ ((long) chunkZ * 0xC2B2AE3D27D4EB4FL);
+        long value = seed ^ (chunkX * 0x9E3779B97F4A7C15L) ^ (chunkZ * 0xC2B2AE3D27D4EB4FL);
         value ^= value >>> 33;
         value *= 0xff51afd7ed558ccdL;
         value ^= value >>> 33;

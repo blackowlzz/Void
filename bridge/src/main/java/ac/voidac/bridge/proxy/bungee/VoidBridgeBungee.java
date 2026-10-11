@@ -23,9 +23,7 @@ import java.util.Collection;
 import java.util.UUID;
 import java.util.logging.Level;
 
-/** Same BridgeCore as Velocity, just different event names and a worse component API. */
 public final class VoidBridgeBungee extends Plugin implements Listener, ProxyPlatform {
-
     private @Nullable BridgeCore core;
 
     @Override
@@ -51,7 +49,6 @@ public final class VoidBridgeBungee extends Plugin implements Listener, ProxyPla
     public void onDisable() {
         if (core != null) core.stop();
     }
-
 
     @EventHandler
     public void onLogin(LoginEvent event) {
@@ -79,7 +76,6 @@ public final class VoidBridgeBungee extends Plugin implements Listener, ProxyPla
         if (ban == null) return;
 
         event.setCancelled(true);
-        // cancelling their first connect leaves them staring at nothing, so finish the job
         if (player.getServer() == null) {
             player.disconnect(text(active.banScreen(ban)));
         } else {
@@ -97,13 +93,11 @@ public final class VoidBridgeBungee extends Plugin implements Listener, ProxyPla
         return new ArrayList<>(ProxyServer.getInstance().getServers().keySet());
     }
 
-
     @Override
     public void disconnect(@NotNull UUID playerUuid, @NotNull String reason) {
         ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playerUuid);
         if (player != null) player.disconnect(text(reason));
     }
-
 
     @Override
     public void info(@NotNull String message) {

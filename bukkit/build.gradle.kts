@@ -46,6 +46,7 @@ repositories {
 dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.placeholderapi)
+    compileOnly(libs.netty)
 
     if (BuildConfig.shadePE) {
         implementation(libs.packetevents.spigot)

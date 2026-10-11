@@ -66,7 +66,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
         // Pass the same language Configuralize resolved (after its own
         // all-or-nothing availability check above) so a zh operator gets
         // ZH-comment bundled defaults stamped on disk to match.
-        String langCode = config.getLanguage().getCode().toLowerCase();
+        String langCode = config.getLanguage().getCode().toLowerCase(Locale.ROOT);
         try {
             updater.updateAll(batch, langCode);
         } catch (Exception e) {
@@ -94,7 +94,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
             }
         }
 
-        String languageCode = System.getProperty("user.language").toUpperCase();
+        String languageCode = System.getProperty("user.language").toUpperCase(Locale.ROOT);
 
         try {
             config.setLanguage(Language.valueOf(languageCode));
@@ -103,7 +103,7 @@ public class ConfigManagerFileImpl implements ConfigManager, BasicReloadable {
 
         // Logic for system language
         if (!config.isLanguageAvailable(config.getLanguage())) {
-            String lang = languageCode.toUpperCase();
+            String lang = languageCode.toUpperCase(Locale.ROOT);
             LogUtil.info("Unknown user language " + lang + ".");
             LogUtil.info("If you fluently speak " + lang + " as well as English, contact blackowlzz and translate it!");
             config.setLanguage(Language.EN);

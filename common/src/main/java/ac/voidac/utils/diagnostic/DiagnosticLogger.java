@@ -2,30 +2,32 @@ package ac.voidac.utils.diagnostic;
 
 import ac.voidac.player.VoidPlayer;
 import ac.voidac.predictionengine.UncertaintyHandler;
+import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.data.VectorData;
 import ac.voidac.utils.math.Vector3dm;
+import com.github.retrooper.packetevents.protocol.potion.PotionType;
+import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.nio.file.Files;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.OptionalInt;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicLong;
-import com.github.retrooper.packetevents.protocol.potion.PotionType;
-import com.github.retrooper.packetevents.protocol.potion.PotionTypes;
-import java.util.OptionalInt;
 
 public final class DiagnosticLogger {
     private static final String POISON_PILL = "\0CLOSE";
     private static final int LINE_WIDTH = 82;
     private static final String HDR_FILL = "═".repeat(LINE_WIDTH);
     private static final String SEC_FILL = "─".repeat(60);
-    private static final ThreadLocal<SimpleDateFormat> TIME_FMT =
-            ThreadLocal.withInitial(() -> new SimpleDateFormat("HH:mm:ss.SSS"));
+    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+    private static final DateTimeFormatter FILE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
     private final BlockingQueue<String> queue;
     private final Thread writerThread;
@@ -39,15 +41,14 @@ public final class DiagnosticLogger {
         File dir = new File(pluginDataFolder, "diagnostic");
         dir.mkdirs();
 
-        String ts = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
-        File file = new File(dir, player.getName() + "-" + ts + ".log");
+        LocalDateTime started = LocalDateTime.now();
+        File file = new File(dir, player.getName() + "-" + FILE_TIME_FORMAT.format(started) + ".log");
 
         writerThread = new Thread(() -> {
-            try (BufferedWriter w = new BufferedWriter(
-                    new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8), 65536)) {
+            try (BufferedWriter w = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
                 w.write("# VoidAC Diagnostic Log");
                 w.newLine();
-                w.write("# Player: " + player.getName() + " | Started: " + new Date());
+                w.write("# Player: " + player.getName() + " | Started: " + started);
                 w.newLine();
                 w.write("# Client: " + player.getClientVersion().getReleaseName()
                         + " | UUID: " + player.uuid);
@@ -79,7 +80,8 @@ public final class DiagnosticLogger {
                 w.flush();
             } catch (InterruptedException ignored) {
                 Thread.currentThread().interrupt();
-            } catch (Exception ignored) {
+            } catch (IOException e) {
+                LogUtil.warn("Diagnostic log for " + player.getName() + " stopped writing: " + e.getMessage());
             }
         }, "void-diag-" + player.getName());
         writerThread.setDaemon(true);
@@ -95,9 +97,9 @@ public final class DiagnosticLogger {
 
         StringBuilder sb = new StringBuilder(640);
 
-        String hdr = "═ T#" + String.format("%08d", tick)
-                + " | " + TIME_FMT.get().format(new Date())
-                + " | ping=" + String.format("%3d", player.getTransactionPing()) + "ms ";
+        String hdr = "═ T#" + format("%08d", tick)
+                + " | " + TIME_FORMAT.format(LocalDateTime.now())
+                + " | ping=" + format("%3d", player.getTransactionPing()) + "ms ";
         sb.append(hdr);
         int pad = LINE_WIDTH - hdr.length();
         if (pad > 0) sb.append(HDR_FILL, 0, pad);
@@ -105,15 +107,15 @@ public final class DiagnosticLogger {
 
         sb.append("  PLAYER  ").append(player.getName())
           .append(" | ").append(player.getClientVersion().getReleaseName())
-          .append(" | GM:").append(player.gamemode.name().toLowerCase())
+          .append(" | GM:").append(player.gamemode.name().toLowerCase(Locale.ROOT))
           .append('\n');
 
         sb.append("  POS     ")
-          .append(String.format("x=%+011.5f  y=%+010.5f  z=%+011.5f", player.x, player.y, player.z))
+          .append(format("x=%+011.5f  y=%+010.5f  z=%+011.5f", player.x, player.y, player.z))
           .append('\n');
 
         sb.append("  LOOK    ")
-          .append(String.format("yaw=%+08.3f  pitch=%+08.3f", player.yaw, player.pitch))
+          .append(format("yaw=%+08.3f  pitch=%+08.3f", player.yaw, player.pitch))
           .append('\n');
 
         sb.append("  STATE   ")
@@ -159,7 +161,7 @@ public final class DiagnosticLogger {
                 || u.yNegativeUncertainty != 0 || u.yPositiveUncertainty != 0
                 || u.zNegativeUncertainty != 0 || u.zPositiveUncertainty != 0) {
             sb.append("  MARGINS ")
-              .append(String.format("x=[%.4f,+%.4f]  y=[%.4f,+%.4f]  z=[%.4f,+%.4f]",
+              .append(format("x=[%.4f,+%.4f]  y=[%.4f,+%.4f]  z=[%.4f,+%.4f]",
                       u.xNegativeUncertainty, u.xPositiveUncertainty,
                       u.yNegativeUncertainty, u.yPositiveUncertainty,
                       u.zNegativeUncertainty, u.zPositiveUncertainty))
@@ -170,22 +172,22 @@ public final class DiagnosticLogger {
 
         Vector3dm start = player.predictionStartVelocity;
         sb.append("  start     ")
-          .append(String.format("vx=%+.7f  vy=%+.7f  vz=%+.7f  fromY=%+.5f", start.getX(), start.getY(), start.getZ(), player.predictionStartY))
+          .append(format("vx=%+.7f  vy=%+.7f  vz=%+.7f  fromY=%+.5f", start.getX(), start.getY(), start.getZ(), player.predictionStartY))
           .append('\n');
 
         Vector3dm boxMin = player.bestUncertaintyMin;
         Vector3dm boxMax = player.bestUncertaintyMax;
         sb.append("  allowed   ")
-          .append(String.format("x=[%+.7f,%+.7f]  y=[%+.7f,%+.7f]  z=[%+.7f,%+.7f]",
+          .append(format("x=[%+.7f,%+.7f]  y=[%+.7f,%+.7f]  z=[%+.7f,%+.7f]",
                   boxMin.getX(), boxMax.getX(), boxMin.getY(), boxMax.getY(), boxMin.getZ(), boxMax.getZ()))
           .append('\n');
 
         sb.append("  actual    ")
-          .append(String.format("dx=%+.7f  dy=%+.7f  dz=%+.7f", actual.getX(), actual.getY(), actual.getZ()))
+          .append(format("dx=%+.7f  dy=%+.7f  dz=%+.7f", actual.getX(), actual.getY(), actual.getZ()))
           .append('\n');
 
         sb.append("  predicted ")
-          .append(String.format("dx=%+.7f  dy=%+.7f  dz=%+.7f", pred.vector.getX(), pred.vector.getY(), pred.vector.getZ()))
+          .append(format("dx=%+.7f  dy=%+.7f  dz=%+.7f", pred.vector.getX(), pred.vector.getY(), pred.vector.getZ()))
           .append("  [").append(pred.vectorType).append(']')
           .append('\n');
 
@@ -193,7 +195,7 @@ public final class DiagnosticLogger {
         double dY = actual.getY() - pred.vector.getY();
         double dZ = actual.getZ() - pred.vector.getZ();
         sb.append("  offset    ")
-          .append(String.format("dx=%+.3E  dy=%+.3E  dz=%+.3E  |total|=%.4E",
+          .append(format("dx=%+.3E  dy=%+.3E  dz=%+.3E  |total|=%.4E",
                   dX, dY, dZ, offset))
           .append('\n');
 
@@ -218,8 +220,8 @@ public final class DiagnosticLogger {
     public void recordFlag(String checkName, double oldVl, double newVl, String verbose) {
         pendingFlags.append("  >> FLAG:")
                     .append(checkName)
-                    .append("  vl=").append(String.format("%.1f", oldVl))
-                    .append("->").append(String.format("%.1f", newVl));
+                    .append("  vl=").append(format("%.1f", oldVl))
+                    .append("->").append(format("%.1f", newVl));
         if (!verbose.isEmpty()) {
             pendingFlags.append("  ").append(verbose);
         }
@@ -247,6 +249,10 @@ public final class DiagnosticLogger {
             queue.poll();
             queue.offer(s);
         }
+    }
+
+    private static String format(String pattern, Object... args) {
+        return String.format(Locale.ROOT, pattern, args);
     }
 
     private static char flag(boolean b) {

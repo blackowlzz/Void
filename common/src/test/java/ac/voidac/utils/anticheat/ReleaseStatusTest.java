@@ -1,5 +1,6 @@
 package ac.voidac.utils.anticheat;
 
+import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -41,5 +42,19 @@ class ReleaseStatusTest {
         assertEquals(OptionalInt.of(-1), SemanticVersion.compare("2.9.0", "2.10.0"));
         assertEquals(OptionalInt.of(0), SemanticVersion.compare("2.8", "2.8.0+build.5"));
         assertEquals(OptionalInt.empty(), SemanticVersion.compare("abc", "2.8.0"));
+    }
+
+    @Test
+    void skipsProxyBridgeReleasesAndDuplicates() {
+        String response = """
+                [
+                  {"version_number": "2.8.4", "loaders": ["velocity", "bungeecord", "waterfall"]},
+                  {"version_number": "2.8.35", "loaders": ["bukkit", "paper", "folia"]},
+                  {"version_number": "2.8.2", "loaders": ["velocity"]},
+                  {"version_number": "2.8.2", "loaders": ["paper"]},
+                  {"version_number": "2.8.2", "loaders": ["spigot"]}
+                ]
+                """;
+        assertEquals(List.of("2.8.35", "2.8.2"), ReleaseChecker.pluginVersions(JsonParser.parseString(response).getAsJsonArray()));
     }
 }

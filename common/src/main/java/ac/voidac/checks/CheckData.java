@@ -30,4 +30,6 @@ public @interface CheckData {
 
     boolean experimental() default false;
 
+    boolean killauraDedicated() default false;
+
 }

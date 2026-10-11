@@ -12,34 +12,25 @@ import java.io.DataInputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 
-/**
- * Listens for backends and hangs onto their sockets. They stay connected with
- * nobody playing on them, which is the whole point.
- *
- * First frame has to be a HELLO that verifies or the connection is gone before
- * it gets to say anything else. Port scanners need not apply.
- */
 public final class BridgeServer {
-
     private final ProxyPlatform platform;
     private final BridgeCodec codec;
     private final BiConsumer<String, BridgeFrame> onFrame;
 
-    /** server name to its live connection. */
     private final Map<String, Connection> connections = new ConcurrentHashMap<>();
 
     private volatile @Nullable ServerSocket listener;
     private volatile boolean shuttingDown;
 
-    /** A backend that connects and then says nothing is not worth a thread. */
     private static final int HANDSHAKE_TIMEOUT_MS = 10_000;
 
-    /** Plenty for any network, and a hard stop on somebody opening sockets for fun. */
     private static final int MAX_CONNECTIONS = 256;
 
     private static final int HANDSHAKE_MAX_FRAME = 8 * 1024;
@@ -84,19 +75,12 @@ public final class BridgeServer {
         connections.clear();
     }
 
-    /** Names of backends currently connected. */
-    public @NotNull java.util.Set<String> connected() {
+    public @NotNull Set<String> connected() {
         return connections.keySet();
     }
 
-    /**
-     * Sends a frame to one backend.
-     *
-     * @return false if that backend isn't connected. Nothing to queue for: it
-     *         gets the full picture from the SYNC on its next connect.
-     */
     public boolean send(@NotNull String serverName, byte @NotNull [] frame) {
-        Connection connection = connections.get(serverName.toLowerCase(java.util.Locale.ROOT));
+        Connection connection = connections.get(serverName.toLowerCase(Locale.ROOT));
         if (connection == null) return false;
         try {
             FrameStream.write(connection.socket().getOutputStream(), frame);
@@ -139,7 +123,6 @@ public final class BridgeServer {
         try {
             client.setTcpNoDelay(true);
             SocketTuning.keepAlive(client);
-            // only for the handshake: after that a quiet backend is a normal backend
             client.setSoTimeout(HANDSHAKE_TIMEOUT_MS);
 
             DataInputStream in = new DataInputStream(client.getInputStream());
@@ -147,12 +130,11 @@ public final class BridgeServer {
             byte[] first = FrameStream.read(in, HANDSHAKE_MAX_FRAME);
             BridgeFrame hello = first == null ? null : codec.decode(first);
             if (hello == null || hello.type() != MessageType.HELLO) {
-                // wrong key, wrong protocol, or somebody poking the port
                 closeQuietly(client);
                 return;
             }
 
-            serverName = hello.origin().toLowerCase(java.util.Locale.ROOT);
+            serverName = hello.origin().toLowerCase(Locale.ROOT);
             client.setSoTimeout(0);
 
             Connection previous = connections.put(serverName, new Connection(serverName, client));
@@ -169,12 +151,9 @@ public final class BridgeServer {
                 dispatch(serverName, frame);
             }
         } catch (Exception e) {
-            // a backend restarting looks exactly like this, so keep it quiet
         } finally {
             openConnections.decrementAndGet();
             if (serverName != null) {
-                // only drop the entry if it's still ours: a reconnect may have
-                // already replaced us, and clearing that would strand the new one
                 boolean wasOurs = connections.computeIfPresent(
                         serverName, (k, v) -> v.socket() == client ? null : v) == null;
                 if (wasOurs) {
@@ -197,7 +176,6 @@ public final class BridgeServer {
         try {
             closeable.close();
         } catch (Exception ignored) {
-            // already shut, which is where we wanted it
         }
     }
 }

@@ -6,15 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The proxy's whole ban list, sent back on HELLO.
- * Receivers merge instead of replacing, so a purely local ban doesn't get
- * nuked by a sync.
- */
 public record SyncPayload(@NotNull List<BanPayload> bans) {
-
-    // an honest sync fits easily. a corrupt length prefix does not get to talk
-    // us into preallocating a list with a billion slots
     private static final int MAX_ENTRIES = 200_000;
 
     public byte[] encode() {

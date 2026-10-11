@@ -12,17 +12,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * A packet the decoder cannot even map gets the connection dropped before any
- * check sees it, which is right, but it happens deep in PacketEvents where
- * nothing tells the server who did it. Crasher tools live in exactly that gap.
- * <p>
- * The kick is a disconnect packet like any other, so we catch it on its way out:
- * staff get told, and the player gets our wording instead of two bare words.
- */
 public class PacketMalformedNotifier extends PacketListenerAbstract {
-
-    // hardcoded inside PacketEventsDecoder#exceptionCaught
     private static final String PACKET_EVENTS_REASON = "Invalid packet";
 
     @Override
@@ -32,17 +22,12 @@ public class PacketMalformedNotifier extends PacketListenerAbstract {
         try {
             notifyMalformed(event);
         } catch (Throwable failed) {
-            // never let a broken notifier take the disconnect down with it
             LogUtil.error("Malformed packet notifier failed", failed);
         }
     }
 
     private void notifyMalformed(PacketSendEvent event) {
-
         final WrapperPlayServerDisconnect packet = new WrapperPlayServerDisconnect(event);
-        // read the content off the component itself. adventure's plain serializer
-        // is a separate artifact and is not in our shaded jar, asking for it here
-        // gets you a NoClassDefFoundError on a thread nobody is watching
         if (!(packet.getReason() instanceof TextComponent reason)
                 || !PACKET_EVENTS_REASON.equals(reason.content())) {
             return;

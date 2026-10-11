@@ -6,19 +6,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Remembers recent nonces so a captured frame can't be resent.
- * Signing gets you authenticity, not freshness: without this, one sniffed BAN
- * frame replays forever and the signature waves it through every single time.
- */
 final class ReplayGuard {
-
     private final Map<String, Long> seen = new HashMap<>();
 
-    // sweeping every frame would go quadratic under load, so do it on a timer
     private long nextSweep = 0L;
 
-    /** False means we've seen this nonce inside the TTL, so bin it. */
     synchronized boolean accept(@NotNull String nonce, long timestamp) {
         long now = System.currentTimeMillis();
 

@@ -45,7 +45,6 @@ public class PolymerHook {
                 getState = rawGet.asType(MethodType.methodType(BlockState.class, BlockState.class, Object.class));
 
             } catch (Throwable t) {
-                // If Polymer changes their API drastically, log it so server owners know why custom blocks aren't translating
                 System.err.println("[Void] Failed to hook Polymer translation API. Custom blocks may not render correctly or crash client when re-synchronizing.");
                 t.printStackTrace();
             }
@@ -69,7 +68,6 @@ public class PolymerHook {
     }
 
     public record PolymerBlockTranslator(Object context) implements BlockTranslator {
-
         @Override
         public int translate(int serverBlockId) {
             try {

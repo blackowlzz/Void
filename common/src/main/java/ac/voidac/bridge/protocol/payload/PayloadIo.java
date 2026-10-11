@@ -11,9 +11,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
-/** Boring serialisation plumbing the payloads share. */
 final class PayloadIo {
-
     private PayloadIo() {
     }
 
@@ -27,7 +25,6 @@ final class PayloadIo {
         return buffer.toByteArray();
     }
 
-    /** Null means truncated or unreadable, callers just drop it. */
     static <T> @Nullable T read(byte @NotNull [] payload, @NotNull Reader<T> body) {
         try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(payload))) {
             return body.read(in);
@@ -42,7 +39,6 @@ final class PayloadIo {
         out.writeLong(value.getLeastSignificantBits());
     }
 
-    /** Nil UUID comes back as null. */
     static @Nullable UUID readUuid(@NotNull DataInputStream in) throws IOException {
         long most = in.readLong();
         long least = in.readLong();

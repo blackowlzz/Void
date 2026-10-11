@@ -1,9 +1,12 @@
 package ac.voidac.platform.bukkit.initables;
 
+import ac.voidac.VoidAPI;
 import ac.voidac.manager.init.start.StartableInitable;
+import ac.voidac.platform.api.player.PlatformPlayer;
 import ac.voidac.platform.bukkit.VoidBukkitLoaderPlugin;
 import ac.voidac.utils.anticheat.LogUtil;
 import ac.voidac.utils.anticheat.MessageUtil;
+import ac.voidac.utils.anticheat.ReleaseChecker;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import org.bukkit.Bukkit;
@@ -15,13 +18,14 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class UpdateChecker implements StartableInitable, Listener {
 
     private static final String MODRINTH_API = "https://api.modrinth.com/v2/project/voidac/version";
     private static final String MODRINTH_URL = "https://modrinth.com/plugin/voidac";
     private static final String UPDATE_PERMISSION = "void.alerts";
-    private static final long TICKS_PER_HOUR = 72000L;
 
     // rebuilt every cycle, null means nothing to say
     private volatile String joinNotification = null;
@@ -29,8 +33,8 @@ public class UpdateChecker implements StartableInitable, Listener {
     @Override
     public void start() {
         Bukkit.getPluginManager().registerEvents(this, VoidBukkitLoaderPlugin.LOADER);
-        Bukkit.getScheduler().runTaskTimerAsynchronously(
-                VoidBukkitLoaderPlugin.LOADER, this::checkForUpdate, 0L, TICKS_PER_HOUR);
+        VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runAtFixedRate(
+                VoidAPI.INSTANCE.getVoidPlugin(), this::checkForUpdate, 1L, 3600L, TimeUnit.SECONDS);
     }
 
     private void checkForUpdate() {
@@ -58,13 +62,13 @@ public class UpdateChecker implements StartableInitable, Listener {
     public void onJoin(PlayerJoinEvent event) {
         String notification = joinNotification;
         if (notification == null) return;
-        var player = event.getPlayer();
-        if (!player.hasPermission(UPDATE_PERMISSION)) return;
+        if (!event.getPlayer().hasPermission(UPDATE_PERMISSION)) return;
+        PlatformPlayer player = VoidAPI.INSTANCE.getPlatformPlayerFactory().getFromNativePlayerType(event.getPlayer());
 
-        Bukkit.getScheduler().runTaskLater(VoidBukkitLoaderPlugin.LOADER, () -> {
+        VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(VoidAPI.INSTANCE.getVoidPlugin(), () -> {
             if (!player.isOnline()) return;
             player.sendMessage(MessageUtil.miniMessage(notification));
-        }, 60L);
+        }, 3L, TimeUnit.SECONDS);
     }
 
     private String fetchModrinth() {
@@ -74,8 +78,8 @@ public class UpdateChecker implements StartableInitable, Listener {
 
             JsonArray versions = JsonParser.parseReader(
                     new InputStreamReader(conn.getInputStream())).getAsJsonArray();
-            if (versions.isEmpty()) return null;
-            return versions.get(0).getAsJsonObject().get("version_number").getAsString();
+            List<String> releases = ReleaseChecker.pluginVersions(versions);
+            return releases.isEmpty() ? null : releases.get(0);
         } catch (Exception ignored) {
             return null;
         }

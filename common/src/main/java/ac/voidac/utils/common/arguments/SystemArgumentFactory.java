@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.management.ManagementFactory;
 import java.nio.charset.Charset;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -73,8 +74,8 @@ public record SystemArgumentFactory(Map<String, String> arguments,
 
         private void updateFromEnv(Map<String, String> builder) {
             for (Map.Entry<String, String> entry : System.getenv().entrySet()) {
-                if (entry.getKey().startsWith(prefix.toUpperCase())) {
-                    if (builder.put(entry.getKey().toLowerCase(), entry.getValue()) != null) {
+                if (entry.getKey().startsWith(prefix.toUpperCase(Locale.ROOT))) {
+                    if (builder.put(entry.getKey().toLowerCase(Locale.ROOT), entry.getValue()) != null) {
                         warn("Env variable overwriting system variable: " + entry.getKey());
                     }
                 }
@@ -83,7 +84,7 @@ public record SystemArgumentFactory(Map<String, String> arguments,
 
         public SystemArgumentFactory build() {
             // Parse arguments from JVM arguments
-            final String findPrefix = "-d" + prefix.toLowerCase();
+            final String findPrefix = "-d" + prefix.toLowerCase(Locale.ROOT);
             Map<String, String> builder = getSystemPropertiesMap(findPrefix);
             if (envSupport) {
                 try {
@@ -99,12 +100,12 @@ public record SystemArgumentFactory(Map<String, String> arguments,
         protected @NotNull Map<String, String> getSystemPropertiesMap(String findPrefix) {
             Map<String, String> builder = new HashMap<>();
             for (String line : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
-                if (line.toLowerCase().startsWith(findPrefix)) {
+                if (line.toLowerCase(Locale.ROOT).startsWith(findPrefix)) {
                     int index = line.indexOf('=');
                     if (index > 0 && index < line.length() - 1) {
                         String key = line.substring(2, index); // remove -D
                         String value = line.substring(index + 1);
-                        builder.put(key.toLowerCase(), value);
+                        builder.put(key.toLowerCase(Locale.ROOT), value);
                     } else {
                         warn("Invalid startup argument: " + line);
                     }
@@ -129,7 +130,7 @@ public record SystemArgumentFactory(Map<String, String> arguments,
         if (optionModifier != null) optionModifier.accept(builder);
         final ArgumentOptions<T> options = builder.build();
         //
-        final String value = arguments.get(options.getKey().toLowerCase());
+        final String value = arguments.get(options.getKey().toLowerCase(Locale.ROOT));
         if (value == null) return createDefaultSupplier(options);
         try {
             @SuppressWarnings("unchecked")

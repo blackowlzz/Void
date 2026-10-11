@@ -12,20 +12,17 @@ import static ac.voidac.command.render.MessageStyle.*;
 
 @UtilityClass
 public class LeadDeveloperGreeting {
-
     public @NotNull List<Component> compose(@NotNull ReleaseStatus status) {
         VoidAPI api = VoidAPI.INSTANCE;
         double tps = api.getPlatformServer().getTPS();
         return List.of(
-                info(sc("This server is running Void") + " &5" + api.getExternalAPI().getVoidVersion()),
-                bullet(sc("It is ") + describe(status)),
+                warning("&c" + sc("Unverified") + " &8│ &7Hi &f" + LeadDeveloper.NAME + " &7(or impostor). "
+                        + "Just dev debug info: no perms, no op, no free ranks. Nice try though."),
+                detail("Version", "&5" + api.getExternalAPI().getVoidVersion() + "&7, " + describe(status)),
                 detail("Platform", api.getPlatformServer().getPlatformImplementationString()),
                 detail("Players", api.getPlayerDataManager().getEntries().size() + " &7" + sc("tracked")),
                 detail("TPS", Double.isNaN(tps) ? sc("n/a") : String.format(Locale.ROOT, "%.1f", tps)),
                 detail("Language", api.getConfigManager().getConfig().getLanguageCode()),
-                detail("Ban wave", api.getBanWaveManager().isEnabled()
-                        ? "&a" + sc("enabled") + " &8(&f" + api.getBanWaveManager().getQueueSize() + " &7" + sc("queued") + "&8)"
-                        : "&c" + sc("disabled")),
                 detail("Archive", api.getDataStoreLifecycle().isLoaded()
                         ? "&a" + sc("loaded")
                         : "&c" + sc(api.getDataStoreLifecycle().isEnabled() ? "failed to load" : "disabled"))

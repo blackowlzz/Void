@@ -7,7 +7,6 @@ import java.util.OptionalInt;
 
 @UtilityClass
 public class SemanticVersion {
-
     public @NotNull OptionalInt compare(@NotNull String first, @NotNull String second) {
         int[] left = parse(first);
         int[] right = parse(second);

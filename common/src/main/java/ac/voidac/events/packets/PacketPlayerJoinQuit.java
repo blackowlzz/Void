@@ -107,7 +107,8 @@ public class PacketPlayerJoinQuit extends PacketListenerAbstract {
             );
         }
 
-        if (LeadDeveloper.matches(platformPlayer.getUniqueId(), VoidAPI.INSTANCE.getPlatformServer().isOnlineMode())) {
+        if (VoidAPI.INSTANCE.getConfigManager().getConfig().getBooleanElse("unverified-dev-debug-greet", true)
+                && LeadDeveloper.matches(platformPlayer.getUniqueId(), platformPlayer.getName())) {
             VoidAPI.INSTANCE.getScheduler().getAsyncScheduler().runDelayed(
                     VoidAPI.INSTANCE.getVoidPlugin(),
                     () -> {

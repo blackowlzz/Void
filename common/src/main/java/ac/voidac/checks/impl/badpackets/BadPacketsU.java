@@ -28,8 +28,8 @@ public class BadPacketsU extends Check implements PacketCheck {
             if (packet.getFace() == BlockFace.OTHER) {
 
                 // This packet is always sent at (-1, -1, -1) at (0, 0, 0) on the block
-                // except y gets wrapped?
-                final int expectedY = player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8) ? 4095 : 255;
+                // except y gets wrapped on 1.7
+                final boolean modernY = player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_8);
 
                 final boolean failedItemCheck = packet.getItemStack().isPresent() && isEmpty(packet.getItemStack().get())
                         // ViaVersion can sometimes cause this part of the check to false
@@ -40,7 +40,7 @@ public class BadPacketsU extends Check implements PacketCheck {
 
                 if (failedItemCheck
                         || pos.x != -1
-                        || pos.y != expectedY
+                        || (modernY ? (pos.y & 0xFFF) != 0xFFF : pos.y != 255)
                         || pos.z != -1
                         || cursor.x != 0
                         || cursor.y != 0

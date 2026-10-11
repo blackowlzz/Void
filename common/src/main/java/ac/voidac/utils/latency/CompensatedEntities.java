@@ -33,6 +33,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -350,7 +351,7 @@ public class CompensatedEntities {
 
             if (shulkerAttached != null) {
                 // This NMS -> Bukkit conversion is great and works in all 11 versions.
-                shulker.facing = BlockFace.valueOf(shulkerAttached.getValue().toString().toUpperCase());
+                shulker.facing = BlockFace.valueOf(shulkerAttached.getValue().toString().toUpperCase(Locale.ROOT));
             }
 
             // ATTACH_POS was removed in 1.17, shifting PEEK from id+2 to id+1

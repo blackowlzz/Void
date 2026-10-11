@@ -11,6 +11,8 @@ import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientCl
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientClickWindow.WindowClickType;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerOpenWindow;
 
+import java.util.Locale;
+
 @CheckData(name = "BadPacketsP", stableKey = "void.badpackets.invalid_click", description = "Invalid window click packet", experimental = true)
 public class BadPacketsP extends Check implements PacketCheck {
 
@@ -49,7 +51,7 @@ public class BadPacketsP extends Check implements PacketCheck {
 
             // Allowing this to false flag to debug and find issues faster
             if (flag) {
-                if (flagAndAlert("clickType=" + clickType.toString().toLowerCase() + ", button=" + button + (wrapper.getWindowId() == containerId ? ", container=" + containerType : "")) && shouldModifyPackets()) {
+                if (flagAndAlert("clickType=" + clickType.toString().toLowerCase(Locale.ROOT) + ", button=" + button + (wrapper.getWindowId() == containerId ? ", container=" + containerType : "")) && shouldModifyPackets()) {
                     event.setCancelled(true);
                     player.onPacketCancel();
                 }

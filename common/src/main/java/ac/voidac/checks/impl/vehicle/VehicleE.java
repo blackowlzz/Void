@@ -10,6 +10,8 @@ import com.github.retrooper.packetevents.protocol.entity.type.EntityType;
 import com.github.retrooper.packetevents.protocol.entity.type.EntityTypes;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 
+import java.util.Locale;
+
 @CheckData(name = "VehicleE", stableKey = "void.vehicle.spoofed_boat", experimental = true, description = "Sent boat paddle states while not in a boat")
 public class VehicleE extends Check implements PacketCheck {
     public VehicleE(VoidPlayer player) {
@@ -24,7 +26,7 @@ public class VehicleE extends Check implements PacketCheck {
             final EntityType vehicle = player.getVehicleType();
 
             if (!EntityTypes.isTypeInstanceOf(vehicle, EntityTypes.BOAT)) {
-                if (flagAndAlert("vehicle=" + (vehicle == null ? "null" : vehicle.getName().getKey().toLowerCase())) && shouldModifyPackets()) {
+                if (flagAndAlert("vehicle=" + (vehicle == null ? "null" : vehicle.getName().getKey().toLowerCase(Locale.ROOT))) && shouldModifyPackets()) {
                     event.setCancelled(true);
                     player.onPacketCancel();
                 }

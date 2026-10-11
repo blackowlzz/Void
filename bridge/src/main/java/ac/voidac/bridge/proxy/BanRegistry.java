@@ -27,21 +27,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
-/**
- * The network's ban list. Lives on the proxy because the proxy is what actually
- * refuses the login, so a backend being down stops being anybody's problem.
- *
- * Reads sit on the login path so they're lock-free. Writes are rare.
- *
- * A player can hold several bans at once as long as they cover different
- * scopes. A new ban replaces an older one only when both cover the same servers.
- */
 public final class BanRegistry {
-
-    /**
-     * One ban plus where it applies.
-     * Empty servers set means the whole network.
-     */
     public record Entry(@NotNull String banId,
                         @Nullable UUID uuid,
                         @NotNull String playerName,
@@ -50,7 +36,6 @@ public final class BanRegistry {
                         long issuedAt,
                         @NotNull String origin,
                         @NotNull Set<String> servers) {
-
         public boolean isExpired() {
             return expiresAt > 0 && System.currentTimeMillis() >= expiresAt;
         }
@@ -70,7 +55,6 @@ public final class BanRegistry {
     private final ProxyPlatform platform;
 
     private final Map<UUID, List<Entry>> byUuid = new ConcurrentHashMap<>();
-    // fallback for when offline-mode UUIDs disagree across the network
     private final Map<String, List<Entry>> byName = new ConcurrentHashMap<>();
 
     private boolean backedUp;
@@ -80,7 +64,6 @@ public final class BanRegistry {
         this.platform = platform;
     }
 
-    /** Pass a null serverName to ask "is this player banned from anything at all". */
     public @Nullable Entry find(@Nullable UUID uuid, @Nullable String playerName, @Nullable String serverName) {
         List<Entry> candidates = uuid != null ? byUuid.get(uuid) : null;
         if (candidates == null && playerName != null) {
@@ -110,7 +93,6 @@ public final class BanRegistry {
         return true;
     }
 
-    /** Every live ban, for answering a SYNC. One per player: the strongest one covering that server. */
     public @NotNull List<BanPayload> activePayloads(@Nullable String forServer) {
         List<BanPayload> out = new ArrayList<>();
         for (List<Entry> entries : byUuid.values()) {
@@ -122,16 +104,9 @@ public final class BanRegistry {
             }
             if (best != null) out.add(best.toPayload());
         }
-        // name-only bans have no UUID and backends can't store them anyway,
-        // so they stay proxy-side and simply don't get synced
         return out;
     }
 
-    /**
-     * True means something changed. A repeat of the same ban id over the same
-     * servers returns false, which is what stops the second arrival (live, then
-     * SYNC) causing another round of kicks.
-     */
     public synchronized boolean put(@NotNull Entry entry) {
         if (entry.isExpired()) return false;
 
@@ -184,7 +159,6 @@ public final class BanRegistry {
         if (delete(doomed)) save();
     }
 
-    /** A corrupt file gets renamed, not deleted. Losing a ban list quietly is how cheaters walk back in. */
     @SuppressWarnings("unchecked")
     public synchronized void load() {
         if (!Files.exists(file)) return;
@@ -202,7 +176,6 @@ public final class BanRegistry {
             try {
                 Files.move(file, file.resolveSibling("bans.yml.broken"), StandardCopyOption.REPLACE_EXISTING);
             } catch (Exception ignored) {
-                // nothing useful left to do, the warning above is the point
             }
             return;
         }
@@ -220,12 +193,19 @@ public final class BanRegistry {
                     }
                 }
 
+                Object rawExpiry = row.get("expires-at");
+                long expiresAt = number(rawExpiry);
+                if (expiresAt == 0 && rawExpiry != null && !"0".equals(String.valueOf(rawExpiry).trim())) {
+                    platform.warn("Ban " + row.get("ban-id") + " in bans.yml has an unreadable expires-at '"
+                            + rawExpiry + "', treating it as permanent", null);
+                }
+
                 Entry entry = new Entry(
                         String.valueOf(row.get("ban-id")),
                         uuid,
                         String.valueOf(row.get("player-name")),
                         String.valueOf(row.get("reason")),
-                        number(row.get("expires-at")),
+                        expiresAt,
                         number(row.get("issued-at")),
                         String.valueOf(row.getOrDefault("origin", "unknown")),
                         servers);
@@ -315,7 +295,6 @@ public final class BanRegistry {
         });
     }
 
-    /** Temp file plus a move, so a crash mid-write can't leave a half a ban list. */
     private synchronized void save() {
         backUpOnce();
 

@@ -2,8 +2,12 @@ package ac.voidac.manager.punishment;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.regex.Pattern;
+
 public final class PunishmentReason {
     private static final String FALLBACK = "Cheating";
+    private static final Pattern LINE_BREAKS = Pattern.compile("[\\r\\n]+\\s*");
+    private static final Pattern REPEATED_SPACES = Pattern.compile("\\s{2,}");
 
     private PunishmentReason() {
     }
@@ -23,5 +27,10 @@ public final class PunishmentReason {
             return template.replace("{reason}", reason);
         }
         return template + "\n&7Reason: &f" + reason;
+    }
+
+    public static String toSingleLine(String multiLine, String separator) {
+        String joined = LINE_BREAKS.matcher(multiLine).replaceAll(separator);
+        return REPEATED_SPACES.matcher(joined).replaceAll(" ").trim();
     }
 }

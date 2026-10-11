@@ -37,7 +37,6 @@ public abstract class VoidFabricLoaderPlugin implements PlatformLoader {
     public static VoidFabricLoaderPlugin LOADER;
 
     protected final LazyHolder<FabricPlatformScheduler> scheduler = LazyHolder.simple(FabricPlatformScheduler::new);
-    // Since we JiJ PacketEvents and depend on it on Fabric, we can always just get the API instance since it loads firsts
     protected final PacketEventsAPI<?> packetEvents = PacketEvents.getAPI();
     protected final LazyHolder<FabricSenderFactory> senderFactory = LazyHolder.simple(FabricSenderFactory::new);
     protected final LazyHolder<ItemResetHandler> itemResetHandler = LazyHolder.simple(FabricItemResetHandler::new);
@@ -85,7 +84,6 @@ public abstract class VoidFabricLoaderPlugin implements PlatformLoader {
         return packetEvents;
     }
 
-
     @Override
     public ItemResetHandler getItemResetHandler() {
         return itemResetHandler.get();
@@ -118,20 +116,15 @@ public abstract class VoidFabricLoaderPlugin implements PlatformLoader {
 
     private CommandService createCommandService() {
         try {
-            // Accessing CloudHelper triggers the JVM to load CloudCommandService and Cloud classes.
-            // If the library is missing, this line throws NoClassDefFoundError immediately.
             return CloudHelper.create(senderFactory.get(), commandAdapter.get());
         } catch (Throwable t) {
-            // Catches NoClassDefFoundError (Missing Lib) or other init crashes.
             LogUtil.warn("IMPORTANT: Command Framework failed to load (Missing Cloud Library?). \n" +
                     "Void will run without commands enabled!");
 
-            // Only spam stacktrace if it's weird, not if it's just missing.
             if (!(t instanceof NoClassDefFoundError)) {
                 t.printStackTrace();
             }
 
-            // Return No-Op to prevent NullPointers elsewhere
             return () -> {};
         }
     }

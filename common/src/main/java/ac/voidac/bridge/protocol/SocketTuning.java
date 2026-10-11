@@ -9,7 +9,6 @@ import java.net.SocketException;
 import java.net.SocketOption;
 
 public final class SocketTuning {
-
     private static final int KEEPALIVE_IDLE_SECONDS = 30;
     private static final int KEEPALIVE_INTERVAL_SECONDS = 10;
     private static final int KEEPALIVE_PROBES = 3;

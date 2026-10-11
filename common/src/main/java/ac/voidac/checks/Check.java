@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Locale;
 import java.util.Objects;
 
 import static com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerFlying.isFlying;
@@ -35,8 +36,13 @@ public class Check extends VoidProcessor implements AbstractCheck {
     private String displayName;
     private String description;
     private String stableKey = "";
+    private double defaultDecay;
+    private double defaultSetbackVL;
+    private String defaultDescription;
 
     private boolean experimental;
+    private boolean killauraDedicated;
+    private boolean killauraDedicatedEnabled;
     private @Setter boolean isEnabled;
 
     private boolean exemptPermission;
@@ -53,16 +59,22 @@ public class Check extends VoidProcessor implements AbstractCheck {
             this.configName = checkData.configName();
             // Fall back to check name
             if (this.configName.equals("DEFAULT")) this.configName = this.checkName;
-            this.decay = checkData.decay();
-            this.setbackVL = checkData.setback();
+            this.defaultDecay = checkData.decay();
+            this.defaultSetbackVL = checkData.setback();
             this.alternativeName = checkData.alternativeName();
-            this.experimental = checkData.experimental();
-            this.description = checkData.description();
+            this.killauraDedicated = checkData.killauraDedicated();
+            this.experimental = checkData.experimental() || killauraDedicated;
+            this.defaultDescription = checkData.description();
             this.stableKey = checkData.stableKey();
             this.displayName = this.checkName;
         }
 
         reload();
+    }
+
+    public final boolean isFeatureEnabled() {
+        if (killauraDedicated) return killauraDedicatedEnabled;
+        return !experimental || player.isExperimentalChecks();
     }
 
     public boolean shouldModifyPackets() {
@@ -75,7 +87,7 @@ public class Check extends VoidProcessor implements AbstractCheck {
 
     public final void updatePermissions() {
         if (configName == null || player.platformPlayer == null) return;
-        final String id = configName.toLowerCase();
+        final String id = configName.toLowerCase(Locale.ROOT);
         exemptPermission = player.platformPlayer.hasPermission("void.exempt." + id);
         noSetbackPermission = player.platformPlayer.hasPermission("void.nosetback." + id);
         noModifyPacketPermission = player.platformPlayer.hasPermission("void.nomodifypacket." + id);
@@ -98,7 +110,7 @@ public class Check extends VoidProcessor implements AbstractCheck {
     }
 
     public final boolean flag(String verbose) {
-        if (player.disableVoid || (experimental && !player.isExperimentalChecks()) || exemptPermission)
+        if (player.disableVoid || !isFeatureEnabled() || exemptPermission)
             return false; // Avoid calling event if disabled
 
         if (FLAG_CHANNEL.fire(player, this, verbose)) return false;
@@ -145,10 +157,11 @@ public class Check extends VoidProcessor implements AbstractCheck {
 
     @Override
     public final void reload(ConfigManager configuration) {
-        decay = configuration.getDoubleElse(configName + ".decay", decay);
-        setbackVL = configuration.getDoubleElse(configName + ".setbackvl", setbackVL);
+        decay = configuration.getDoubleElse(configName + ".decay", defaultDecay);
+        setbackVL = configuration.getDoubleElse(configName + ".setbackvl", defaultSetbackVL);
         displayName = configuration.getStringElse(configName + ".displayname", checkName);
-        description = configuration.getStringElse(configName + ".description", description);
+        killauraDedicatedEnabled = configuration.getBooleanElse("killaura-dedicated-experimental-checks", false);
+        description = configuration.getStringElse(configName + ".description", defaultDescription);
 
         if (setbackVL == -1) setbackVL = Double.MAX_VALUE;
         onReload(configuration);
@@ -195,7 +208,7 @@ public class Check extends VoidProcessor implements AbstractCheck {
 
     public boolean isUpdate(PacketTypeCommon packetType) {
         return isFlying(packetType)
-                || packetType == PacketType.Play.Client.CLIENT_TICK_END
+                || packetType == PacketType.Play.Client.CLIENT_TICK_END && player.getClientVersion().isNewerThanOrEquals(ClientVersion.V_1_21_2)
                 || isTransaction(packetType);
     }
 

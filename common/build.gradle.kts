@@ -88,7 +88,7 @@ dependencies {
     testImplementation("com.github.retrooper:packetevents-netty-common:${libs.versions.packetevents.get()}")
     testRuntimeOnly(testlibs.junitPlatformLauncher)
     testRuntimeOnly(libs.viaversion)
-    testRuntimeOnly(libs.netty)
+    testImplementation(libs.netty)
     testRuntimeOnly(libs.paper.api)
     testRuntimeOnly(libs.packetevents.spigot)
 }

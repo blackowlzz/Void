@@ -532,11 +532,13 @@ public class PacketEntityReplication extends Check implements PacketCheck {
             path = delta.applyAsPath(new Vector3d(data.getX(), data.getY(), data.getZ()));
         }
 
-        Vector3d antiEspTarget = path != null ? path.getEndPosition()
-                : !hasPos ? new Vector3d(data.getX(), data.getY(), data.getZ())
-                : isRelative ? new Vector3d(data.getX() + deltaX, data.getY() + deltaY, data.getZ() + deltaZ)
-                : new Vector3d(deltaX, deltaY, deltaZ);
-        player.antiEspManager.handleMove(event, entityId, antiEspTarget.getX(), antiEspTarget.getY(), antiEspTarget.getZ(), yaw, pitch);
+        if (player.antiEspManager.isTracking(entityId)) {
+            Vector3d antiEspTarget = path != null ? path.getEndPosition()
+                    : !hasPos ? new Vector3d(data.getX(), data.getY(), data.getZ())
+                    : isRelative ? new Vector3d(data.getX() + deltaX, data.getY() + deltaY, data.getZ() + deltaZ)
+                    : new Vector3d(deltaX, deltaY, deltaZ);
+            player.antiEspManager.handleMove(event, entityId, antiEspTarget.getX(), antiEspTarget.getY(), antiEspTarget.getZ(), yaw, pitch);
+        }
 
         if (isRelative) {
             // There is a bug where vehicles may start flying due to mojang setting packet position on the client

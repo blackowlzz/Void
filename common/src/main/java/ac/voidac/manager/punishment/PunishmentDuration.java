@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class PunishmentDuration {
-
     private static final Pattern DURATION = Pattern.compile("(?:\\d+[smhdw])+", Pattern.CASE_INSENSITIVE);
     private static final Pattern PART = Pattern.compile("(\\d+)([smhdw])", Pattern.CASE_INSENSITIVE);
 

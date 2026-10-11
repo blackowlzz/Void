@@ -22,10 +22,8 @@ import java.util.List;
 
 @Mixin(PistonBaseBlock.class)
 public class PistonBaseBlockMixin {
-
     private static final double MAX_HORIZONTAL_DISTANCE = 24.0;
     private static final double MAX_VERTICAL_DISTANCE = 64.0;
-
 
     private static boolean isCloseEnough(int ax, int ay, int az, double bx, double by, double bz) {
         return Math.abs(ax - bx) <= MAX_HORIZONTAL_DISTANCE
@@ -70,7 +68,6 @@ public class PistonBaseBlockMixin {
             if (state.is(Blocks.HONEY_BLOCK)) hasHoneyBlock = true;
         }
 
-        // Add the piston head bounding box for pushes, or for retracts with no blocks being moved
         if (extending || resolver.getToPush().isEmpty()) {
             BlockPos head = pistonPos.relative(direction);
             int hx = head.getX(), hy = head.getY(), hz = head.getZ();

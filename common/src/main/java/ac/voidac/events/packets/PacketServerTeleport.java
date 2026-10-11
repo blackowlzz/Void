@@ -136,7 +136,7 @@ public class PacketServerTeleport extends PacketListenerAbstract {
             double antiEspX = pos.getX() + (teleport.isRelativeFlag(RelativeFlag.X) ? player.x : 0);
             double antiEspY = pos.getY() + (teleport.isRelativeFlag(RelativeFlag.Y) ? player.y : 0);
             double antiEspZ = pos.getZ() + (teleport.isRelativeFlag(RelativeFlag.Z) ? player.z : 0);
-            player.antiEspManager.tick(antiEspX, antiEspY, antiEspZ, player.yaw, player.pitch);
+            player.antiEspManager.tick(antiEspX, antiEspY, antiEspZ);
             player.storageEspDecoyManager.forceVisibilityRefresh();
         }
 

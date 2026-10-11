@@ -40,7 +40,7 @@ public class ElytraC extends Check implements PostPredictionCheck {
                         if (shouldModifyPackets()) {
                             event.setCancelled(true);
                             player.onPacketCancel();
-                            player.resyncPose();
+                            player.resyncGlidingState();
                         }
                     }
                 }

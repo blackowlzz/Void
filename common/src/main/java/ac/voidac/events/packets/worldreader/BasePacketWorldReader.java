@@ -177,7 +177,7 @@ public class BasePacketWorldReader extends PacketListenerAbstract {
             }
 
             addChunkToCache(event, player, columnChunks, true, chunkX[i], chunkZ[i], null);
-            player.antiEspManager.cacheLegacyChunk(chunkX[i], chunkZ[i], columnChunks, chunkData.getBiomeData()[i]);
+            player.antiEspManager.cacheLegacyChunk(chunkX[i], chunkZ[i], columnChunks);
             BaseChunk[] maskedChunks = applyAntiEspToChunkCopy(player, chunkX[i], chunkZ[i], columnChunks, null).chunks();
             BaseChunk[] mutatedChunks = applyDecoysToChunkCopy(player, chunkX[i], chunkZ[i], maskedChunks);
             if (mutatedChunks != columnChunks) {
@@ -371,7 +371,7 @@ public class BasePacketWorldReader extends PacketListenerAbstract {
             VoidPlayer player, int chunkX, int chunkZ,
             BaseChunk[] chunks, TileEntity[] tileEntities
     ) {
-        if (chunks == null || chunks.length == 0 || !player.antiEspManager.shouldMaskChunk(chunkX, chunkZ)) {
+        if (chunks == null || chunks.length == 0 || !player.antiEspManager.shouldMaskTerrain()) {
             return new MaskedColumn(chunks, tileEntities);
         }
 

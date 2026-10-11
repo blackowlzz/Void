@@ -21,7 +21,6 @@ public class InventoryE extends InventoryCheck {
 
         if (event.getPacketType() == PacketType.Play.Client.HELD_ITEM_CHANGE) {
             if (player.inventory.hasInventoryOpen()) {
-                // Skip the first hotbar packet after server forces a held item change
                 if (this.lastTransaction < player.lastTransactionReceived.get()
                         && flagAndAlert()) {
                     if (shouldModifyPackets()) {

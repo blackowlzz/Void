@@ -14,16 +14,7 @@ import java.util.UUID;
 
 import static ac.voidac.command.render.MessageStyle.*;
 
-/**
- * /void unban <player>
- *
- * Removes a player from Void's native ban database (void_active_bans).
- * Does not interact with LiteBans or other ban plugins.
- *
- * Permission: void.unban
- */
 public class VoidUnban implements BuildableCommand {
-
     @Override
     public void register(CommandManager<Sender> commandManager, CloudCommandAdapter adapter) {
         commandManager.command(

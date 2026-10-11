@@ -17,7 +17,6 @@ import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 public class FabricParserDescriptorFactory implements CloudCommandAdapter {
-
     private final FabricPlayerSelectorParser<Sender> fabricPlayerSelectorParser;
 
     @Override
@@ -25,13 +24,11 @@ public class FabricParserDescriptorFactory implements CloudCommandAdapter {
         return fabricPlayerSelectorParser.descriptor();
     }
 
-    // TODO (Cross-platform) brigadier style & better suggestions
     @Override
     public SuggestionProvider<Sender> onlinePlayerSuggestions() {
         return (context, input) -> {
             List<Suggestion> suggestions = new ArrayList<>();
 
-            // TODO Support Vanish mods?
             for (ServerPlayer player : VoidFabricLoaderPlugin.FABRIC_SERVER.getPlayerList().getPlayers()) {
                 suggestions.add(Suggestion.suggestion(player.getName().getString()));
             }

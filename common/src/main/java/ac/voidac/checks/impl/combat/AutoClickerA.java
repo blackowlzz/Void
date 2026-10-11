@@ -18,7 +18,6 @@ import java.util.ArrayDeque;
         setback = 20
 )
 public class AutoClickerA extends Check implements PostPredictionCheck {
-
     private static final int WINDOW_MS = 2000;
     private static final long CPS_WINDOW_MS = 1000L;
     private static final int MIN_SAMPLES = 8;

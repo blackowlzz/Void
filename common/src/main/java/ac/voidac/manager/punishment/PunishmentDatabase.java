@@ -4,46 +4,43 @@ import ac.voidac.utils.anticheat.LogUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.UUID;
 
-
-
-/**
- * Standalone SQLite database for all Void punishment records.
- * Kept separate from the DataStore pipeline to avoid coupling with
- * the violation-tracking schema and to remain accessible without a
- * full DataStore backend configured.
- */
 public final class PunishmentDatabase {
-
     public static final DateTimeFormatter DATE_FORMAT =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(ZoneOffset.UTC);
 
-    /** Short date shown directly on the ban screen: "24/10/2025" */
     public static final DateTimeFormatter DATE_FORMAT_DISPLAY =
             DateTimeFormatter.ofPattern("dd/MM/yyyy").withZone(ZoneOffset.UTC);
 
     private static final String TABLE = "void_punishments";
+    private static final String ACTIVE_BAN_COLUMNS = "uuid, player_name, reason, expires_at, ban_id, timestamp";
 
     private Connection connection;
     private long nextId = 1;
-
-    // ── Lifecycle ─────────────────────────────────────────────────────────────
 
     public synchronized void init(File dataFolder) {
         dataFolder.mkdirs();
         File dbFile = new File(dataFolder, "punishments.db");
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:" + dbFile.getAbsolutePath();
-            connection = DriverManager.getConnection(url);
+            connection = DriverManager.getConnection("jdbc:sqlite:" + dbFile.getAbsolutePath());
             applyPragmas();
-            createTable();
+            createTables();
             nextId = readMaxId() + 1;
             LogUtil.info("[PunishmentDB] Initialized: " + (nextId - 1) + " existing records.");
         } catch (Exception e) {
@@ -58,24 +55,15 @@ public final class PunishmentDatabase {
     public synchronized void close() {
         try {
             if (connection != null && !connection.isClosed()) connection.close();
-        } catch (SQLException ignored) {}
+        } catch (SQLException e) {
+            LogUtil.warn("[PunishmentDB] Failed to close punishments.db: " + e.getMessage());
+        }
     }
 
-    // ── Write ─────────────────────────────────────────────────────────────────
-
-    /**
-     * Reserves the next ban ID without inserting a row.  The counter is
-     * incremented immediately so no other concurrent call can receive the same ID.
-     * The caller MUST follow up with {@link #insertWithId} to persist the record.
-     */
     public synchronized String reserveBanId() {
         return formatBanId(nextId++);
     }
 
-    /**
-     * Inserts a punishment record using a ban ID that was already reserved via
-     * {@link #reserveBanId()}.  Does NOT increment the internal counter.
-     */
     public synchronized void insertWithId(
             String banId,
             UUID uuid,
@@ -91,8 +79,7 @@ public final class PunishmentDatabase {
     ) {
         if (connection == null) return;
         String sql = "INSERT INTO " + TABLE
-                + " (ban_id, uuid, player_name, type, issued_by, check_name, reason,"
-                + "  duration, wave_id, flags_summary, timestamp)"
+                + " (ban_id, uuid, player_name, type, issued_by, check_name, reason, duration, wave_id, flags_summary, timestamp)"
                 + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, banId);
@@ -110,53 +97,6 @@ public final class PunishmentDatabase {
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to insert punishment for " + playerName, e);
         }
-    }
-
-    /**
-     * Inserts a new punishment record and returns the assigned ban ID (e.g. "VOID-000001").
-     */
-    public synchronized String insert(
-            UUID uuid,
-            String playerName,
-            String type,
-            String issuedBy,
-            @Nullable String checkName,
-            String reason,
-            String duration,
-            @Nullable Integer waveId,
-            @Nullable String flagsSummary,
-            long timestamp
-    ) {
-        if (connection == null) return "VOID-ERROR";
-        String banId = formatBanId(nextId);
-        String sql = "INSERT INTO " + TABLE
-                + " (ban_id, uuid, player_name, type, issued_by, check_name, reason,"
-                + "  duration, wave_id, flags_summary, timestamp)"
-                + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, banId);
-            ps.setString(2, uuid.toString());
-            ps.setString(3, playerName);
-            ps.setString(4, type);
-            ps.setString(5, issuedBy);
-            ps.setString(6, checkName);
-            ps.setString(7, reason);
-            ps.setString(8, duration);
-            if (waveId != null) ps.setInt(9, waveId); else ps.setNull(9, Types.INTEGER);
-            ps.setString(10, flagsSummary);
-            ps.setLong(11, timestamp);
-            ps.executeUpdate();
-            nextId++;
-        } catch (SQLException e) {
-            LogUtil.error("[PunishmentDB] Failed to insert punishment for " + playerName, e);
-        }
-        return banId;
-    }
-
-    // ── Query ─────────────────────────────────────────────────────────────────
-
-    public synchronized List<PunishmentRecord> queryByUuid(UUID uuid) {
-        return query("uuid = ?", uuid.toString());
     }
 
     public synchronized List<PunishmentRecord> queryByName(String name) {
@@ -164,103 +104,14 @@ public final class PunishmentDatabase {
     }
 
     public synchronized @Nullable PunishmentRecord queryByBanId(String banId) {
-        List<PunishmentRecord> results = query("ban_id = ?", banId.toUpperCase());
+        List<PunishmentRecord> results = query("ban_id = ?", banId.toUpperCase(Locale.ROOT));
         return results.isEmpty() ? null : results.get(0);
     }
-
-    // ── Internal ──────────────────────────────────────────────────────────────
-
-    private List<PunishmentRecord> query(String where, String param) {
-        List<PunishmentRecord> out = new ArrayList<>();
-        if (connection == null) return out;
-        String sql = "SELECT id, ban_id, uuid, player_name, type, issued_by, check_name,"
-                + " reason, duration, wave_id, flags_summary, timestamp"
-                + " FROM " + TABLE + " WHERE " + where + " ORDER BY timestamp DESC";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, param);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    out.add(fromRow(rs));
-                }
-            }
-        } catch (SQLException e) {
-            LogUtil.error("[PunishmentDB] Query failed (where=" + where + ")", e);
-        }
-        return out;
-    }
-
-    private PunishmentRecord fromRow(ResultSet rs) throws SQLException {
-        int waveIdRaw = rs.getInt("wave_id");
-        Integer waveId = rs.wasNull() ? null : waveIdRaw;
-        return new PunishmentRecord(
-                rs.getLong("id"),
-                rs.getString("ban_id"),
-                UUID.fromString(rs.getString("uuid")),
-                rs.getString("player_name"),
-                rs.getString("type"),
-                rs.getString("issued_by"),
-                rs.getString("check_name"),
-                rs.getString("reason"),
-                rs.getString("duration"),
-                waveId,
-                rs.getString("flags_summary"),
-                rs.getLong("timestamp")
-        );
-    }
-
-    private long readMaxId() throws SQLException {
-        // Use the max numeric suffix of ban_id ("VOID-000042" -> 42) rather than COUNT(*),
-        // so deleting records can never cause the counter to produce a duplicate ban_id.
-        try (Statement s = connection.createStatement();
-             ResultSet rs = s.executeQuery(
-                     "SELECT COALESCE(MAX(CAST(SUBSTR(ban_id, 6) AS INTEGER)), 0) FROM " + TABLE)) {
-            return rs.next() ? rs.getLong(1) : 0;
-        }
-    }
-
-    private void createTable() throws SQLException {
-        try (Statement s = connection.createStatement()) {
-            s.executeUpdate("CREATE TABLE IF NOT EXISTS " + TABLE + " ("
-                    + "id        INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + "ban_id    TEXT NOT NULL UNIQUE,"
-                    + "uuid      TEXT NOT NULL,"
-                    + "player_name TEXT NOT NULL,"
-                    + "type      TEXT NOT NULL,"
-                    + "issued_by TEXT NOT NULL,"
-                    + "check_name TEXT,"
-                    + "reason    TEXT,"
-                    + "duration  TEXT NOT NULL DEFAULT 'permanent',"
-                    + "wave_id   INTEGER,"
-                    + "flags_summary TEXT,"
-                    + "timestamp INTEGER NOT NULL"
-                    + ")");
-            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_punishments_uuid ON "
-                    + TABLE + "(uuid)");
-            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_punishments_name ON "
-                    + TABLE + "(LOWER(player_name))");
-
-            // Active ban table, used by VoidBanManager for native timed-ban enforcement
-            s.executeUpdate("CREATE TABLE IF NOT EXISTS void_active_bans ("
-                    + "uuid        TEXT PRIMARY KEY,"
-                    + "player_name TEXT NOT NULL,"
-                    + "reason      TEXT NOT NULL,"
-                    + "expires_at  INTEGER NOT NULL,"
-                    + "ban_id      TEXT NOT NULL,"
-                    + "timestamp   INTEGER NOT NULL"
-                    + ")");
-            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_active_bans_name ON "
-                    + "void_active_bans(LOWER(player_name))");
-        }
-    }
-
-    // ── Active ban CRUD ───────────────────────────────────────────────────────
 
     public synchronized void activeBanInsert(String banId, UUID uuid, String playerName,
                                              String reason, long expiresAt, long timestamp) {
         if (connection == null) return;
-        String sql = "INSERT OR REPLACE INTO void_active_bans"
-                + " (uuid, player_name, reason, expires_at, ban_id, timestamp)"
-                + " VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT OR REPLACE INTO void_active_bans (" + ACTIVE_BAN_COLUMNS + ") VALUES (?,?,?,?,?,?)";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, uuid.toString());
             ps.setString(2, playerName);
@@ -276,8 +127,7 @@ public final class PunishmentDatabase {
 
     public synchronized boolean activeBanRemove(UUID uuid) {
         if (connection == null) return false;
-        try (PreparedStatement ps = connection.prepareStatement(
-                "DELETE FROM void_active_bans WHERE uuid = ?")) {
+        try (PreparedStatement ps = connection.prepareStatement("DELETE FROM void_active_bans WHERE uuid = ?")) {
             ps.setString(1, uuid.toString());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -287,84 +137,27 @@ public final class PunishmentDatabase {
     }
 
     public synchronized @Nullable UUID activeBanRemoveByName(String name) {
-        if (connection == null) return null;
-        try (PreparedStatement ps = connection.prepareStatement(
-                "SELECT uuid FROM void_active_bans WHERE LOWER(player_name) = LOWER(?) LIMIT 1")) {
-            ps.setString(1, name);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (!rs.next()) return null;
-                UUID uuid = UUID.fromString(rs.getString("uuid"));
-                activeBanRemove(uuid);
-                return uuid;
-            }
-        } catch (SQLException e) {
-            LogUtil.error("[PunishmentDB] Failed to remove active ban by name for " + name, e);
-            return null;
-        }
+        ActiveBanRecord record = activeBanQueryByName(name);
+        if (record == null) return null;
+        activeBanRemove(record.uuid());
+        return record.uuid();
     }
 
     public synchronized @Nullable ActiveBanRecord activeBanQuery(UUID uuid) {
-        if (connection == null) return null;
-        try (PreparedStatement ps = connection.prepareStatement(
-                "SELECT uuid, player_name, reason, expires_at, ban_id, timestamp"
-                        + " FROM void_active_bans WHERE uuid = ?")) {
-            ps.setString(1, uuid.toString());
-            try (ResultSet rs = ps.executeQuery()) {
-                if (!rs.next()) return null;
-                return new ActiveBanRecord(
-                        rs.getString("ban_id"),
-                        UUID.fromString(rs.getString("uuid")),
-                        rs.getString("player_name"),
-                        rs.getString("reason"),
-                        rs.getLong("expires_at"),
-                        rs.getLong("timestamp")
-                );
-            }
-        } catch (SQLException e) {
-            LogUtil.error("[PunishmentDB] Failed to query active ban for " + uuid, e);
-            return null;
-        }
+        return querySingleActiveBan("uuid = ?", uuid.toString());
     }
 
     public synchronized @Nullable ActiveBanRecord activeBanQueryByName(String name) {
-        if (connection == null) return null;
-        String sql = "SELECT uuid, player_name, reason, expires_at, ban_id, timestamp"
-                + " FROM void_active_bans WHERE LOWER(player_name) = LOWER(?) LIMIT 1";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, name);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (!rs.next()) return null;
-                return new ActiveBanRecord(
-                        rs.getString("ban_id"),
-                        UUID.fromString(rs.getString("uuid")),
-                        rs.getString("player_name"),
-                        rs.getString("reason"),
-                        rs.getLong("expires_at"),
-                        rs.getLong("timestamp")
-                );
-            }
-        } catch (SQLException e) {
-            LogUtil.error("[PunishmentDB] Failed to query active ban by name for " + name, e);
-            return null;
-        }
+        return querySingleActiveBan("LOWER(player_name) = LOWER(?)", name);
     }
 
-    /** Every live ban, used by the bridge to reconcile against the proxy's list. */
-    public synchronized java.util.List<ActiveBanRecord> activeBanAll() {
-        java.util.List<ActiveBanRecord> out = new java.util.ArrayList<>();
+    public synchronized List<ActiveBanRecord> activeBanAll() {
+        List<ActiveBanRecord> out = new ArrayList<>();
         if (connection == null) return out;
-        try (PreparedStatement ps = connection.prepareStatement(
-                "SELECT uuid, player_name, reason, expires_at, ban_id, timestamp FROM void_active_bans");
+        try (PreparedStatement ps = connection.prepareStatement("SELECT " + ACTIVE_BAN_COLUMNS + " FROM void_active_bans");
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                out.add(new ActiveBanRecord(
-                        rs.getString("ban_id"),
-                        UUID.fromString(rs.getString("uuid")),
-                        rs.getString("player_name"),
-                        rs.getString("reason"),
-                        rs.getLong("expires_at"),
-                        rs.getLong("timestamp")
-                ));
+                out.add(readActiveBan(rs));
             }
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to list active bans", e);
@@ -384,29 +177,13 @@ public final class PunishmentDatabase {
         }
     }
 
-    private boolean proxyBanTableReady;
-
-    private void ensureProxyBanTable() throws SQLException {
-        if (proxyBanTableReady) return;
-        try (Statement s = connection.createStatement()) {
-            s.executeUpdate("CREATE TABLE IF NOT EXISTS void_proxy_bans ("
-                    + "uuid   TEXT PRIMARY KEY,"
-                    + "ban_id TEXT NOT NULL"
-                    + ")");
-        }
-        proxyBanTableReady = true;
-    }
-
     public synchronized void proxyBanMark(UUID uuid, String banId) {
         if (connection == null) return;
-        try {
-            ensureProxyBanTable();
-            try (PreparedStatement ps = connection.prepareStatement(
-                    "INSERT OR REPLACE INTO void_proxy_bans (uuid, ban_id) VALUES (?,?)")) {
-                ps.setString(1, uuid.toString());
-                ps.setString(2, banId);
-                ps.executeUpdate();
-            }
+        try (PreparedStatement ps = connection.prepareStatement(
+                "INSERT OR REPLACE INTO void_proxy_bans (uuid, ban_id) VALUES (?,?)")) {
+            ps.setString(1, uuid.toString());
+            ps.setString(2, banId);
+            ps.executeUpdate();
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to mark proxy ban for " + uuid, e);
         }
@@ -414,33 +191,130 @@ public final class PunishmentDatabase {
 
     public synchronized void proxyBanUnmark(UUID uuid) {
         if (connection == null) return;
-        try {
-            ensureProxyBanTable();
-            try (PreparedStatement ps = connection.prepareStatement(
-                    "DELETE FROM void_proxy_bans WHERE uuid = ?")) {
-                ps.setString(1, uuid.toString());
-                ps.executeUpdate();
-            }
+        try (PreparedStatement ps = connection.prepareStatement("DELETE FROM void_proxy_bans WHERE uuid = ?")) {
+            ps.setString(1, uuid.toString());
+            ps.executeUpdate();
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to unmark proxy ban for " + uuid, e);
         }
     }
 
-    public synchronized java.util.Map<UUID, String> proxyBanAll() {
-        java.util.Map<UUID, String> out = new java.util.HashMap<>();
+    public synchronized Map<UUID, String> proxyBanAll() {
+        Map<UUID, String> out = new HashMap<>();
         if (connection == null) return out;
-        try {
-            ensureProxyBanTable();
-            try (PreparedStatement ps = connection.prepareStatement("SELECT uuid, ban_id FROM void_proxy_bans");
-                 ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    out.put(UUID.fromString(rs.getString("uuid")), rs.getString("ban_id"));
-                }
+        try (PreparedStatement ps = connection.prepareStatement("SELECT uuid, ban_id FROM void_proxy_bans");
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                out.put(UUID.fromString(rs.getString("uuid")), rs.getString("ban_id"));
             }
         } catch (SQLException e) {
             LogUtil.error("[PunishmentDB] Failed to list proxy bans", e);
         }
         return out;
+    }
+
+    private List<PunishmentRecord> query(String where, String param) {
+        List<PunishmentRecord> out = new ArrayList<>();
+        if (connection == null) return out;
+        String sql = "SELECT id, ban_id, uuid, player_name, type, issued_by, check_name,"
+                + " reason, duration, wave_id, flags_summary, timestamp"
+                + " FROM " + TABLE + " WHERE " + where + " ORDER BY timestamp DESC";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, param);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    out.add(readPunishment(rs));
+                }
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Query failed (where=" + where + ")", e);
+        }
+        return out;
+    }
+
+    private @Nullable ActiveBanRecord querySingleActiveBan(String where, String param) {
+        if (connection == null) return null;
+        String sql = "SELECT " + ACTIVE_BAN_COLUMNS + " FROM void_active_bans WHERE " + where + " LIMIT 1";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, param);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? readActiveBan(rs) : null;
+            }
+        } catch (SQLException e) {
+            LogUtil.error("[PunishmentDB] Active ban query failed (where=" + where + ", value=" + param + ")", e);
+            return null;
+        }
+    }
+
+    private static PunishmentRecord readPunishment(ResultSet rs) throws SQLException {
+        int waveIdRaw = rs.getInt("wave_id");
+        Integer waveId = rs.wasNull() ? null : waveIdRaw;
+        return new PunishmentRecord(
+                rs.getLong("id"),
+                rs.getString("ban_id"),
+                UUID.fromString(rs.getString("uuid")),
+                rs.getString("player_name"),
+                rs.getString("type"),
+                rs.getString("issued_by"),
+                rs.getString("check_name"),
+                rs.getString("reason"),
+                rs.getString("duration"),
+                waveId,
+                rs.getString("flags_summary"),
+                rs.getLong("timestamp")
+        );
+    }
+
+    private static ActiveBanRecord readActiveBan(ResultSet rs) throws SQLException {
+        return new ActiveBanRecord(
+                rs.getString("ban_id"),
+                UUID.fromString(rs.getString("uuid")),
+                rs.getString("player_name"),
+                rs.getString("reason"),
+                rs.getLong("expires_at"),
+                rs.getLong("timestamp")
+        );
+    }
+
+    private long readMaxId() throws SQLException {
+        try (Statement s = connection.createStatement();
+             ResultSet rs = s.executeQuery("SELECT COALESCE(MAX(CAST(SUBSTR(ban_id, 6) AS INTEGER)), 0) FROM " + TABLE)) {
+            return rs.next() ? rs.getLong(1) : 0;
+        }
+    }
+
+    private void createTables() throws SQLException {
+        try (Statement s = connection.createStatement()) {
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS " + TABLE + " ("
+                    + "id            INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "ban_id        TEXT NOT NULL UNIQUE,"
+                    + "uuid          TEXT NOT NULL,"
+                    + "player_name   TEXT NOT NULL,"
+                    + "type          TEXT NOT NULL,"
+                    + "issued_by     TEXT NOT NULL,"
+                    + "check_name    TEXT,"
+                    + "reason        TEXT,"
+                    + "duration      TEXT NOT NULL DEFAULT 'permanent',"
+                    + "wave_id       INTEGER,"
+                    + "flags_summary TEXT,"
+                    + "timestamp     INTEGER NOT NULL"
+                    + ")");
+            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_punishments_uuid ON " + TABLE + "(uuid)");
+            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_punishments_name ON " + TABLE + "(LOWER(player_name))");
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS void_active_bans ("
+                    + "uuid        TEXT PRIMARY KEY,"
+                    + "player_name TEXT NOT NULL,"
+                    + "reason      TEXT NOT NULL,"
+                    + "expires_at  INTEGER NOT NULL,"
+                    + "ban_id      TEXT NOT NULL,"
+                    + "timestamp   INTEGER NOT NULL"
+                    + ")");
+            s.executeUpdate("CREATE INDEX IF NOT EXISTS idx_active_bans_name ON void_active_bans(LOWER(player_name))");
+            s.executeUpdate("CREATE TABLE IF NOT EXISTS void_proxy_bans ("
+                    + "uuid   TEXT PRIMARY KEY,"
+                    + "ban_id TEXT NOT NULL"
+                    + ")");
+        }
     }
 
     private void applyPragmas() throws SQLException {
@@ -452,6 +326,6 @@ public final class PunishmentDatabase {
     }
 
     private static String formatBanId(long id) {
-        return String.format("VOID-%06d", id);
+        return String.format(Locale.ROOT, "VOID-%06d", id);
     }
 }
